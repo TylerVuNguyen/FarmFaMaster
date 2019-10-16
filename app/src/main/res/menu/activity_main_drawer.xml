@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_khuvuon"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_khuvuon" />
+        <item
+            android:id="@+id/nav_rau"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_rau" />
+
+        <item
+            android:id="@+id/nav_thietbi"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/menu_thietbi" />
+        <item
+            android:id="@+id/nav_sanluong"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/menu_sanluong" />
+
+
+        <item
+            android:id="@+id/nav_nongdo"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/menu_nongdo" />
+
+        <item
+            android:id="@+id/nav_thamso"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/menu_thamso" />
+
+        <item
+            android:id="@+id/nav_khoiluongchat"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/menu_khoiluongchat" />
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/menu_logout" />
+
+        </menu>
+    </item>
+
+</menu>

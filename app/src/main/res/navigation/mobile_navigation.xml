@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.appveg.farmfamily.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_khuvuon"
+        android:name="com.appveg.farmfamily.ui.thietbi.ThietBiFragment"
+        android:label="@string/menu_khuvuon"
+        tools:layout="@layout/fragment_khuvuon" />
+
+    <fragment
+        android:id="@+id/nav_rau"
+        android:name="com.appveg.farmfamily.ui.nongdo.NongDoFragment"
+        android:label="@string/menu_rau"
+        tools:layout="@layout/fragment_vuonrau" />
+
+    <fragment
+        android:id="@+id/nav_sanluong"
+        android:name="com.appveg.farmfamily.ui.khuvuon.KhuVuonFragment"
+        android:label="@string/menu_sanluong"
+        tools:layout="@layout/fragment_sanluong" />
+
+    <fragment
+        android:id="@+id/nav_khoiluongchat"
+        android:name="com.appveg.farmfamily.ui.sanluong.SanLuongFragment"
+        android:label="@string/menu_khoiluongchat"
+        tools:layout="@layout/fragment_khoiluongchat" />
+
+    <fragment
+        android:id="@+id/nav_nongdo"
+        android:name="com.appveg.farmfamily.ui.vuonrau.VuonRauFragment"
+        android:label="@string/menu_nongdo"
+        tools:layout="@layout/fragment_nongdo" />
+
+    <fragment
+        android:id="@+id/nav_thamso"
+        android:name="com.appveg.farmfamily.ui.vuonrau.VuonRauFragment"
+        android:label="@string/menu_thamso"
+        tools:layout="@layout/fragment_docthamso" />
+
+    <fragment
+        android:id="@+id/nav_thietbi"
+        android:name="com.appveg.farmfamily.ui.vuonrau.VuonRauFragment"
+        android:label="@string/menu_thietbi"
+        tools:layout="@layout/fragment_thietbi" />
+
+
+</navigation>
