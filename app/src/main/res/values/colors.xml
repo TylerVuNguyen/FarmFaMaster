@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+<!--    <color name="colorPrimary">#008577</color>-->
+<!--    <color name="colorPrimaryDark">#00574B</color>-->
+<!--    <color name="colorAccent">#D81B60</color>-->
+
+
+    <color name="colorPrimary">#0092A6</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+
+<!--    mau gach chan -->
+    <color name="colorAccent">#df546e</color>
 
     <color name="background_color">#009688</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="white_greyish">#EEEEEE</color>
     <color name="button_selectorcolor">#9E9E9E</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="c1">#6983d4</color>
+    <color name="c2">#6983d4</color>
+    <color name="c3">#6983d4</color>
 </resources>

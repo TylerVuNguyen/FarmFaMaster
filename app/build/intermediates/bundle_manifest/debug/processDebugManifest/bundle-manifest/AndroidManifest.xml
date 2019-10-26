@@ -19,10 +19,16 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
+            android:name="com.appveg.farmfamily.ui.send.chiTietSanLuong"
+            android:parentActivityName="com.appveg.farmfamily.ui.send.chiTietSanLuong" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
+        </activity>
+        <activity
             android:name="com.appveg.farmfamily.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.appveg.farmfamily.ui.login.LoginActivity"
             android:label="@string/app_name"
@@ -36,13 +42,11 @@
         <activity
             android:name="com.appveg.farmfamily.ui.login.SignUpActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.appveg.farmfamily.ui.login.ForgotPPass"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"

@@ -8,15 +8,11 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_khuvuon">Quản lí khu vườn</string>
-    <string name="menu_rau">Quản lí vườn rau</string>
-    <string name="menu_thietbi">Quản lí thiết bị</string>
-    <string name="menu_sanluong">Quản lí sản lượng của khu vườn</string>
-    <string name="menu_nongdo">Quản lí nồng độ dung dịch</string>
-    <string name="menu_khoiluongchat">Quản lí khối lượng chất</string>
-    <string name="menu_thamso">Đọc tham số chung</string>
-    <string name="menu_logout">LogOut</string>
-
+    <string name="menu_gallery">Quản lí khu vườn </string>
+    <string name="menu_slideshow">Quản lí thiết bị </string>
+    <string name="menu_tools">Quản lí vườn </string>
+    <string name="menu_share">Quản lí khối lượng </string>
+    <string name="menu_send">Quản lí sản lượng </string>
 
     <string name="email">Email Id</string>
     <string name="passowrd">Password</string>

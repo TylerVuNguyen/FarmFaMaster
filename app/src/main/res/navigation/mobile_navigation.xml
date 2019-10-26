@@ -12,46 +12,32 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_khuvuon"
-        android:name="com.appveg.farmfamily.ui.thietbi.ThietBiFragment"
-        android:label="@string/menu_khuvuon"
-        tools:layout="@layout/fragment_khuvuon" />
+        android:id="@+id/nav_gallery"
+        android:name="com.appveg.farmfamily.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_rau"
-        android:name="com.appveg.farmfamily.ui.nongdo.NongDoFragment"
-        android:label="@string/menu_rau"
-        tools:layout="@layout/fragment_vuonrau" />
+        android:id="@+id/nav_slideshow"
+        android:name="com.appveg.farmfamily.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
 
     <fragment
-        android:id="@+id/nav_sanluong"
-        android:name="com.appveg.farmfamily.ui.khuvuon.KhuVuonFragment"
-        android:label="@string/menu_sanluong"
-        tools:layout="@layout/fragment_sanluong" />
+        android:id="@+id/nav_tools"
+        android:name="com.appveg.farmfamily.ui.tools.ToolsFragment"
+        android:label="@string/menu_tools"
+        tools:layout="@layout/fragment_tools" />
 
     <fragment
-        android:id="@+id/nav_khoiluongchat"
-        android:name="com.appveg.farmfamily.ui.sanluong.SanLuongFragment"
-        android:label="@string/menu_khoiluongchat"
-        tools:layout="@layout/fragment_khoiluongchat" />
+        android:id="@+id/nav_share"
+        android:name="com.appveg.farmfamily.ui.share.ShareFragment"
+        android:label="@string/menu_share"
+        tools:layout="@layout/fragment_share" />
 
     <fragment
-        android:id="@+id/nav_nongdo"
-        android:name="com.appveg.farmfamily.ui.vuonrau.VuonRauFragment"
-        android:label="@string/menu_nongdo"
-        tools:layout="@layout/fragment_nongdo" />
-
-    <fragment
-        android:id="@+id/nav_thamso"
-        android:name="com.appveg.farmfamily.ui.vuonrau.VuonRauFragment"
-        android:label="@string/menu_thamso"
-        tools:layout="@layout/fragment_docthamso" />
-
-    <fragment
-        android:id="@+id/nav_thietbi"
-        android:name="com.appveg.farmfamily.ui.vuonrau.VuonRauFragment"
-        android:label="@string/menu_thietbi"
-        tools:layout="@layout/fragment_thietbi" />
-
-
+        android:id="@+id/nav_send"
+        android:name="com.appveg.farmfamily.ui.send.SendFragment"
+        android:label="@string/menu_send"
+        tools:layout="@layout/fragment_send" />
 </navigation>

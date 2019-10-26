@@ -6,85 +6,95 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="15"
-8-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml
+8-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="28" />
-9-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml
+9-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml
 10
 11    <application
-11-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:5:5-42:19
+11-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:5:5-47:19
 12        android:allowBackup="true"
-12-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:6:9-35
+12-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\35f11e87cb9373d0196416cee400ce7f\core-1.1.0\AndroidManifest.xml:24:18-86
+13-->[androidx.core:core:1.1.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/35f11e87cb9373d0196416cee400ce7f/core-1.1.0/AndroidManifest.xml:24:18-86
 14        android:debuggable="true"
 15        android:icon="@mipmap/ic_launcher"
-15-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:7:9-43
+15-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:7:9-43
 16        android:label="@string/app_name"
-16-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:8:9-41
+16-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:8:9-41
 17        android:roundIcon="@mipmap/ic_launcher_round"
-17-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:9:9-54
+17-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:9:9-54
 18        android:supportsRtl="true"
-18-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:10:9-35
+18-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:10:9-35
 19        android:testOnly="true"
 20        android:theme="@style/AppTheme" >
-20-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:11:9-40
+20-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:11:9-40
 21        <activity
-21-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:12:9-17:20
-22            android:name="com.appveg.farmfamily.MainActivity"
-22-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:13:13-41
-23            android:label="@string/app_name"
-23-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:14:13-45
-24            android:theme="@style/AppTheme.NoActionBar" >
-24-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:15:13-56
-25        </activity>
-26        <activity
-26-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:19:9-27:20
-27            android:name="com.appveg.farmfamily.ui.login.LoginActivity"
-27-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:20:13-72
-28            android:label="@string/app_name"
-28-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-45
-29            android:theme="@style/AppTheme.NoActionBar" >
-29-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:13-56
-30            <intent-filter>
-30-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:13-26:29
-31                <action android:name="android.intent.action.MAIN" />
-31-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:24:17-69
-31-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:24:25-66
-32
-33                <category android:name="android.intent.category.LAUNCHER" />
-33-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:25:17-77
-33-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:25:27-74
-34            </intent-filter>
-35        </activity>
-36        <activity
-36-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:29:9-34:20
-37            android:name="com.appveg.farmfamily.ui.login.SignUpActivity"
-37-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:30:13-73
-38            android:label="@string/app_name"
-38-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:31:13-45
-39            android:theme="@style/AppTheme.NoActionBar" >
-39-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:32:13-56
-40        </activity>
-41        <activity
-41-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:36:9-41:20
-42            android:name="com.appveg.farmfamily.ui.login.ForgotPPass"
-42-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:37:13-70
-43            android:label="@string/app_name"
-43-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:38:13-45
-44            android:theme="@style/AppTheme.NoActionBar" >
-44-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:39:13-56
-45        </activity>
-46
-47        <provider
-47-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca2ce8a01ce231ab9c2242651f772e4b\lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
-48            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-48-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca2ce8a01ce231ab9c2242651f772e4b\lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
-49            android:authorities="com.appveg.farmfamily.lifecycle-process"
-49-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca2ce8a01ce231ab9c2242651f772e4b\lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
-50            android:exported="false"
-50-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca2ce8a01ce231ab9c2242651f772e4b\lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
-51            android:multiprocess="true" />
-51-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca2ce8a01ce231ab9c2242651f772e4b\lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
-52    </application>
-53
-54</manifest>
+21-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:15:9-21:20
+22            android:name="com.appveg.farmfamily.ui.send.chiTietSanLuong"
+22-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:15:19-58
+23            android:parentActivityName="com.appveg.farmfamily.ui.send.chiTietSanLuong" >
+23-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:16:13-87
+24            <meta-data
+24-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:17:13-19:78
+25                android:name="android.support.PARENT_ACTIVITY"
+25-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:18:17-63
+26                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
+26-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:19:17-75
+27        </activity>
+28        <activity
+28-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:25:9-28:68
+29            android:name="com.appveg.farmfamily.MainActivity"
+29-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:26:13-41
+30            android:label="@string/app_name"
+30-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:27:13-45
+31            android:theme="@style/AppTheme.NoActionBar" />
+31-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:28:13-56
+32        <activity
+32-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:29:9-38:20
+33            android:name="com.appveg.farmfamily.ui.login.LoginActivity"
+33-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:30:13-51
+34            android:label="@string/app_name"
+34-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:31:13-45
+35            android:theme="@style/AppTheme.NoActionBar" >
+35-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:32:13-56
+36            <intent-filter>
+36-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:33:13-37:29
+37                <action android:name="android.intent.action.MAIN" />
+37-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:34:17-69
+37-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:34:25-66
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:36:17-77
+39-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:36:27-74
+40            </intent-filter>
+41        </activity>
+42        <activity
+42-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:39:9-42:68
+43            android:name="com.appveg.farmfamily.ui.login.SignUpActivity"
+43-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:40:13-52
+44            android:label="@string/app_name"
+44-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:41:13-45
+45            android:theme="@style/AppTheme.NoActionBar" />
+45-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:42:13-56
+46        <activity
+46-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:43:9-46:68
+47            android:name="com.appveg.farmfamily.ui.login.ForgotPPass"
+47-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:44:13-49
+48            android:label="@string/app_name"
+48-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:45:13-45
+49            android:theme="@style/AppTheme.NoActionBar" />
+49-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:46:13-56
+50
+51        <provider
+51-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/ca2ce8a01ce231ab9c2242651f772e4b/lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
+52            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+52-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/ca2ce8a01ce231ab9c2242651f772e4b/lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
+53            android:authorities="com.appveg.farmfamily.lifecycle-process"
+53-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/ca2ce8a01ce231ab9c2242651f772e4b/lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
+54            android:exported="false"
+54-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/ca2ce8a01ce231ab9c2242651f772e4b/lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
+55            android:multiprocess="true" />
+55-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/ca2ce8a01ce231ab9c2242651f772e4b/lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
+56    </application>
+57
+58</manifest>
