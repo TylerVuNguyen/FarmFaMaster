@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.GridView
-import android.widget.ListView
 
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -40,7 +39,7 @@ class SendFragment : Fragment() {
 //            Toast.makeText(this.activity, " Selected Company is = "+ kvList.get(i).khuvuon_name , Toast.LENGTH_SHORT).show()
 
             if(kvList.get(i).khuvuon_id == 1){
-             var  intent: Intent  = Intent(this.context, chiTietSanLuong::class.java);
+             var  intent: Intent  = Intent(this.context, ChiTietDotSanLuong::class.java);
                 startActivity(intent);
                 Toast.makeText(this.activity, " Selected Company is = "+ kvList.get(i).khuvuon_name , Toast.LENGTH_SHORT).show()
 
@@ -54,6 +53,8 @@ class SendFragment : Fragment() {
         return root.rootView
     }
 
+
+    //list khu vuon
     private fun generateCompanyData(): ArrayList<KhuVuon> {
         var result = ArrayList<KhuVuon>()
         var kv: KhuVuon = KhuVuon()

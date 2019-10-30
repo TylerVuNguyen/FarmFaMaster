@@ -20,8 +20,25 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.appveg.farmfamily.ui.send.chiTietSanLuong"
-            android:parentActivityName="com.appveg.farmfamily.ui.send.chiTietSanLuong" >
+            android:name="com.appveg.farmfamily.ui.send.ChiTietSanLuongRau"
+            android:label="Chi tiết sản lượng"
+            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuong" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
+        </activity>
+        <activity
+            android:name="com.appveg.farmfamily.ui.send.ThemDotSanLuong"
+            android:label="Chi tiết sản lượng "
+            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuong" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
+        </activity>
+        <activity
+            android:name="com.appveg.farmfamily.ui.send.ChiTietDotSanLuong"
+            android:label="Danh sách đợt sản lượng"
+            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuong" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.appveg.farmfamily.ui.send.SendFragment" />

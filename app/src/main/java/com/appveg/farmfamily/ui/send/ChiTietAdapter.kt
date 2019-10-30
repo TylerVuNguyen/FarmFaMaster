@@ -12,6 +12,12 @@ import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.home.KhuVuon
 
 class ChiTietAdapter (private val context: Context, private val rau: ArrayList<Rau>) : BaseAdapter() {
+
+    fun remove(position: Int) {
+        rau.removeAt(position)
+        notifyDataSetChanged()
+    }
+
     //1
     override fun getCount(): Int {
         return rau.size
@@ -62,6 +68,7 @@ class ChiTietAdapter (private val context: Context, private val rau: ArrayList<R
         return view as View
 
     }
+
 
 
 

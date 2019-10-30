@@ -684,6 +684,7 @@ color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
+color gray_background
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color material_blue_grey_800
@@ -751,6 +752,7 @@ color tooltip_background_dark
 color tooltip_background_light
 color white
 color white_greyish
+color yellow
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -1085,7 +1087,11 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ic_calendar
+drawable ic_delete
 drawable ic_directions_bike_black_24dp
+drawable ic_edit
+drawable ic_getin
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_lock_white_24dp
@@ -1294,6 +1300,7 @@ id navigation_header_container
 id never
 id ngayBD
 id ngayTrong
+id nhapSL_Dot
 id none
 id normal
 id notification_background
@@ -1309,7 +1316,10 @@ id parentPanel
 id parent_matrix
 id password
 id percent
+id pickDateBD
+id pickDateKT
 id pin
+id positionSpinner
 id progress_circular
 id progress_horizontal
 id radio
@@ -1347,6 +1357,7 @@ id showTitle
 id signUpBtn
 id single_khuvuon
 id single_rau
+id sl_Rau
 id smallLabel
 id snackbar_action
 id snackbar_text
@@ -1381,6 +1392,10 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
+id textView2
+id textView3
+id textViewPick
+id textViewPickKT
 id text_gallery
 id text_input_password_toggle
 id text_share
@@ -1389,6 +1404,7 @@ id text_tools
 id textinput_counter
 id textinput_error
 id textinput_helper_text
+id themDotSanLuong
 id themSLAlert
 id time
 id title
@@ -1403,6 +1419,8 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id txt_ngayBD
+id txt_ngayKT
 id txtforgot
 id unchecked
 id uniform
@@ -1470,7 +1488,9 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_chi_tiet_san_luong
+layout activity_chi_tiet_san_luong_rau
 layout activity_main
+layout activity_them_dot_san_luong
 layout app_bar_main
 layout content_main
 layout custom_dialog
@@ -1525,6 +1545,9 @@ layout them_sanluong
 menu activity_main_drawer
 menu main
 mipmap ic_launcher
+mipmap ic_launcher_calendar
+mipmap ic_launcher_calendar_foreground
+mipmap ic_launcher_calendar_round
 mipmap ic_launcher_round
 navigation mobile_navigation
 string abc_action_bar_home_description
@@ -1597,6 +1620,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string registered_emailid
 string search_menu_title
+string selected_item
 string show_pwd
 string signUp
 string status_bar_notification_info_overflow

@@ -38,25 +38,25 @@ class HomeFragment : Fragment() {
         var result = ArrayList<KhuVuon>()
         var kv:  KhuVuon = KhuVuon()
         kv.khuvuon_id = 1
-        kv.khuvuon_name = "apple"
+        kv.khuvuon_name = "Khu vườn 1"
         kv.khuvuon_photo = R.drawable.kv2
         result.add(kv)
 
         kv = KhuVuon()
         kv.khuvuon_id = 2
-        kv.khuvuon_name = "Samsung"
+        kv.khuvuon_name = "Khu vườn 2"
         kv.khuvuon_photo = R.drawable.kv2
         result.add(kv)
 
         kv = KhuVuon()
         kv.khuvuon_id = 3
-        kv.khuvuon_name = "Sony"
+        kv.khuvuon_name = "Khu vườn 3"
         kv.khuvuon_photo = R.drawable.kv2
         result.add(kv)
 
         kv = KhuVuon()
         kv.khuvuon_id = 4
-        kv.khuvuon_name = "Redmi"
+        kv.khuvuon_name = "Khu vườn 4"
         kv.khuvuon_photo = R.drawable.kv2
         result.add(kv)
 

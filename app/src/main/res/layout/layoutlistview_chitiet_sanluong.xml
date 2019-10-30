@@ -13,18 +13,12 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:id="@+id/img_rau"
+        android:layout_gravity="center"
         android:layout_centerHorizontal="true"
         android:src="@color/colorPrimary"
         />
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="5dp"
-        android:layout_gravity="center"
-        >
 
          <TextView
             android:layout_width="wrap_content"
@@ -33,13 +27,62 @@
              android:textStyle="bold"
              android:layout_marginLeft="30dp"
              android:textSize="18dp"
-             android:layout_gravity="bottom"
+             android:layout_gravity="center"
             android:layout_below="@+id/img_kv"/>
 
 
 
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_gravity="right"
+        android:gravity="left"
+        android:stretchColumns="2">
 
-    </LinearLayout>
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tổng SL hiện tại"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="20kg"/>
+    </TableRow>
+
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhập SL "/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            />
+    </TableRow>
+
+
+    </TableLayout>
+
+
+    <ImageView
+        android:id="@+id/nhapSL_Dot"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_getin"
+        />
 
 
 </LinearLayout>

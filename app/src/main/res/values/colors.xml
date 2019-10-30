@@ -21,4 +21,8 @@
     <color name="c1">#6983d4</color>
     <color name="c2">#6983d4</color>
     <color name="c3">#6983d4</color>
+
+    //color vuot detete
+    <color name="gray_background">#757575</color>
+    <color name="yellow">#FFBB33</color>
 </resources>

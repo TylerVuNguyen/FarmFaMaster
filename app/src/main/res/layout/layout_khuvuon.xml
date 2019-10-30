@@ -23,4 +23,9 @@ android:id="@+id/single_khuvuon"
     android:textSize="18dp"
     android:layout_centerHorizontal="true"
     android:layout_below="@+id/img_kv"/>
+
+
+
+
+
 </RelativeLayout>
