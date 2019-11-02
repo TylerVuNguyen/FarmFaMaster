@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-   >
+    >
 
 
-    <TextView
-        android:padding="10dp"
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Thêm đợt sản lượng"
-        android:textColor="#0288D1"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textSize="20dp"
-        />
-
-    <TableLayout
-        android:background="@drawable/border_khungkhuvuon"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:padding="10dp"
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thêm đợt sản lượng"
+            android:textColor="#0288D1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="20dp"
+            />
+
+<!--    <TableLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@drawable/border_khungkhuvuon">-->
+
+    <TableLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:padding="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -76,55 +86,170 @@
                 android:layout_height="wrap_content" />
         </TableRow>
 
+    </TableLayout>
+
+    <TableLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:stretchColumns="2">
 
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="2dp">
+            android:padding="5dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tổng sản lượng  " />
+                android:text="Tổng sản lượng (kg) "/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="0kg"/>
+            />
+
+        </TableRow>
+
+        <!--        List rau-->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chọn tên rau"
+                />
+            <!-- static -->
+            <Spinner
+                android:id="@+id/positionSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:spinnerMode="dialog" />
+        </TableRow>
+
+
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nhâp số sản lượng"
+                />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 />
 
         </TableRow>
 
-<!--        List rau-->
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="2dp">
+            android:padding="5dp">
 
-
-
-
-                  <TextView
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:text="Chọn tên rau"
-                           />
-
-                        <!-- static -->
-
-            <Spinner
-                android:id="@+id/positionSpinner"
-                android:layout_width="fill_parent"
+            <Button
+                android:id="@+id/addSoSL"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:spinnerMode="dialog" />
-
-
+                android:text="add"
+                />
 
         </TableRow>
 
-
-
-
     </TableLayout>
 
+<!--    list view them nhieuf san luong-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+
+            >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:gravity="left"
+            android:text="Tên rau "/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:gravity="right"
+            android:text="Số lượng "/>
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lv_themSL"
+
+            android:listSelector="@android:drawable/list_selector_background"
+            android:dividerHeight="1dp"
+            android:clickable="true"
+            >
+        </ListView>
+    </LinearLayout>
+
+
+<!--Button them-->
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="bottom|center"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:stretchColumns="*">
+
+        <Button
+           android:id="@+id/themALLSL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_them"
+            android:padding="5dp"
+            android:text="Thêm"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/background_signup"
+            android:padding="5dp"
+            android:text="Huỷ"
+            android:textColor="#FFFFFF" />
+
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</ScrollView>

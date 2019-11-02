@@ -9,6 +9,15 @@ class Rau  {
 
     var rau_photo: Int? =0
 
+    var rau_soluong : Int? =0
+
+    fun rau_soluong(): Int{
+        return rau_soluong()
+    }
+    fun rau_soluong(rau_soluong : Int){
+        this.rau_soluong = rau_soluong
+    }
+
 
     fun rau_photo(): Int {
         return this.rau_photo()

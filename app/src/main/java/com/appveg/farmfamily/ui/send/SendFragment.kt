@@ -28,7 +28,7 @@ class SendFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_send, container, false)
 
-        var grid = root.findViewById<GridView>(R.id.fragment_khuvuon)
+        var grid = root.findViewById<GridView>(R.id.fragment_qlkv)
         var kvList = this.generateCompanyData()
 
         grid.adapter = this.activity?.let { KhuVuonAdapter (it, kvList) }
@@ -36,12 +36,10 @@ class SendFragment : Fragment() {
 
 
         grid.setOnItemClickListener { adapterView, view, i, l ->
-//            Toast.makeText(this.activity, " Selected Company is = "+ kvList.get(i).khuvuon_name , Toast.LENGTH_SHORT).show()
-
             if(kvList.get(i).khuvuon_id == 1){
-             var  intent: Intent  = Intent(this.context, ChiTietDotSanLuong::class.java);
+             var  intent: Intent  = Intent(this.context, ChiTietDotSanLuongActivity::class.java);
                 startActivity(intent);
-                Toast.makeText(this.activity, " Selected Company is = "+ kvList.get(i).khuvuon_name , Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.activity, " Selected khu vuon is = "+ kvList.get(i).khuvuon_name , Toast.LENGTH_SHORT).show()
 
             }
 

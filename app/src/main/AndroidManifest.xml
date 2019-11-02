@@ -9,32 +9,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.send.ChiTietSanLuongRau"
-            android:parentActivityName=".ui.send.ChiTietDotSanLuong"
-            android:label="Chi tiết sản lượng">
+        <activity android:name=".ui.send.SuaDotSanLuongActivity"
+            android:label="Sửa sản lượng"
+            android:parentActivityName=".ui.send.ChiTietDotSanLuongActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.appveg.farmfamily.ui.send.SendFragment" />
 
         </activity>
-
-        <activity android:name=".ui.send.ThemDotSanLuong"
-            android:parentActivityName=".ui.send.ChiTietDotSanLuong"
-            android:label="Chi tiết sản lượng ">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
-        </activity>
-
         <activity
-            android:name=".ui.send.ChiTietDotSanLuong"
-            android:label="Danh sách đợt sản lượng"
-            android:parentActivityName=".ui.send.ChiTietDotSanLuong">
+            android:name=".ui.send.ChiTietSanLuongRauActivity"
+            android:label="Chi tiết sản lượng"
+            android:parentActivityName=".ui.send.ChiTietDotSanLuongActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.appveg.farmfamily.ui.send.SendFragment" />
         </activity>
-
+        <activity
+            android:name=".ui.send.ThemDotSanLuong"
+            android:label="Chi tiết sản lượng "
+            android:parentActivityName=".ui.send.ChiTietDotSanLuongActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
+        </activity>
+        <activity
+            android:name=".ui.send.ChiTietDotSanLuongActivity"
+            android:label="Danh sách đợt sản lượng"
+            android:parentActivityName=".ui.send.ChiTietDotSanLuongActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
+        </activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

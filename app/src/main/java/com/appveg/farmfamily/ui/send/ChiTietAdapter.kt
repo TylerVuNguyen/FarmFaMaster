@@ -4,28 +4,24 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
+import android.widget.*
 import com.appveg.farmfamily.R
-import com.appveg.farmfamily.ui.home.KhuVuon
 
-class ChiTietAdapter (private val context: Context, private val rau: ArrayList<Rau>) : BaseAdapter() {
+class ChiTietAdapter (private val context: Context, private val dotRau: ArrayList<DotRau>) : BaseAdapter() {
 
     fun remove(position: Int) {
-        rau.removeAt(position)
+        dotRau.removeAt(position)
         notifyDataSetChanged()
     }
 
     //1
     override fun getCount(): Int {
-        return rau.size
+        return dotRau.size
     }
 
     //2
     override fun getItem(position: Int): Any {
-        return rau[position]
+        return dotRau[position]
     }
 
     //3
@@ -35,12 +31,16 @@ class ChiTietAdapter (private val context: Context, private val rau: ArrayList<R
 
     //4
     private class ViewHolder(row: View?) {
-        var rauName: TextView
-        var rauImg: ImageView
+        var dotRau_name: TextView
+        var img_dotRau: ImageView
+
+
 
         init {
-            this.rauName = row?.findViewById(R.id.rau_name) as TextView
-            this.rauImg = row?.findViewById(R.id.img_rau) as ImageView
+            this.dotRau_name = row?.findViewById(R.id.dotRau_name) as TextView
+            this.img_dotRau = row?.findViewById(R.id.img_dotRau) as ImageView
+
+
         }
 
     }
@@ -52,7 +52,7 @@ class ChiTietAdapter (private val context: Context, private val rau: ArrayList<R
         if( convertView == null){
 
             var layout = LayoutInflater.from(context)
-            view = layout.inflate(R.layout.layoutlistview_chitiet_sanluong,parent,false)
+            view = layout.inflate(R.layout.layoutlistview_chitietdot_sanluong,parent,false)
             viewHolder = ViewHolder(view)
             view.tag = viewHolder
 
@@ -61,9 +61,9 @@ class ChiTietAdapter (private val context: Context, private val rau: ArrayList<R
             viewHolder = view.tag as ViewHolder
         }
 
-        var rau : Rau = getItem(position) as Rau
-        viewHolder.rauName.text = rau.rau_name
-        viewHolder.rauImg.setImageResource(rau.rau_photo!!)
+        var dotRau : DotRau = getItem(position) as DotRau
+        viewHolder.dotRau_name.text = dotRau.dotRau_name
+        viewHolder.img_dotRau.setImageResource(dotRau.dotRau_photo!!)
 
         return view as View
 

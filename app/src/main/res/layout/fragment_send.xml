@@ -19,7 +19,7 @@
     <GridView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/fragment_khuvuon"
+        android:id="@+id/fragment_qlkv"
         android:numColumns="2"
         android:background="#DCDCDC"
         android:horizontalSpacing="10dp"
