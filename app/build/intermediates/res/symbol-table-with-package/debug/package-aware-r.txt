@@ -1094,6 +1094,7 @@ drawable ic_directions_bike_black_24dp
 drawable ic_edit
 drawable ic_email
 drawable ic_getin
+drawable ic_image_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_lock_white_24dp
@@ -1270,8 +1271,10 @@ id icon_group
 id ifRoom
 id image
 id imageView
+id image_view
 id img_dotRau
 id img_kv
+id img_pick_btn
 id img_qlkv
 id info
 id invisible
@@ -1311,6 +1314,7 @@ id navigation_header_container
 id never
 id ngayBD
 id ngayTrong
+id nhapSoLuongRau
 id none
 id normal
 id notification_background
@@ -1329,6 +1333,7 @@ id parent_matrix
 id password
 id percent
 id pickDateBD
+id pickDateBD_KV
 id pickDateKT
 id pin
 id positionSpinner
@@ -1340,7 +1345,6 @@ id remember
 id right
 id right_icon
 id right_side
-id sanluongDot
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1409,6 +1413,7 @@ id textView
 id textView2
 id textView3
 id textViewPick
+id textViewPickBD
 id textViewPickKT
 id text_input_password_toggle
 id text_share
@@ -1508,7 +1513,9 @@ layout activity_chi_tiet_san_luong
 layout activity_chi_tiet_san_luong_rau
 layout activity_main
 layout activity_sua_dot_san_luong
+layout activity_sua_khu_vuon
 layout activity_them_dot_san_luong
+layout activity_them_khu_vuon
 layout app_bar_main
 layout content_main
 layout custom_dialog

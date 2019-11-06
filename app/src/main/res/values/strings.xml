@@ -36,8 +36,8 @@
 
     <string name="selected_item">Selected item:</string>
 
-    <string name ="title_context_menu"> Tuỳ chọn </string>
-    <string name ="edit">Edit</string>
+    <string name="title_context_menu"> Tuỳ chọn </string>
+    <string name="edit">Edit</string>
     <string name="delete">Delete</string>
 
 </resources>

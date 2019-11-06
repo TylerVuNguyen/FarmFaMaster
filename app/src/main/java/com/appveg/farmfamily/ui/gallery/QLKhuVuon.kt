@@ -6,4 +6,6 @@ class QLKhuVuon {
     var qlkv_name : String? = null
 
     var qlkv_photo: Int? =null
+
+
 }

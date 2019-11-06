@@ -7,6 +7,8 @@
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="28" />
+    <!-- Adding Read External Storage Permission usr pick img -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -18,6 +20,22 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity"
+            android:label="Thêm khu vườn"
+            android:parentActivityName="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" />
+        </activity>
+        <activity
+            android:name="com.appveg.farmfamily.ui.gallery.SuaKhuVuonActivity"
+            android:label="Sửa khu vườn"
+            android:parentActivityName="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" />
+        </activity>
         <activity
             android:name="com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity"
             android:label="Sửa sản lượng"
@@ -35,7 +53,7 @@
                 android:value="com.appveg.farmfamily.ui.send.SendFragment" />
         </activity>
         <activity
-            android:name="com.appveg.farmfamily.ui.send.ThemDotSanLuong"
+            android:name="com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity"
             android:label="Chi tiết sản lượng "
             android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity" >
             <meta-data

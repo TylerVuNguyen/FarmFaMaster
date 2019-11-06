@@ -20,8 +20,6 @@ class HomeFragment : Fragment() {
     ): View? {
 
 
-
-
         //hien thi grid layout
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         var grid = root.findViewById<GridView>(R.id.fragment_khuvuon)

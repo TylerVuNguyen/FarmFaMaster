@@ -1,28 +1,21 @@
 package com.appveg.farmfamily.ui.gallery
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.*
-import android.widget.AdapterView
 import android.widget.GridView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.appveg.farmfamily.R
-import com.appveg.farmfamily.ui.home.KhuVuonAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_chi_tiet_san_luong.*
 
 class GalleryFragment : Fragment() {
 
     private lateinit var galleryViewModel: GalleryViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_gallery, container, false)
         var grid = root.findViewById<GridView>(R.id.fragment_qlkv)
         var qlkvList = this.generateQLKVData123()
@@ -35,8 +28,11 @@ class GalleryFragment : Fragment() {
         //icon them
         val fab: FloatingActionButton = root.findViewById(R.id.fab)
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+//            Snackbar.make(view, "Them ", Snackbar.LENGTH_LONG)
+//                    .setAction("Action", null).show()
+
+            var  intent: Intent  = Intent(this.context, ThemKhuVuonActivity::class.java)
+            startActivity(intent)
         }
 
 
@@ -80,11 +76,15 @@ class GalleryFragment : Fragment() {
         val info = item.itemId
         when(item.order){
             //edit
-            0 -> this.editQLKV(info)
+//            0 -> this.editQLKV(info)
+            0->  {var  intent: Intent  = Intent(this.context, SuaKhuVuonActivity::class.java)
+            startActivity(intent)}
 //            0 -> Toast.makeText(this.requireContext().applicationContext, "sua", Toast.LENGTH_SHORT).show()
 //            //delete
-            1 -> this.deleteQLKV(info)
-//            1 -> Toast.makeText(this.requireContext().applicationContext, "xoa", Toast.LENGTH_SHORT).show()
+
+
+//            1 -> this.deleteQLKV(info)
+            1 -> Toast.makeText(this.requireContext().applicationContext, "Xoá khu vườn" , Toast.LENGTH_SHORT).show()
 ////            2 -> this.showGraphic(info)
         }
         return true

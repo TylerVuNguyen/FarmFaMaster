@@ -3,8 +3,6 @@ package com.appveg.farmfamily.ui.send
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.*
 import com.appveg.farmfamily.R
 import com.baoyz.swipemenulistview.SwipeMenu
 import com.baoyz.swipemenulistview.SwipeMenuCreator
@@ -12,15 +10,6 @@ import com.baoyz.swipemenulistview.SwipeMenuItem
 import com.baoyz.swipemenulistview.SwipeMenuListView
 import kotlinx.android.synthetic.main.activity_chi_tiet_san_luong.*
 import android.widget.Toast
-import com.appveg.farmfamily.MainActivity
-import android.widget.AdapterView
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
-
-
-
 
 
 class ChiTietDotSanLuongActivity : AppCompatActivity() {
@@ -114,7 +103,7 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
 //su kien them san luong
         themDotSanLuong.setOnClickListener {
 
-            var intent: Intent = Intent(this, ThemDotSanLuong::class.java);
+            var intent: Intent = Intent(this, ThemDotSanLuongActivity::class.java);
             startActivity(intent);
         }
     }

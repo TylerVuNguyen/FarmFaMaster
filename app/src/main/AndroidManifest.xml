@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.appveg.farmfamily">
+    <!-- Adding Read External Storage Permission usr pick img -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -9,13 +11,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.send.SuaDotSanLuongActivity"
+        <activity android:name=".ui.gallery.ThemKhuVuonActivity"
+            android:label="Thêm khu vườn"
+            android:parentActivityName=".ui.gallery.ThemKhuVuonActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" /></activity>
+
+        <activity android:name=".ui.gallery.SuaKhuVuonActivity"
+            android:label="Sửa khu vườn"
+            android:parentActivityName=".ui.gallery.ThemKhuVuonActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" /> </activity>
+
+        <activity
+            android:name=".ui.send.SuaDotSanLuongActivity"
             android:label="Sửa sản lượng"
             android:parentActivityName=".ui.send.ChiTietDotSanLuongActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.appveg.farmfamily.ui.send.SendFragment" />
-
         </activity>
         <activity
             android:name=".ui.send.ChiTietSanLuongRauActivity"
@@ -26,7 +42,7 @@
                 android:value="com.appveg.farmfamily.ui.send.SendFragment" />
         </activity>
         <activity
-            android:name=".ui.send.ThemDotSanLuong"
+            android:name=".ui.send.ThemDotSanLuongActivity"
             android:label="Chi tiết sản lượng "
             android:parentActivityName=".ui.send.ChiTietDotSanLuongActivity">
             <meta-data
