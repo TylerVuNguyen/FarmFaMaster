@@ -9,6 +9,8 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import com.appveg.farmfamily.R
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.*
@@ -99,6 +101,58 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
     if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
         image_view.setImageURI(data?.data)
     }
-}
+
+
+        var img1 = findViewById(R.id.img1) as ImageView
+        var img2 = findViewById(R.id.img2) as ImageView
+        var img3 = findViewById(R.id.img3) as ImageView
+        var img_view = findViewById(R.id.image_view) as ImageView
+
+
+        img1.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+               img1.setBackgroundResource(R.drawable.border_img)
+                img2.setBackgroundResource(R.color.white)
+                img3.setBackgroundResource(R.color.white)
+                img_view.setBackgroundResource(R.color.white)
+
+            }
+
+        })
+
+        img2.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                img2.setBackgroundResource(R.drawable.border_img)
+                img1.setBackgroundResource(R.color.white)
+                img3.setBackgroundResource(R.color.white)
+                img_view.setBackgroundResource(R.color.white)
+
+            }
+
+        })
+
+        img3.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                img3.setBackgroundResource(R.drawable.border_img)
+                img2.setBackgroundResource(R.color.white)
+                img1.setBackgroundResource(R.color.white)
+                img_view.setBackgroundResource(R.color.white)
+
+            }
+
+        })
+
+    img_view.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                img_view.setBackgroundResource(R.drawable.border_img)
+                img2.setBackgroundResource(R.color.white)
+                img3.setBackgroundResource(R.color.white)
+                img1.setBackgroundResource(R.color.white)
+            }
+
+        })
+
+
+    }
 
 }

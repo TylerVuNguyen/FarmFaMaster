@@ -21,6 +21,30 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
+            android:name="com.appveg.farmfamily.ui.slideshow.EditDeviceActivity"
+            android:label="Sửa thiết bị"
+            android:parentActivityName="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" />
+        </activity>
+        <activity
+            android:name="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity"
+            android:label="Chi tiết thiết bị"
+            android:parentActivityName="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" />
+        </activity>
+        <activity
+            android:name="com.appveg.farmfamily.ui.slideshow.AddDeviceActivity"
+            android:label="Thêm Thiết bị"
+            android:parentActivityName="com.appveg.farmfamily.ui.slideshow.AddDeviceActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.slideshow.AddDeviceActivity" />
+        </activity>
+        <activity
             android:name="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity"
             android:label="Thêm khu vườn"
             android:parentActivityName="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" >

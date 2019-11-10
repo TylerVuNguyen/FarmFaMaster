@@ -1,8 +1,9 @@
 package com.appveg.farmfamily
 
+import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -13,6 +14,8 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.widget.Toast
+import com.appveg.farmfamily.ui.database.Database
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,9 +40,29 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send), drawerLayout)
+                R.id.nav_tools, R.id.nav_share, R.id.nav_send, R.id.nav_kl ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
+        /*by vu*/
+//        var database : Database = Database(this)
+//         var data : SQLiteDatabase = database.readableDatabase
+
+//        database.QueryData("DROP TABLE IF EXISTS users")
+//        database.QueryData("DROP TABLE IF EXISTS roles")
+
+//        database.QueryData("INSERT INTO users VALUES(null,'admin','NGUYEN HOANG VU','hvu3011@gmail.com','admin','1','active',1,'vu',null,null,null,null,null,1)")
+
+//        var db: SQLiteDatabase = database.writableDatabase
+//        database.onCreate(db);
+
+//        var result: Cursor = data.rawQuery("SELECT * FROM users",null);
+//        while (result.moveToNext()){
+//            var username: String = result.getString(1)
+//            Toast.makeText(this, username,Toast.LENGTH_LONG).show()
+//        }
+        /*the end by vu*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

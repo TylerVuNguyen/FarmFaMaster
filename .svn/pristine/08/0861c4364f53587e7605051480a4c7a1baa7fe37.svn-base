@@ -1,0 +1,4 @@
+package com.appveg.farmfamily.ui.login;
+
+public class LoginActivity {
+}

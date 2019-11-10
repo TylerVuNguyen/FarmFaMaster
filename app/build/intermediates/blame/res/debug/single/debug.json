@@ -4,32 +4,32 @@
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-v21/abc_list_divider_material.xml"
     },
     {
-        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-ldpi_ic_plus.png.flat",
-        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-ldpi/ic_plus.png"
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xhdpi_btn_back.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-xhdpi/btn_back.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable_abc_ic_ab_back_material.xml.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable/abc_ic_ab_back_material.xml"
     },
     {
-        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-v21_ic_menu_camera.xml.flat",
-        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-v21/ic_menu_camera.xml"
-    },
-    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_image_black_24dp.png.flat",
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_image_black_24dp.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-v21_ic_menu_camera.xml.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-v21/ic_menu_camera.xml"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_design_ic_visibility.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/d47497a6a41f1839fc0020d53a688448/material-1.0.0/res/drawable-mdpi-v4/design_ic_visibility.png"
     },
     {
-        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
-        "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-ldrtl-xhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/anim_nav_default_enter_anim.xml.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/365dcfa1ce3e6d8003d66cd0f8a4f4df/jetified-navigation-ui-2.0.0/res/anim/nav_default_enter_anim.xml"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-ldrtl-xhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
@@ -72,10 +72,6 @@
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/anim/abc_popup_enter.xml"
     },
     {
-        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_plus.png.flat",
-        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-mdpi/ic_plus.png"
-    },
-    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_fragment_home.xml.flat",
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/layout/fragment_home.xml"
     },
@@ -84,12 +80,12 @@
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/d47497a6a41f1839fc0020d53a688448/material-1.0.0/res/layout/design_navigation_item_subheader.xml"
     },
     {
-        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_longpressed_holo.9.png.flat",
-        "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-mdpi-v4/abc_list_longpressed_holo.9.png"
-    },
-    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/anim_btn_checkbox_to_checked_icon_null_animation.xml.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/anim/btn_checkbox_to_checked_icon_null_animation.xml"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_longpressed_holo.9.png.flat",
+        "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-mdpi-v4/abc_list_longpressed_holo.9.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/interpolator_btn_radio_to_off_mtrl_animation_interpolator_0.xml.flat",
@@ -100,12 +96,16 @@
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-mdpi-v4/abc_text_select_handle_right_mtrl_light.png"
     },
     {
-        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_activity_sua_khu_vuon.xml.flat",
-        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/layout/activity_sua_khu_vuon.xml"
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_activity_device_detail.xml.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/layout/activity_device_detail.xml"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-xxxhdpi-v4/abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_activity_sua_khu_vuon.xml.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/layout/activity_sua_khu_vuon.xml"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_fragment_gallery.xml.flat",
@@ -116,8 +116,16 @@
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-hdpi/ic_edit.png"
     },
     {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_add2.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-xhdpi/ic_add2.png"
+    },
+    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_layoutlistview_chitietdot_sanluong.xml.flat",
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/layout/layoutlistview_chitietdot_sanluong.xml"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_btn_back.xml.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-anydpi-v21/btn_back.xml"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-ldpi_ic_email.png.flat",
@@ -148,12 +156,12 @@
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/anim/abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
-        "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-hdpi-v4/abc_scrubber_control_off_mtrl_alpha.png"
-    },
-    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-v21_ic_menu_manage.xml.flat",
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-v21/ic_menu_manage.xml"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
+        "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-hdpi-v4/abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable_abc_list_selector_background_transition_holo_dark.xml.flat",
@@ -300,6 +308,10 @@
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_text_select_handle_right_mtrl_light.png"
     },
     {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_gioitinh.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_gioitinh.png"
+    },
+    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_abc_tooltip.xml.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/layout/abc_tooltip.xml"
     },
@@ -310,6 +322,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-hdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-hdpi_btn_back.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-hdpi/btn_back.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
@@ -324,12 +340,20 @@
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/mipmap-hdpi/ic_launcher_calendar.png"
     },
     {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_add2.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-xxhdpi/ic_add2.png"
+    },
+    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_abc_action_menu_layout.xml.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/layout/abc_action_menu_layout.xml"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-hdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_btn_print.xml.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-anydpi-v21/btn_print.xml"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
@@ -342,6 +366,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_notification_template_icon_group.xml.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/35f11e87cb9373d0196416cee400ce7f/core-1.1.0/res/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-ldpi_ic_gioitinh.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-ldpi/ic_gioitinh.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_design_ic_visibility.png.flat",
@@ -492,6 +520,10 @@
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_email.png"
     },
     {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_gioitinh.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-hdpi/ic_gioitinh.png"
+    },
+    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
     },
@@ -542,6 +574,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-ldrtl-hdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-ldrtl-hdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_activity_add_device.xml.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/layout/activity_add_device.xml"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_abc_action_bar_up_container.xml.flat",
@@ -602,10 +638,6 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_black_16dp.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-hdpi-v4/abc_ic_star_black_16dp.png"
-    },
-    {
-        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_plus.png.flat",
-        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-hdpi/ic_plus.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout-v21_notification_action.xml.flat",
@@ -752,10 +784,6 @@
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-xhdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_plus.png.flat",
-        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_plus.png"
-    },
-    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-hdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png"
     },
@@ -780,12 +808,12 @@
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
-        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_getin.png.flat",
-        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_getin.png"
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-hdpi_btn_print.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-hdpi/btn_print.png"
     },
     {
-        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_plus.xml.flat",
-        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_plus.xml"
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_getin.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_getin.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/anim_btn_checkbox_to_checked_box_inner_merged_animation.xml.flat",
@@ -902,6 +930,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_abc_alert_dialog_material.xml.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/layout/abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_add2.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_add2.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_design_layout_tab_text.xml.flat",
@@ -1032,6 +1064,10 @@
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/layout/activity_main.xml"
     },
     {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_add2.xml.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_add2.xml"
+    },
+    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-mdpi-v4/abc_text_select_handle_left_mtrl_light.png"
     },
@@ -1088,12 +1124,20 @@
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/anim/btn_radio_to_off_mtrl_ring_outer_animation.xml"
     },
     {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxhdpi_btn_back.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-xxhdpi/btn_back.png"
+    },
+    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-hdpi-v4/abc_text_select_handle_left_mtrl_dark.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_calendar_round.png.flat",
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/mipmap-hdpi/ic_launcher_calendar_round.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-ldpi_btn_print.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-ldpi/btn_print.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
@@ -1110,10 +1154,6 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
-    },
-    {
-        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_plus.png.flat",
-        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-xxhdpi/ic_plus.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/color_abc_hint_foreground_material_dark.xml.flat",
@@ -1142,6 +1182,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-ldpi_btn_back.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-ldpi/btn_back.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/animator_mtrl_fab_transformation_sheet_expand_spec.xml.flat",
@@ -1174,6 +1218,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-mdpi_btn_back.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-mdpi/btn_back.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_mtrl_layout_snackbar.xml.flat",
@@ -1250,6 +1298,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable_abc_ratingbar_indicator_material.xml.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable/abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-ldpi_ic_add2.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-ldpi/ic_add2.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -1384,6 +1436,10 @@
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/color-v23/abc_tint_edittext.xml"
     },
     {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_fragment_khoiluong.xml.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/layout/fragment_khoiluong.xml"
+    },
+    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_abc_alert_dialog_button_bar_material.xml.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/layout/abc_alert_dialog_button_bar_material.xml"
     },
@@ -1398,6 +1454,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-xhdpi-v4/abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable_img_border_room.xml.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable/img_border_room.xml"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-v21_design_password_eye.xml.flat",
@@ -1434,6 +1494,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable_btn_checkbox_checked_to_unchecked_mtrl_animation.xml.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable/btn_checkbox_checked_to_unchecked_mtrl_animation.xml"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_add2.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-hdpi/ic_add2.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-v21_ic_menu_send.xml.flat",
@@ -1540,10 +1604,6 @@
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable/border_khungkhuvuon.xml"
     },
     {
-        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_plus.png.flat",
-        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-xhdpi/ic_plus.png"
-    },
-    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-mdpi-v4/abc_text_select_handle_left_mtrl_dark.png"
     },
@@ -1554,6 +1614,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/anim_nav_default_pop_exit_anim.xml.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/365dcfa1ce3e6d8003d66cd0f8a4f4df/jetified-navigation-ui-2.0.0/res/anim/nav_default_pop_exit_anim.xml"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_gioitinh.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-mdpi/ic_gioitinh.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/color-v23_design_tint_password_toggle.xml.flat",
@@ -1668,8 +1732,16 @@
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-hdpi/ic_calendar.png"
     },
     {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_btn_print.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-xxxhdpi/btn_print.png"
+    },
+    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-mdpi-v4/abc_text_select_handle_middle_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_layout_device.xml.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/layout/layout_device.xml"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_abc_popup_menu_header_item_layout.xml.flat",
@@ -1694,6 +1766,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_edit.png.flat",
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-xxhdpi/ic_edit.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xhdpi_btn_print.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-xhdpi/btn_print.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -1816,8 +1892,16 @@
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/mipmap-xhdpi/ic_launcher_calendar.png"
     },
     {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-mdpi_btn_print.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-mdpi/btn_print.png"
+    },
+    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_launcher_background.png.flat",
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_activity_edit_device.xml.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/layout/activity_edit_device.xml"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_them_sanluong.xml.flat",
@@ -1972,6 +2056,10 @@
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-mdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_gioitinh.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-xxhdpi/ic_gioitinh.png"
+    },
+    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_activity_sua_dot_san_luong.xml.flat",
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/layout/activity_sua_dot_san_luong.xml"
     },
@@ -2034,6 +2122,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-xxxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_add2.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-mdpi/ic_add2.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_abc_screen_simple_overlay_action_mode.xml.flat",
@@ -2122,6 +2214,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_gioitinh.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-xhdpi/ic_gioitinh.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_email.png.flat",
@@ -2256,6 +2352,10 @@
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/35f11e87cb9373d0196416cee400ce7f/core-1.1.0/res/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable_border_img.xml.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable/border_img.xml"
+    },
+    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_longpressed_holo.9.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-xhdpi-v4/abc_list_longpressed_holo.9.png"
     },
@@ -2268,6 +2368,10 @@
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-mdpi-v4/abc_text_select_handle_middle_mtrl_light.png"
     },
     {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_layout_listview_garden.xml.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/layout/layout_listview_garden.xml"
+    },
+    {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     },
@@ -2278,6 +2382,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable_border_khungedt.xml.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable/border_khungedt.xml"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/animator_design_fab_show_motion_spec.xml.flat",
@@ -2334,6 +2442,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-hdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxhdpi_btn_print.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/src/main/res/drawable-xxhdpi/btn_print.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/color-v23_abc_color_highlight_material.xml.flat",
@@ -2406,6 +2518,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/interpolator-v21_mtrl_fast_out_slow_in.xml.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/d47497a6a41f1839fc0020d53a688448/material-1.0.0/res/interpolator-v21/mtrl_fast_out_slow_in.xml"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_btn_back.png.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-xxxhdpi/btn_back.png"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
@@ -2538,6 +2654,10 @@
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/drawable-xhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_gioitinh.xml.flat",
+        "source": "/Users/lamnguyen/Downloads/FarmFa/app/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_gioitinh.xml"
     },
     {
         "merged": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/res/merged/debug/layout_notification_template_big_media_narrow.xml.flat",

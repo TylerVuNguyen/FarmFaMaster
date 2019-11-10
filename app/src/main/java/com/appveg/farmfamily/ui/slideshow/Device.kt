@@ -43,5 +43,12 @@ class Device {
             this.value = vl
         }
 
+    public var device_photo  : Int?
+    get(){
+        return this.device_photo
+    }
+    set(value){
+        this.device_photo = value
+    }
 
 }

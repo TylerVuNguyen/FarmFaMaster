@@ -15,7 +15,7 @@
 11-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:5:22-77
 12
 13    <application
-13-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:7:5-82:19
+13-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:7:5-106:19
 14        android:allowBackup="true"
 14-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:8:9-35
 15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -33,149 +33,194 @@
 22        android:theme="@style/AppTheme" >
 22-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:13:9-40
 23        <activity
-23-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:14:9-19:99
-24            android:name="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity"
-24-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:14:19-65
-25            android:label="Thêm khu vườn"
-25-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:15:13-42
-26            android:parentActivityName="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" >
-26-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:16:13-73
+23-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:14:9-19:102
+24            android:name="com.appveg.farmfamily.ui.slideshow.EditDeviceActivity"
+24-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:14:19-66
+25            android:label="Sửa thiết bị"
+25-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:15:13-41
+26            android:parentActivityName="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" >
+26-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:16:13-76
 27            <meta-data
-27-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:17:13-19:88
+27-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:17:13-19:91
 28                android:name="android.support.PARENT_ACTIVITY"
 28-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:18:17-63
-29                android:value="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" />
-29-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:19:17-85
+29                android:value="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" />
+29-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:19:17-88
 30        </activity>
 31        <activity
-31-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:21:9-26:100
-32            android:name="com.appveg.farmfamily.ui.gallery.SuaKhuVuonActivity"
-32-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:21:19-64
-33            android:label="Sửa khu vườn"
-33-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:22:13-41
-34            android:parentActivityName="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" >
-34-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:23:13-73
+31-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:20:9-27:20
+32            android:name="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity"
+32-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:21:13-62
+33            android:label="Chi tiết thiết bị"
+33-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:22:13-46
+34            android:parentActivityName="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" >
+34-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:23:13-76
 35            <meta-data
-35-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:17:13-19:88
+35-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:17:13-19:91
 36                android:name="android.support.PARENT_ACTIVITY"
 36-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:18:17-63
-37                android:value="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" />
-37-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:19:17-85
+37                android:value="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" />
+37-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:19:17-88
 38        </activity>
 39        <activity
 39-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:28:9-35:20
-40            android:name="com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity"
+40            android:name="com.appveg.farmfamily.ui.slideshow.AddDeviceActivity"
 40-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:29:13-59
-41            android:label="Sửa sản lượng"
+41            android:label="Thêm Thiết bị"
 41-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:30:13-42
-42            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity" >
-42-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:31:13-77
+42            android:parentActivityName="com.appveg.farmfamily.ui.slideshow.AddDeviceActivity" >
+42-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:31:13-73
 43            <meta-data
-43-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:17:13-19:88
+43-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:17:13-19:91
 44                android:name="android.support.PARENT_ACTIVITY"
 44-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:18:17-63
-45                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
-45-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:19:17-85
+45                android:value="com.appveg.farmfamily.ui.slideshow.AddDeviceActivity" />
+45-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:19:17-88
 46        </activity>
 47        <activity
 47-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:36:9-43:20
-48            android:name="com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity"
-48-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:37:13-63
-49            android:label="Chi tiết sản lượng"
-49-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:38:13-47
-50            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity" >
-50-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:39:13-77
+48            android:name="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity"
+48-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:37:13-59
+49            android:label="Thêm khu vườn"
+49-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:38:13-42
+50            android:parentActivityName="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" >
+50-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:39:13-73
 51            <meta-data
-51-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:17:13-19:88
+51-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:17:13-19:91
 52                android:name="android.support.PARENT_ACTIVITY"
 52-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:18:17-63
-53                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
-53-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:19:17-85
+53                android:value="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" />
+53-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:19:17-88
 54        </activity>
 55        <activity
 55-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:44:9-51:20
-56            android:name="com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity"
-56-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:45:13-60
-57            android:label="Chi tiết sản lượng "
-57-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:46:13-48
-58            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity" >
-58-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:47:13-77
+56            android:name="com.appveg.farmfamily.ui.gallery.SuaKhuVuonActivity"
+56-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:45:13-58
+57            android:label="Sửa khu vườn"
+57-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:46:13-41
+58            android:parentActivityName="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" >
+58-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:47:13-73
 59            <meta-data
-59-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:17:13-19:88
+59-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:17:13-19:91
 60                android:name="android.support.PARENT_ACTIVITY"
 60-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:18:17-63
-61                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
-61-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:19:17-85
+61                android:value="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" />
+61-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:19:17-88
 62        </activity>
 63        <activity
 63-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:52:9-59:20
-64            android:name="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity"
-64-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:53:13-63
-65            android:label="Danh sách đợt sản lượng"
-65-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:54:13-52
+64            android:name="com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity"
+64-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:53:13-59
+65            android:label="Sửa sản lượng"
+65-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:54:13-42
 66            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity" >
 66-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:55:13-77
 67            <meta-data
-67-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:17:13-19:88
+67-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:17:13-19:91
 68                android:name="android.support.PARENT_ACTIVITY"
 68-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:18:17-63
 69                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
-69-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:19:17-85
+69-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:19:17-88
 70        </activity>
 71        <activity
-71-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:60:9-63:59
-72            android:name="com.appveg.farmfamily.MainActivity"
-72-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:61:13-41
-73            android:label="@string/app_name"
-73-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:62:13-45
-74            android:theme="@style/AppTheme.NoActionBar" />
-74-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:63:13-56
-75        <activity
-75-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:64:9-73:20
-76            android:name="com.appveg.farmfamily.ui.login.LoginActivity"
-76-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:65:13-51
-77            android:label="@string/app_name"
-77-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:66:13-45
-78            android:theme="@style/AppTheme.NoActionBar" >
-78-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:67:13-56
-79            <intent-filter>
-79-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:68:13-72:29
-80                <action android:name="android.intent.action.MAIN" />
-80-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:69:17-69
-80-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:69:25-66
-81
-82                <category android:name="android.intent.category.LAUNCHER" />
-82-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:71:17-77
-82-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:71:27-74
-83            </intent-filter>
-84        </activity>
-85        <activity
-85-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:74:9-77:59
-86            android:name="com.appveg.farmfamily.ui.login.SignUpActivity"
-86-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:75:13-52
-87            android:label="@string/app_name"
-87-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:76:13-45
-88            android:theme="@style/AppTheme.NoActionBar" />
-88-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:77:13-56
-89        <activity
-89-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:78:9-81:59
-90            android:name="com.appveg.farmfamily.ui.login.ForgotPPass"
-90-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:79:13-49
-91            android:label="@string/app_name"
-91-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:80:13-45
-92            android:theme="@style/AppTheme.NoActionBar" />
-92-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:81:13-56
-93
-94        <provider
-94-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/ca2ce8a01ce231ab9c2242651f772e4b/lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
-95            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-95-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/ca2ce8a01ce231ab9c2242651f772e4b/lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
-96            android:authorities="com.appveg.farmfamily.lifecycle-process"
-96-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/ca2ce8a01ce231ab9c2242651f772e4b/lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
-97            android:exported="false"
-97-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/ca2ce8a01ce231ab9c2242651f772e4b/lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
-98            android:multiprocess="true" />
-98-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/ca2ce8a01ce231ab9c2242651f772e4b/lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
-99    </application>
-100
-101</manifest>
+71-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:60:9-67:20
+72            android:name="com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity"
+72-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:61:13-63
+73            android:label="Chi tiết sản lượng"
+73-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:62:13-47
+74            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity" >
+74-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:63:13-77
+75            <meta-data
+75-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:17:13-19:91
+76                android:name="android.support.PARENT_ACTIVITY"
+76-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:18:17-63
+77                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
+77-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:19:17-88
+78        </activity>
+79        <activity
+79-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:68:9-75:20
+80            android:name="com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity"
+80-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:69:13-60
+81            android:label="Chi tiết sản lượng "
+81-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:70:13-48
+82            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity" >
+82-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:71:13-77
+83            <meta-data
+83-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:17:13-19:91
+84                android:name="android.support.PARENT_ACTIVITY"
+84-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:18:17-63
+85                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
+85-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:19:17-88
+86        </activity>
+87        <activity
+87-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:76:9-83:20
+88            android:name="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity"
+88-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:77:13-63
+89            android:label="Danh sách đợt sản lượng"
+89-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:78:13-52
+90            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity" >
+90-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:79:13-77
+91            <meta-data
+91-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:17:13-19:91
+92                android:name="android.support.PARENT_ACTIVITY"
+92-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:18:17-63
+93                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
+93-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:19:17-88
+94        </activity>
+95        <activity
+95-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:84:9-87:59
+96            android:name="com.appveg.farmfamily.MainActivity"
+96-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:85:13-41
+97            android:label="@string/app_name"
+97-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:86:13-45
+98            android:theme="@style/AppTheme.NoActionBar" />
+98-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:87:13-56
+99        <activity
+99-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:88:9-97:20
+100            android:name="com.appveg.farmfamily.ui.login.LoginActivity"
+100-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:89:13-51
+101            android:label="@string/app_name"
+101-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:90:13-45
+102            android:theme="@style/AppTheme.NoActionBar" >
+102-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:91:13-56
+103            <intent-filter>
+103-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:92:13-96:29
+104                <action android:name="android.intent.action.MAIN" />
+104-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:93:17-69
+104-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:93:25-66
+105
+106                <category android:name="android.intent.category.LAUNCHER" />
+106-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:95:17-77
+106-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:95:27-74
+107            </intent-filter>
+108        </activity>
+109        <activity
+109-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:98:9-101:59
+110            android:name="com.appveg.farmfamily.ui.login.SignUpActivity"
+110-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:99:13-52
+111            android:label="@string/app_name"
+111-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:100:13-45
+112            android:theme="@style/AppTheme.NoActionBar" />
+112-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:101:13-56
+113        <activity
+113-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:102:9-105:59
+114            android:name="com.appveg.farmfamily.ui.login.ForgotPPass"
+114-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:103:13-49
+115            android:label="@string/app_name"
+115-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:104:13-45
+116            android:theme="@style/AppTheme.NoActionBar" />
+116-->/Users/lamnguyen/Downloads/FarmFa/app/src/main/AndroidManifest.xml:105:13-56
+117
+118        <provider
+118-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/ca2ce8a01ce231ab9c2242651f772e4b/lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
+119            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+119-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/ca2ce8a01ce231ab9c2242651f772e4b/lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
+120            android:authorities="com.appveg.farmfamily.lifecycle-process"
+120-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/ca2ce8a01ce231ab9c2242651f772e4b/lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
+121            android:exported="false"
+121-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/ca2ce8a01ce231ab9c2242651f772e4b/lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
+122            android:multiprocess="true" />
+122-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/ca2ce8a01ce231ab9c2242651f772e4b/lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
+123    </application>
+124
+125</manifest>

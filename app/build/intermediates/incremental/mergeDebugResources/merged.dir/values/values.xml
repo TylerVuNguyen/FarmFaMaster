@@ -196,7 +196,7 @@
     <color name="cardview_light_background">#FFFFFFFF</color>
     <color name="cardview_shadow_end_color">#03000000</color>
     <color name="cardview_shadow_start_color">#37000000</color>
-    <color name="colorAccent">#66BB6A</color>
+    <color name="colorAccent">#00A695</color>
     <color name="colorPrimary">#0092A6</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorWhite">#FFFFFF</color>
@@ -215,6 +215,7 @@
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
+    <color name="dropdown">#ccc</color>
     <color name="error_color_material_dark">#ff7043</color>
     <color name="error_color_material_light">#ff5722</color>
     <color name="foreground_material_dark">@android:color/white</color>
@@ -632,13 +633,28 @@
     <string name="confirmPassword">Confirm Password</string>
     <string name="delete">Delete</string>
     <string name="edit">Edit</string>
-    <string name="email">Email Id</string>
+    <string name="email">Email </string>
+    <string name="error_common_email_password">Email and password are incorrect</string>
+    <string name="error_email_exists">Email Already Exists</string>
+    <string name="error_message_age">Enter Age</string>
+    <string name="error_message_confirm_password">Enter Password</string>
+    <string name="error_message_email">Enter Valid Email</string>
+    <string name="error_message_name">Enter Full Name</string>
+    <string name="error_message_password">Enter Password</string>
+    <string name="error_password_match">Password Does Not Matches</string>
+    <string name="error_valid_email_password">Wrong Email or Password</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
+    <string name="fail_message">Registration Fail</string>
     <string name="forgot">Forgot password?</string>
     <string name="fullName">Full Name</string>
+    <string name="gender">Giới tính</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
     <string name="hide_pwd">Hide Password</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_password">Password</string>
     <string name="location">Location</string>
     <string name="login">LOGIN</string>
     <string name="menu_gallery">Quản lí khu vườn </string>
@@ -670,8 +686,15 @@
     <string name="signUp">SIGN UP</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="submit">SUBMIT</string>
+    <string name="success_message">Registration Successful</string>
     <string name="terms_conditions">By clicking SignUp you agree all the Terms and Conditions.</string>
+    <string name="text_accounts">All Accounts</string>
+    <string name="text_already_member">Already a member? Login</string>
+    <string name="text_login">Login</string>
+    <string name="text_not_member">No account yet? Create one</string>
+    <string name="text_register">Register</string>
     <string name="title_context_menu"> Tuỳ chọn </string>
+    <string name="userName">User Name</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
@@ -2115,6 +2138,9 @@
     <item name="boxCornerRadiusBottomStart">@dimen/mtrl_textinput_box_corner_radius_medium</item>
     <item name="boxStrokeColor">?attr/colorControlActivated</item>
   </style>
+    <style name="Button" parent="Widget.AppCompat.Button">
+    <item name="android:textAllCaps">false</item>
+    </style>
     <style name="CardView" parent="Base.CardView">
     </style>
     <style name="CardView.Dark">

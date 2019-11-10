@@ -32,5 +32,10 @@
                 android:icon="@drawable/ic_menu_send"
                 android:title="@string/menu_send" />
 
+        <item
+            android:id="@+id/nav_kl"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Quản lí khối lượng" />
+
     </group>
 </menu>

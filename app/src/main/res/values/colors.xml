@@ -9,7 +9,10 @@
     <color name="colorPrimaryDark">#00574B</color>
 
 <!--    mau gach chan -->
-    <color name="colorAccent">#df546e</color>
+<!--    <color name="colorAccent">#df546e</color>-->
+
+    <color name="colorAccent">#00A695</color>
+
 
 
     <color name="background_color">#009688</color>
@@ -26,4 +29,7 @@
     //color vuot detete list view
     <color name="gray_background">#757575</color>
     <color name="yellow">#FFBB33</color>
+
+    //drop down
+    <color name="dropdown">#ccc</color>
 </resources>

@@ -11,6 +11,7 @@ import android.widget.TextView
 import com.appveg.farmfamily.R
 
 class QLKVAdapter (private var activity: Activity, private var items: ArrayList<QLKhuVuon>) :  BaseAdapter(){
+
     private class ViewHolder(row: View?) {
         var qlkhuvuon_name: TextView? = null
         var qlkhuvuon_photo: ImageView? = null
