@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v28/values-v28.xml",
+            "outputFile": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v28\\values-v28.xml",
             "map": [
                 {
-                    "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/values-v28/values-v28.xml",
+                    "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\a7ea359b13e47d272d2e3a7a1f418601\\appcompat-1.1.0\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",

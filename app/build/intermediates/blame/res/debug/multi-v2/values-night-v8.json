@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/values-night-v8/values-night-v8.xml",
+                    "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\a7ea359b13e47d272d2e3a7a1f418601\\appcompat-1.1.0\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/lamnguyen/Downloads/FarmFa/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-lv/values-lv.xml",
+            "outputFile": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lv\\values-lv.xml",
             "map": [
                 {
-                    "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/365dcfa1ce3e6d8003d66cd0f8a4f4df/jetified-navigation-ui-2.0.0/res/values-lv/values-lv.xml",
+                    "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\a289fdff7035245a94025185d579a4c2\\jetified-navigation-ui-2.0.0\\res\\values-lv\\values-lv.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/6f9c14d24b6dfc80466d44b7b86358cf/appcompat-1.1.0/res/values-lv/values-lv.xml",
+                    "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\a7ea359b13e47d272d2e3a7a1f418601\\appcompat-1.1.0\\res\\values-lv\\values-lv.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/35f11e87cb9373d0196416cee400ce7f/core-1.1.0/res/values-lv/values-lv.xml",
+                    "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\47ac59284fc393a429c88180465ff9dc\\core-1.1.0\\res\\values-lv\\values-lv.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

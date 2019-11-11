@@ -46,16 +46,17 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         db?.execSQL(INSERT_USERS_ITEM)
     }
 
-    //thuc hien truy van
+    //exec query
     fun QueryData(sql : String) : Unit {
         var database :SQLiteDatabase = writableDatabase
         database.execSQL(sql)
     }
+    // get data
     fun getData(sql : String) : Cursor {
         var database: SQLiteDatabase = readableDatabase
         return database.rawQuery(sql, null)
     }
-
+    /*----------------------------------------------LOGIN-------------------------------------------------*/
     /**
      * This method is to fetch all user and return the list of user records
      *
@@ -245,4 +246,6 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
 
     }
 
+    /*----------------------------------------------QUANTITY-------------------------------------------------*/
+    //method for saving records in database
 }
