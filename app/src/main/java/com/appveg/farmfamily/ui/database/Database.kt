@@ -14,6 +14,8 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         /*table*/
         private val TABLE_USERS = "users"
         private val TABLE_ROLES = "roles"
+        private val TABLE_BATCH = "batch"
+        private val TABLE_BATCH_DETAIL = "bacth_quantity_detail"
         /*users*/
         private val COLUMN_USER_ID = "user_id"
         private val COLUMN_USER_EMAIL = "email"
@@ -33,17 +35,28 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
+        /*TABLE PROJECT*/
         val CREATE_USERS_TABLE = ("CREATE TABLE " + TABLE_USERS + " (user_id INTEGER PRIMARY KEY AUTOINCREMENT,user_name VARCHAR(50),full_name VARCHAR(50)," +
                 "email VARCHAR(50),password VARCHAR(50),gender VARCHAR(10),status INTEGER,role_id INTEGER,created_by VARCHAR(50)," +
                 "created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50),deleted_date VARCHAR(50),deleted_flag INTEGER)")
         val CREATE_ROLES_TABLE = ("CREATE TABLE " + TABLE_ROLES + " (role_id INTEGER PRIMARY KEY AUTOINCREMENT,name VARCHAR(50),code VARCHAR(50),created_by VARCHAR(50)," +
                 "created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50),deleted_date VARCHAR(50),deleted_flag INTEGER)")
+        val CREATE_BATCH_TABLE  = ("CREATE TABLE" + TABLE_BATCH + " (batch_id INTEGER PRIMARY KEY AUTOINCREMENT,batch_image VARCHAR(100),batch_name VARCHAR(100),the_end_date VARCHAR(15)," +
+                "total_quantity VARCHAR(100),garden_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+                "deleted_date VARCHAR(50),deleted_flag INTEGER)")
+        val CREATE_QUANTITY_DETAIL_TABLE  = ("CREATE TABLE" + TABLE_BATCH_DETAIL + "(qty_detail_id INTEGER PRIMARY KEY AUTOINCREMENT,vegetable_name VARCHAR(100)," +
+                "vegetable_quantity VARCHAR(100),qty_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+                "deleted_date VARCHAR(50),deleted_flag INTEGER)")
+
+        /*INSERT DATA*/
         val INSERT_ROLES_ITEM = ("INSERT INTO roles VALUES(null,'admin','admin','vu',null,null,null,null,null,1)")
         val INSERT_USERS_ITEM = ("INSERT INTO users VALUES(null,'admin','NGUYEN HOANG VU','hvu3011@gmail.com','admin','1','active',1,'vu',null,null,null,null,null,1)")
         db?.execSQL(CREATE_USERS_TABLE)
         db?.execSQL(CREATE_ROLES_TABLE)
         db?.execSQL(INSERT_ROLES_ITEM)
         db?.execSQL(INSERT_USERS_ITEM)
+        db?.execSQL(CREATE_BATCH_TABLE)
+        db?.execSQL(CREATE_QUANTITY_DETAIL_TABLE)
     }
 
     //exec query

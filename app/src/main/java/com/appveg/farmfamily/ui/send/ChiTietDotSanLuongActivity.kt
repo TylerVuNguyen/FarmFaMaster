@@ -19,12 +19,12 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
         setContentView(R.layout.activity_chi_tiet_san_luong)
 
 //action listview
-        val listRau = generateDotRauData()
+        val listDotRau = generateDotRauData()
 
-        list_view.adapter = this?.let { ChiTietAdapter(it, listRau) }
+        list_view.adapter = this?.let { ChiTietAdapter(it, listDotRau) }
 
         list_view.setOnItemClickListener { adapterView, view, i, l ->
-            if (listRau.get(i).dotRau_id == 1) {
+            if (listDotRau.get(i).dotRau_id == 1) {
                 var intent: Intent = Intent(this, ChiTietSanLuongRauActivity::class.java);
                 startActivity(intent);
             }
@@ -88,7 +88,7 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
                     1 -> {
                         Toast.makeText(
                             this@ChiTietDotSanLuongActivity,
-                            listRau[position].toString(),
+                            listDotRau[position].toString(),
                             Toast.LENGTH_LONG
                         ).show()
                     }

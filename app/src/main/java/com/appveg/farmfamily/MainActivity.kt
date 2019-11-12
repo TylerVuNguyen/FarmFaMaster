@@ -46,18 +46,23 @@ class MainActivity : AppCompatActivity() {
 
 
         /*by vu*/
-//        var database : Database = Database(this)
-//         var data : SQLiteDatabase = database.readableDatabase
+        var database : Database = Database(this)
+        var data : SQLiteDatabase = database.readableDatabase
 
-//        database.QueryData("DROP TABLE IF EXISTS users")
+//          database.QueryData("CREATE TABLE batch (batch_id INTEGER PRIMARY KEY AUTOINCREMENT,batch_image VARCHAR(100),batch_name VARCHAR(100),the_end_date VARCHAR(15)," +
+//              "total_quantity VARCHAR(100),garden_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+//                      "deleted_date VARCHAR(50),deleted_flag INTEGER)")
+//          database.QueryData("CREATE TABLE batch_quantity_detail (qty_detail_id INTEGER PRIMARY KEY AUTOINCREMENT,vegetable_name VARCHAR(100)," +
+//                  "vegetable_quantity VARCHAR(100),qty_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+//                  "deleted_date VARCHAR(50),deleted_flag INTEGER)")
 //        database.QueryData("DROP TABLE IF EXISTS roles")
 
 //        database.QueryData("INSERT INTO users VALUES(null,'admin','NGUYEN HOANG VU','hvu3011@gmail.com','admin','1','active',1,'vu',null,null,null,null,null,1)")
 
 //        var db: SQLiteDatabase = database.writableDatabase
-//        database.onCreate(db);
+//        database.onCreate(db)
 
-//        var result: Cursor = data.rawQuery("SELECT * FROM users",null);
+//        var result: Cursor = data.rawQuery("SELECT * FROM batch",null);
 //        while (result.moveToNext()){
 //            var username: String = result.getString(1)
 //            Toast.makeText(this, username,Toast.LENGTH_LONG).show()
