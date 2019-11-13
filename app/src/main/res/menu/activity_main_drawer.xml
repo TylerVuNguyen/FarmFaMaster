@@ -33,9 +33,9 @@
                 android:title="@string/menu_send" />
 
         <item
-            android:id="@+id/nav_kl"
+            android:id="@+id/nav_thamso"
             android:icon="@drawable/ic_menu_send"
-            android:title="Quản lí khối lượng" />
+            android:title="Quản lí tham số" />
 
         <item
             android:id="@+id/nav_vegetable"

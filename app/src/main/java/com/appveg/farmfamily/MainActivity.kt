@@ -1,6 +1,5 @@
 package com.appveg.farmfamily
 
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 
@@ -14,7 +13,6 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
-import android.widget.Toast
 import com.appveg.farmfamily.ui.database.Database
 
 class MainActivity : AppCompatActivity() {
@@ -40,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send, R.id.nav_kl, R.id.nav_vegetable ), drawerLayout)
+                R.id.nav_tools, R.id.nav_share, R.id.nav_send, R.id.nav_thamso, R.id.nav_vegetable ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 

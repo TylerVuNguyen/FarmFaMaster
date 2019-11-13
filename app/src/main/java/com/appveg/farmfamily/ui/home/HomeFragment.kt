@@ -34,27 +34,27 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun generateCompanyData(): ArrayList<KhuVuon> {
-        var result = ArrayList<KhuVuon>()
-        var kv:  KhuVuon = KhuVuon()
+    private fun generateCompanyData(): ArrayList<TypeDevice> {
+        var result = ArrayList<TypeDevice>()
+        var kv:  TypeDevice = TypeDevice()
         kv.khuvuon_id = 1
         kv.khuvuon_name = "Khu vườn 1"
         kv.khuvuon_photo = R.drawable.kv2
         result.add(kv)
 
-        kv = KhuVuon()
+        kv = TypeDevice()
         kv.khuvuon_id = 2
         kv.khuvuon_name = "Khu vườn 2"
         kv.khuvuon_photo = R.drawable.kv2
         result.add(kv)
 
-        kv = KhuVuon()
+        kv = TypeDevice()
         kv.khuvuon_id = 3
         kv.khuvuon_name = "Khu vườn 3"
         kv.khuvuon_photo = R.drawable.kv2
         result.add(kv)
 
-        kv = KhuVuon()
+        kv = TypeDevice()
         kv.khuvuon_id = 4
         kv.khuvuon_name = "Khu vườn 4"
         kv.khuvuon_photo = R.drawable.kv2

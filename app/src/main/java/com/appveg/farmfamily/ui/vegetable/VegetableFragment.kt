@@ -1,9 +1,11 @@
 package com.appveg.farmfamily.ui.vegetable
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.appveg.farmfamily.R
@@ -101,6 +103,17 @@ class VegetableFragment  : Fragment() {
             }
         })
 
+        //button them rau
+      var viewveg_btn_add = root.findViewById(R.id.viewveg_btn_add) as Button
+        viewveg_btn_add.setOnClickListener(object :View.OnClickListener{
+            override fun onClick(v: View?) {
+                var intent: Intent = Intent(requireContext(), AddVegetableActivity::class.java)
+                startActivity(intent)
+            }
+
+
+        })
+
         return root.rootView
 
 
@@ -110,25 +123,25 @@ class VegetableFragment  : Fragment() {
         var veg: Vegetable = Vegetable()
         veg.vegID = 1
         veg.vegName = "Batch xà lách "
-        veg.vegImg = R.drawable.xalach
+        veg.vegImg = R.drawable.xalach.toString()
         result.add(veg)
 
         veg = Vegetable()
         veg.vegID = 2
         veg.vegName = "Batch cải ngọt "
-        veg.vegImg = R.drawable.xalach
+        veg.vegImg = R.drawable.xalach.toString()
         result.add(veg)
 
         veg = Vegetable()
         veg.vegID = 3
         veg.vegName = "Cải bẹ xanh "
-        veg.vegImg = R.drawable.xalach
+        veg.vegImg = R.drawable.xalach.toString()
         result.add(veg)
 
         veg = Vegetable()
         veg.vegID = 4
         veg.vegName = "Xúp lơ"
-        veg.vegImg = R.drawable.xalach
+        veg.vegImg = R.drawable.xalach.toString()
         result.add(veg)
 
         return result

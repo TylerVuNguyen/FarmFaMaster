@@ -1,43 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:id="@+id/layoutroom_screenshot"
+   >
 
-    <TextView
+    <ProgressBar
+        android:id="@+id/viewlistroom_progressbar"
+        style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ahihi"/>
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
-    <com.baoyz.swipemenulistview.SwipeMenuListView
-        android:id="@+id/list_view_vegetable"
+    <LinearLayout
+        android:id="@+id/listRoom_roomfunction"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:orientation="vertical">
 
-    </com.baoyz.swipemenulistview.SwipeMenuListView>
+
+        <com.baoyz.swipemenulistview.SwipeMenuListView
+            android:id="@+id/list_view_vegetable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.baoyz.swipemenulistview.SwipeMenuListView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="5dp">
+
+        <Button
+            android:id="@+id/viewveg_btn_back"
+            style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/btn_back"
+            android:text="Trở về"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/viewveg_btn_add"
+            style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/ic_add2"
+            android:text="Thêm"
+            android:textColor="@android:color/white" />
+
+
+        <Button
+            android:id="@+id/viewveg_btn_print"
+            style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/btn_print"
+            android:text="In"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
 
     <!-- button them-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:orientation="vertical"
-        android:gravity="bottom"
-        android:padding="5dp"
-        android:paddingBottom="10dp"
-        >
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:orientation="vertical"-->
+<!--        android:gravity="bottom"-->
+<!--        android:padding="5dp"-->
+<!--        android:paddingBottom="10dp"-->
+<!--        >-->
 
-        <Button
-            android:id="@+id/addGarden"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Thêm"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/border_them"
-            android:padding="20dp"
-            android:layout_gravity="center" />
+<!--        <Button-->
+<!--            android:id="@+id/addGarden"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Thêm"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:background="@drawable/border_them"-->
+<!--            android:padding="20dp"-->
+<!--            android:layout_gravity="center" />-->
 
 
-    </LinearLayout>
-</LinearLayout>
+<!--    </LinearLayout>-->
+</RelativeLayout>

@@ -11,12 +11,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.slideshow.EditDeviceActivity"
+        <activity android:name=".ui.vegetable.AddVegetableActivity"
+            android:label="Thêm rau"
+            android:parentActivityName=".ui.vegetable.AddVegetableActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity" />
+        </activity>
+
+        <activity
+            android:name=".ui.slideshow.EditDeviceActivity"
             android:label="Sửa thiết bị"
             android:parentActivityName=".ui.slideshow.DeviceDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" /></activity>
+                android:value="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" />
+        </activity>
         <activity
             android:name=".ui.slideshow.DeviceDetailActivity"
             android:label="Chi tiết thiết bị"

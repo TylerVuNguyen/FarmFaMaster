@@ -1135,10 +1135,12 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable raucai
 drawable side_nav_bar
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable xalach
+drawable xuplo
 id ALT
 id CTRL
 id FUNCTION
@@ -1202,8 +1204,15 @@ id actions
 id activity_chooser_view_content
 id add
 id addALLSL
-id addGarden
 id addSoSL
+id addroom_roomName
+id addveg_addImageVeg
+id addveg_btn_save
+id addveg_img1
+id addveg_img2
+id addveg_img3
+id addveg_progressbar
+id addveg_vegfunction
 id alertTitle
 id all
 id already_user
@@ -1315,6 +1324,7 @@ id item_touch_helper_previous_elevation
 id kv_qlkvname
 id labeled
 id largeLabel
+id layoutroom_screenshot
 id left
 id line1
 id line3
@@ -1341,10 +1351,10 @@ id nav_controller_view_tag
 id nav_gallery
 id nav_home
 id nav_host_fragment
-id nav_kl
 id nav_send
 id nav_share
 id nav_slideshow
+id nav_thamso
 id nav_tools
 id nav_vegetable
 id nav_view
@@ -1511,6 +1521,9 @@ id viewroom_icondelete
 id viewroom_imageIconRoom
 id viewroom_listview_roomfunction
 id viewroom_nameRoom
+id viewveg_btn_add
+id viewveg_btn_back
+id viewveg_btn_print
 id visible
 id withText
 id wrap
@@ -1570,6 +1583,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_add_device
+layout activity_add_vegetable
 layout activity_chi_tiet_san_luong
 layout activity_chi_tiet_tung_san_luong
 layout activity_device_detail
@@ -1599,10 +1613,10 @@ layout design_text_input_password_icon
 layout forgotpass
 layout fragment_gallery
 layout fragment_home
-layout fragment_khoiluong
 layout fragment_send
 layout fragment_share
 layout fragment_slideshow
+layout fragment_thamso
 layout fragment_tools
 layout fragment_vegetable
 layout layout_device
@@ -1715,6 +1729,7 @@ string menu_home
 string menu_send
 string menu_share
 string menu_slideshow
+string menu_thamso
 string menu_tools
 string menu_vegetable
 string mobileNumber

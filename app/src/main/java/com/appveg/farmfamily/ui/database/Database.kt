@@ -5,7 +5,9 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 import com.appveg.farmfamily.ui.login.User
+import com.appveg.farmfamily.ui.vegetable.Vegetable
 
 class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     companion object {
@@ -27,6 +29,12 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         private val COLUMN_USER_CREATEDBY = "created_by"
         private val COLUMN_USER_CREATEDDATE = "created_date"
 
+        //vegeble table
+        private val TABLE_VEGETABLE = "vegetable"
+        private val VEG_ID = "id"
+        private val VEG_NAME = "name"
+        private val VEG_IMG = "img"//luu link icon
+
     }
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
         db!!.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS)
@@ -47,6 +55,11 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         val CREATE_QUANTITY_DETAIL_TABLE  = ("CREATE TABLE" + TABLE_BATCH_DETAIL + "(qty_detail_id INTEGER PRIMARY KEY AUTOINCREMENT,vegetable_name VARCHAR(100)," +
                 "vegetable_quantity VARCHAR(100),qty_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
                 "deleted_date VARCHAR(50),deleted_flag INTEGER)")
+
+        val CREATE_VEGETABLE_TABLE = ("CREATE TABLE " + TABLE_VEGETABLE + "(veg_id INTEGER PRIMARY KEY AUTOINCREMENT,veg_name VARCHAR(100)," +
+                "veg_code VARCHAR(50), veg_image VARCHAR(100),created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+                "deleted_date VARCHAR(50),deleted_flag INTEGER)")
+
 
         /*INSERT DATA*/
         val INSERT_ROLES_ITEM = ("INSERT INTO roles VALUES(null,'admin','admin','vu',null,null,null,null,null,1)")
@@ -261,4 +274,24 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
 
     /*----------------------------------------------QUANTITY-------------------------------------------------*/
     //method for saving records in database
+
+//them rau
+    fun addVeg(veg: Vegetable): Boolean {
+        //1: Them Phong vao DB
+        val value = ContentValues()
+        value.put(VEG_NAME, veg.HandleName)
+        value.put(VEG_IMG, veg.HandleImageVeg)
+//        if (veg.handleIsActive) {
+//            value.put(ROOM_ISACTIVE, 1)
+//        } else {
+//            value.put(ROOM_ISACTIVE, 0)
+//        }
+
+        val db = this.writableDatabase
+        //so dong thanh cong
+        val _success = db.insert(TABLE_VEGETABLE, null, value)
+        db.close()
+        Log.v("room_db", "number row add veg success: $_success")
+        return (Integer.parseInt("$_success") != -1)
+    }
 }

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-108:12
-INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-108:12
-INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-108:12
-INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-108:12
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-118:12
+INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-118:12
+INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-118:12
+INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-118:12
 MERGED from [androidx.navigation:navigation-ui-ktx:2.0.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/c96f99465a454b66885bd61d3d28ca7b/navigation-ui-ktx-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-ui:2.0.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/1ed682c404fdf1e951658f2564d5d712/jetified-navigation-ui-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.material:material:1.0.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/0c1e3aa57d8ae007859eed018065f276/material-1.0.0/AndroidManifest.xml:17:1-24:12
@@ -56,20 +56,20 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/lamnguyen/.gradle/
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/2fb06b841842eb53bc5a5182e7a2c55f/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/e2b58ae11421aabaac2827dd40c50fc7/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/b642740a2f435b9ed15454b4c8b8e228/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
-INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-108:12
-INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-108:12
-INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-108:12
+INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-118:12
+INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-118:12
+INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-118:12
 	package
 		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:3:5-36
 		INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-108:12
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-118:12
 		INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-108:12
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:1-118:12
 		INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:2:11-69
@@ -78,7 +78,7 @@ ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidMa
 	android:name
 		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:5:22-77
 application
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:7:5-106:19
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:7:5-116:19
 MERGED from [com.google.android.material:material:1.0.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/0c1e3aa57d8ae007859eed018065f276/material-1.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/0c1e3aa57d8ae007859eed018065f276/material-1.0.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/7314738a2e8afbd245c94013b25cc104/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
@@ -111,126 +111,134 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/lamn
 		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:8:9-35
 	android:theme
 		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:13:9-40
-activity#com.appveg.farmfamily.ui.slideshow.EditDeviceActivity
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:14:9-19:102
+activity#com.appveg.farmfamily.ui.vegetable.AddVegetableActivity
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:14:9-20:20
 	android:parentActivityName
 		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:16:13-76
 	android:label
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:15:13-41
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:15:13-37
 	android:name
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:14:19-66
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:14:19-68
 meta-data#android.support.PARENT_ACTIVITY
 ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:17:13-19:91
 	android:value
 		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:19:17-88
 	android:name
 		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:18:17-63
+activity#com.appveg.farmfamily.ui.slideshow.EditDeviceActivity
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:22:9-29:20
+	android:parentActivityName
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:25:13-76
+	android:label
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:24:13-41
+	android:name
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:23:13-60
 activity#com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:20:9-27:20
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:30:9-37:20
 	android:parentActivityName
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:23:13-76
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:33:13-76
 	android:label
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:22:13-46
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:32:13-46
 	android:name
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:21:13-62
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:31:13-62
 activity#com.appveg.farmfamily.ui.slideshow.AddDeviceActivity
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:28:9-35:20
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:38:9-45:20
 	android:parentActivityName
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:31:13-73
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:41:13-73
 	android:label
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:30:13-42
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:40:13-42
 	android:name
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:29:13-59
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:39:13-59
 activity#com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:36:9-43:20
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:46:9-53:20
 	android:parentActivityName
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:39:13-73
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:49:13-73
 	android:label
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:38:13-42
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:48:13-42
 	android:name
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:37:13-59
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:47:13-59
 activity#com.appveg.farmfamily.ui.gallery.SuaKhuVuonActivity
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:44:9-51:20
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:54:9-61:20
 	android:parentActivityName
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:47:13-73
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:57:13-73
 	android:label
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:46:13-41
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:56:13-41
 	android:name
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:45:13-58
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:55:13-58
 activity#com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:52:9-59:20
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:62:9-69:20
 	android:parentActivityName
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:55:13-77
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:65:13-77
 	android:label
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:54:13-46
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:64:13-46
 	android:name
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:53:13-59
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:63:13-59
 activity#com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:60:9-67:20
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:70:9-77:20
 	android:parentActivityName
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:63:13-77
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:73:13-77
 	android:label
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:62:13-47
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:72:13-47
 	android:name
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:61:13-63
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:71:13-63
 activity#com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:68:9-75:20
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:78:9-85:20
 	android:parentActivityName
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:71:13-77
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:81:13-77
 	android:label
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:70:13-48
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:80:13-48
 	android:name
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:69:13-60
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:79:13-60
 activity#com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:76:9-83:20
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:86:9-93:20
 	android:parentActivityName
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:79:13-77
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:89:13-77
 	android:label
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:78:13-52
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:88:13-52
 	android:name
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:77:13-63
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:87:13-63
 activity#com.appveg.farmfamily.MainActivity
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:84:9-87:59
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:94:9-97:59
 	android:label
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:86:13-45
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:96:13-45
 	android:theme
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:87:13-56
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:97:13-56
 	android:name
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:85:13-41
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:95:13-41
 activity#com.appveg.farmfamily.ui.login.LoginActivity
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:88:9-97:20
-	android:label
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:90:13-45
-	android:theme
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:91:13-56
-	android:name
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:89:13-51
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:92:13-96:29
-action#android.intent.action.MAIN
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:93:17-69
-	android:name
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:93:25-66
-category#android.intent.category.LAUNCHER
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:95:17-77
-	android:name
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:95:27-74
-activity#com.appveg.farmfamily.ui.login.SignUpActivity
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:98:9-101:59
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:98:9-107:20
 	android:label
 		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:100:13-45
 	android:theme
 		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:101:13-56
 	android:name
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:99:13-52
-activity#com.appveg.farmfamily.ui.login.ForgotPPass
-ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:102:9-105:59
-	android:label
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:104:13-45
-	android:theme
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:105:13-56
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:99:13-51
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:102:13-106:29
+action#android.intent.action.MAIN
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:103:17-69
 	android:name
-		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:103:13-49
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:103:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:105:17-77
+	android:name
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:105:27-74
+activity#com.appveg.farmfamily.ui.login.SignUpActivity
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:108:9-111:59
+	android:label
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:110:13-45
+	android:theme
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:111:13-56
+	android:name
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:109:13-52
+activity#com.appveg.farmfamily.ui.login.ForgotPPass
+ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:112:9-115:59
+	android:label
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:114:13-45
+	android:theme
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:115:13-56
+	android:name
+		ADDED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml:113:13-49
 uses-sdk
 INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/src/main/AndroidManifest.xml

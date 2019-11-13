@@ -5,7 +5,7 @@ class Vegetable {
     var vegID : Int? = 0
     var vegName : String? = ""
            var vegCode : String? =""
-           var vegImg : Int?=null
+           var vegImg : String?=null
            var createdBy: String? = ""
            var createdDate: String? = null
            var updatedBy: String? = ""
@@ -18,7 +18,7 @@ class Vegetable {
         vegID: Int?,
         vegName: String?,
         vegCode: String?,
-        vegImg: Int?,
+        vegImg: String?,
         createdBy: String?,
         createdDate: String?,
         updatedBy: String?,
@@ -44,7 +44,7 @@ class Vegetable {
         vegID: Int?,
         vegName: String?,
         vegCode: String?,
-        vegImg: Int?,
+        vegImg: String?,
         createdBy: String?,
         createdDate: String?
     ) {
@@ -61,7 +61,7 @@ class Vegetable {
         this.vegName = name
         //data mac dinh la icon = 1: nguoi dung muon thay doi thi thay doi tren usng dung
 //        this.isActive = true
-        this.vegImg = 0
+        this.vegImg = null
     }
 
     constructor(vegID: Int?, vegName: String?) {
@@ -70,14 +70,15 @@ class Vegetable {
 //        this.isActive = true
     }
 
-    constructor(vegName: String?, vegImg: Int?) {
+    constructor(vegName: String?, vegImg: String?) {
         this.vegName = vegName
         this.vegImg = vegImg
 //        this.isActive = true
     }
 
+
     //get ALl Room
-    constructor(vegID: Int?, vegName: String?, vegImg: Int?) {
+    constructor(vegID: Int?, vegName: String?, vegImg: String?) {
         this.vegID = vegID
         this.vegName = vegName
         this.vegImg = vegImg
@@ -99,7 +100,7 @@ class Vegetable {
         set(value) {
             this.vegID = value
         }
-    public var HandleImageVeg: Int?
+    public var HandleImageVeg: String?
         get() {
             return this.vegImg
         }

@@ -7,9 +7,8 @@ import android.widget.GridView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.appveg.farmfamily.R
-import com.appveg.farmfamily.ui.home.KhuVuon
+import com.appveg.farmfamily.ui.home.TypeDevice
 import com.appveg.farmfamily.ui.home.KhuVuonAdapter
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class SlideshowFragment : Fragment() {
 
@@ -20,7 +19,7 @@ class SlideshowFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_slideshow, container, false)
 
         var grid = root.findViewById<GridView>(R.id.fragment_device)
-        var kvList = this.generateCompanyData()
+        var kvList = this.listTypeDevice()
 
         grid.adapter = this.activity?.let { KhuVuonAdapter (it, kvList) }
 
@@ -44,31 +43,31 @@ class SlideshowFragment : Fragment() {
 
 
     //list khu vuon
-    private fun generateCompanyData(): ArrayList<KhuVuon> {
-        var result = ArrayList<KhuVuon>()
-        var kv: KhuVuon = KhuVuon()
-        kv.khuvuon_id = 1
-        kv.khuvuon_name = "Khu vườn 1"
-        kv.khuvuon_photo = R.drawable.kv2
-        result.add(kv)
+    private fun listTypeDevice(): ArrayList<TypeDevice> {
+        var result = ArrayList<TypeDevice>()
+        var typeDevice: TypeDevice = TypeDevice()
+        typeDevice.khuvuon_id = 1
+        typeDevice.khuvuon_name = "Khu vườn 1"
+        typeDevice.khuvuon_photo = R.drawable.kv2
+        result.add(typeDevice)
 
-        kv = KhuVuon()
-        kv.khuvuon_id = 2
-        kv.khuvuon_name = "Khu vườn 2"
-        kv.khuvuon_photo = R.drawable.kv2
-        result.add(kv)
+        typeDevice = TypeDevice()
+        typeDevice.khuvuon_id = 2
+        typeDevice.khuvuon_name = "Khu vườn 2"
+        typeDevice.khuvuon_photo = R.drawable.kv2
+        result.add(typeDevice)
 
-        kv = KhuVuon()
-        kv.khuvuon_id = 3
-        kv.khuvuon_name = "Khu vườn 3"
-        kv.khuvuon_photo = R.drawable.kv2
-        result.add(kv)
+        typeDevice = TypeDevice()
+        typeDevice.khuvuon_id = 3
+        typeDevice.khuvuon_name = "Khu vườn 3"
+        typeDevice.khuvuon_photo = R.drawable.kv2
+        result.add(typeDevice)
 
-        kv = KhuVuon()
-        kv.khuvuon_id = 4
-        kv.khuvuon_name = "Khu vườn 4"
-        kv.khuvuon_photo = R.drawable.kv2
-        result.add(kv)
+        typeDevice = TypeDevice()
+        typeDevice.khuvuon_id = 4
+        typeDevice.khuvuon_name = "Khu vườn 4"
+        typeDevice.khuvuon_photo = R.drawable.kv2
+        result.add(typeDevice)
 
         return result
     }

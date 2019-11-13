@@ -1,11 +1,15 @@
 package com.appveg.farmfamily.ui.vegetable
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.appveg.farmfamily.R
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import java.io.File
 
 class VegetableFragmentAdapter(private val context: Context, private val veg: ArrayList<Vegetable>) : BaseAdapter() {
 
@@ -62,7 +66,12 @@ class VegetableFragmentAdapter(private val context: Context, private val veg: Ar
 
         var veg : Vegetable = getItem(position) as Vegetable
         viewHolder.veg_Name.text = veg.vegName
-        viewHolder.veg_Img.setImageResource(veg.vegImg!!)
+//        viewHolder.veg_Img.setImageResource(veg.vegImg.toString())
+
+        Glide.with(context)
+            .load(Uri.fromFile(File(veg.HandleImageVeg)))
+            .apply(RequestOptions().override(100, 100))
+            .into(viewHolder.veg_Img)
 
         return view as View
 

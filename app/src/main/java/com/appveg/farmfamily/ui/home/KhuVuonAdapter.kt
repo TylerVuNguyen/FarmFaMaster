@@ -10,7 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.appveg.farmfamily.R
 
-class KhuVuonAdapter(private var activity: Activity, private var items: ArrayList<KhuVuon>) :  BaseAdapter(){
+class KhuVuonAdapter(private var activity: Activity, private var items: ArrayList<TypeDevice>) :  BaseAdapter(){
     private class ViewHolder(row: View?) {
         var kvName: TextView? = null
         var kvCamera: ImageView? = null
@@ -38,7 +38,7 @@ class KhuVuonAdapter(private var activity: Activity, private var items: ArrayLis
 
         return view as View
     }
-    override fun getItem(i: Int): KhuVuon {
+    override fun getItem(i: Int): TypeDevice {
         return items[i]
     }
     override fun getItemId(i: Int): Long {

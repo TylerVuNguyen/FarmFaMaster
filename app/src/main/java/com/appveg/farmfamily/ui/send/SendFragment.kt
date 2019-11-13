@@ -13,7 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 import com.appveg.farmfamily.R
-import com.appveg.farmfamily.ui.home.KhuVuon
+import com.appveg.farmfamily.ui.home.TypeDevice
 import com.appveg.farmfamily.ui.home.KhuVuonAdapter
 
 
@@ -53,27 +53,27 @@ class SendFragment : Fragment() {
 
 
     //list khu vuon
-    private fun generateCompanyData(): ArrayList<KhuVuon> {
-        var result = ArrayList<KhuVuon>()
-        var kv: KhuVuon = KhuVuon()
+    private fun generateCompanyData(): ArrayList<TypeDevice> {
+        var result = ArrayList<TypeDevice>()
+        var kv: TypeDevice = TypeDevice()
         kv.khuvuon_id = 1
         kv.khuvuon_name = "Khu vườn 1"
         kv.khuvuon_photo = R.drawable.kv2
         result.add(kv)
 
-        kv = KhuVuon()
+        kv = TypeDevice()
         kv.khuvuon_id = 2
         kv.khuvuon_name = "Khu vườn 2"
         kv.khuvuon_photo = R.drawable.kv2
         result.add(kv)
 
-        kv = KhuVuon()
+        kv = TypeDevice()
         kv.khuvuon_id = 3
         kv.khuvuon_name = "Khu vườn 3"
         kv.khuvuon_photo = R.drawable.kv2
         result.add(kv)
 
-        kv = KhuVuon()
+        kv = TypeDevice()
         kv.khuvuon_id = 4
         kv.khuvuon_name = "Khu vườn 4"
         kv.khuvuon_photo = R.drawable.kv2

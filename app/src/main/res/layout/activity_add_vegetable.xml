@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    tools:context=".ui.vegetable.AddVegetableActivity">
+
+    <LinearLayout
+        android:id="@+id/addveg_vegfunction"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:gravity="top"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nhập tên rau" />
+
+        <EditText
+            android:id="@+id/addroom_roomName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rau" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Chọn hình ảnh" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/addveg_img1"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:padding="7dp"
+                    android:src="@drawable/xalach" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/addveg_img2"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/raucai" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/addveg_progressbar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp">
+
+                <ImageView
+                    android:id="@+id/addveg_img3"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/xuplo" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="30dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/addveg_addImageVeg"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:padding="10dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_menu_gallery" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:paddingTop="10dp">
+
+<!--        <Button-->
+<!--            android:id="@+id/addveg_btn_back"-->
+<!--            style="@style/Button"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="start"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="?android:attr/selectableItemBackground"-->
+<!--            android:drawableTop="@drawable/btn_back"-->
+<!--            android:text="Trở về"-->
+<!--            android:textColor="@android:color/white" />-->
+
+        <Button
+            android:id="@+id/addveg_btn_save"
+            style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/btn_print"
+            android:text="In"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

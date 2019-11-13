@@ -1,6 +1,6 @@
 package com.appveg.farmfamily.ui.home
 
-class KhuVuon {
+class TypeDevice {
     var khuvuon_id : Int? =0
     var khuvuon_name : String? = null
 
