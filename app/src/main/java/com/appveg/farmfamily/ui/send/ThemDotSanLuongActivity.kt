@@ -11,13 +11,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.appveg.farmfamily.R
+import com.baoyz.swipemenulistview.SwipeMenu
+import com.baoyz.swipemenulistview.SwipeMenuCreator
+import com.baoyz.swipemenulistview.SwipeMenuItem
+import com.baoyz.swipemenulistview.SwipeMenuListView
 import kotlinx.android.synthetic.main.activity_chi_tiet_san_luong.*
+import kotlinx.android.synthetic.main.activity_sua_dot_san_luong.*
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.*
+import kotlinx.android.synthetic.main.activity_them_dot_san_luong.pickDateBD
+import kotlinx.android.synthetic.main.activity_them_dot_san_luong.pickDateKT
+import kotlinx.android.synthetic.main.activity_them_dot_san_luong.positionSpinner
+import kotlinx.android.synthetic.main.activity_them_dot_san_luong.textViewPickKT
+import kotlinx.android.synthetic.main.activity_them_dot_san_luong.textViewPickStart
 import kotlinx.android.synthetic.main.layoutlistview_chitietdot_sanluong.*
 import java.util.*
 import kotlin.collections.ArrayList
 
 class ThemDotSanLuongActivity : AppCompatActivity() {
+
+    val listVeg = generateRauData()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,13 +54,15 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
 //
 //        }
 
+
+
         pickDateBD.setOnClickListener {
             val now = Calendar.getInstance()
             val datePicker = DatePickerDialog(
                 this,
                 DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
 
-                    textViewPick.setText("" + dayOfMonth + "/" + month + "/" + year)
+                    textViewPickStart.setText("" + dayOfMonth + "/" + month + "/" + year)
                 },
                 now.get(Calendar.YEAR),
                 now.get(Calendar.MONTH),
@@ -64,7 +78,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
                 this,
                 DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
 
-                    textViewPick.setText("" + dayOfMonth + "/" + month + "/" + year)
+                    textViewPickKT.setText("" + dayOfMonth + "/" + month + "/" + year)
                 },
                 now.get(Calendar.YEAR),
                 now.get(Calendar.MONTH),
@@ -76,8 +90,6 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
 
         //spinner hien thi danh sach rau
         val listRau = arrayOf("Rau cải", "Rau ngót ", "Rau xà lách")
-
-
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listRau)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         positionSpinner.adapter = adapter
@@ -99,19 +111,69 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
             }
         }
 
+
+        //swipemenulistview
+        val creator2 = SwipeMenuCreator { menu ->
+
+            // create "delete" item
+            val deleteItem = SwipeMenuItem(
+                this.applicationContext
+            )
+            deleteItem.width = 100
+            // set a icon
+            deleteItem.setIcon(R.drawable.ic_delete)
+            // add to menu
+            menu.addMenuItem(deleteItem)
+        }
+
+        // set swipe
+        lv_themSL.setMenuCreator(creator2)
+        lv_themSL.setOnMenuItemClickListener(object : SwipeMenuListView.OnMenuItemClickListener {
+            override fun onMenuItemClick(position: Int, menu: SwipeMenu, index: Int): Boolean {
+                when (index) {
+                    0 -> { Toast.makeText(
+                        this@ThemDotSanLuongActivity, listVeg[position].toString(), Toast.LENGTH_LONG).show()
+                    }
+
+                }// open
+                // delete
+                // false : close the menu; true : not close the menu
+                return false
+            }
+        })
+
         //hien thi list view
 //action listview
 
-        var listRau1 = generateRauData()
+//        var listRau1 = generateRauData()
 
-        lv_themSL.adapter = this?.let { ThemAdapter(it, listRau1) }
+        lv_themSL.adapter = this?.let { ThemAdapter(it, listVeg) }
 
         lv_themSL.setOnItemClickListener { adapterView, view, i, l ->
-            if (listRau1.get(i).rau_id == 1) {
+            if (listVeg.get(i).rau_id == 1) {
                 Toast.makeText(this,"ahihi", Toast.LENGTH_SHORT).show()
             }
 
         }
+
+
+
+
+        //button them all san luong
+        addALLSL.setOnClickListener (object  : View.OnClickListener{
+            override fun onClick(v: View?) {
+                Toast.makeText(this@ThemDotSanLuongActivity, "Thêm thành công", Toast.LENGTH_SHORT).show()
+            }
+
+        })
+
+        //button them all san luong
+        deleteAllSL.setOnClickListener (object  : View.OnClickListener{
+            override fun onClick(v: View?) {
+                Toast.makeText(this@ThemDotSanLuongActivity, "Huỷ", Toast.LENGTH_SHORT).show()
+            }
+
+        })
 
 
     } //ket thuc fun onCreate

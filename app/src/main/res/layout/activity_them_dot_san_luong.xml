@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,17 +14,17 @@
         android:orientation="vertical"
         >
 
-        <TextView
-            android:padding="10dp"
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Thêm đợt sản lượng"
-            android:textColor="#0288D1"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="20dp"
-            />
+<!--        <TextView-->
+<!--            android:padding="10dp"-->
+<!--            android:id="@+id/textView2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Thêm đợt sản lượng"-->
+<!--            android:textColor="#0288D1"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:gravity="center"-->
+<!--            android:textSize="20dp"-->
+<!--            />-->
 
 <!--    <TableLayout-->
 <!--        android:layout_width="match_parent"-->
@@ -56,7 +59,7 @@
 
             <TextView
                 android:layout_marginLeft="30dp"
-                android:id="@+id/textViewPick"
+                android:id="@+id/textViewPickStart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </TableRow>
@@ -69,7 +72,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ngày bắt đầu"/>
+                android:text="Ngày thu hoạch"/>
             <!--    button to show picker diaglog-->
             <Button
                 android:id="@+id/pickDateKT"
@@ -149,6 +152,7 @@
             <EditText
                 android:id="@+id/nhapSoLuongRau"
                 android:layout_width="wrap_content"
+                android:focusable="false"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 />
@@ -192,7 +196,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:textStyle="bold"
             android:gravity="left"
             android:text="Tên rau "/>
 
@@ -200,57 +204,106 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
+            android:textStyle="bold"
             android:gravity="right"
             android:text="Số lượng "/>
         </LinearLayout>
 
-        <ListView
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2px"
+            android:background="@color/colorPrimary" />
+
+        <com.baoyz.swipemenulistview.SwipeMenuListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/lv_themSL"
+            android:layout_gravity="center"
 
             android:listSelector="@android:drawable/list_selector_background"
             android:dividerHeight="1dp"
             android:clickable="true"
             >
-        </ListView>
+        </com.baoyz.swipemenulistview.SwipeMenuListView>
     </LinearLayout>
 
 
 <!--Button them-->
-    <LinearLayout
+<!--    <LinearLayout-->
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="bottom|center"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:stretchColumns="*">
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="bottom|center"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="10dp">-->
+<!--       -->
 
-        <Button
-           android:id="@+id/themALLSL"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/border_them"
-            android:padding="5dp"
-            android:text="Thêm"
-            android:textColor="#FFFFFF" />
+<!--        <Button-->
+<!--            android:id="@+id/themALLSL"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/border_them"-->
+<!--            android:padding="5dp"-->
+<!--            android:text="Thêm"-->
+<!--            android:textColor="#FFFFFF" />-->
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/background_signup"
-            android:padding="5dp"
-            android:text="Huỷ"
-            android:textColor="#FFFFFF" />
+<!--        <Button-->
+<!--            android:id="@+id/deleteAllSL"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:background="@drawable/background_signup"-->
+<!--            android:padding="5dp"-->
+<!--            android:text="Huỷ"-->
+<!--            android:textColor="#FFFFFF" />-->
+<!--       -->
 
+<!--    </LinearLayout>-->
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="* "
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+         >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+                >
+
+                <Button
+                            android:id="@+id/addALLSL"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_them"
+                            android:padding="2dp"
+                            android:text="Thêm"
+                            android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/deleteAllSL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/background_signup"
+                    android:padding="2dp"
+                    android:text="Huỷ"
+                    android:textColor="#FFFFFF" />
+
+            </TableRow>
+
+        </TableLayout>
 
     </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
 
-
-</ScrollView>
+</RelativeLayout>

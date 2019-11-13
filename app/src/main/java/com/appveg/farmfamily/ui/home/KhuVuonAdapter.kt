@@ -16,7 +16,7 @@ class KhuVuonAdapter(private var activity: Activity, private var items: ArrayLis
         var kvCamera: ImageView? = null
 
         init {
-            this.kvName = row?.findViewById<TextView>(R.id.kv_name)
+            this.kvName = row?.findViewById<TextView>(R.id.name_kv)
             this.kvCamera = row?.findViewById<ImageView>(R.id.img_kv)
         }
     }

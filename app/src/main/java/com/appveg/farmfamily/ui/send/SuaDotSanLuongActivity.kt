@@ -1,5 +1,6 @@
 package com.appveg.farmfamily.ui.send
 
+import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -14,6 +15,8 @@ import com.baoyz.swipemenulistview.SwipeMenuListView
 import kotlinx.android.synthetic.main.activity_sua_dot_san_luong.*
 import kotlinx.android.synthetic.main.activity_sua_dot_san_luong.positionSpinner
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class SuaDotSanLuongActivity : AppCompatActivity() {
 
@@ -23,6 +26,38 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sua_dot_san_luong)
 
+
+        edit_pickDateBD.setOnClickListener {
+            val now = Calendar.getInstance()
+            val datePicker = DatePickerDialog(
+                this,
+                DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+
+                    edit_textViewPickStart.setText("" + dayOfMonth + "/" + month + "/" + year)
+                },
+                now.get(Calendar.YEAR),
+                now.get(Calendar.MONTH),
+                now.get(Calendar.DAY_OF_MONTH)
+            )
+
+            datePicker.show()
+        }
+
+        edit_pickDateEnd.setOnClickListener {
+            val now = Calendar.getInstance()
+            val datePicker = DatePickerDialog(
+                this,
+                DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+
+                    edit_textViewPickKT.setText("" + dayOfMonth + "/" + month + "/" + year)
+                },
+                now.get(Calendar.YEAR),
+                now.get(Calendar.MONTH),
+                now.get(Calendar.DAY_OF_MONTH)
+            )
+
+            datePicker.show()
+        }
 
 
         //swipemenulistview
@@ -45,11 +80,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
             override fun onMenuItemClick(position: Int, menu: SwipeMenu, index: Int): Boolean {
                 when (index) {
                     0 -> {
-                        Toast.makeText(
-                            this@SuaDotSanLuongActivity,
-                            listRau[position].toString(),
-                            Toast.LENGTH_LONG
-                        ).show()
+                        Toast.makeText(this@SuaDotSanLuongActivity, listRau[position].toString(), Toast.LENGTH_SHORT).show()
                     }
 
                 }// open
@@ -59,10 +90,10 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
             }
         })
 
-        //spinner hien thi danh sach rau
+
+
+        //SPINER hien thi danh sach rau
         val listRau1 = arrayOf("Rau cải", "Rau ngót ", "Rau xà lách")
-
-
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listRau1)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         positionSpinner.adapter = adapter
@@ -71,7 +102,6 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
             }
-
             override fun onItemSelected(
                 parent: AdapterView<*>,
                 view: View?,
@@ -86,20 +116,32 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
 
         //hien thi list view
 //action listview
-
-
-
         lv_suaSL.adapter = this?.let { ThemAdapter(it, listRau) }
-
         lv_suaSL.setOnItemClickListener { adapterView, view, i, l ->
             if (listRau.get(i).rau_id == 1) {
                 Toast.makeText(this,"ahihi", Toast.LENGTH_SHORT).show()
             }
-
         }
 
+        //button cap nhat
+        editALLSL.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                Toast.makeText(this@SuaDotSanLuongActivity, "Cập nhật thành công",Toast.LENGTH_SHORT).show()
+            }
+
+        })
+
+        //buton huy
+        deleteEditAllSL.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                Toast.makeText(this@SuaDotSanLuongActivity, "Huỷ",Toast.LENGTH_SHORT).show()
+            }
+
+        })
 
     }
+
+
 
 
     //fun lis rau

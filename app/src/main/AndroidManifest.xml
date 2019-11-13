@@ -51,7 +51,7 @@
         </activity>
         <activity
             android:name=".ui.send.SuaDotSanLuongActivity"
-            android:label="Sửa sản lượng"
+            android:label="Sửa đợt sản lượng"
             android:parentActivityName=".ui.send.ChiTietDotSanLuongActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -67,7 +67,7 @@
         </activity>
         <activity
             android:name=".ui.send.ThemDotSanLuongActivity"
-            android:label="Chi tiết sản lượng "
+            android:label="Thêm đợt sản lượng "
             android:parentActivityName=".ui.send.ChiTietDotSanLuongActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

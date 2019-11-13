@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "/Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\a7ea359b13e47d272d2e3a7a1f418601\\appcompat-1.1.0\\res\\values-land\\values-land.xml",
+                    "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/a7ea359b13e47d272d2e3a7a1f418601/appcompat-1.1.0/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\0c1e3aa57d8ae007859eed018065f276\\material-1.0.0\\res\\values-land\\values-land.xml",
+                    "source": "/Users/lamnguyen/.gradle/caches/transforms-2/files-2.1/0c1e3aa57d8ae007859eed018065f276/material-1.0.0/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

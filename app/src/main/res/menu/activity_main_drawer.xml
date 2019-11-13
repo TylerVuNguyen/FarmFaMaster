@@ -37,5 +37,10 @@
             android:icon="@drawable/ic_menu_send"
             android:title="Quản lí khối lượng" />
 
+        <item
+            android:id="@+id/nav_vegetable"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Quản lí rau" />
+
     </group>
 </menu>

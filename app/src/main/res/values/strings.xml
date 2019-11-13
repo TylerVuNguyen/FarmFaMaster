@@ -8,11 +8,12 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Quản lí khu vườn </string>
-    <string name="menu_slideshow">Quản lí thiết bị </string>
-    <string name="menu_tools">Quản lí vườn </string>
-    <string name="menu_share">Quản lí khối lượng </string>
-    <string name="menu_send">Quản lí sản lượng </string>
+    <string name="menu_gallery">Quản lý khu vườn </string>
+    <string name="menu_slideshow">Quản lý thiết bị </string>
+    <string name="menu_tools">Quản lý vườn </string>
+    <string name="menu_share">Quản lý khối lượng </string>
+    <string name="menu_send">Quản lý sản lượng </string>
+    <string name="menu_vegetable">Quản lý rau  </string>
 
     <string name="email">Email </string>
     <string name="gender">Giới tính</string>

@@ -8,6 +8,6 @@ class ChiTietSanLuongRauActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_chi_tiet_san_luong_rau)
+        setContentView(R.layout.activity_chi_tiet_tung_san_luong)
     }
 }

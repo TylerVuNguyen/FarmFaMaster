@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ahihi"/>
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:id="@+id/list_view_vegetable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.baoyz.swipemenulistview.SwipeMenuListView>
+
+
+    <!-- button them-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:padding="5dp"
+        android:paddingBottom="10dp"
+        >
+
+        <Button
+            android:id="@+id/addGarden"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thêm"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/border_them"
+            android:padding="20dp"
+            android:layout_gravity="center" />
+
+
+    </LinearLayout>
+</LinearLayout>
