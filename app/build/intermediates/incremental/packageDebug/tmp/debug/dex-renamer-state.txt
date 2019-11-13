@@ -1,4 +1,7 @@
-#Wed Nov 13 23:07:30 ICT 2019
-base.0=/Users/lamnguyen/Documents/GitHub/FarmFaMaster/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+#Thu Nov 14 01:35:25 ICT 2019
+base.0=G\:\\Users\\lamnguyen\\Documents\\GitHub\\FarmFaMaster\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.1=classes.dex
+renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
+base.1=G\:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
