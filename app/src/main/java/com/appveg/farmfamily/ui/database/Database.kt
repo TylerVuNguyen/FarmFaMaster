@@ -29,7 +29,7 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         private val COLUMN_USER_CREATEDBY = "created_by"
         private val COLUMN_USER_CREATEDDATE = "created_date"
 
-        //vegeble table
+        /*vegeble table*/
         private val TABLE_VEGETABLE = "vegetable"
         private val VEG_ID = "id"
         private val VEG_NAME = "name"

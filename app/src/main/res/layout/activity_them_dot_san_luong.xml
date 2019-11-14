@@ -152,7 +152,7 @@
             <EditText
                 android:id="@+id/nhapSoLuongRau"
                 android:layout_width="wrap_content"
-                android:focusable="false"
+                android:focusable="true"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 />
@@ -176,60 +176,9 @@
     </TableLayout>
 
 <!--    list view them nhieuf san luong-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        >
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-
-            >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:gravity="left"
-            android:text="Tên rau "/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:textStyle="bold"
-            android:gravity="right"
-            android:text="Số lượng "/>
-        </LinearLayout>
 
 
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="2px"
-            android:background="@color/colorPrimary" />
-
-        <com.baoyz.swipemenulistview.SwipeMenuListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/lv_themSL"
-            android:layout_gravity="center"
-
-            android:listSelector="@android:drawable/list_selector_background"
-            android:dividerHeight="1dp"
-            android:clickable="true"
-            >
-        </com.baoyz.swipemenulistview.SwipeMenuListView>
-    </LinearLayout>
-
-
-<!--Button them-->
+        <!--Button them-->
 <!--    <LinearLayout-->
 
 <!--        android:layout_width="match_parent"-->
@@ -260,6 +209,57 @@
 <!--       -->
 
 <!--    </LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="Tên rau "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:gravity="right"
+                    android:text="Số lượng "
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2px"
+                android:background="@color/colorPrimary" />
+
+            <com.baoyz.swipemenulistview.SwipeMenuListView
+                android:id="@+id/lv_themSL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="-15dp"
+
+
+                android:clickable="true"
+                android:dividerHeight="1dp"
+                android:listSelector="@android:drawable/list_selector_background"></com.baoyz.swipemenulistview.SwipeMenuListView>
+        </LinearLayout>
 
         <TableLayout
             android:layout_width="match_parent"
