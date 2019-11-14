@@ -7,7 +7,7 @@ class Batch {
     var theEndDate: String? = ""
     var totalQuantity: String? = ""
     var gardenId: Int? = null
-    var createdBy: String? = ""
+    var createdBy: String? = "admin"
     var createdDate: String? = null
     var updatedBy: String? = ""
     var updatedDate: String? = null

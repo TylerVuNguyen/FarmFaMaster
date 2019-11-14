@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import com.appveg.farmfamily.ui.login.User
+import com.appveg.farmfamily.ui.send.Batch
 import com.appveg.farmfamily.ui.vegetable.Vegetable
 
 class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -26,8 +27,19 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         private val COLUMN_USER_PASSWORD = "password"
         private val COLUMN_USER_GENDER = "gender"
         private val COLUMN_USER_STATUS = "status"
-        private val COLUMN_USER_CREATEDBY = "created_by"
-        private val COLUMN_USER_CREATEDDATE = "created_date"
+
+        /*common*/
+        private val COLUMN_CREATEDBY = "created_by"
+        private val COLUMN_CREATEDDATE = "created_date"
+
+        /*batch*/
+        private val COLUMN_BATCH_ID = "batch_id"
+        private val COLUMN_BATCH_IMAGE = "batch_image"
+        private val COLUMN_BATCH_NAME = "batch_name"
+        private val COLUMN_BATCH_END_DATE = "the_end_date"
+        private val COLUMN_BATCH_TOTAL_QTY = "total_quantity"
+        private val COLUMN_BATCH_GARDEN_ID = "garden_id"
+
 
         /*vegeble table*/
         private val TABLE_VEGETABLE = "vegetable"
@@ -116,8 +128,8 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
                     password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD)),
                     gender = cursor.getString(cursor.getColumnIndex(COLUMN_USER_GENDER)),
                     status = cursor.getString(cursor.getColumnIndex(COLUMN_USER_STATUS)).toInt(),
-                    createdBy = cursor.getString(cursor.getColumnIndex(COLUMN_USER_CREATEDBY)),
-                    createdDate = cursor.getString(cursor.getColumnIndex(COLUMN_USER_CREATEDDATE))
+                    createdBy = cursor.getString(cursor.getColumnIndex(COLUMN_CREATEDBY)),
+                    createdDate = cursor.getString(cursor.getColumnIndex(COLUMN_CREATEDDATE))
                 )
                 userList.add(user)
             } while (cursor.moveToNext())
@@ -135,12 +147,12 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(COLUMN_USER_NAME, user.userName)
-        values.put(COLUMN_USER_CREATEDBY,user.fullName)
+        values.put(COLUMN_CREATEDBY,user.fullName)
         values.put(COLUMN_USER_EMAIL, user.email)
         values.put(COLUMN_USER_PASSWORD, user.password)
         values.put(COLUMN_USER_GENDER,user.gender)
-        values.put(COLUMN_USER_CREATEDBY, user.createdBy)
-        values.put(COLUMN_USER_CREATEDDATE,user.createdDate)
+        values.put(COLUMN_CREATEDBY, user.createdBy)
+        values.put(COLUMN_CREATEDDATE,user.createdDate)
 
         // Inserting Row
         db.insert(TABLE_USERS, null, values)
@@ -157,7 +169,7 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
 
         val values = ContentValues()
         values.put(COLUMN_USER_NAME, user.userName)
-        values.put(COLUMN_USER_CREATEDBY,user.fullName)
+        values.put(COLUMN_CREATEDBY,user.fullName)
         values.put(COLUMN_USER_EMAIL, user.email)
         values.put(COLUMN_USER_PASSWORD, user.password)
         values.put(COLUMN_USER_GENDER,user.gender)
@@ -273,8 +285,42 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
     }
 
     /*----------------------------------------------QUANTITY-------------------------------------------------*/
-    //method for saving records in database
+    /**
+     * This method to insert data
+     *
+     * @param email
+     * @param password
+     * @return true/false
+     */
+    fun addBatch(batch: Batch):Long{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_BATCH_ID, batch.batchId)
+        contentValues.put(COLUMN_BATCH_IMAGE, batch.batchImage)
+        contentValues.put(COLUMN_BATCH_NAME,batch.batchName)
+        contentValues.put(COLUMN_BATCH_END_DATE,batch.theEndDate)
+        contentValues.put(COLUMN_BATCH_TOTAL_QTY,batch.totalQuantity)
+        contentValues.put(COLUMN_BATCH_GARDEN_ID,batch.gardenId)
+        contentValues.put(COLUMN_CREATEDBY, batch.createdBy)
+        contentValues.put(COLUMN_CREATEDDATE,batch.createdDate)
 
+        // Inserting Row
+        val success = db.insert(TABLE_BATCH, null, contentValues)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to insert temp data
+     *
+     * @param email
+     * @param password
+     * @return true/false
+     */
+
+    /*----------------------------------------------VEGETABLE-------------------------------------------------*/
+    //method for saving records in database
 //them rau
     fun addVeg(veg: Vegetable): Boolean {
         //1: Them Phong vao DB

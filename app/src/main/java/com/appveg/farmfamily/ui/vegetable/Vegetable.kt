@@ -2,17 +2,17 @@ package com.appveg.farmfamily.ui.vegetable
 
 class Vegetable {
 
-    var vegID : Int? = 0
-    var vegName : String? = ""
-           var vegCode : String? =""
-           var vegImg : String?=null
-           var createdBy: String? = ""
-           var createdDate: String? = null
-           var updatedBy: String? = ""
-           var updatedDate: String? = null
-           var deletedBy: String? = ""
-           var deletedDate: String? =""
-           var deletedFlag:Int = 1
+    var vegID: Int? = 0
+    var vegName: String? = ""
+    var vegCode: String? = ""
+    var vegImg: String? = null
+    var createdBy: String? = "admin"
+    var createdDate: String? = null
+    var updatedBy: String? = ""
+    var updatedDate: String? = null
+    var deletedBy: String? = ""
+    var deletedDate: String? = ""
+    var deletedFlag: Int = 1
 
     constructor(
         vegID: Int?,
