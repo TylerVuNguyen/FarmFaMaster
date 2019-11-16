@@ -14,7 +14,6 @@ import com.baoyz.swipemenulistview.SwipeMenuItem
 import com.baoyz.swipemenulistview.SwipeMenuListView
 import kotlinx.android.synthetic.main.activity_sua_dot_san_luong.*
 import kotlinx.android.synthetic.main.activity_sua_dot_san_luong.positionSpinner
-import kotlinx.android.synthetic.main.activity_them_dot_san_luong.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -115,13 +114,13 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
         }
 
         //hien thi list view
-//action listview
-        lv_suaSL.adapter = this?.let { ThemAdapter(it, listRau) }
-        lv_suaSL.setOnItemClickListener { adapterView, view, i, l ->
-            if (listRau.get(i).rau_id == 1) {
-                Toast.makeText(this,"ahihi", Toast.LENGTH_SHORT).show()
-            }
-        }
+        //action listview
+//        lv_suaSL.adapter = this?.let { ThemAdapter(it, listRau) }
+//        lv_suaSL.setOnItemClickListener { adapterView, view, i, l ->
+//            if (listRau.get(i).rau_id == 1) {
+//                Toast.makeText(this,"ahihi", Toast.LENGTH_SHORT).show()
+//            }
+//        }
 
         //button cap nhat
         editALLSL.setOnClickListener(object : View.OnClickListener{
@@ -140,9 +139,6 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
         })
 
     }
-
-
-
 
     //fun lis rau
     fun generateRauData(): ArrayList<Rau> {

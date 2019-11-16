@@ -5,13 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.ImageView
 import android.widget.TextView
 import com.appveg.farmfamily.R
+import com.appveg.farmfamily.ui.vegetable.VegetableTemp
 
-class ThemAdapter (private val context: Context, private val dotRau: ArrayList<Rau>) : BaseAdapter() {
+class ThemAdapter(private val context: Context, private val dotRau: ArrayList<VegetableTemp>) : BaseAdapter() {
 
-    //1
+//      var vegetableTemp: ArrayList<VegetableTemp> = ArrayList()
+//    fun updateReceiptsList(newlist: ArrayList<VegetableTemp>) {
+//        vegetableTemp.clear()
+//        vegetableTemp.addAll(newlist)
+//        this.notifyDataSetChanged()
+//    }
     override fun getCount(): Int {
         return dotRau.size
     }
@@ -30,8 +35,6 @@ class ThemAdapter (private val context: Context, private val dotRau: ArrayList<R
     private class ViewHolder(row: View?) {
         var rau_name: TextView
         var rau_soluong: TextView
-
-
 
         init {
             this.rau_name = row?.findViewById(R.id.txt_rau) as TextView
@@ -58,9 +61,9 @@ class ThemAdapter (private val context: Context, private val dotRau: ArrayList<R
             viewHolder = view.tag as ViewHolder
         }
 
-        var rau : Rau = getItem(position) as Rau
-        viewHolder.rau_name.text = rau.rau_name
-        viewHolder.rau_soluong.text = rau.rau_soluong.toString()
+        var vegetableTemp : VegetableTemp = getItem(position) as VegetableTemp
+        viewHolder.rau_name.text = vegetableTemp.vegName
+        viewHolder.rau_soluong.text = vegetableTemp.vegQty.toString()
 
         return view as View
 
@@ -68,3 +71,4 @@ class ThemAdapter (private val context: Context, private val dotRau: ArrayList<R
 
 
 }
+

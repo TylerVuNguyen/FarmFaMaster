@@ -8,7 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import com.appveg.farmfamily.ui.login.User
 import com.appveg.farmfamily.ui.send.Batch
+import com.appveg.farmfamily.ui.send.BatchQtyDetail
 import com.appveg.farmfamily.ui.vegetable.Vegetable
+import com.appveg.farmfamily.ui.vegetable.VegetableTemp
 
 class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     companion object {
@@ -40,6 +42,11 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         private val COLUMN_BATCH_TOTAL_QTY = "total_quantity"
         private val COLUMN_BATCH_GARDEN_ID = "garden_id"
 
+        /*batch*/
+        private val COLUMN_BATCH_DETAIL_ID = "qty_detail_id"
+        private val COLUMN_BATCH_QTY_ID = "qty_id"
+        private val COLUMN_BATCH_VEG_NAME = "vegetable_name"
+        private val COLUMN_BATCH_VEG_QTY = "vegetable_quantity"
 
         /*vegeble table*/
         private val TABLE_VEGETABLE = "vegetable"
@@ -312,13 +319,28 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
     }
 
     /**
-     * This method to insert temp data
+     * This method to insert data for batch detail
      *
      * @param email
      * @param password
      * @return true/false
      */
+    fun addBatchDetail(batchQtyDetail: BatchQtyDetail):Long{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_BATCH_DETAIL_ID, batchQtyDetail.qtyDetailId)
+        contentValues.put(COLUMN_BATCH_QTY_ID, batchQtyDetail.qtyId)
+        contentValues.put(COLUMN_BATCH_VEG_NAME,batchQtyDetail.vegetableName)
+        contentValues.put(COLUMN_BATCH_VEG_QTY,batchQtyDetail.vegetableQuantity)
+        contentValues.put(COLUMN_CREATEDBY, batchQtyDetail.createdBy)
+        contentValues.put(COLUMN_CREATEDDATE,batchQtyDetail.createdDate)
 
+        // Inserting Row
+        val success = db.insert(TABLE_BATCH_DETAIL, null, contentValues)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
     /*----------------------------------------------VEGETABLE-------------------------------------------------*/
     //method for saving records in database
 //them rau

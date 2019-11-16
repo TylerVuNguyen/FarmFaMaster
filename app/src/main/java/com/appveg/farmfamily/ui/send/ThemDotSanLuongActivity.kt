@@ -1,67 +1,56 @@
 package com.appveg.farmfamily.ui.send
 
-import android.app.AlertDialog
+
 import android.app.DatePickerDialog
-import android.app.Fragment
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import android.widget.*
 import com.appveg.farmfamily.R
-import com.baoyz.swipemenulistview.SwipeMenu
-import com.baoyz.swipemenulistview.SwipeMenuCreator
-import com.baoyz.swipemenulistview.SwipeMenuItem
-import com.baoyz.swipemenulistview.SwipeMenuListView
-import kotlinx.android.synthetic.main.activity_chi_tiet_san_luong.*
-import kotlinx.android.synthetic.main.activity_sua_dot_san_luong.*
+import com.appveg.farmfamily.ui.database.Database
+import com.appveg.farmfamily.ui.vegetable.VegetableTemp
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.*
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.pickDateBD
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.pickDateKT
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.positionSpinner
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.textViewPickKT
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.textViewPickStart
-import kotlinx.android.synthetic.main.layoutlistview_chitietdot_sanluong.*
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
 class ThemDotSanLuongActivity : AppCompatActivity() {
+   private val activity = this@ThemDotSanLuongActivity
 
-    val listVeg = generateRauData()
+    private lateinit var database: Database
 
+    private var selected: String? = ""
+    private var listVeg: ArrayList<VegetableTemp> = ArrayList()
+    private var sumQty : Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_them_dot_san_luong)
 
 
-        //calendar laays ngay hien tai
-//        val c = Calendar.getInstance()
-//        val year = c.get(Calendar.YEAR)
-//        val month = c.get(Calendar.MONTH)
-//        val day = c.get(Calendar.DAY_OF_MONTH)
-//
-//        //button clock to show DatePickDialog
-//        pickDateBD.setOnClickListener {
-//            val dBD = DatePickerDialog(
-//                this,
-//                DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-//                    //set to textView
-//                    textViewPick.setText("" + day + "/" + month + "/" + year)
-//                }, year, month, day)
-//            dBD.show()
-//
-//        }
+        addSoSL.setOnClickListener {
+            // add item
+            addVegTemp()
+            // recal total quantity
+            sumQuantity()
+        }
+        addAllQty.setOnClickListener {
+            verifyFromSQLite()
+        }
 
-
-
+        // get create date
         pickDateBD.setOnClickListener {
             val now = Calendar.getInstance()
             val datePicker = DatePickerDialog(
                 this,
                 DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-
+                    textViewPickStart.error = null
+                    textViewPickStart.clearFocus()
                     textViewPickStart.setText("" + dayOfMonth + "/" + month + "/" + year)
                 },
                 now.get(Calendar.YEAR),
@@ -71,13 +60,14 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
 
             datePicker.show()
         }
-
+        // get the end date
         pickDateKT.setOnClickListener {
             val now = Calendar.getInstance()
             val datePicker = DatePickerDialog(
                 this,
                 DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-
+                    textViewPickKT.error = null
+                    textViewPickKT.clearFocus()
                     textViewPickKT.setText("" + dayOfMonth + "/" + month + "/" + year)
                 },
                 now.get(Calendar.YEAR),
@@ -106,119 +96,88 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
                 id: Long
             ) {
                 // either one will work as well
-                // val item = parent.getItemAtPosition(position) as String
-                val item = adapter.getItem(position)
+                //val item = parent.getItemAtPosition(position) as String
+                selected = adapter.getItem(position)
             }
         }
 
+    }
+    //ket thuc fun onCreate
 
-        //swipemenulistview
-        val creator2 = SwipeMenuCreator { menu ->
-
-            // create "delete" item
-            val deleteItem = SwipeMenuItem(
-                this.applicationContext
-            )
-            deleteItem.width = 100
-            // set a icon
-            deleteItem.setIcon(R.drawable.ic_delete)
-            // add to menu
-            menu.addMenuItem(deleteItem)
+    /**
+     * the method to insert data batch detail
+     */
+    private fun addVegTemp(){
+        val quantityVegetable = txt_qtyVeg.text.toString()
+        var vegetableTemp: VegetableTemp = VegetableTemp()
+        if(quantityVegetable.trim()!=""){
+            vegetableTemp.vegName = selected.toString()
+            vegetableTemp.vegQty = quantityVegetable.toInt()
+        }else{
+            var vegNumber = 0
+            vegetableTemp.vegName = selected.toString()
+            vegetableTemp.vegQty = vegNumber
         }
-
-        // set swipe
-        lv_themSL.setMenuCreator(creator2)
-        lv_themSL.setOnMenuItemClickListener(object : SwipeMenuListView.OnMenuItemClickListener {
-            override fun onMenuItemClick(position: Int, menu: SwipeMenu, index: Int): Boolean {
-                when (index) {
-                    0 -> { Toast.makeText(
-                        this@ThemDotSanLuongActivity, listVeg[position].toString(), Toast.LENGTH_LONG).show()
-                    }
-
-                }// open
-                // delete
-                // false : close the menu; true : not close the menu
-                return false
-            }
-        })
+        listVeg.add(vegetableTemp)
 
         //hien thi list view
-//action listview
+        lv_themSL.adapter = ThemAdapter(activity,listVeg)
 
-//        var listRau1 = generateRauData()
+    }
+    /**
+     * the method to sum total quantity
+     */
+    private fun sumQuantity(){
+        var listQty : ArrayList<VegetableTemp> = listVeg
+        for(item in listQty){
+            var x: Int = item.vegQty!!.toInt()
+            sumQty += x
+        }
+        totalQty.text = sumQty.toString().trim() + "/kg"
+    }
+    /**
+     * This method is to validate the input text fields and verify add batch credentials from SQLite
+     */
+    private fun verifyFromSQLite(){
+        database = Database(activity)
+        var selectedStartDate = textViewPickStart.text.toString().trim()
+        var selectedEndDate = textViewPickKT.text.toString().trim()
+        var batchName = batchName.text.toString()
+        var totalQty = sumQty.toString().trim()
 
-        lv_themSL.adapter = this?.let { ThemAdapter(it, listVeg) }
-
-        lv_themSL.setOnItemClickListener { adapterView, view, i, l ->
-            if (listVeg.get(i).rau_id == 1) {
-                Toast.makeText(this,"ahihi", Toast.LENGTH_SHORT).show()
-            }
-
+        if(selectedStartDate.isEmpty() && selectedEndDate.isEmpty()){
+            textViewPickStart.error = getString(R.string.error_start_date_batch)
+            textViewPickKT.error = getString(R.string.error_end_date_batch)
+        }else if (selectedStartDate.isEmpty()) {
+            textViewPickStart.error = getString(R.string.error_start_date_batch)
+        }else if (selectedEndDate.isEmpty()) {
+            textViewPickKT.error = getString(R.string.error_end_date_batch)
         }
 
-
-
-
-        //button them all san luong
-        addALLSL.setOnClickListener (object  : View.OnClickListener{
-            override fun onClick(v: View?) {
-                Toast.makeText(this@ThemDotSanLuongActivity, "Thêm thành công", Toast.LENGTH_SHORT).show()
+        var batch: Batch = Batch(null,"R.drawable.kv2",batchName,selectedEndDate,totalQty,1,"admin",selectedStartDate)
+        if(batch != null){
+            /*format date*/
+            val current = Calendar.getInstance().time
+            val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
+            val formatted: String = formatter.format(current)
+            /*end format date*/
+            try {
+                var id : Long = database!!.addBatch(batch)
+                if(!listVeg.isNullOrEmpty()){
+                    for (item in listVeg){
+                        var batchQtyDetail : BatchQtyDetail = BatchQtyDetail(null,id.toInt(),item.vegName,item.vegQty.toString(),"admin",formatted)
+                        database!!.addBatchDetail(batchQtyDetail)
+                    }
+                }
+                Toast.makeText(applicationContext,getString(R.string.batch_add_success),
+                    Toast.LENGTH_LONG).show()
+            }catch (e : Exception){
+                Log.d("AAA",e.message)
+                Toast.makeText(applicationContext,getString(R.string.batch_add_failed),
+                    Toast.LENGTH_LONG).show()
             }
-
-        })
-
-        //button them all san luong
-        deleteAllSL.setOnClickListener (object  : View.OnClickListener{
-            override fun onClick(v: View?) {
-                Toast.makeText(this@ThemDotSanLuongActivity, "Huỷ", Toast.LENGTH_SHORT).show()
-            }
-
-        })
-
-
-    } //ket thuc fun onCreate
-
-    fun getTenRau(): String{
-        var tenRau : String
-        var soluongRau : Int
-
-        var num = findViewById(R.id.nhapSoLuongRau) as EditText
-        num.text =
-
-        return num.toString()
+        }
 
     }
-
-
-    //fun lis rau
-    fun generateRauData(): ArrayList<Rau> {
-        var result = ArrayList<Rau>()
-        var r: Rau = Rau()
-        r.rau_id = 1
-        r.rau_name = "Rau cải "
-        r.rau_photo = R.drawable.kv2
-        result.add(r)
-
-        r = Rau()
-        r.rau_id = 2
-        r.rau_name = "Rau xà "
-        r.rau_photo = R.drawable.kv2
-        result.add(r)
-
-        r = Rau()
-        r.rau_id = 3
-        r.rau_name = "Rau ngò "
-        r.rau_photo = R.drawable.kv2
-        result.add(r)
-
-        r = Rau()
-        r.rau_id = 4
-        r.rau_name = "Hành "
-        r.rau_photo = R.drawable.kv2
-        result.add(r)
-
-        return result
-    }
-
 
 }

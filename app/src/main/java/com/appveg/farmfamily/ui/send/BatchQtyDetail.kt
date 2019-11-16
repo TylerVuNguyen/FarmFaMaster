@@ -58,4 +58,20 @@ class BatchQtyDetail {
         this.deletedDate = deletedDate
         this.deletedFlag = deletedFlag
     }
+
+    constructor(
+        qtyDetailId: Int?,
+        qtyId: Int?,
+        vegetableName: String?,
+        vegetableQuantity: String?,
+        createdBy: String?,
+        createdDate: String?
+    ) {
+        this.qtyDetailId = qtyDetailId
+        this.qtyId = qtyId
+        this.vegetableName = vegetableName
+        this.vegetableQuantity = vegetableQuantity
+        this.createdBy = createdBy
+        this.createdDate = createdDate
+    }
 }

@@ -1203,7 +1203,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
-id addALLSL
+id addAllQty
 id addSoSL
 id addroom_roomName
 id addveg_addImageVeg
@@ -1221,6 +1221,7 @@ id async
 id auto
 id backToLoginBtn
 id barrier
+id batchName
 id beginning
 id blocking
 id bottom
@@ -1362,7 +1363,6 @@ id navigation_header_container
 id never
 id ngayBD
 id ngayTrong
-id nhapSoLuongRau
 id none
 id normal
 id notification_background
@@ -1488,6 +1488,7 @@ id title_template
 id toolbar
 id top
 id topPanel
+id totalQty
 id touch_outside
 id transition_current_scene
 id transition_layout_save
@@ -1498,6 +1499,7 @@ id txtDonVi
 id txtDonViEdit
 id txt_ngayBD
 id txt_ngayKT
+id txt_qtyVeg
 id txt_rau
 id txtforgot
 id txtsoluong
@@ -1693,6 +1695,8 @@ string already_user
 string app_name
 string appbar_scrolling_view_behavior
 string back
+string batch_add_failed
+string batch_add_success
 string bottom_sheet_behavior
 string character_counter_content_description
 string character_counter_pattern
@@ -1703,12 +1707,14 @@ string edit
 string email
 string error_common_email_password
 string error_email_exists
+string error_end_date_batch
 string error_message_age
 string error_message_confirm_password
 string error_message_email
 string error_message_name
 string error_message_password
 string error_password_match
+string error_start_date_batch
 string error_valid_email_password
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior

@@ -54,6 +54,10 @@
     <string name="text_register">Register</string>
     <string name="error_message_name">Enter Full Name</string>
     <string name="error_message_email">Enter Valid Email</string>
+    <string name="error_start_date_batch">Enter Valid Start Date</string>
+    <string name="batch_add_success">Insert Data Successfully</string>
+    <string name="batch_add_failed">Insert Data failed</string>
+    <string name="error_end_date_batch">Enter Valid End Date</string>
     <string name="error_message_age">Enter Age</string>
     <string name="error_message_password">Enter Password</string>
     <string name="error_message_confirm_password">Enter Password</string>
@@ -64,7 +68,7 @@
     <string name="error_email_exists">Email Already Exists</string>
     <string name="error_password_match">Password Does Not Matches</string>
     <string name="error_valid_email_password">Wrong Email or Password</string>
-    <string name="error_common_email_password">Email and password are incorrect</string>
+    <string name="error_common_email_password">Email and password are incorrect!</string>
     <!--the end by vu-->
 
 </resources>

@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
@@ -18,7 +19,6 @@ class LoginActivity  : AppCompatActivity() {
     private lateinit var editPass: EditText
 
     private lateinit var txtforgot: TextView
-    private lateinit var errorCommon: TextView
 
     private lateinit var btLogin: Button
     private lateinit var btSignup: Button
@@ -33,9 +33,6 @@ class LoginActivity  : AppCompatActivity() {
         edtUserNameEmail = findViewById(R.id.editUserName)
         editPass = findViewById(R.id.editPass)
 
-        //text view
-        errorCommon = findViewById(R.id.errorCommon)
-
         //button
         txtforgot = findViewById(R.id.txtforgot)
         btLogin = findViewById(R.id.btLogin)
@@ -44,7 +41,7 @@ class LoginActivity  : AppCompatActivity() {
 
 
         btLogin.setOnClickListener{
-            //verifyFromSQLite()
+          //  verifyFromSQLite()
             val intent: Intent = Intent(this, com.appveg.farmfamily.MainActivity::class.java)
             startActivity(intent)
         }
@@ -71,7 +68,10 @@ class LoginActivity  : AppCompatActivity() {
         val userNameEmail = edtUserNameEmail.text.toString().trim()
         val userNamePass = editPass.text.toString().trim()
 
-        if (userNameEmail.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(userNameEmail).matches()) {
+        if (userNameEmail.isEmpty() && userNamePass.isEmpty()){
+            edtUserNameEmail.error = getString(R.string.error_message_email)
+            editPass.error = getString(R.string.error_message_password)
+        }else if (userNameEmail.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(userNameEmail).matches()) {
             edtUserNameEmail.error = getString(R.string.error_message_email)
         }else if (userNamePass.isEmpty()) {
             editPass.error = getString(R.string.error_message_password)
@@ -82,7 +82,8 @@ class LoginActivity  : AppCompatActivity() {
             emptyInputEditText()
             startActivity(accountsIntent)
         }else{
-            errorCommon.text = getString(R.string.error_common_email_password)
+            Toast.makeText(applicationContext,getString(R.string.error_common_email_password),
+                Toast.LENGTH_LONG).show()
         }
 
     }
