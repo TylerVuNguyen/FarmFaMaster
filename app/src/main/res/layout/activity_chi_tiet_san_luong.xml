@@ -5,13 +5,13 @@
     android:orientation="vertical">
 
 
-<!--    <ListView-->
-<!--        android:id="@+id/list_view"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
+    <!--    <ListView-->
+    <!--        android:id="@+id/list_view"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content">-->
 
 
-<!--    </ListView>-->
+    <!--    </ListView>-->
 
 
     <com.baoyz.swipemenulistview.SwipeMenuListView
@@ -20,35 +20,33 @@
         android:layout_height="wrap_content"
 
 
-   />
+        />
 
 
-
-<!-- button them-->
+    <!-- button them-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
-        android:orientation="vertical"
         android:gravity="bottom"
+        android:orientation="vertical"
         android:padding="5dp"
         android:paddingBottom="10dp"
 
-       >
+        >
 
         <Button
             android:id="@+id/themDotSanLuong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Thêm"
-            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
             android:background="@drawable/border_them"
             android:padding="20dp"
-            android:layout_gravity="center"
+            android:text="@string/add_vi"
+            android:textColor="#FFFFFF"
 
             />
     </LinearLayout>
-
 
 
 </LinearLayout>

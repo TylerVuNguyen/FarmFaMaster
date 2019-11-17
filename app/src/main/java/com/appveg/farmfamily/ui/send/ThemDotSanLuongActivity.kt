@@ -2,11 +2,13 @@ package com.appveg.farmfamily.ui.send
 
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.core.view.get
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.vegetable.VegetableTemp
@@ -32,15 +34,26 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_them_dot_san_luong)
 
-
+        /*event add data to lisview*/
         addSoSL.setOnClickListener {
             // add item
             addVegTemp()
             // recal total quantity
             sumQuantity()
         }
+        /*event insert data to database and validate*/
         addAllQty.setOnClickListener {
             verifyFromSQLite()
+        }
+        /*event remove data for temp listview*/
+        lv_themSL.setOnItemClickListener { adapterView, view, i, l ->
+            removeDataListVeg(i)
+        }
+
+
+        cancel_action.setOnClickListener {
+            val intent: Intent = Intent(this, ChiTietDotSanLuongActivity::class.java)
+            startActivity(intent)
         }
 
         // get create date
@@ -128,8 +141,8 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
      * the method to sum total quantity
      */
     private fun sumQuantity(){
-        var listQty : ArrayList<VegetableTemp> = listVeg
-        for(item in listQty){
+        sumQty = 0
+        for(item in listVeg){
             var x: Int = item.vegQty!!.toInt()
             sumQty += x
         }
@@ -142,20 +155,15 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
         database = Database(activity)
         var selectedStartDate = textViewPickStart.text.toString().trim()
         var selectedEndDate = textViewPickKT.text.toString().trim()
-        var batchName = batchName.text.toString()
+        var selectedBatchName = batchName.text.toString()
         var totalQty = sumQty.toString().trim()
 
-        if(selectedStartDate.isEmpty() && selectedEndDate.isEmpty()){
-            textViewPickStart.error = getString(R.string.error_start_date_batch)
-            textViewPickKT.error = getString(R.string.error_end_date_batch)
-        }else if (selectedStartDate.isEmpty()) {
-            textViewPickStart.error = getString(R.string.error_start_date_batch)
-        }else if (selectedEndDate.isEmpty()) {
-            textViewPickKT.error = getString(R.string.error_end_date_batch)
-        }
+        var checkStartDate = checkStartDate(selectedStartDate)
+        var checkEndDate = checkEndDate(selectedEndDate)
+        var checkBatchName = checkBatchName(selectedBatchName)
 
-        var batch: Batch = Batch(null,"R.drawable.kv2",batchName,selectedEndDate,totalQty,1,"admin",selectedStartDate)
-        if(batch != null){
+        var batch: Batch = Batch(null,"R.drawable.kv2",selectedBatchName,selectedEndDate,totalQty,1,"admin",selectedStartDate)
+        if(checkStartDate && checkEndDate && checkBatchName){
             /*format date*/
             val current = Calendar.getInstance().time
             val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
@@ -178,6 +186,45 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
             }
         }
 
+    }
+    /**
+     * This method is to check start date
+     */
+    private fun checkStartDate(check: String) : Boolean {
+        if (check.isEmpty()) {
+            textViewPickStart.error = getString(R.string.error_start_date_batch)
+            return false
+        }
+        return true
+    }
+    /**
+     * This method is to check end date
+     */
+    private fun checkEndDate(check: String) : Boolean {
+        if (check.isEmpty()) {
+            textViewPickKT.error = getString(R.string.error_end_date_batch)
+            return false
+        }
+        return true
+    }
+    /**
+     * This method is to batch name
+     */
+    private fun checkBatchName(check: String) : Boolean {
+        if (check.isEmpty()) {
+            batchName.error = getString(R.string.error_name_batch)
+            return false
+        }
+        return true
+    }
+    /**
+     * This method is to remove data
+     */
+    private fun removeDataListVeg(id: Int){
+        var adapter: ThemAdapter = ThemAdapter(this,listVeg)
+        listVeg = adapter.removeItemPosition(id)
+        //hien thi list view
+        lv_themSL.adapter = ThemAdapter(activity,listVeg)
     }
 
 }

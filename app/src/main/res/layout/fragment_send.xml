@@ -24,7 +24,7 @@
         android:background="#DCDCDC"
         android:horizontalSpacing="10dp"
         android:verticalSpacing="10dp"
-        android:padding="10dp"
+        android:padding="15dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

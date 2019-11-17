@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
+import kotlinx.android.synthetic.main.activity_them_dot_san_luong.*
 
 class LoginActivity  : AppCompatActivity() {
     private val activity = this@LoginActivity
@@ -41,9 +42,9 @@ class LoginActivity  : AppCompatActivity() {
 
 
         btLogin.setOnClickListener{
-          //  verifyFromSQLite()
-            val intent: Intent = Intent(this, com.appveg.farmfamily.MainActivity::class.java)
-            startActivity(intent)
+          verifyFromSQLite()
+//            val intent: Intent = Intent(this, com.appveg.farmfamily.MainActivity::class.java)
+//            startActivity(intent)
         }
 
         btSignup.setOnClickListener{
@@ -68,24 +69,39 @@ class LoginActivity  : AppCompatActivity() {
         val userNameEmail = edtUserNameEmail.text.toString().trim()
         val userNamePass = editPass.text.toString().trim()
 
-        if (userNameEmail.isEmpty() && userNamePass.isEmpty()){
-            edtUserNameEmail.error = getString(R.string.error_message_email)
-            editPass.error = getString(R.string.error_message_password)
-        }else if (userNameEmail.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(userNameEmail).matches()) {
-            edtUserNameEmail.error = getString(R.string.error_message_email)
-        }else if (userNamePass.isEmpty()) {
-            editPass.error = getString(R.string.error_message_password)
-        }
+        checkEmail(userNameEmail)
+        checkPassword(userNamePass)
+
         if (database!!.checkUser(edtUserNameEmail!!.text.toString().trim { it <= ' ' }, editPass!!.text.toString().trim { it <= ' ' })) {
             val accountsIntent = Intent(activity, com.appveg.farmfamily.MainActivity::class.java)
             // accountsIntent.putExtra("EMAIL", textInputEditTextEmail!!.text.toString().trim { it <= ' ' })
             emptyInputEditText()
             startActivity(accountsIntent)
         }else{
-            Toast.makeText(applicationContext,getString(R.string.error_common_email_password),
+            Toast.makeText(applicationContext,getString(R.string.error_username_pass_invalid),
                 Toast.LENGTH_LONG).show()
         }
 
+    }
+    /**
+     * This method is to check email
+     */
+    private fun checkEmail(check: String) : Boolean {
+        if (check.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(check).matches()) {
+            edtUserNameEmail.error = getString(R.string.error_empty_common)
+            return false
+        }
+        return true
+    }
+    /**
+     * This method is to password
+     */
+    private fun checkPassword(check: String) : Boolean {
+        if (check.isEmpty()) {
+            editPass.error = getString(R.string.error_empty_common)
+            return false
+        }
+        return true
     }
 
     /**

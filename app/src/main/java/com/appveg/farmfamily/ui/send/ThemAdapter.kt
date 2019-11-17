@@ -5,18 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.TextView
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.vegetable.VegetableTemp
 
 class ThemAdapter(private val context: Context, private val dotRau: ArrayList<VegetableTemp>) : BaseAdapter() {
 
-//      var vegetableTemp: ArrayList<VegetableTemp> = ArrayList()
-//    fun updateReceiptsList(newlist: ArrayList<VegetableTemp>) {
-//        vegetableTemp.clear()
-//        vegetableTemp.addAll(newlist)
-//        this.notifyDataSetChanged()
-//    }
     override fun getCount(): Int {
         return dotRau.size
     }
@@ -68,7 +63,11 @@ class ThemAdapter(private val context: Context, private val dotRau: ArrayList<Ve
         return view as View
 
     }
-
+    fun removeItemPosition(position: Int) : ArrayList<VegetableTemp>{
+        var vegetableTemp : VegetableTemp = getItem(position) as VegetableTemp
+        dotRau.remove(vegetableTemp)
+        return dotRau
+    }
 
 }
 

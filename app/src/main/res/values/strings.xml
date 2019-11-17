@@ -58,6 +58,7 @@
     <string name="batch_add_success">Insert Data Successfully</string>
     <string name="batch_add_failed">Insert Data failed</string>
     <string name="error_end_date_batch">Enter Valid End Date</string>
+    <string name="error_name_batch">Enter Valid Name</string>
     <string name="error_message_age">Enter Age</string>
     <string name="error_message_password">Enter Password</string>
     <string name="error_message_confirm_password">Enter Password</string>
@@ -71,4 +72,32 @@
     <string name="error_common_email_password">Email and password are incorrect!</string>
     <!--the end by vu-->
 
+    <!--Login-->
+    <string name="status_login_vi">Lưu trạng thái đăng nhập</string>
+    <string name="user_name_login_vi">Nhập email...</string>
+    <string name="password_login_vi">Nhập mật khẩu...</string>
+    <string name="sign_up_vi">Đăng ký</string>
+    <string name="login_vi">Đăng nhập</string>
+    <string name="forgot_pass_vi">Quên mật khẩu ?</string>
+    <!--the end login-->
+
+    <!--Sign up-->
+    <string name="gender_vi">Giới tính</string>
+    <string name="user_name_vi">Tên Đăng nhập</string>
+    <string name="full_name_vi">Tên đầy đủ</string>
+    <string name="passowrd_vi">nhập mật khẩu</string>
+    <string name="confirm_passoword_vi">nhập lại mật khẩu</string>
+    <string name="already_user_vi">Bạn đã có tài khoản? đăng nhập ngay.</string>
+    <!--the end sign up-->
+
+    <!--quantity-->
+    <string name="add_vi">Thêm</string>
+    <string name="cancel_vi">Hủy</string>
+    <string name="add_veg_vi">Thêm chi tiết</string>
+    <!--The end quantity-->
+
+    <!--error VI-->
+    <string name="error_empty_common">Trường này không được để trống !</string>
+    <string name="error_username_pass_invalid">Tên đăng nhập hoặc mật khẩu không đúng !</string>
+    <!--The end error-->
 </resources>
