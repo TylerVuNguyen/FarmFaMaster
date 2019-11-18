@@ -10,9 +10,8 @@
 
 <!--    mau gach chan -->
 <!--    <color name="colorAccent">#df546e</color>-->
-
-    <color name="colorAccent">#00A695</color>
-
+<!--    <color name="colorAccent">#CDDC39</color>-->
+    <color name="colorQuantity">#0092A6</color>
 
 
     <color name="background_color">#009688</color>

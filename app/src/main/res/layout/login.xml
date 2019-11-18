@@ -70,8 +70,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginLeft="4dp"
                 android:textColor="#FFFFFF"
-                android:padding="8dp"
+                android:paddingLeft="8dp"
                 android:textStyle="italic"
                 android:text="@string/status_login_vi"
                 />

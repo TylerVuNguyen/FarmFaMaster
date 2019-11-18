@@ -19,7 +19,6 @@ class SignUpActivity  : AppCompatActivity() {
     private lateinit var confirmPassword: EditText
 
     private lateinit var already_user: TextView
-    private lateinit var errorCommon: TextView
 
     private lateinit var btSignup: Button
 
@@ -38,10 +37,6 @@ class SignUpActivity  : AppCompatActivity() {
         email = findViewById(R.id.userEmailId)
         password = findViewById(R.id.password)
         confirmPassword = findViewById(R.id.confirmPassword)
-
-
-        //text view
-        errorCommon = findViewById(R.id.errorCommon)
 
         //button
         already_user = findViewById(R.id.already_user)
@@ -76,40 +71,92 @@ class SignUpActivity  : AppCompatActivity() {
         val userPassword = password.text.toString().trim()
         val userConfirmPass = confirmPassword.text.toString().trim()
 
+        // radio button gender
         val userSelectedID : Int = radioGenderGroup.checkedRadioButtonId
         val userRadioGenderGroup = findViewById(userSelectedID) as RadioButton
         val userGenderGroup = userRadioGenderGroup.text.toString().trim()
 
+        // validate
+        var checkFullName = checkFullName(userFullName)
+        var checkEmail = checkEmail(userEmail)
+        var checkPassword = checkPassword(userPassword)
+        var checkConfirmPass = checkConfirmPassword(userConfirmPass)
 
-
-        if (userFullName.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
-            email.error = getString(R.string.error_message_email)
-        }else if (userFullName.isEmpty()) {
-            fullName.error = getString(R.string.error_message_name)
-        }else if (userPassword.isEmpty()){
-            password.error = getString(R.string.error_message_password)
-        }else if (userConfirmPass.isEmpty()){
-            password.error = getString(R.string.error_message_confirm_password)
+        var checkMatchPass: Boolean = false
+        if(checkPassword && checkConfirmPass){
+            checkMatchPass = checkMatchPass(userPassword,userConfirmPass)
         }
 
-        if (!userPassword.contentEquals(userConfirmPass)) {
-            password.error = getString(R.string.error_password_match)
-            confirmPassword.error = getString(R.string.error_password_match)
-        }
+        if(checkFullName && checkEmail && checkConfirmPass && checkPassword && checkMatchPass){
+            // if checked all then add user
+            // new user
+            var user : User = User(null,null,userFullName,userEmail,userPassword,userGenderGroup,1,"admin",null)
+            if(user != null){
+                try {
+                    database!!.addUser(user)
+                    Toast.makeText(applicationContext,getString(R.string.sign_up_success),
+                        Toast.LENGTH_LONG).show()
+                }catch (e : Exception){
+                    Log.d("AAA",e.message)
+                }
 
-        // if checked all then add user
-        // new user
-
-        var user : User = User(null,null,userFullName,userEmail,userPassword,userGenderGroup,1,"admin",null)
-        if(user != null){
-            try {
-                database!!.addUser(user)
-                errorCommon.text = getString(R.string.success_message)
-            }catch (e : Exception){
-                Log.d("AAA",e.message)
             }
-
         }
 
+
+    }
+
+    /**
+     * This method is to email
+     */
+    private fun checkEmail(check: String) : Boolean {
+        if (check.isEmpty()) {
+            email.error = getString(R.string.error_empty_common)
+            return false
+        }else if(!Patterns.EMAIL_ADDRESS.matcher(check).matches()){
+            email.error = getString(R.string.error_invalid_email)
+            return false
+        }
+        return true
+    }
+    /**
+     * This method is to full name
+     */
+    private fun checkFullName(check: String) : Boolean {
+        if (check.isEmpty()) {
+            fullName.error = getString(R.string.error_empty_common)
+            return false
+        }
+        return true
+    }
+    /**
+     * This method is to password
+     */
+    private fun checkPassword(check: String) : Boolean {
+        if (check.isEmpty()) {
+            password.error = getString(R.string.error_empty_common)
+            return false
+        }
+        return true
+    }
+    /**
+     * This method is to confirmPassword
+     */
+    private fun checkConfirmPassword(check: String) : Boolean {
+        if (check.isEmpty()) {
+            confirmPassword.error = getString(R.string.error_empty_common)
+            return false
+        }
+        return true
+    }
+    /**
+     * This method is to checkMatchPass
+     */
+    private fun checkMatchPass(check1: String,check2: String) : Boolean {
+        if (!check1.equals(check2)) {
+            confirmPassword.error = getString(R.string.error_match_password)
+            return false
+        }
+        return true
     }
 }

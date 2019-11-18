@@ -98,6 +98,9 @@
 
     <!--error VI-->
     <string name="error_empty_common">Trường này không được để trống !</string>
+    <string name="error_match_password">Mật khẩu đăng ký không khớp !</string>
+    <string name="error_invalid_email">Trường email không hợp lệ !</string>
+    <string name="sign_up_success">Đăng ký thành công !</string>
     <string name="error_username_pass_invalid">Tên đăng nhập hoặc mật khẩu không đúng !</string>
     <!--The end error-->
 </resources>
