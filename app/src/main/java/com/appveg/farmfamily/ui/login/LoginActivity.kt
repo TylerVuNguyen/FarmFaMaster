@@ -3,7 +3,6 @@ package com.appveg.farmfamily.ui.login
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -11,7 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
-import kotlinx.android.synthetic.main.activity_them_dot_san_luong.*
 
 class LoginActivity  : AppCompatActivity() {
     private val activity = this@LoginActivity
@@ -42,9 +40,9 @@ class LoginActivity  : AppCompatActivity() {
 
 
         btLogin.setOnClickListener{
-          verifyFromSQLite()
-//            val intent: Intent = Intent(this, com.appveg.farmfamily.MainActivity::class.java)
-//            startActivity(intent)
+          //verifyFromSQLite()
+            val intent: Intent = Intent(this, com.appveg.farmfamily.MainActivity::class.java)
+            startActivity(intent)
         }
 
         btSignup.setOnClickListener{

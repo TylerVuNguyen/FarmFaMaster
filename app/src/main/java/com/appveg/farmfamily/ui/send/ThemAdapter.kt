@@ -8,6 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.TextView
 import com.appveg.farmfamily.R
+import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.vegetable.VegetableTemp
 
 class ThemAdapter(private val context: Context, private val dotRau: ArrayList<VegetableTemp>) : BaseAdapter() {
@@ -34,8 +35,6 @@ class ThemAdapter(private val context: Context, private val dotRau: ArrayList<Ve
         init {
             this.rau_name = row?.findViewById(R.id.txt_rau) as TextView
             this.rau_soluong = row?.findViewById(R.id.txtsoluong) as TextView
-
-
         }
 
     }
@@ -63,9 +62,14 @@ class ThemAdapter(private val context: Context, private val dotRau: ArrayList<Ve
         return view as View
 
     }
+    /*remove in dotRau and remove item in database*/
     fun removeItemPosition(position: Int) : ArrayList<VegetableTemp>{
+        var database = Database(context)
         var vegetableTemp : VegetableTemp = getItem(position) as VegetableTemp
         dotRau.remove(vegetableTemp)
+        if(vegetableTemp.vegId != null && vegetableTemp.vegId != -1){
+            database.deleteBatchDetailByBatchDetailId(vegetableTemp.vegId!!)
+        }
         return dotRau
     }
 

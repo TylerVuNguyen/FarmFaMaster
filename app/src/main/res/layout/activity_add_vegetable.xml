@@ -62,8 +62,8 @@
 
                 <ImageView
                     android:id="@+id/addveg_img2"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
                     android:padding="7dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/raucai" />
@@ -95,8 +95,8 @@
 
                 <ImageView
                     android:id="@+id/addveg_img3"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
                     android:padding="7dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/xuplo" />
@@ -111,8 +111,8 @@
 
                 <ImageView
                     android:id="@+id/addveg_addImageVeg"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
                     android:padding="10dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_menu_gallery" />

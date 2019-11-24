@@ -13,21 +13,9 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.appveg.farmfamily.ui.gallery.GalleryFragment"
+        android:name="com.appveg.farmfamily.ui.garden.GalleryFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.appveg.farmfamily.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-
-    <fragment
-        android:id="@+id/nav_tools"
-        android:name="com.appveg.farmfamily.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
 
     <fragment
         android:id="@+id/nav_share"
@@ -53,4 +41,9 @@
         android:name="com.appveg.farmfamily.ui.vegetable.VegetableFragment"
         android:label="@string/menu_vegetable"
         tools:layout="@layout/fragment_vegetable" />
+    <fragment
+        android:id="@+id/nav_device"
+        android:name="com.appveg.farmfamily.ui.device.DeviceFragment"
+        android:label="@string/menu_device"
+        tools:layout="@layout/fragment_device" />
 </navigation>

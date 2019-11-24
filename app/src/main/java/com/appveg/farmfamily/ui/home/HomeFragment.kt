@@ -8,6 +8,7 @@ import android.widget.GridView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.appveg.farmfamily.R
+import com.appveg.farmfamily.ui.garden.GardenCustom
 
 class HomeFragment : Fragment() {
 
@@ -28,36 +29,36 @@ class HomeFragment : Fragment() {
         grid.adapter = this.activity?.let {KhuVuonAdapter (it, kvList) }
 
         grid.setOnItemClickListener { adapterView, view, i, l ->
-            Toast.makeText(this.activity, " Selected Company is = "+ kvList.get(i).khuvuon_name , Toast.LENGTH_SHORT).show()
+            Toast.makeText(this.activity, " Selected Company is = "+ kvList.get(i).gardenName , Toast.LENGTH_SHORT).show()
         }
         return root.rootView
 
     }
 
-    private fun generateCompanyData(): ArrayList<TypeDevice> {
-        var result = ArrayList<TypeDevice>()
-        var kv:  TypeDevice = TypeDevice()
-        kv.khuvuon_id = 1
-        kv.khuvuon_name = "Khu vườn 1"
-        kv.khuvuon_photo = R.drawable.kv2
+    private fun generateCompanyData(): ArrayList<GardenCustom> {
+        var result = ArrayList<GardenCustom>()
+        var kv:  GardenCustom = GardenCustom()
+        kv.gardenId = 1
+        kv.gardenName = "Khu vườn 1"
+        kv.gardenImage = R.drawable.kv2
         result.add(kv)
 
-        kv = TypeDevice()
-        kv.khuvuon_id = 2
-        kv.khuvuon_name = "Khu vườn 2"
-        kv.khuvuon_photo = R.drawable.kv2
+        kv = GardenCustom()
+        kv.gardenId = 2
+        kv.gardenName = "Khu vườn 2"
+        kv.gardenImage = R.drawable.kv2
         result.add(kv)
 
-        kv = TypeDevice()
-        kv.khuvuon_id = 3
-        kv.khuvuon_name = "Khu vườn 3"
-        kv.khuvuon_photo = R.drawable.kv2
+        kv = GardenCustom()
+        kv.gardenId = 3
+        kv.gardenName = "Khu vườn 3"
+        kv.gardenImage = R.drawable.kv2
         result.add(kv)
 
-        kv = TypeDevice()
-        kv.khuvuon_id = 4
-        kv.khuvuon_name = "Khu vườn 4"
-        kv.khuvuon_photo = R.drawable.kv2
+        kv = GardenCustom()
+        kv.gardenId = 4
+        kv.gardenName = "Khu vườn 4"
+        kv.gardenImage = R.drawable.kv2
         result.add(kv)
 
         return result

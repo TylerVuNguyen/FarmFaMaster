@@ -74,4 +74,36 @@ class BatchQtyDetail {
         this.createdBy = createdBy
         this.createdDate = createdDate
     }
+
+    constructor(
+        qtyDetailId: Int?,
+        vegetableName: String?,
+        vegetableQuantity: String?,
+        updatedBy: String?
+    ) {
+        this.qtyDetailId = qtyDetailId
+        this.qtyId = qtyId
+        this.vegetableName = vegetableName
+        this.vegetableQuantity = vegetableQuantity
+        this.updatedBy = updatedBy
+    }
+    constructor()
+
+    constructor(
+        qtyDetailId: Int?,
+        qtyId: Int?,
+        vegetableName: String?,
+        vegetableQuantity: String?,
+        createdBy: String?,
+        updatedBy: String?,
+        updatedDate: String?
+    ) {
+        this.qtyDetailId = qtyDetailId
+        this.qtyId = qtyId
+        this.vegetableName = vegetableName
+        this.vegetableQuantity = vegetableQuantity
+        this.createdBy = createdBy
+        this.updatedBy = updatedBy
+        this.updatedDate = updatedDate
+    }
 }

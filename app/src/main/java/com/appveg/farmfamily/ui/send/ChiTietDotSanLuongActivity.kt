@@ -1,5 +1,7 @@
 package com.appveg.farmfamily.ui.send
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,27 +12,26 @@ import com.baoyz.swipemenulistview.SwipeMenuItem
 import com.baoyz.swipemenulistview.SwipeMenuListView
 import kotlinx.android.synthetic.main.activity_chi_tiet_san_luong.*
 import android.widget.Toast
+import com.appveg.farmfamily.ui.database.Database
 
 
 class ChiTietDotSanLuongActivity : AppCompatActivity() {
+
+    private val activity = this@ChiTietDotSanLuongActivity
+
+    private lateinit var database: Database
+
+    var bactchList: ArrayList<BatchCustom> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chi_tiet_san_luong)
 
-//action listview
-        val listRau = generateDotRauData()
-
-        list_view.adapter = this?.let { ChiTietAdapter(it, listRau) }
+        getListBatch()
 
         list_view.setOnItemClickListener { adapterView, view, i, l ->
-            if (listRau.get(i).dotRau_id == 1) {
-                var intent: Intent = Intent(this, ChiTietSanLuongRauActivity::class.java);
-                startActivity(intent);
-            }
-
+            getForwardDataDetail(i)
         }
-
 
         //swipemenulistview
         val creator = SwipeMenuCreator { menu ->
@@ -82,15 +83,32 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
             override fun onMenuItemClick(position: Int, menu: SwipeMenu, index: Int): Boolean {
                 when (index) {
                     0 -> {
-                        var intent: Intent = Intent(applicationContext, SuaDotSanLuongActivity::class.java);
-                        startActivity(intent);
+                       getForwardData(position)
                     }
                     1 -> {
-                        Toast.makeText(
-                            this@ChiTietDotSanLuongActivity,
-                            listRau[position].toString(),
-                            Toast.LENGTH_LONG
-                        ).show()
+                        // build alert dialog
+                        val dialogBuilder = AlertDialog.Builder(activity)
+
+                        // set message of alert dialog
+                        dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
+                            // if the dialog is cancelable
+                            .setCancelable(false)
+                            // positive button text and action
+                            .setPositiveButton("Có", DialogInterface.OnClickListener {
+                                    dialog, id -> removeBatch(position)
+                            })
+                            // negative button text and action
+                            .setNegativeButton("Hủy", DialogInterface.OnClickListener {
+                                    dialog, id -> dialog.cancel()
+                            })
+
+                        // create dialog box
+                        val alert = dialogBuilder.create()
+                        // set title for alert dialog box
+                        alert.setTitle("Xóa đợt sản lượng")
+                        // show alert dialog
+                        alert.show()
+
                     }
                 }// open
                 // delete
@@ -100,41 +118,80 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
         })
 
 
-//su kien them san luong
-        themDotSanLuong.setOnClickListener {
+    //su kien them san luong
+    themDotSanLuong.setOnClickListener {
+        var  intent: Intent  = Intent(activity, ThemDotSanLuongActivity::class.java)
+        intent.putExtra("garden_id",getDataFromItent())
+        activity.finish()
+        startActivity(intent)
+        }
+    }
 
-            var intent: Intent = Intent(this, ThemDotSanLuongActivity::class.java);
-            startActivity(intent);
+    /**
+     * the method to get data from intent
+     */
+    private fun getDataFromItent() : Int {
+        val bundle:Bundle = intent.extras
+        val id: Int =
+            bundle.get("garden_id") as Int
+        return id
+
+    }
+    /**
+     * the method to removeBatch
+     */
+    private fun removeBatch(position: Int) {
+        database = Database(activity)
+        var batch_id = database.deleteBatch(bactchList[position].batchId!!.toInt())
+        bactchList.remove(bactchList[position])
+        if (batch_id != null) {
+            Toast.makeText(
+                this@ChiTietDotSanLuongActivity,
+                getString(R.string.deleted_veg_vi),
+                Toast.LENGTH_LONG
+            ).show()
+        }
+        list_view.adapter = ChiTietAdapter(activity, bactchList)
+    }
+    /**
+     * the method to display batch
+     */
+    fun getListBatch(){
+        var id = getDataFromItent()
+        database = Database(activity)
+        bactchList = database.viewBatchByGardenId(id)
+        if(bactchList.isNullOrEmpty()){
+            Toast.makeText(activity,"Dánh sách đợt đang trống !",Toast.LENGTH_LONG).show()
+        }else{
+            list_view.adapter = ChiTietAdapter(activity, bactchList)
         }
     }
 
 
-    private fun generateDotRauData(): ArrayList<DotRau> {
-        var result = ArrayList<DotRau>()
-        var dr: DotRau = DotRau()
-        dr.dotRau_id = 1
-        dr.dotRau_name = "Đợt 1 "
-        dr.dotRau_photo = R.drawable.kv2
-        result.add(dr)
-
-        dr = DotRau()
-        dr.dotRau_id = 2
-        dr.dotRau_name = "Đợt 2 "
-        dr.dotRau_photo = R.drawable.kv2
-        result.add(dr)
-
-        dr = DotRau()
-        dr.dotRau_id = 3
-        dr.dotRau_name = "Đợt 3 "
-        dr.dotRau_photo = R.drawable.kv2
-        result.add(dr)
-
-        dr = DotRau()
-        dr.dotRau_id = 4
-        dr.dotRau_name = "Đợt 4 "
-        dr.dotRau_photo = R.drawable.kv2
-        result.add(dr)
-
-        return result
+    /**
+     * the method to itent data for batch and batch detail
+     */
+    fun getForwardData(position: Int){
+        var gardenIdForward = getDataFromItent()
+        var batch_id = bactchList[position].batchId!!.toInt()
+        var intent: Intent = Intent(applicationContext, SuaDotSanLuongActivity::class.java)
+        intent.putExtra("garden_id",gardenIdForward)
+        intent.putExtra("batch_id",batch_id)
+        activity.finish()
+        startActivity(intent)
     }
+
+    /**
+     * the method to itent data for batch and batch detail
+     */
+    fun getForwardDataDetail(position: Int){
+            var intent: Intent = Intent(activity, ChiTietSanLuongRauActivity::class.java)
+            intent.putExtra("garden_id",getDataFromItent())
+            intent.putExtra("batch_id",bactchList.get(position).batchId)
+            activity.finish()
+            startActivity(intent)
+    }
+
 }
+
+

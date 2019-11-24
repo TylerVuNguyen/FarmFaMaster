@@ -3,16 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- border -->
-    <stroke
-        android:width="2dp"
-        android:color="#00574B"
-        />
-
-    <!--    <gradient-->
-    <!--        android:startColor="#0092A6"-->
-    <!--        android:centerColor="#0092A6"-->
-    <!--        android:endColor="#0092A6"-->
+    <!--    <stroke-->
+    <!--        android:width="2dp"-->
+    <!--     -->
     <!--        />-->
+
+    <gradient
+        android:startColor="#0092A6"
+        android:centerColor="#0092A6"
+        android:endColor="#0092A6"
+        />
 
     <corners
         android:radius="25dp" />
@@ -25,6 +25,6 @@
         android:bottom="2dp"/>
 
     <!--    border-->
-    <solid android:color="#00ACC1"/>
+    <!--    <solid android:color="#00ACC1"/>-->
 
 </shape>

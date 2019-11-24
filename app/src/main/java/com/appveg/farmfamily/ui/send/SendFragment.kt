@@ -1,7 +1,6 @@
 package com.appveg.farmfamily.ui.send
 
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,17 +8,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.GridView
 
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 import com.appveg.farmfamily.R
-import com.appveg.farmfamily.ui.home.TypeDevice
-import com.appveg.farmfamily.ui.home.KhuVuonAdapter
+import com.appveg.farmfamily.ui.database.Database
+import com.appveg.farmfamily.ui.garden.GardenCustom
 
 
 class SendFragment : Fragment() {
-
     private lateinit var sendViewModel: SendViewModel
+
+    private lateinit var database: Database
+
+    var gardenList: ArrayList<GardenCustom> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,63 +30,29 @@ class SendFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_send, container, false)
 
         var grid = root.findViewById<GridView>(R.id.fragment_qlkv)
-        var kvList = this.generateCompanyData()
+        gardenList = getAllGardens()
 
-        grid.adapter = this.activity?.let { KhuVuonAdapter (it, kvList) }
+        grid.adapter = this.activity?.let { GardenOfQtyApdapter(it, gardenList) }
 
 
 
         grid.setOnItemClickListener { adapterView, view, i, l ->
-            if(kvList.get(i).khuvuon_id == 1){
-             var  intent: Intent  = Intent(this.context, ChiTietDotSanLuongActivity::class.java);
-                startActivity(intent);
-                Toast.makeText(this.activity, " Selected khu vuon is = "+ kvList.get(i).khuvuon_name , Toast.LENGTH_SHORT).show()
-
-            }
-
-
+            var intent: Intent = Intent(this.context, ChiTietDotSanLuongActivity::class.java)
+            var id: Int? = gardenList.get(i).gardenId
+            intent.putExtra("garden_id", id)
+            startActivity(intent)
         }
-
-
-
         return root.rootView
     }
 
-
     //list khu vuon
-    private fun generateCompanyData(): ArrayList<TypeDevice> {
-        var result = ArrayList<TypeDevice>()
-        var kv: TypeDevice = TypeDevice()
-        kv.khuvuon_id = 1
-        kv.khuvuon_name = "Khu vườn 1"
-        kv.khuvuon_photo = R.drawable.kv2
-        result.add(kv)
-
-        kv = TypeDevice()
-        kv.khuvuon_id = 2
-        kv.khuvuon_name = "Khu vườn 2"
-        kv.khuvuon_photo = R.drawable.kv2
-        result.add(kv)
-
-        kv = TypeDevice()
-        kv.khuvuon_id = 3
-        kv.khuvuon_name = "Khu vườn 3"
-        kv.khuvuon_photo = R.drawable.kv2
-        result.add(kv)
-
-        kv = TypeDevice()
-        kv.khuvuon_id = 4
-        kv.khuvuon_name = "Khu vườn 4"
-        kv.khuvuon_photo = R.drawable.kv2
-        result.add(kv)
-
-        return result
+    private fun getAllGardens(): ArrayList<GardenCustom> {
+        database = Database(activity)
+        gardenList = database.findAllGarden()
+        return gardenList
     }
-
-
-
-
 }
+
 
 
 

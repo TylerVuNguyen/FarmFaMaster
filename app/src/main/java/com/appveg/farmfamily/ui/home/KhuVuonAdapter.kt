@@ -9,15 +9,16 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.appveg.farmfamily.R
+import com.appveg.farmfamily.ui.garden.GardenCustom
 
-class KhuVuonAdapter(private var activity: Activity, private var items: ArrayList<TypeDevice>) :  BaseAdapter(){
+class KhuVuonAdapter(private var activity: Activity, private var items: ArrayList<GardenCustom>) :  BaseAdapter(){
     private class ViewHolder(row: View?) {
         var kvName: TextView? = null
         var kvCamera: ImageView? = null
 
         init {
-            this.kvName = row?.findViewById<TextView>(R.id.name_kv)
-            this.kvCamera = row?.findViewById<ImageView>(R.id.img_kv)
+            this.kvName = row?.findViewById(R.id.name_kv)
+            this.kvCamera = row?.findViewById(R.id.img_kv)
         }
     }
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -32,13 +33,13 @@ class KhuVuonAdapter(private var activity: Activity, private var items: ArrayLis
             view = convertView
             viewHolder = view.tag as ViewHolder
         }
-        var khuVuon = items[position]
-        viewHolder.kvName?.text = khuVuon.khuvuon_name
-        viewHolder.kvCamera?.setImageResource(khuVuon.khuvuon_photo!!)
+        var garden = items[position]
+        viewHolder.kvName?.text = garden.gardenName
+        viewHolder.kvCamera?.setImageResource(garden.gardenImage!!)
 
-        return view as View
+        return view
     }
-    override fun getItem(i: Int): TypeDevice {
+    override fun getItem(i: Int): GardenCustom {
         return items[i]
     }
     override fun getItemId(i: Int): Long {

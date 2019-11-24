@@ -46,7 +46,8 @@
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
-                       />
+                        android:maxLines="1"
+                        />
                 </TableRow>
 
 
@@ -70,6 +71,7 @@
                     <EditText
                         android:id="@+id/textViewPickStart"
                         android:layout_width="match_parent"
+                        android:maxLines="1"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
                         />
@@ -97,6 +99,7 @@
                         android:id="@+id/textViewPickKT"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:maxLines="1"
                         android:layout_marginLeft="30dp" />
                 </TableRow>
 
@@ -163,13 +166,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nhập số sản lượng" />
+                        android:text="Nhập số sản lượng(kg)" />
 
                     <EditText
                         android:id="@+id/txt_qtyVeg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
+                        android:maxLines="1"
+                        android:maxLength="7"
                         android:drawableLeft="@color/colorPrimary"
                         android:focusable="true"
                         android:inputType="number" />
@@ -259,47 +264,95 @@
             </LinearLayout>
 
 
-            <TableLayout
-                android:layout_width="match_parent"
+            <!--            <TableLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="bottom"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:gravity="bottom"-->
+            <!--                android:paddingLeft="10dp"-->
+            <!--                android:paddingRight="10dp"-->
+            <!--                android:paddingBottom="10dp"-->
+            <!--                android:stretchColumns="* ">-->
+
+            <!--                <TableRow-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="bottom"-->
+            <!--                    android:gravity="bottom">-->
+
+            <!--                    <Button-->
+            <!--                        android:id="@+id/addAllQty"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:background="@drawable/border_them"-->
+            <!--                        android:padding="2dp"-->
+            <!--                        android:text="@string/add_vi"-->
+            <!--                        android:textColor="#FFFFFF"-->
+            <!--                        android:textAllCaps="false"/>-->
+
+            <!--                    <Button-->
+            <!--                        android:id="@+id/cancel_action"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginLeft="10dp"-->
+            <!--                        android:background="@drawable/background_signup"-->
+            <!--                        android:padding="2dp"-->
+            <!--                        android:text="@string/cancel_vi"-->
+            <!--                        android:textColor="#FFFFFF"-->
+            <!--                        android:textAllCaps="false"/>-->
+
+            <!--                </TableRow>-->
+
+            <!--            </TableLayout>-->
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginTop="10dp"
-                android:gravity="bottom"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="10dp"
-                android:stretchColumns="* ">
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorPrimary"
+                android:orientation="horizontal"
+                android:paddingTop="8dp"
+                android:paddingBottom="5dp">
 
-                <TableRow
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/backQty"
+                    style="@style/Button"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:gravity="bottom">
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:drawableTop="@drawable/btn_back"
+                    android:text="Trở về"
+                    android:textColor="@android:color/white" />
 
-                    <Button
-                        android:id="@+id/addAllQty"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border_them"
-                        android:padding="2dp"
-                        android:text="@string/add_vi"
-                        android:textColor="#FFFFFF"
-                        android:textAllCaps="false"/>
+                <Button
+                    android:id="@+id/addQty"
+                    style="@style/Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:drawableTop="@drawable/ic_add2"
+                    android:text="Thêm"
+                    android:textColor="@android:color/white" />
 
-                    <Button
-                        android:id="@+id/cancel_action"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:background="@drawable/background_signup"
-                        android:padding="2dp"
-                        android:text="@string/cancel_vi"
-                        android:textColor="#FFFFFF"
-                        android:textAllCaps="false"/>
 
-                </TableRow>
-
-            </TableLayout>
+                <Button
+                    android:id="@+id/cancel_action"
+                    style="@style/Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:drawableTop="@drawable/ic_cancel"
+                    android:text="Huỷ"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </RelativeLayout>

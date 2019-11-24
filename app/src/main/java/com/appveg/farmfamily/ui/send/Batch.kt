@@ -1,6 +1,8 @@
 package com.appveg.farmfamily.ui.send
 
-class Batch {
+import java.io.Serializable
+
+class Batch : Serializable {
     var batchId: Int? = null
     var batchImage: String? = ""
     var batchName: String? = ""
@@ -37,6 +39,43 @@ class Batch {
 
     constructor(
         batchId: Int?,
+        batchName: String?,
+        theEndDate: String?,
+        totalQuantity: String?,
+        createdDate: String?,
+        updatedBy: String?,
+        updatedDate: String?
+    ) {
+        this.batchId = batchId
+        this.batchName = batchName
+        this.theEndDate = theEndDate
+        this.totalQuantity = totalQuantity
+        this.createdDate = createdDate
+        this.updatedBy = updatedBy
+        this.updatedDate = updatedDate
+    }
+    constructor(
+        batchId: Int?,
+        batchName: String?,
+        theEndDate: String?,
+        totalQuantity: String?,
+        gardenId: Int?,
+        createdDate: String?,
+        updatedBy: String?,
+        updatedDate: String?
+    ) {
+        this.batchId = batchId
+        this.batchName = batchName
+        this.theEndDate = theEndDate
+        this.totalQuantity = totalQuantity
+        this.gardenId = gardenId
+        this.createdDate = createdDate
+        this.updatedBy = updatedBy
+        this.updatedDate = updatedDate
+    }
+
+    constructor(
+        batchId: Int?,
         batchImage: String?,
         batchName: String?,
         theEndDate: String?,
@@ -64,5 +103,6 @@ class Batch {
         this.deletedDate = deletedDate
         this.deletedFlag = deletedFlag
     }
+    constructor()
 
 }

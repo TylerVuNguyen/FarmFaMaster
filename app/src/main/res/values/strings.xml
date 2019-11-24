@@ -7,13 +7,12 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
+    <string name="menu_home">Trang chủ</string>
     <string name="menu_gallery">Quản lý khu vườn </string>
-    <string name="menu_slideshow">Quản lý thiết bị </string>
-    <string name="menu_tools">Quản lý vườn </string>
     <string name="menu_share">Quản lý khối lượng </string>
     <string name="menu_send">Quản lý sản lượng </string>
     <string name="menu_vegetable">Quản lý rau  </string>
+    <string name="menu_device">Quản lý thiết bị  </string>
     <string name="menu_thamso">Quản lý tham số </string>
 
     <string name="email">Email </string>
@@ -94,6 +93,11 @@
     <string name="add_vi">Thêm</string>
     <string name="cancel_vi">Hủy</string>
     <string name="add_veg_vi">Thêm chi tiết</string>
+    <string name="deleted_veg_vi">Xóa thành công!</string>
+    <string name="insert_data_success_vi">Thêm sản lượng thành công !</string>
+    <string name="update_data_success_vi">cập nhật sản lượng thành công !</string>
+    <string name="insert_data_fail_vi">Thêm sản lượng thành công !</string>
+    <string name="update_data_fail_vi">cập nhật sản lượng thành công !</string>
     <!--The end quantity-->
 
     <!--error VI-->
@@ -103,4 +107,18 @@
     <string name="sign_up_success">Đăng ký thành công !</string>
     <string name="error_username_pass_invalid">Tên đăng nhập hoặc mật khẩu không đúng !</string>
     <!--The end error-->
+
+    <!--common-->
+    <string name="choose_img_vi">Chọn hình ảnh</string>
+    <!--end common-->
+
+    <!--garden VI-->
+    <string name="name_kv_vi">Tên khu vườn</string>
+    <!--garden VI-->
+
+    <!--garden VI-->
+    <string name="name_device_vi">Tên thiết bị</string>
+    <string name="decription_device_vi">Mô tả thiết bị</string>
+    <!-- end garden VI-->
+
 </resources>

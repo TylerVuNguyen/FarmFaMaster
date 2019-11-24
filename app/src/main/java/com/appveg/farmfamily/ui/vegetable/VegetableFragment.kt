@@ -89,9 +89,9 @@ class VegetableFragment  : Fragment() {
             override fun onMenuItemClick(position: Int, menu: SwipeMenu, index: Int): Boolean {
                 when (index) {
                     0 -> {
-//                        var intent: Intent = Intent(requireContext(), SuaDotSanLuongActivity::class.java);
-//                        startActivity(intent);
-                        Toast.makeText(requireContext(), listVeg[position].toString(), Toast.LENGTH_LONG).show()
+                        var intent: Intent = Intent(requireContext(), EditVegetableActivity::class.java);
+                        startActivity(intent)
+//                        Toast.makeText(requireContext(), listVeg[position].toString(), Toast.LENGTH_LONG).show()
                     }
                     1 -> {
                         Toast.makeText(requireContext(), listVeg[position].toString(), Toast.LENGTH_LONG).show()

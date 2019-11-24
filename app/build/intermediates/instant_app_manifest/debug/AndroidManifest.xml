@@ -21,6 +21,8 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity" />
+        <activity android:name="com.appveg.farmfamily.ui.garden.AddDeviceForGardenActivity" />
         <activity
             android:name="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity"
             android:label="Thêm rau"
@@ -30,69 +32,55 @@
                 android:value="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity" />
         </activity>
         <activity
-            android:name="com.appveg.farmfamily.ui.slideshow.EditDeviceActivity"
+            android:name="com.appveg.farmfamily.ui.device.EditDeviceActivity"
             android:label="Sửa thiết bị"
-            android:parentActivityName="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" >
+            android:parentActivityName="com.appveg.farmfamily.ui.device.EditDeviceActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" />
+                android:value="com.appveg.farmfamily.ui.device.EditDeviceActivity" />
         </activity>
         <activity
-            android:name="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity"
-            android:label="Chi tiết thiết bị"
-            android:parentActivityName="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" >
+            android:name="com.appveg.farmfamily.ui.device.AddDeviceActivity"
+            android:label="Thêm thiết bị"
+            android:parentActivityName="com.appveg.farmfamily.ui.device.AddDeviceActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" />
+                android:value="com.appveg.farmfamily.ui.device.AddDeviceActivity" />
         </activity>
+        <!-- <activity -->
+        <!-- android:name=".ui.slideshow.DeviceDetailActivity" -->
+        <!-- android:label="Chi tiết thiết bị" -->
+        <!-- android:parentActivityName=".ui.slideshow.DeviceDetailActivity"> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.support.PARENT_ACTIVITY" -->
+        <!-- android:value="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" /> -->
+        <!-- </activity> -->
         <activity
-            android:name="com.appveg.farmfamily.ui.slideshow.AddDeviceActivity"
-            android:label="Thêm Thiết bị"
-            android:parentActivityName="com.appveg.farmfamily.ui.slideshow.AddDeviceActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.appveg.farmfamily.ui.slideshow.AddDeviceActivity" />
-        </activity>
-        <activity
-            android:name="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity"
+            android:name="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity"
             android:label="Thêm khu vườn"
-            android:parentActivityName="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" >
+            android:parentActivityName="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" />
+                android:value="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" />
         </activity>
         <activity
-            android:name="com.appveg.farmfamily.ui.gallery.SuaKhuVuonActivity"
+            android:name="com.appveg.farmfamily.ui.garden.SuaKhuVuonActivity"
             android:label="Sửa khu vườn"
-            android:parentActivityName="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" >
+            android:parentActivityName="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.appveg.farmfamily.ui.gallery.ThemKhuVuonActivity" />
+                android:value="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" />
         </activity>
         <activity
             android:name="com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity"
-            android:label="Sửa đợt sản lượng"
-            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
-        </activity>
+            android:label="Sửa đợt sản lượng" />
         <activity
             android:name="com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity"
-            android:label="Chi tiết sản lượng"
-            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
+            android:label="Chi tiết sản lượng" >
         </activity>
         <activity
             android:name="com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity"
-            android:label="Thêm đợt sản lượng "
-            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
-        </activity>
+            android:label="Thêm đợt sản lượng " />
         <activity
             android:name="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity"
             android:label="Danh sách đợt sản lượng"

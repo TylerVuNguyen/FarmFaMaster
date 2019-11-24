@@ -1,13 +1,12 @@
 package com.appveg.farmfamily.ui.send
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.appveg.farmfamily.R
 
-class ChiTietAdapter (private val context: Context, private val dotRau: ArrayList<DotRau>) : BaseAdapter() {
+class ChiTietAdapter(private val context: ChiTietDotSanLuongActivity, private val dotRau: ArrayList<BatchCustom>) : BaseAdapter() {
 
     fun remove(position: Int) {
         dotRau.removeAt(position)
@@ -61,9 +60,9 @@ class ChiTietAdapter (private val context: Context, private val dotRau: ArrayLis
             viewHolder = view.tag as ViewHolder
         }
 
-        var dotRau : DotRau = getItem(position) as DotRau
-        viewHolder.dotRau_name.text = dotRau.dotRau_name
-        viewHolder.img_dotRau.setImageResource(dotRau.dotRau_photo!!)
+        var dotRau : BatchCustom = getItem(position) as BatchCustom
+        viewHolder.dotRau_name.text = dotRau.batchName
+        viewHolder.img_dotRau.setImageResource(dotRau.batchImage!!)
 
         return view as View
 

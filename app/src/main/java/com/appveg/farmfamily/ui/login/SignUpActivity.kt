@@ -8,7 +8,6 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
-import kotlinx.android.synthetic.main.signup.*
 
 class SignUpActivity  : AppCompatActivity() {
     private val activity = this@SignUpActivity

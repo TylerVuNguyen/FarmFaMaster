@@ -17,7 +17,7 @@
 
             <TextView
                 android:id="@+id/txt_rau"
-                android:layout_width="70dp"
+                android:layout_width="65dp"
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:paddingLeft="15dp"
@@ -33,11 +33,10 @@
                 android:paddingLeft="-45dp"/>
 
             <TextView
-                android:id="@+id/delSL"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:paddingRight="25dp"
-                android:drawableRight="@drawable/ic_delete"/>
+                android:drawableRight="@drawable/ic_delete"
+                android:paddingRight="25dp" />
 
         </TableRow>
 
