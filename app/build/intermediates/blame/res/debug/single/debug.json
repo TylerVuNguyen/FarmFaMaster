@@ -100,12 +100,12 @@
         "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\a7ea359b13e47d272d2e3a7a1f418601\\appcompat-1.1.0\\res\\color\\abc_tint_switch_track.xml"
     },
     {
-        "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\anim_nav_default_pop_exit_anim.xml.flat",
-        "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\a289fdff7035245a94025185d579a4c2\\jetified-navigation-ui-2.0.0\\res\\anim\\nav_default_pop_exit_anim.xml"
-    },
-    {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\interpolator_btn_checkbox_checked_mtrl_animation_interpolator_1.xml.flat",
         "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\a7ea359b13e47d272d2e3a7a1f418601\\appcompat-1.1.0\\res\\interpolator\\btn_checkbox_checked_mtrl_animation_interpolator_1.xml"
+    },
+    {
+        "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\anim_nav_default_pop_exit_anim.xml.flat",
+        "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\a289fdff7035245a94025185d579a4c2\\jetified-navigation-ui-2.0.0\\res\\anim\\nav_default_pop_exit_anim.xml"
     },
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\interpolator_mtrl_fast_out_slow_in.xml.flat",
@@ -246,6 +246,10 @@
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_add2.png.flat",
         "source": "G:\\GITHUB\\FarmFaMaster\\app\\src\\main\\res\\drawable-xxhdpi\\ic_add2.png"
+    },
+    {
+        "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\drawable_imagecamera.png.flat",
+        "source": "G:\\GITHUB\\FarmFaMaster\\app\\src\\main\\res\\drawable\\imagecamera.png"
     },
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
@@ -1578,6 +1582,10 @@
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\anim_nav_default_enter_anim.xml.flat",
         "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\a289fdff7035245a94025185d579a4c2\\jetified-navigation-ui-2.0.0\\res\\anim\\nav_default_enter_anim.xml"
+    },
+    {
+        "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\drawable_imagegallery.png.flat",
+        "source": "G:\\GITHUB\\FarmFaMaster\\app\\src\\main\\res\\drawable\\imagegallery.png"
     },
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_edittext.xml.flat",

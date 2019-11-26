@@ -1,7 +1,9 @@
 package com.appveg.farmfamily.ui.send
 
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -48,7 +50,28 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
 
         /*event remove data for temp listview*/
         lv_themSL_edit.setOnItemClickListener { adapterView, view, i, l ->
-            removeDataListVeg(i)
+            // build alert dialog
+            val dialogBuilder = AlertDialog.Builder(activity)
+
+            // set message of alert dialog
+            dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
+                // if the dialog is cancelable
+                .setCancelable(false)
+                // positive button text and action
+                .setPositiveButton("Có", DialogInterface.OnClickListener {
+                        dialog, id -> removeDataListVeg(i)
+                })
+                // negative button text and action
+                .setNegativeButton("Hủy", DialogInterface.OnClickListener {
+                        dialog, id -> dialog.cancel()
+                })
+
+            // create dialog box
+            val alert = dialogBuilder.create()
+            // set title for alert dialog box
+            alert.setTitle("Xóa đợt sản lượng")
+            // show alert dialog
+            alert.show()
         }
 
         /*event cancel*/

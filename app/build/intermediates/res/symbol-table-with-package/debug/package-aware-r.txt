@@ -1123,6 +1123,8 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_person_white_24dp
+drawable imagecamera
+drawable imagegallery
 drawable img_border_room
 drawable kv2
 drawable mau_menu
@@ -1234,6 +1236,9 @@ id addQty
 id addQty_edit
 id addSoSL
 id addSoSL_edit
+id add_camera
+id add_image
+id add_veg
 id adddevice_addImageDevice
 id adddevice_img1
 id adddevice_img1_edit
@@ -1244,10 +1249,8 @@ id adddevice_img3_edit
 id adddevice_progressbar
 id adddevice_progressbar_edit
 id addroom_roomName
-id addveg_addImageVeg
 id addveg_addImageVeg_edit
 id addveg_btn_back_edit
-id addveg_btn_save
 id addveg_btn_save_edit
 id addveg_btn_update
 id addveg_img1
@@ -1256,6 +1259,9 @@ id addveg_img2
 id addveg_img2_edit
 id addveg_img3
 id addveg_img3_edit
+id addveg_img4
+id addveg_img5
+id addveg_img6
 id addveg_progressbar
 id addveg_progressbar_edit
 id addveg_vegName_edit
@@ -1291,6 +1297,7 @@ id buttonPanel
 id cancel_action
 id cancel_action_detail
 id cancel_action_edit
+id cancel_action_veg
 id center
 id center_horizontal
 id center_vertical
@@ -1430,6 +1437,7 @@ id parentPanel
 id parent_matrix
 id password
 id percent
+id photo_camera
 id pickDateBD
 id pickDateBD_KV
 id pickDateBD_edit
@@ -1471,6 +1479,7 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id selected
+id selected_image
 id shortcut
 id showCustom
 id showHome

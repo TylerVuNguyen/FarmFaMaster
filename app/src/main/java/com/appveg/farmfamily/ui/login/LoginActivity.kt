@@ -40,9 +40,9 @@ class LoginActivity  : AppCompatActivity() {
 
 
         btLogin.setOnClickListener{
-          //verifyFromSQLite()
-            val intent: Intent = Intent(this, com.appveg.farmfamily.MainActivity::class.java)
-            startActivity(intent)
+          verifyFromSQLite()
+//            val intent: Intent = Intent(this, com.appveg.farmfamily.MainActivity::class.java)
+//            startActivity(intent)
         }
 
         btSignup.setOnClickListener{
