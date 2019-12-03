@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.vegetable.EditVegetableActivity">
+    android:layout_centerHorizontal="true"
+    tools:context=".ui.vegetable.AddVegetableActivity">
 
     <LinearLayout
         android:id="@+id/addveg_vegfunction_edit"
@@ -21,10 +21,9 @@
             android:text="Nhập tên rau" />
 
         <EditText
-            android:id="@+id/addveg_vegName_edit"
+            android:id="@+id/veg_name_edit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Rau" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="match_parent"
@@ -32,92 +31,149 @@
             android:layout_marginTop="10dp"
             android:text="Chọn hình ảnh" />
 
-        <LinearLayout
+        <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:gravity="center">
 
-            <LinearLayout
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:gravity="center">
+                android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/addveg_img1_edit"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
+                    android:id="@+id/add_image1_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:padding="7dp"
                     android:src="@drawable/xalach" />
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:gravity="center">
+                <!--    button to show picker diaglog-->
 
                 <ImageView
-                    android:id="@+id/addveg_img2_edit"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
+                    android:id="@+id/add_image2_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:padding="7dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/raucai" />
-            </LinearLayout>
 
-        </LinearLayout>
 
-        <ProgressBar
-            android:id="@+id/addveg_progressbar_edit"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone"
+                <ImageView
+                    android:id="@+id/add_image3_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/xuplo" />
+            </TableRow>
 
-            />
+            <ProgressBar
+                android:id="@+id/addveg_progressbar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
 
-        <LinearLayout
+                />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/add_image4_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="7dp"
+                    android:src="@drawable/xalach" />
+
+                <!--    button to show picker diaglog-->
+
+                <ImageView
+                    android:id="@+id/add_image5_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/raucai" />
+
+
+                <ImageView
+                    android:id="@+id/add_image6_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/xuplo" />
+            </TableRow>
+
+        </TableLayout>
+        <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:orientation="horizontal">
+            >
 
-            <LinearLayout
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="30dp">
+                android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/addveg_img3_edit"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:padding="7dp"
+                    android:id="@+id/add_camera_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/xuplo" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="30dp"
-                android:gravity="center">
+                    android:src="@drawable/ic_menu_camera" />
 
                 <ImageView
-                    android:id="@+id/addveg_addImageVeg_edit"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
+                    android:id="@+id/add_image_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_menu_gallery" />
-            </LinearLayout>
+            </TableRow>
+        </TableLayout>
 
-        </LinearLayout>
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/photo_camera_edit"
+                    android:background="@null"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:padding="10dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/imagecamera" />
+
+                <ImageView
+                    android:id="@+id/selected_image_edit"
+                    android:background="@null"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:padding="10dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/imagegallery" />
+            </TableRow>
+        </TableLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -129,20 +185,8 @@
         android:orientation="horizontal"
         android:paddingTop="10dp">
 
-                <Button
-                    android:id="@+id/addveg_btn_back_edit"
-                    style="@style/Button"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_weight="1"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:drawableTop="@drawable/btn_back"
-                    android:text="Trở về"
-                    android:textColor="@android:color/white" />
-
         <Button
-            android:id="@+id/addveg_btn_update"
+            android:id="@+id/add_veg_edit"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -150,20 +194,9 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/ic_add2"
-            android:text="Cập nhật "
+            android:text="Cập nhật"
             android:textColor="@android:color/white" />
 
-        <Button
-            android:id="@+id/addveg_btn_save_edit"
-            style="@style/Button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:drawableTop="@drawable/btn_print"
-            android:text="In"
-            android:textColor="@android:color/white" />
     </LinearLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>

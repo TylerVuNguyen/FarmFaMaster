@@ -1,5 +1,7 @@
 package com.appveg.farmfamily.ui.vegetable
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,35 +11,32 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.appveg.farmfamily.R
+import com.appveg.farmfamily.ui.database.Database
+import com.appveg.farmfamily.ui.send.ChiTietAdapter
+import com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity
 import com.baoyz.swipemenulistview.SwipeMenu
 import com.baoyz.swipemenulistview.SwipeMenuCreator
 import com.baoyz.swipemenulistview.SwipeMenuItem
 import com.baoyz.swipemenulistview.SwipeMenuListView
+import kotlinx.android.synthetic.main.activity_chi_tiet_san_luong.*
+import kotlinx.android.synthetic.main.fragment_vegetable.*
 
 class VegetableFragment  : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    private lateinit var database: Database
+
+    var vegetables: ArrayList<Vegetable> = ArrayList()
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_vegetable, container, false)
 
-        val listVeg = listVegetable()
-
         var listviewgarden = root.findViewById(R.id.list_view_vegetable) as SwipeMenuListView
-//        var listviewgarden = root.findViewById(R.id.list_view_vegetable) as ListView
-//
-        listviewgarden.adapter = this.activity?.let { VegetableFragmentAdapter(it, listVeg) }
-//
-//        listviewgarden.adapter = VegetableFragmentAdapter(requireContext(), listVeg!!)
-//
-        listviewgarden.setOnItemClickListener { adapterView, view, i, l ->
-//            if (listVeg.get(i).vegID == 1) {
-//                var intent: Intent = Intent(requireContext(), ChiTietSanLuongRauActivity::class.java);
-//                startActivity(intent);
-//            }
-            Toast.makeText(requireContext(),"ahihi", Toast.LENGTH_SHORT).show()
 
-        }
+        vegetables = getListVeg()
 
+        listviewgarden.adapter = this.activity?.let { VegetableFragmentAdapter(it, vegetables) }
 
         //swipemenulistview
         val creator = SwipeMenuCreator { menu ->
@@ -85,16 +84,36 @@ class VegetableFragment  : Fragment() {
 
         // set swipe
         listviewgarden.setMenuCreator(creator)
-        listviewgarden.setOnMenuItemClickListener(object : SwipeMenuListView.OnMenuItemClickListener {
+        listviewgarden.setOnMenuItemClickListener(object :
+            SwipeMenuListView.OnMenuItemClickListener {
             override fun onMenuItemClick(position: Int, menu: SwipeMenu, index: Int): Boolean {
                 when (index) {
                     0 -> {
-                        var intent: Intent = Intent(requireContext(), EditVegetableActivity::class.java);
-                        startActivity(intent)
-//                        Toast.makeText(requireContext(), listVeg[position].toString(), Toast.LENGTH_LONG).show()
+                        getForwardData(position)
                     }
                     1 -> {
-                        Toast.makeText(requireContext(), listVeg[position].toString(), Toast.LENGTH_LONG).show()
+                        // build alert dialog
+                        val dialogBuilder = AlertDialog.Builder(activity)
+
+                        // set message of alert dialog
+                        dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
+                            // if the dialog is cancelable
+                            .setCancelable(false)
+                            // positive button text and action
+                            .setPositiveButton("Có", DialogInterface.OnClickListener {
+                                    dialog, id -> removeVegetable(position)
+                            })
+                            // negative button text and action
+                            .setNegativeButton("Hủy", DialogInterface.OnClickListener {
+                                    dialog, id -> dialog.cancel()
+                            })
+
+                        // create dialog box
+                        val alert = dialogBuilder.create()
+                        // set title for alert dialog box
+                        alert.setTitle("Xóa chi tiết rau")
+                        // show alert dialog
+                        alert.show()
                     }
                 }// open
                 // delete
@@ -104,47 +123,57 @@ class VegetableFragment  : Fragment() {
         })
 
         //button them rau
-      var viewveg_btn_add = root.findViewById(R.id.viewveg_btn_add) as Button
-        viewveg_btn_add.setOnClickListener(object :View.OnClickListener{
+        var viewveg_btn_add = root.findViewById(R.id.viewveg_btn_add) as Button
+        viewveg_btn_add.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 var intent: Intent = Intent(requireContext(), AddVegetableActivity::class.java)
+               activity?.onBackPressed()
+                //listRoom_roomfunction.visibility = View.GONE
                 startActivity(intent)
             }
-
-
         })
 
         return root.rootView
 
 
     }
-    private fun listVegetable(): ArrayList<Vegetable> {
-        var result = ArrayList<Vegetable>()
-        var veg: Vegetable = Vegetable()
-        veg.vegID = 1
-        veg.vegName = "Batch xà lách "
-        veg.vegImg = R.drawable.xalach.toString()
-        result.add(veg)
 
-        veg = Vegetable()
-        veg.vegID = 2
-        veg.vegName = "Batch cải ngọt "
-        veg.vegImg = R.drawable.xalach.toString()
-        result.add(veg)
+    /**
+     * the method to display batch
+     */
+    fun getListVeg() : ArrayList<Vegetable>{
+        database = Database(activity)
+        vegetables = database.findAllVegetable()
+        if (vegetables.isNullOrEmpty()) {
+            Toast.makeText(activity, "Dánh sách rau đang trống !", Toast.LENGTH_LONG).show()
+        }
+        return vegetables
+    }
+    /**
+     * the method to removeBatch
+     */
+    private fun removeVegetable(position: Int) {
+        database = Database(activity)
+        var veg_id = database.deleteVeg(vegetables[position].vegID!!.toInt())
+        vegetables.remove(vegetables[position])
+        if (veg_id != null) {
+            Toast.makeText(
+                activity,
+                getString(R.string.deleted_data_success_vi),
+                Toast.LENGTH_LONG
+            ).show()
+        }
+        list_view_vegetable.adapter = VegetableFragmentAdapter(activity, vegetables)
+    }
 
-        veg = Vegetable()
-        veg.vegID = 3
-        veg.vegName = "Cải bẹ xanh "
-        veg.vegImg = R.drawable.xalach.toString()
-        result.add(veg)
-
-        veg = Vegetable()
-        veg.vegID = 4
-        veg.vegName = "Xúp lơ"
-        veg.vegImg = R.drawable.xalach.toString()
-        result.add(veg)
-
-        return result
+    /**
+     * the method to itent data for Veg
+     */
+    fun getForwardData(position: Int){
+        var veg_id = vegetables[position].vegID!!.toInt()
+        var intent: Intent = Intent(activity, EditVegetableActivity::class.java)
+        intent.putExtra("veg_id",veg_id)
+        startActivity(intent)
     }
 
 

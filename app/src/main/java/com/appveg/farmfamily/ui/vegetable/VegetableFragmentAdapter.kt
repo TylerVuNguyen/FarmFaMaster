@@ -1,22 +1,15 @@
 package com.appveg.farmfamily.ui.vegetable
 
-import android.content.Context
-import android.net.Uri
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.fragment.app.FragmentActivity
 import com.appveg.farmfamily.R
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import java.io.File
 
-class VegetableFragmentAdapter(private val context: Context, private val veg: ArrayList<Vegetable>) : BaseAdapter() {
-
-    fun remove(position: Int) {
-        veg.removeAt(position)
-        notifyDataSetChanged()
-    }
+class VegetableFragmentAdapter(private val context: FragmentActivity?, private val veg: ArrayList<Vegetable>) : BaseAdapter() {
 
     //1
     override fun getCount(): Int {
@@ -66,13 +59,11 @@ class VegetableFragmentAdapter(private val context: Context, private val veg: Ar
 
         var veg : Vegetable = getItem(position) as Vegetable
         viewHolder.veg_Name.text = veg.vegName
-//        viewHolder.veg_Img.setImageResource(veg.vegImg.toString())
 
-        Glide.with(context)
-            .load(Uri.fromFile(File(veg.HandleImageVeg)))
-            .apply(RequestOptions().override(100, 100))
-            .into(viewHolder.veg_Img)
-
+        // chuyển bytearray về bitmap để hiển thị
+        var imageBitmap : ByteArray? = veg.vegImgBlob
+        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
+        viewHolder.veg_Img.setImageBitmap(bitmap)
         return view as View
 
     }

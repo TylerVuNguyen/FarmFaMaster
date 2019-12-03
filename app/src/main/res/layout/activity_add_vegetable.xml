@@ -22,7 +22,7 @@
             android:text="Nhập tên rau" />
 
         <EditText
-            android:id="@+id/addroom_roomName"
+            android:id="@+id/veg_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -44,7 +44,7 @@
                 android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/addveg_img1"
+                    android:id="@+id/add_image1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="7dp"
@@ -53,7 +53,7 @@
                 <!--    button to show picker diaglog-->
 
                 <ImageView
-                    android:id="@+id/addveg_img2"
+                    android:id="@+id/add_image2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="7dp"
@@ -62,7 +62,7 @@
 
 
                 <ImageView
-                    android:id="@+id/addveg_img3"
+                    android:id="@+id/add_image3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="7dp"
@@ -86,7 +86,7 @@
                 android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/addveg_img4"
+                    android:id="@+id/add_image4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="7dp"
@@ -95,7 +95,7 @@
                 <!--    button to show picker diaglog-->
 
                 <ImageView
-                    android:id="@+id/addveg_img5"
+                    android:id="@+id/add_image5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="7dp"
@@ -104,7 +104,7 @@
 
 
                 <ImageView
-                    android:id="@+id/addveg_img6"
+                    android:id="@+id/add_image6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="7dp"
@@ -198,18 +198,12 @@
             android:text="Thêm"
             android:textColor="@android:color/white" />
 
-
-        <Button
-            android:id="@+id/cancel_action_veg"
-            style="@style/Button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:drawableTop="@drawable/ic_cancel"
-            android:text="Huỷ"
-            android:textColor="@android:color/white" />
     </LinearLayout>
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
 
+    </FrameLayout>
 </RelativeLayout>

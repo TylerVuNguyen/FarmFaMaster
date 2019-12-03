@@ -57,10 +57,11 @@ class Database(context: Context?) :
         private val COLUMN_BATCH_VEG_NAME = "vegetable_name"
         private val COLUMN_BATCH_VEG_QTY = "vegetable_quantity"
 
-        /*vegeble table*/
-        private val VEG_ID = "id"
-        private val VEG_NAME = "name"
-        private val VEG_IMG = "img"//luu link icon
+        /*vegetable table*/
+        private val COLUMN_VEG_ID = "veg_id"
+        private val COLUMN_VEG_NAME = "veg_name"
+        private val COLUMN_VEG_CODE = "veg_code"
+        private val COLUMN_VEG_IMG_BLOB = "veg_image_blob"
 
         /*garden*/
         private val COLUMN_GARDEN_ID = "garden_id"
@@ -95,7 +96,7 @@ class Database(context: Context?) :
 
         val CREATE_VEGETABLE_TABLE =
             ("CREATE TABLE " + TABLE_VEGETABLE + "(veg_id INTEGER PRIMARY KEY AUTOINCREMENT,veg_name VARCHAR(100)," +
-                    "veg_code VARCHAR(50), veg_image VARCHAR(100),created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+                    "veg_image_blob BLOB,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
                     "deleted_date VARCHAR(50),deleted_flag INTEGER)")
 
         val CREATE_GARDEN_TABLE =
@@ -122,6 +123,7 @@ class Database(context: Context?) :
         db?.execSQL(INSERT_GARDEN1_ITEM)
         db?.execSQL(CREATE_BATCH_TABLE)
         db?.execSQL(CREATE_QUANTITY_DETAIL_TABLE)
+        db?.execSQL(CREATE_VEGETABLE_TABLE)
 
     }
 
@@ -627,24 +629,119 @@ class Database(context: Context?) :
 
 
     /*----------------------------------------------VEGETABLE-------------------------------------------------*/
-    //method for saving records in database
-//them rau
-    fun addVeg(veg: Vegetable): Boolean {
-        //1: Them Phong vao DB
-        val value = ContentValues()
-        value.put(VEG_NAME, veg.HandleName)
-        value.put(VEG_IMG, veg.HandleImageVeg)
-//        if (veg.handleIsActive) {
-//            value.put(ROOM_ISACTIVE, 1)
-//        } else {
-//            value.put(ROOM_ISACTIVE, 0)
-//        }
-
+    /**
+     * This method to insert data vegetable
+     *
+     * @param batchQtyDetail
+     * @return true/false
+     */
+    fun addVegImageDefault(veg: Vegetable) : Long{
         val db = this.writableDatabase
-        //so dong thanh cong
-        val _success = db.insert(TABLE_VEGETABLE, null, value)
-        db.close()
-        Log.v("room_db", "number row add veg success: $_success")
-        return (Integer.parseInt("$_success") != -1)
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_VEG_NAME, veg.vegName)
+        contentValues.put(COLUMN_VEG_IMG_BLOB, veg.vegImgBlob)
+        contentValues.put(COLUMN_CREATEDBY, veg.createdBy)
+        contentValues.put(COLUMN_CREATEDDATE, veg.createdDate)
+
+        // Inserting Row
+        val success = db.insert(TABLE_VEGETABLE, null, contentValues)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+    /**
+     * This method to update data vegetable
+     *
+     * @param batchQtyDetail
+     * @return true/false
+     */
+    fun updateVegImageDefault(veg: Vegetable) : Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_VEG_ID,veg.vegID)
+        contentValues.put(COLUMN_VEG_NAME, veg.vegName)
+        contentValues.put(COLUMN_VEG_IMG_BLOB, veg.vegImgBlob)
+        contentValues.put(COLUMN_UPDATED_DATE, veg.updatedDate)
+
+        // Inserting Row
+        val success = db.update(TABLE_VEGETABLE, contentValues,"veg_id="+veg.vegID,null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+    /**
+     * This method to insert data vegetable
+     *
+     * @return ArrayList
+     */
+    fun findAllVegetable():ArrayList<Vegetable>{
+        val vegList:ArrayList<Vegetable> = ArrayList()
+        val selectQuery = "SELECT  * FROM $TABLE_VEGETABLE"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            db.execSQL(selectQuery)
+            return ArrayList()
+        }
+        var veg_id: Int
+        var veg_name: String
+        var veg_image : ByteArray
+        if (cursor.moveToFirst()) {
+            do {
+                veg_id = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
+                veg_name = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_NAME))
+                veg_image = cursor.getBlob(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
+                val vegetable = Vegetable(veg_id,veg_name,veg_image)
+                vegList.add(vegetable)
+            } while (cursor.moveToNext())
+        }
+        return vegList
+    }
+
+    /**
+     * This method to delete data
+     *
+     * @param batch_id
+     * @return Int
+     */
+    fun deleteVeg(veg_id: Int):Int{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_VEG_ID, veg_id) // EmpModelClass UserId
+        // Deleting Row
+        val success = db.delete(TABLE_VEGETABLE,"veg_id="+veg_id,null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+    /**
+     * This method to find vegetable by id
+     *
+     * @param batch_id
+     * @return Batch
+     */
+    fun findVegetableById(veg_id : Int):Vegetable{
+        val selectQuery = "SELECT  * FROM $TABLE_VEGETABLE WHERE $COLUMN_VEG_ID = $veg_id"
+        val db = this.readableDatabase
+        var vegetable:Vegetable = Vegetable()
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            Log.d("AAA",e.message)
+        }
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    var veg_id = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
+                    var veg_name = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_NAME))
+                    var veg_image = cursor.getBlob(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
+                    vegetable = Vegetable(veg_id,veg_name,veg_image)
+                } while (cursor.moveToNext())
+            }
+        }
+        return vegetable
     }
 }

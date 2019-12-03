@@ -228,6 +228,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
             /*end format date*/
             try {
                 var id: Int = database!!.updateBatch(batch)
+                removeDataListVegDb(id)
                 if (!listVeg.isNullOrEmpty()) {
                     for (item in listVeg) {
                         // có hai trường hợp:
@@ -303,7 +304,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
      */
     private fun checkStartDate(check: String): Boolean {
         if (check.isEmpty()) {
-            textViewPickStart_edit.error = getString(R.string.error_start_date_batch)
+            textViewPickStart_edit.error = getString(R.string.error_empty_common)
             return false
         }
         return true
@@ -314,7 +315,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
      */
     private fun checkEndDate(check: String): Boolean {
         if (check.isEmpty()) {
-            textViewPickKT_edit.error = getString(R.string.error_end_date_batch)
+            textViewPickKT_edit.error = getString(R.string.error_empty_common)
             return false
         }
         return true
@@ -325,7 +326,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
      */
     private fun checkBatchName(check: String): Boolean {
         if (check.isEmpty()) {
-            batchName_edit.error = getString(R.string.error_name_batch)
+            batchName_edit.error = getString(R.string.error_empty_common)
             return false
         }
         return true
@@ -341,6 +342,13 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
         lv_themSL_edit.adapter = ThemAdapter(activity, listVeg)
         // remove item of list then must be update list
         sumQuantity()
+    }
+    /**
+     * This method is to remove data
+     */
+    private fun removeDataListVegDb(id: Int) {
+        database = Database(activity)
+        database.deleteBatchDetail(id)
     }
 
     /**

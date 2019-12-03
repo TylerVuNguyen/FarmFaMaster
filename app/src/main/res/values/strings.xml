@@ -93,11 +93,7 @@
     <string name="add_vi">Thêm</string>
     <string name="cancel_vi">Hủy</string>
     <string name="add_veg_vi">Thêm chi tiết</string>
-    <string name="deleted_veg_vi">Xóa thành công!</string>
-    <string name="insert_data_success_vi">Thêm sản lượng thành công !</string>
-    <string name="update_data_success_vi">cập nhật sản lượng thành công !</string>
-    <string name="insert_data_fail_vi">Thêm sản lượng thành công !</string>
-    <string name="update_data_fail_vi">cập nhật sản lượng thành công !</string>
+
     <!--The end quantity-->
 
     <!--error VI-->
@@ -106,10 +102,16 @@
     <string name="error_invalid_email">Trường email không hợp lệ !</string>
     <string name="sign_up_success">Đăng ký thành công !</string>
     <string name="error_username_pass_invalid">Tên đăng nhập hoặc mật khẩu không đúng !</string>
+    <string name="error_veg_exist">Loại rau này đã tồn tại !</string>
     <!--The end error-->
 
     <!--common-->
     <string name="choose_img_vi">Chọn hình ảnh</string>
+    <string name="insert_data_success_vi">Thêm thành công !</string>
+    <string name="update_data_success_vi">cập nhật thành công !</string>
+    <string name="insert_data_fail_vi">Thêm không thành công !</string>
+    <string name="update_data_fail_vi">cập nhật không thành công !</string>
+    <string name="deleted_data_success_vi">Xóa thành công!</string>
     <!--end common-->
 
     <!--garden VI-->
@@ -120,5 +122,9 @@
     <string name="name_device_vi">Tên thiết bị</string>
     <string name="decription_device_vi">Mô tả thiết bị</string>
     <!-- end garden VI-->
+
+    <!--vegetable VI-->
+    <string name="veg_image_no_select_vi">Bạn chưa chọn ảnh !</string>
+    <!-- end vegetable VI-->
 
 </resources>

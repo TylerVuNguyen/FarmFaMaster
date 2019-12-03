@@ -62,13 +62,18 @@ class ThemAdapter(private val context: Context, private val dotRau: ArrayList<Ve
         return view as View
 
     }
-    /*remove in dotRau and remove item in database*/
+    /*remove in dotRau and remove item in arraylist*/
     fun removeItemPosition(position: Int) : ArrayList<VegetableTemp>{
         var database = Database(context)
         var vegetableTemp : VegetableTemp = getItem(position) as VegetableTemp
         dotRau.remove(vegetableTemp)
-        if(vegetableTemp.vegId != null && vegetableTemp.vegId != -1){
-            database.deleteBatchDetailByBatchDetailId(vegetableTemp.vegId!!)
+        return dotRau
+    }
+    /*remove in dotRau and remove item in database*/
+    fun removeItemPositionDb(batch_id: Int) : ArrayList<VegetableTemp>{
+        var database = Database(context)
+        if(batch_id != null){
+            database.deleteBatchDetail(batch_id)
         }
         return dotRau
     }

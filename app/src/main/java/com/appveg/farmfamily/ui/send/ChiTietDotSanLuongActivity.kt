@@ -147,7 +147,7 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
         if (batch_id != null) {
             Toast.makeText(
                 this@ChiTietDotSanLuongActivity,
-                getString(R.string.deleted_veg_vi),
+                getString(R.string.deleted_data_success_vi),
                 Toast.LENGTH_LONG
             ).show()
         }

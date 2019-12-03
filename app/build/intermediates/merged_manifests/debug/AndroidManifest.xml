@@ -5,9 +5,10 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="15"
+        android:minSdkVersion="22"
         android:targetSdkVersion="28" />
     <!-- Adding Read External Storage Permission usr pick img -->
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -20,11 +21,18 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity" />
+        <activity
+            android:name="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity"
+            android:label="Sửa loại rau"
+            android:parentActivityName="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity" />
+        </activity>
         <activity android:name="com.appveg.farmfamily.ui.garden.AddDeviceForGardenActivity" />
         <activity
             android:name="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity"
-            android:label="Thêm rau"
+            android:label="Thêm loại rau"
             android:parentActivityName="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

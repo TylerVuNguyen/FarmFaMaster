@@ -100,7 +100,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
                 DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
                     textViewPickStart.error = null
                     textViewPickStart.clearFocus()
-                    textViewPickStart.setText("" + dayOfMonth + "/" + month + "/" + year)
+                    textViewPickStart.setText("" + dayOfMonth + "/" + (month + 1) + "/" + year)
                 },
                 now.get(Calendar.YEAR),
                 now.get(Calendar.MONTH),
@@ -117,7 +117,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
                 DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
                     textViewPickKT.error = null
                     textViewPickKT.clearFocus()
-                    textViewPickKT.setText("" + dayOfMonth + "/" + month + "/" + year)
+                    textViewPickKT.setText("" + dayOfMonth + "/" + (month + 1) + "/" + year)
                 },
                 now.get(Calendar.YEAR),
                 now.get(Calendar.MONTH),
@@ -160,7 +160,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
         val quantityVegetable = txt_qtyVeg.text.toString()
         var vegetableTemp: VegetableTemp = VegetableTemp()
         var vegName = selected.toString()
-        if (quantityVegetable.trim() != "") {
+        if (quantityVegetable.isNotBlank()) {
             if(listVeg.isNullOrEmpty()){
                 vegetableTemp.vegName = selected.toString()
                 vegetableTemp.vegQty = quantityVegetable.toInt()
@@ -183,9 +183,26 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
             }
         } else {
             var vegNumber = 0
-            vegetableTemp.vegName = selected.toString()
-            vegetableTemp.vegQty = vegNumber
-            listVeg.add(vegetableTemp)
+            if(listVeg.isNullOrEmpty()){
+                vegetableTemp.vegName = selected.toString()
+                vegetableTemp.vegQty = vegNumber
+                listVeg.add(vegetableTemp)
+            }else {
+                for (i in 0..listVeg.size - 1) {
+                    if (vegName.equals(listVeg.get(i).vegName)) {
+                        var x: Int = listVeg.get(i).vegQty!!.toInt()
+                        x += vegNumber
+                        vegetableTemp.vegName = listVeg.get(i).vegName
+                        vegetableTemp.vegQty = x
+                        listVeg.remove(listVeg.get(i))
+                        listVeg.add(vegetableTemp)
+                    } else if (i == listVeg.size - 1) {
+                        vegetableTemp.vegName = selected.toString()
+                        vegetableTemp.vegQty = vegNumber
+                        listVeg.add(vegetableTemp)
+                    }
+                }
+            }
         }
         //display list view
         lv_themSL.adapter = ThemAdapter(activity, listVeg)
@@ -285,7 +302,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
      */
     private fun checkStartDate(check: String): Boolean {
         if (check.isEmpty()) {
-            textViewPickStart.error = getString(R.string.error_start_date_batch)
+            textViewPickStart.error = getString(R.string.error_empty_common)
             return false
         }
         return true
@@ -296,7 +313,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
      */
     private fun checkEndDate(check: String): Boolean {
         if (check.isEmpty()) {
-            textViewPickKT.error = getString(R.string.error_end_date_batch)
+            textViewPickKT.error = getString(R.string.error_empty_common)
             return false
         }
         return true
@@ -307,7 +324,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
      */
     private fun checkBatchName(check: String): Boolean {
         if (check.isEmpty()) {
-            batchName.error = getString(R.string.error_name_batch)
+            batchName.error = getString(R.string.error_empty_common)
             return false
         }
         return true
