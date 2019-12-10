@@ -1,19 +1,24 @@
 package com.appveg.farmfamily.ui.vegetable
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.send.Batch
 import com.appveg.farmfamily.ui.send.BatchQtyDetail
 import com.appveg.farmfamily.ui.send.ThemAdapter
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_add_vegetable.*
 import kotlinx.android.synthetic.main.activity_edit_vegetable.*
 import kotlinx.android.synthetic.main.activity_sua_dot_san_luong.*
@@ -88,14 +93,11 @@ class EditVegetableActivity : AppCompatActivity() {
     }
 
     private fun getImageFromCamera() {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        startActivityForResult(intent, REQUEST_CODE_CAMERA)
+        ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.CAMERA),REQUEST_CODE_CAMERA)
     }
 
     private fun getImageFromGallery() {
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        startActivityForResult(intent, REQUEST_CODE_FOLDER)
+        ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),REQUEST_CODE_FOLDER)
     }
     private fun editVegetable() {
         database = Database(activity)
@@ -113,15 +115,23 @@ class EditVegetableActivity : AppCompatActivity() {
         var bitmap: Bitmap = bitmapDrawable.bitmap
         var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
 
-        bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArray)
+        bitmap.compress(Bitmap.CompressFormat.PNG,0,byteArray)
 
         var image: ByteArray = byteArray.toByteArray()
         var checkVegImage = checkVegImage(image)
 
         if(checkVegName && checkVegImage){
-            var vegetable = Vegetable(veg_id, veg_name,image,"admin",formatted)
+            var vegetable = Vegetable(veg_id, veg_name,image,formatted)
             database.updateVegImageDefault(vegetable)
-            Toast.makeText(this,getString(R.string.update_data_success_vi), Toast.LENGTH_LONG).show()
+
+            Toast.makeText(this,getString(R.string.update_data_success_vi),Toast.LENGTH_LONG).show()
+            var fragmentAdapter : VegetableFragment = VegetableFragment()
+            // hide activity
+            addveg_vegfunction_edit.visibility = View.GONE
+            //action bar
+            activity.title = "Quản lý các loại rau"
+            supportFragmentManager.beginTransaction().replace(R.id.edit_fragmentContainer, fragmentAdapter).commit()
+
         }else{
             Toast.makeText(this,getString(R.string.update_data_fail_vi), Toast.LENGTH_LONG).show()
         }
@@ -143,27 +153,55 @@ class EditVegetableActivity : AppCompatActivity() {
      */
     private fun checkVegImage(check: ByteArray): Boolean {
         if (check.isEmpty()) {
-            Toast.makeText(this,R.string.veg_image_no_select_vi, Toast.LENGTH_LONG).show()
+            Toast.makeText(this,R.string.image_no_select_vi, Toast.LENGTH_LONG).show()
             return false
         }
         return true
     }
+    /**
+     * This method is to get permissions
+     */
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        when (requestCode) {
+            REQUEST_CODE_CAMERA -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                    startActivityForResult(intent, REQUEST_CODE_CAMERA)
+                } else {
+                    Toast.makeText(this,"Permission Denied",Toast.LENGTH_LONG).show()
+                }
+                return
+            }
 
+            else -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    val intent = Intent(Intent.ACTION_PICK)
+                    intent.type = "image/*"
+                    startActivityForResult(intent, REQUEST_CODE_FOLDER)
+                } else {
+                    Toast.makeText(this,"Permission Denied",Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+    /**
+     * This method is to set data for image view
+     */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_CAMERA && data != null) {
             val bitmap = data.extras!!.get("data") as Bitmap
-            //luu xuong SDCard luon => tra ve cai uri
 
-            photo_camera_edit.setImageBitmap(bitmap)
+            selected_image_edit.setImageBitmap(bitmap)
         }
         if (requestCode == REQUEST_CODE_FOLDER && resultCode == Activity.RESULT_OK && data != null) {
             val uri = data.data
             try {
-                val inputStream = contentResolver.openInputStream(uri!!)
-                val bitmap = BitmapFactory.decodeStream(inputStream)
-                //luu vao SDcard luon tra ve cai uri=> lan 2 cos the doi tiep
-
-                selected_image_edit.setImageBitmap(bitmap)
+//               val inputStream = contentResolver.openInputStream(uri!!)
+//               val bitmap = BitmapFactory.decodeStream(inputStream)
+                Glide.with(this)
+                    .load(uri)
+                    .into(selected_image_edit)
+//               selected_image_edit.setImageBitmap(bitmap)
             } catch (e: FileNotFoundException) {
                 e.printStackTrace()
             }

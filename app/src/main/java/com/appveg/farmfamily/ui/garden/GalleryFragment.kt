@@ -1,126 +1,174 @@
 package com.appveg.farmfamily.ui.garden
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.*
-import android.widget.GridView
+import android.widget.Button
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.appveg.farmfamily.R
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.appveg.farmfamily.ui.database.Database
+import com.baoyz.swipemenulistview.SwipeMenu
+import com.baoyz.swipemenulistview.SwipeMenuCreator
+import com.baoyz.swipemenulistview.SwipeMenuItem
+import com.baoyz.swipemenulistview.SwipeMenuListView
+import kotlinx.android.synthetic.main.fragment_gallery.*
 
 class GalleryFragment : Fragment() {
+    private lateinit var database: Database
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    var gardens: ArrayList<Garden> = ArrayList()
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val root = inflater.inflate(R.layout.fragment_gallery, container, false)
-        var grid = root.findViewById<GridView>(R.id.fragment_qlkv)
-        var listGarden = this.listGarden()
 
-        grid.adapter = this.activity?.let {
-            QLKVAdapter(
-                it,
-                listGarden
+        var listViewGarden = root.findViewById(R.id.list_view_garden) as SwipeMenuListView
+
+        gardens = getListGarden()
+
+        listViewGarden.adapter = this.activity?.let { QLKVAdapter(it, gardens) }
+
+        //swipemenulistview
+        val creator = SwipeMenuCreator { menu ->
+            // create "open" item
+            val editItem = SwipeMenuItem(
+                this.context
             )
+//            // set item background
+//            openItem.background = ColorDrawable(
+//                Color.rgb(0x00, 0x66,0xff
+//                )
+//            )
+            // set item width
+            editItem.width = 100
+            // set item title
+//            editItem.title = "Open"
+//            // set item title fontsize
+//            editItem.titleSize = 18
+            // set item title font color
+//            editItem.titleColor = Color.WHITE
+
+            //set icon
+            editItem.setIcon(R.drawable.ic_edit)
+            // add to menu
+            menu.addMenuItem(editItem)
+
+            // create "delete" item
+            val deleteItem = SwipeMenuItem(
+                this.context
+            )
+//            // set item background
+//            deleteItem.background = ColorDrawable(
+//                Color.rgb(
+//                    0xF9,
+//                    0x3F, 0x25
+//                )
+//            )
+            // set item width
+            deleteItem.width = 100
+            // set a icon
+            deleteItem.setIcon(R.drawable.ic_delete)
+            // add to menu
+            menu.addMenuItem(deleteItem)
         }
 
-        grid.setOnItemClickListener { adapterView, view, i, l -> Toast.makeText(this.activity, " Selected QLKV is = " + listGarden.get(i).gardenId, Toast.LENGTH_SHORT).show() }
+        // set swipe
+        listViewGarden.setMenuCreator(creator)
+        listViewGarden.setOnMenuItemClickListener(object :
+            SwipeMenuListView.OnMenuItemClickListener {
+            override fun onMenuItemClick(position: Int, menu: SwipeMenu, index: Int): Boolean {
+                when (index) {
+                    0 -> {
+                        getForwardData(position)
+                    }
+                    1 -> {
+                        // build alert dialog
+                        val dialogBuilder = AlertDialog.Builder(activity)
 
+                        // set message of alert dialog
+                        dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
+                            // if the dialog is cancelable
+                            .setCancelable(false)
+                            // positive button text and action
+                            .setPositiveButton("Có", DialogInterface.OnClickListener {
+                                    dialog, id -> removeGarden(position)
+                            })
+                            // negative button text and action
+                            .setNegativeButton("Hủy", DialogInterface.OnClickListener {
+                                    dialog, id -> dialog.cancel()
+                            })
 
-        //icon them
-        val fab: FloatingActionButton = root.findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-//            Snackbar.make(view, "Them ", Snackbar.LENGTH_LONG)
-//                    .setAction("Action", null).show()
+                        // create dialog box
+                        val alert = dialogBuilder.create()
+                        // set title for alert dialog box
+                        alert.setTitle("Xóa chi tiết rau")
+                        // show alert dialog
+                        alert.show()
+                    }
+                }// open
+                // delete
+                // false : close the menu; true : not close the menu
+                return false
+            }
+        })
 
-            var  intent: Intent  = Intent(this.context, ThemKhuVuonActivity::class.java)
-            startActivity(intent)
-        }
-
-
-        //context menu
-        registerForContextMenu(grid)
+        //button them khu vườn
+        var btn_garden_add = root.findViewById(R.id.garden_btn_add) as Button
+        btn_garden_add.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                var intent: Intent = Intent(requireContext(), ThemKhuVuonActivity::class.java)
+                activity?.onBackPressed()
+                //listRoom_roomfunction.visibility = View.GONE
+                startActivity(intent)
+            }
+        })
 
         return root.rootView
 
     }
 
-    fun editQLKV ( id: Int) : Boolean{
-        return true
-    }
-
-    fun deleteQLKV (id: Int) : Boolean{
-        return true
-    }
-
-
-    override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo?) {
-        super.onCreateContextMenu(menu, v, menuInfo)
-        //Set Header of Context Menu
-        menu!!.setHeaderTitle(this.resources.getString(R.string.title_context_menu))
-        menu.add(0, v.id, 0, this.resources.getString(R.string.edit))
-        menu.add(0, v.id, 1, this.resources.getString(R.string.delete))
-
-    }
-
-    @RequiresApi(Build.VERSION_CODES.N)
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-
-        //get menu
-
-
-        //Get Order of Selected Item
-        val selectedItemOrder = item!!.order
-        //Get Title Of Selected Item
-        val selectedItemTitle = item.title
-        //xac dinh nguoi dung vua click vao button nao
-        //To get Name of Person Click on ListView
-        val info = item.itemId
-        when(item.order){
-            //edit
-//            0 -> this.editQLKV(info)
-            0->  {var  intent: Intent  = Intent(this.context, SuaKhuVuonActivity::class.java)
-            startActivity(intent)}
-//            0 -> Toast.makeText(this.requireContext().applicationContext, "sua", Toast.LENGTH_SHORT).show()
-//            //delete
-
-
-//            1 -> this.deleteQLKV(info)
-            1 -> Toast.makeText(this.requireContext().applicationContext, "Xoá khu vườn" , Toast.LENGTH_SHORT).show()
-////            2 -> this.showGraphic(info)
+    /**
+     * the method to display batch
+     */
+    fun getListGarden() : ArrayList<Garden>{
+        database = Database(activity)
+        gardens = database.findAllGarden()
+        if (gardens.isNullOrEmpty()) {
+            Toast.makeText(activity, "Dánh sách khu vườn đang trống !", Toast.LENGTH_LONG).show()
         }
-        return true
+        return gardens
+    }
+    /**
+     * the method to removeBatch
+     */
+    private fun removeGarden(position: Int) {
+        database = Database(activity)
+        var garden_id = database.deleteGarden(gardens[position].gardenId!!.toInt())
+        gardens.remove(gardens[position])
+        if (garden_id != null) {
+            Toast.makeText(
+                activity,
+                getString(R.string.deleted_data_success_vi),
+                Toast.LENGTH_LONG
+            ).show()
+        }
+        list_view_garden.adapter = activity?.let { QLKVAdapter(it, gardens) }
     }
 
-
-    private fun listGarden(): ArrayList<Garden> {
-        var result = ArrayList<Garden>()
-        var garden: Garden = Garden()
-        garden.gardenId = 1
-        garden.gardenName = "Khu vườn 1"
-        garden.gardenImage = R.drawable.kv2
-        result.add(garden)
-
-        garden = Garden()
-        garden.gardenId = 2
-        garden.gardenName = "Khu vườn 2"
-        garden.gardenImage = R.drawable.kv2
-        result.add(garden)
-
-        garden = Garden()
-        garden.gardenId = 3
-        garden.gardenName = "Khu vườn 3"
-        garden.gardenImage = R.drawable.kv2
-        result.add(garden)
-
-        garden = Garden()
-        garden.gardenId = 4
-        garden.gardenName = "Khu vườn 4"
-        garden.gardenImage = R.drawable.kv2
-        result.add(garden)
-
-        return result
+    /**
+     * the method to itent data for Veg
+     */
+    fun getForwardData(position: Int){
+        var garden_id = gardens[position].gardenId!!.toInt()
+        var intent: Intent = Intent(activity, SuaKhuVuonActivity::class.java)
+        activity?.onBackPressed()
+        intent.putExtra("garden_id",garden_id)
+        startActivity(intent)
     }
 
 }

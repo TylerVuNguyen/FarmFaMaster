@@ -32,11 +32,11 @@ class VegetableFragment  : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_vegetable, container, false)
 
-        var listviewgarden = root.findViewById(R.id.list_view_vegetable) as SwipeMenuListView
+        var listViewVegetable = root.findViewById(R.id.list_view_vegetable) as SwipeMenuListView
 
         vegetables = getListVeg()
 
-        listviewgarden.adapter = this.activity?.let { VegetableFragmentAdapter(it, vegetables) }
+        listViewVegetable.adapter = this.activity?.let { VegetableFragmentAdapter(it, vegetables) }
 
         //swipemenulistview
         val creator = SwipeMenuCreator { menu ->
@@ -83,8 +83,8 @@ class VegetableFragment  : Fragment() {
         }
 
         // set swipe
-        listviewgarden.setMenuCreator(creator)
-        listviewgarden.setOnMenuItemClickListener(object :
+        listViewVegetable.setMenuCreator(creator)
+        listViewVegetable.setOnMenuItemClickListener(object :
             SwipeMenuListView.OnMenuItemClickListener {
             override fun onMenuItemClick(position: Int, menu: SwipeMenu, index: Int): Boolean {
                 when (index) {
@@ -172,6 +172,7 @@ class VegetableFragment  : Fragment() {
     fun getForwardData(position: Int){
         var veg_id = vegetables[position].vegID!!.toInt()
         var intent: Intent = Intent(activity, EditVegetableActivity::class.java)
+        activity?.onBackPressed()
         intent.putExtra("veg_id",veg_id)
         startActivity(intent)
     }

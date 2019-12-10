@@ -2,6 +2,8 @@ package com.appveg.farmfamily.ui.send
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +11,9 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.appveg.farmfamily.R
-import com.appveg.farmfamily.ui.garden.GardenCustom
+import com.appveg.farmfamily.ui.garden.Garden
 
-class GardenOfQtyApdapter(var activity: Activity,var items: ArrayList<GardenCustom>) :  BaseAdapter() {
+class GardenOfQtyApdapter(var activity: Activity,var items: ArrayList<Garden>) :  BaseAdapter() {
     private class ViewHolder(row: View?) {
         var kvName: TextView? = null
         var kvCamera: ImageView? = null
@@ -33,13 +35,17 @@ class GardenOfQtyApdapter(var activity: Activity,var items: ArrayList<GardenCust
             view = convertView
             viewHolder = view.tag as ViewHolder
         }
-        var gardenCustom = items[position]
-        viewHolder.kvName?.text = gardenCustom.gardenName
-        viewHolder.kvCamera?.setImageResource(gardenCustom.gardenImage!!)
+        var garden = items[position]
+        viewHolder.kvName?.text = garden.gardenName
+
+        // chuyển bytearray về bitmap để hiển thị
+        var imageBitmap : ByteArray? = garden.gardenImage
+        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
+        viewHolder.kvCamera!!.setImageBitmap(bitmap)
 
         return view as View
     }
-    override fun getItem(i: Int): GardenCustom {
+    override fun getItem(i: Int): Garden {
         return items[i]
     }
     override fun getItemId(i: Int): Long {

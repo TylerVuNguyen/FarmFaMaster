@@ -103,6 +103,7 @@
     <string name="sign_up_success">Đăng ký thành công !</string>
     <string name="error_username_pass_invalid">Tên đăng nhập hoặc mật khẩu không đúng !</string>
     <string name="error_veg_exist">Loại rau này đã tồn tại !</string>
+    <string name="error_garden_exist">Khu vườn này đã tồn tại !</string>
     <!--The end error-->
 
     <!--common-->
@@ -111,7 +112,9 @@
     <string name="update_data_success_vi">cập nhật thành công !</string>
     <string name="insert_data_fail_vi">Thêm không thành công !</string>
     <string name="update_data_fail_vi">cập nhật không thành công !</string>
-    <string name="deleted_data_success_vi">Xóa thành công!</string>
+    <string name="deleted_data_success_vi">Xóa thành công !</string>
+    <string name="size_image_large">Kích thước ảnh quả lớn !</string>
+    <string name="image_no_select_vi">Bạn chưa chọn ảnh !</string>
     <!--end common-->
 
     <!--garden VI-->
@@ -124,7 +127,7 @@
     <!-- end garden VI-->
 
     <!--vegetable VI-->
-    <string name="veg_image_no_select_vi">Bạn chưa chọn ảnh !</string>
+
     <!-- end vegetable VI-->
 
 </resources>

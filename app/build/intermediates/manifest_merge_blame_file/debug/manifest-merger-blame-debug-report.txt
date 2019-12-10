@@ -14,214 +14,226 @@
 12    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 12-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:6:5-80
 12-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:6:22-77
-13
-14    <application
-14-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:7:5-111:19
-15        android:allowBackup="true"
-15-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:8:9-35
-16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-16-->[androidx.core:core:1.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\47ac59284fc393a429c88180465ff9dc\core-1.1.0\AndroidManifest.xml:24:18-86
-17        android:debuggable="true"
-18        android:icon="@mipmap/ic_launcher"
-18-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:9:9-43
-19        android:label="@string/app_name"
-19-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:10:9-41
-20        android:roundIcon="@mipmap/ic_launcher_round"
-20-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:11:9-54
-21        android:supportsRtl="true"
-21-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:12:9-35
-22        android:testOnly="true"
-23        android:theme="@style/AppTheme" >
-23-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:13:9-40
-24        <activity
-24-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:14:9-20:20
-25            android:name="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity"
-25-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:14:19-69
-26            android:label="Sửa loại rau"
-26-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:15:13-41
-27            android:parentActivityName="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity" >
-27-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:16:13-77
-28            <meta-data
-28-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:17:13-19:92
-29                android:name="android.support.PARENT_ACTIVITY"
-29-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:18:17-63
-30                android:value="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity" />
-30-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:19:17-89
-31        </activity>
-32        <activity android:name="com.appveg.farmfamily.ui.garden.AddDeviceForGardenActivity" />
-32-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:9-83
-32-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:19-71
-33        <activity
-33-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:9-29:20
-34            android:name="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity"
-34-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:13-62
-35            android:label="Thêm loại rau"
-35-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:24:13-42
-36            android:parentActivityName="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity" >
-36-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:25:13-76
-37            <meta-data
-37-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:17:13-19:92
-38                android:name="android.support.PARENT_ACTIVITY"
-38-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:18:17-63
-39                android:value="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity" />
-39-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:19:17-89
-40        </activity>
-41        <activity
-41-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:30:9-37:20
-42            android:name="com.appveg.farmfamily.ui.device.EditDeviceActivity"
-42-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:31:13-57
-43            android:label="Sửa thiết bị"
-43-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:32:13-41
-44            android:parentActivityName="com.appveg.farmfamily.ui.device.EditDeviceActivity" >
-44-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:33:13-71
-45            <meta-data
-45-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:17:13-19:92
-46                android:name="android.support.PARENT_ACTIVITY"
-46-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:18:17-63
-47                android:value="com.appveg.farmfamily.ui.device.EditDeviceActivity" />
-47-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:19:17-89
-48        </activity>
-49        <activity
-49-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:38:9-45:20
-50            android:name="com.appveg.farmfamily.ui.device.AddDeviceActivity"
-50-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:39:13-56
-51            android:label="Thêm thiết bị"
-51-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:40:13-42
-52            android:parentActivityName="com.appveg.farmfamily.ui.device.AddDeviceActivity" >
-52-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:41:13-70
-53            <meta-data
-53-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:17:13-19:92
-54                android:name="android.support.PARENT_ACTIVITY"
-54-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:18:17-63
-55                android:value="com.appveg.farmfamily.ui.device.AddDeviceActivity" />
-55-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:19:17-89
-56        </activity>
-57        <!-- <activity -->
-58        <!-- android:name=".ui.slideshow.DeviceDetailActivity" -->
-59        <!-- android:label="Chi tiết thiết bị" -->
-60        <!-- android:parentActivityName=".ui.slideshow.DeviceDetailActivity"> -->
-61        <!-- <meta-data -->
-62        <!-- android:name="android.support.PARENT_ACTIVITY" -->
-63        <!-- android:value="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" /> -->
-64        <!-- </activity> -->
-65        <activity
-65-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:54:9-61:20
-66            android:name="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity"
-66-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:55:13-58
-67            android:label="Thêm khu vườn"
-67-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:56:13-42
-68            android:parentActivityName="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" >
-68-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:57:13-72
-69            <meta-data
-69-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:17:13-19:92
-70                android:name="android.support.PARENT_ACTIVITY"
-70-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:18:17-63
-71                android:value="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" />
-71-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:19:17-89
-72        </activity>
-73        <activity
-73-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:62:9-69:20
-74            android:name="com.appveg.farmfamily.ui.garden.SuaKhuVuonActivity"
-74-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:63:13-57
-75            android:label="Sửa khu vườn"
-75-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:64:13-41
-76            android:parentActivityName="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" >
-76-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:65:13-72
-77            <meta-data
-77-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:17:13-19:92
-78                android:name="android.support.PARENT_ACTIVITY"
-78-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:18:17-63
-79                android:value="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" />
-79-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:19:17-89
-80        </activity>
-81        <activity
-81-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:70:9-72:49
-82            android:name="com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity"
-82-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:71:13-59
-83            android:label="Sửa đợt sản lượng" />
-83-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:72:13-46
-84        <activity
-84-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:73:9-77:20
-85            android:name="com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity"
-85-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:74:13-63
-86            android:label="Chi tiết sản lượng" >
-86-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:75:13-47
-87        </activity>
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:7:5-67
+13-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:7:22-64
+14    <uses-permission android:name="android.permission.CAMERA" />
+14-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:8:5-65
+14-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:8:22-62
+15    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+15-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:9:5-81
+15-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:9:22-78
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:10:5-78
+16-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:10:22-76
+17
+18    <application
+18-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:12:5-116:19
+19        android:allowBackup="true"
+19-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:13:9-35
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\47ac59284fc393a429c88180465ff9dc\core-1.1.0\AndroidManifest.xml:24:18-86
+21        android:debuggable="true"
+22        android:icon="@mipmap/ic_launcher"
+22-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:14:9-43
+23        android:label="@string/app_name"
+23-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:15:9-41
+24        android:roundIcon="@mipmap/ic_launcher_round"
+24-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:16:9-54
+25        android:supportsRtl="true"
+25-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:17:9-35
+26        android:testOnly="true"
+27        android:theme="@style/AppTheme" >
+27-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:18:9-40
+28        <activity
+28-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:19:9-25:20
+29            android:name="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity"
+29-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:19:19-69
+30            android:label="Sửa loại rau"
+30-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:20:13-41
+31            android:parentActivityName="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity" >
+31-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-77
+32            <meta-data
+32-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:13-24:92
+33                android:name="android.support.PARENT_ACTIVITY"
+33-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-63
+34                android:value="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity" />
+34-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:24:17-89
+35        </activity>
+36        <activity android:name="com.appveg.farmfamily.ui.garden.AddDeviceForGardenActivity" />
+36-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:26:9-83
+36-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:26:19-71
+37        <activity
+37-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:27:9-34:20
+38            android:name="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity"
+38-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:28:13-62
+39            android:label="Thêm loại rau"
+39-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:29:13-42
+40            android:parentActivityName="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity" >
+40-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:30:13-76
+41            <meta-data
+41-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:13-24:92
+42                android:name="android.support.PARENT_ACTIVITY"
+42-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-63
+43                android:value="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity" />
+43-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:24:17-89
+44        </activity>
+45        <activity
+45-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:35:9-42:20
+46            android:name="com.appveg.farmfamily.ui.device.EditDeviceActivity"
+46-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:36:13-57
+47            android:label="Sửa thiết bị"
+47-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:37:13-41
+48            android:parentActivityName="com.appveg.farmfamily.ui.device.EditDeviceActivity" >
+48-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:38:13-71
+49            <meta-data
+49-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:13-24:92
+50                android:name="android.support.PARENT_ACTIVITY"
+50-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-63
+51                android:value="com.appveg.farmfamily.ui.device.EditDeviceActivity" />
+51-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:24:17-89
+52        </activity>
+53        <activity
+53-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:43:9-50:20
+54            android:name="com.appveg.farmfamily.ui.device.AddDeviceActivity"
+54-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:44:13-56
+55            android:label="Thêm thiết bị"
+55-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:45:13-42
+56            android:parentActivityName="com.appveg.farmfamily.ui.device.AddDeviceActivity" >
+56-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:46:13-70
+57            <meta-data
+57-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:13-24:92
+58                android:name="android.support.PARENT_ACTIVITY"
+58-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-63
+59                android:value="com.appveg.farmfamily.ui.device.AddDeviceActivity" />
+59-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:24:17-89
+60        </activity>
+61        <!-- <activity -->
+62        <!-- android:name=".ui.slideshow.DeviceDetailActivity" -->
+63        <!-- android:label="Chi tiết thiết bị" -->
+64        <!-- android:parentActivityName=".ui.slideshow.DeviceDetailActivity"> -->
+65        <!-- <meta-data -->
+66        <!-- android:name="android.support.PARENT_ACTIVITY" -->
+67        <!-- android:value="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" /> -->
+68        <!-- </activity> -->
+69        <activity
+69-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:59:9-66:20
+70            android:name="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity"
+70-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:60:13-58
+71            android:label="Thêm khu vườn"
+71-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:61:13-42
+72            android:parentActivityName="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" >
+72-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:62:13-72
+73            <meta-data
+73-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:13-24:92
+74                android:name="android.support.PARENT_ACTIVITY"
+74-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-63
+75                android:value="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" />
+75-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:24:17-89
+76        </activity>
+77        <activity
+77-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:67:9-74:20
+78            android:name="com.appveg.farmfamily.ui.garden.SuaKhuVuonActivity"
+78-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:68:13-57
+79            android:label="Sửa khu vườn"
+79-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:69:13-41
+80            android:parentActivityName="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" >
+80-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:70:13-72
+81            <meta-data
+81-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:13-24:92
+82                android:name="android.support.PARENT_ACTIVITY"
+82-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-63
+83                android:value="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" />
+83-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:24:17-89
+84        </activity>
+85        <activity
+85-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:75:9-77:49
+86            android:name="com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity"
+86-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:76:13-59
+87            android:label="Sửa đợt sản lượng" />
+87-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:77:13-46
 88        <activity
-88-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:78:9-80:51
-89            android:name="com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity"
-89-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:79:13-60
-90            android:label="Thêm đợt sản lượng " />
-90-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:80:13-48
-91        <activity
-91-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:81:9-88:20
-92            android:name="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity"
-92-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:82:13-63
-93            android:label="Danh sách đợt sản lượng"
-93-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:83:13-52
-94            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity" >
-94-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:84:13-77
-95            <meta-data
-95-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:17:13-19:92
-96                android:name="android.support.PARENT_ACTIVITY"
-96-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:18:17-63
-97                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
-97-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:19:17-89
-98        </activity>
-99        <activity
-99-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:89:9-92:59
-100            android:name="com.appveg.farmfamily.MainActivity"
-100-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:90:13-41
-101            android:label="@string/app_name"
-101-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:91:13-45
-102            android:theme="@style/AppTheme.NoActionBar" />
-102-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:92:13-56
+88-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:78:9-82:20
+89            android:name="com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity"
+89-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:79:13-63
+90            android:label="Chi tiết sản lượng" >
+90-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:80:13-47
+91        </activity>
+92        <activity
+92-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:83:9-85:51
+93            android:name="com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity"
+93-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:84:13-60
+94            android:label="Thêm đợt sản lượng " />
+94-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:85:13-48
+95        <activity
+95-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:86:9-93:20
+96            android:name="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity"
+96-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:87:13-63
+97            android:label="Danh sách đợt sản lượng"
+97-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:88:13-52
+98            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity" >
+98-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:89:13-77
+99            <meta-data
+99-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:13-24:92
+100                android:name="android.support.PARENT_ACTIVITY"
+100-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-63
+101                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
+101-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:24:17-89
+102        </activity>
 103        <activity
-103-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:93:9-102:20
-104            android:name="com.appveg.farmfamily.ui.login.LoginActivity"
-104-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:94:13-51
+103-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:94:9-97:59
+104            android:name="com.appveg.farmfamily.MainActivity"
+104-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:95:13-41
 105            android:label="@string/app_name"
-105-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:95:13-45
-106            android:theme="@style/AppTheme.NoActionBar" >
-106-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:96:13-56
-107            <intent-filter>
-107-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:97:13-101:29
-108                <action android:name="android.intent.action.MAIN" />
-108-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:98:17-69
-108-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:98:25-66
-109
-110                <category android:name="android.intent.category.LAUNCHER" />
-110-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:100:17-77
-110-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:100:27-74
-111            </intent-filter>
-112        </activity>
-113        <activity
-113-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:103:9-106:59
-114            android:name="com.appveg.farmfamily.ui.login.SignUpActivity"
-114-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:104:13-52
-115            android:label="@string/app_name"
-115-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:105:13-45
-116            android:theme="@style/AppTheme.NoActionBar" />
-116-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:106:13-56
+105-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:96:13-45
+106            android:theme="@style/AppTheme.NoActionBar" />
+106-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:97:13-56
+107        <activity
+107-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:98:9-107:20
+108            android:name="com.appveg.farmfamily.ui.login.LoginActivity"
+108-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:99:13-51
+109            android:label="@string/app_name"
+109-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:100:13-45
+110            android:theme="@style/AppTheme.NoActionBar" >
+110-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:101:13-56
+111            <intent-filter>
+111-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:102:13-106:29
+112                <action android:name="android.intent.action.MAIN" />
+112-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:103:17-69
+112-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:103:25-66
+113
+114                <category android:name="android.intent.category.LAUNCHER" />
+114-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:105:17-77
+114-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:105:27-74
+115            </intent-filter>
+116        </activity>
 117        <activity
-117-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:107:9-110:59
-118            android:name="com.appveg.farmfamily.ui.login.ForgotPPass"
-118-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:108:13-49
+117-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:108:9-111:59
+118            android:name="com.appveg.farmfamily.ui.login.SignUpActivity"
+118-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:109:13-52
 119            android:label="@string/app_name"
-119-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:109:13-45
+119-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:110:13-45
 120            android:theme="@style/AppTheme.NoActionBar" />
-120-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:110:13-56
-121
-122        <provider
-122-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\fb5191760e727ca89d6850cf38182355\lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
-123            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-123-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\fb5191760e727ca89d6850cf38182355\lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
-124            android:authorities="com.appveg.farmfamily.lifecycle-process"
-124-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\fb5191760e727ca89d6850cf38182355\lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
-125            android:exported="false"
-125-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\fb5191760e727ca89d6850cf38182355\lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
-126            android:multiprocess="true" />
-126-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\fb5191760e727ca89d6850cf38182355\lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
-127    </application>
-128
-129</manifest>
+120-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:111:13-56
+121        <activity
+121-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:112:9-115:59
+122            android:name="com.appveg.farmfamily.ui.login.ForgotPPass"
+122-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:113:13-49
+123            android:label="@string/app_name"
+123-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:114:13-45
+124            android:theme="@style/AppTheme.NoActionBar" />
+124-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:115:13-56
+125
+126        <provider
+126-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\fb5191760e727ca89d6850cf38182355\lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
+127            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+127-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\fb5191760e727ca89d6850cf38182355\lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
+128            android:authorities="com.appveg.farmfamily.lifecycle-process"
+128-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\fb5191760e727ca89d6850cf38182355\lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
+129            android:exported="false"
+129-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\fb5191760e727ca89d6850cf38182355\lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
+130            android:multiprocess="true" />
+130-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\fb5191760e727ca89d6850cf38182355\lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
+131    </application>
+132
+133</manifest>

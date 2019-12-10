@@ -154,14 +154,14 @@
                 android:layout_height="wrap_content"
                 android:padding="5dp">
 
-                <ImageView
-                    android:id="@+id/photo_camera_edit"
-                    android:background="@null"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:padding="10dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/imagecamera" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/photo_camera_edit"-->
+<!--                    android:background="@null"-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="150dp"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:scaleType="centerInside"-->
+<!--                    android:src="@drawable/imagecamera" />-->
 
                 <ImageView
                     android:id="@+id/selected_image_edit"
@@ -198,5 +198,13 @@
             android:textColor="@android:color/white" />
 
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/edit_fragmentContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+
+    </FrameLayout>
 
 </RelativeLayout>

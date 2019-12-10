@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,173 +8,163 @@
 
 
     <LinearLayout
-        android:id="@+id/addKV_KVfunction"
+        android:id="@+id/addGarden_Function"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:padding="10dp"
         android:gravity="top"
         android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/addKV_kvName"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-
-            android:background="@android:color/transparent"
-            android:drawablePadding="8dp"
-            android:gravity="center_vertical"
-            android:hint="@string/name_kv_vi"
-            android:inputType="textCapWords"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:textColor="@color/black"
-            android:drawableLeft="@drawable/ic_edit"
-            android:textSize="16sp" />
-
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1px"
-            android:background="@color/colorPrimary" />
-
-
-        <!--        <EditText-->
-        <!--            android:id="@+id/addKV_kvName"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:singleLine="true"-->
-        <!--            android:text="Rau" />-->
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:padding="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ngày thu hoạch" />
-            <!--    button to show picker diaglog-->
-            <Button
-                android:id="@+id/pickDateBD_KV"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/ic_calendar" />
-
-            <TextView
-                android:id="@+id/textViewPickBD_KV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:layout_marginLeft="30dp" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1px"
-            android:background="@color/colorPrimary" />
-
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:text="Nhập tên khu vườn" />
 
-            android:text="@string/choose_img_vi" />
+        <EditText
+            android:id="@+id/garden_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-        <LinearLayout
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Chọn hình ảnh" />
+
+        <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:gravity="center">
 
-            <LinearLayout
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:gravity="center">
+                android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/addKV_img1"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
+                    android:id="@+id/add_image_garden_1"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
                     android:padding="7dp"
                     android:src="@drawable/kv2" />
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:gravity="center">
+                <!--    button to show picker diaglog-->
 
                 <ImageView
-                    android:id="@+id/addKV_img2"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
+                    android:id="@+id/add_image_garden_2"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
                     android:padding="7dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/kv2" />
-            </LinearLayout>
 
-        </LinearLayout>
-
-        <ProgressBar
-            android:id="@+id/addKV_progressbar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone"
-
-            />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="30dp">
 
                 <ImageView
-                    android:id="@+id/addKV_img3"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
+                    android:id="@+id/add_image_garden_3"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
                     android:padding="7dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/kv2" />
-            </LinearLayout>
+            </TableRow>
 
-            <LinearLayout
+            <ProgressBar
+                android:id="@+id/addveg_progressbar"
+                style="?android:attr/progressBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginRight="30dp"
-                android:gravity="center">
+                android:visibility="gone"
+
+                />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/addKV_addImageKV"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
+                    android:id="@+id/add_image_garden_4"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:src="@drawable/kv2" />
+
+                <!--    button to show picker diaglog-->
+
+                <ImageView
+                    android:id="@+id/add_image_garden_5"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/kv2" />
+
+
+                <ImageView
+                    android:id="@+id/add_image_garden_6"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/kv2" />
+            </TableRow>
+
+        </TableLayout>
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/add_garden_camera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_menu_camera" />
+
+                <ImageView
+                    android:id="@+id/add_garden_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_menu_gallery" />
-            </LinearLayout>
+            </TableRow>
+        </TableLayout>
 
-        </LinearLayout>
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/selected_garden_image"
+                    android:background="@null"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:padding="10dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/imagegallery" />
+            </TableRow>
+        </TableLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -188,18 +177,7 @@
         android:paddingTop="10dp">
 
         <Button
-            android:id="@+id/btn_back"
-            style="@style/Button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:drawableTop="@drawable/ic_back"
-            android:text="Trở về"
-            android:textColor="@android:color/white" />
-        <Button
-            android:id="@+id/addKV_btn_add"
+            android:id="@+id/btn_add_garden"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -210,10 +188,8 @@
             android:text="Thêm"
             android:textColor="@android:color/white" />
 
-
-
         <Button
-            android:id="@+id/addKV_btn_save"
+            android:id="@+id/btn_Prt_Scr"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -224,18 +200,13 @@
             android:text="In"
             android:textColor="@android:color/white" />
 
-        <Button
-            android:id="@+id/addKV_btn_addDevice"
-            style="@style/Button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:drawableTop="@drawable/ic_add2"
-            android:text="Thêm thiết bị"
-            android:textColor="@android:color/white" />
     </LinearLayout>
 
+    <FrameLayout
+        android:id="@+id/fragmentContainer_garden"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
 
+    </FrameLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

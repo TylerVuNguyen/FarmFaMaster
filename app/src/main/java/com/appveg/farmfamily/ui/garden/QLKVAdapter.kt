@@ -2,6 +2,8 @@ package com.appveg.farmfamily.ui.garden
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +11,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.appveg.farmfamily.R
+import com.appveg.farmfamily.ui.vegetable.Vegetable
 
 class QLKVAdapter (private var activity: Activity, private var items: ArrayList<Garden>) :  BaseAdapter(){
 
@@ -17,12 +20,12 @@ class QLKVAdapter (private var activity: Activity, private var items: ArrayList<
         var qlkhuvuon_photo: ImageView? = null
 
         init {
-            this.qlkhuvuon_name = row?.findViewById<TextView>(R.id.kv_qlkvname)
-            this.qlkhuvuon_photo = row?.findViewById<ImageView>(R.id.img_qlkv)
+            this.qlkhuvuon_name = row?.findViewById(R.id.text_view_garden)
+            this.qlkhuvuon_photo = row?.findViewById(R.id.image_view_garden)
         }
     }
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val view: View
+        val view: View?
         val viewHolder: ViewHolder
         if (convertView == null) {
             val inflater = activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -33,9 +36,14 @@ class QLKVAdapter (private var activity: Activity, private var items: ArrayList<
             view = convertView
             viewHolder = view.tag as ViewHolder
         }
-        var khuVuon = items[position]
-        viewHolder.qlkhuvuon_name?.text = khuVuon.gardenName
-        viewHolder.qlkhuvuon_photo?.setImageResource(khuVuon.gardenImage!!)
+        var garden : Garden = getItem(position) as Garden
+        viewHolder.qlkhuvuon_name!!.text = garden.gardenName
+
+        // chuyển bytearray về bitmap để hiển thị
+        var imageBitmap : ByteArray? = garden.gardenImage
+        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
+        viewHolder.qlkhuvuon_photo!!.setImageBitmap(bitmap)
+        return view as View
 
         return view as View
     }

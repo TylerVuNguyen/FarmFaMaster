@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import com.appveg.farmfamily.R
-import com.appveg.farmfamily.ui.garden.GardenCustom
+import com.appveg.farmfamily.ui.garden.Garden
 import com.appveg.farmfamily.ui.login.User
 import com.appveg.farmfamily.ui.send.Batch
 import com.appveg.farmfamily.ui.send.BatchCustom
@@ -101,7 +101,7 @@ class Database(context: Context?) :
 
         val CREATE_GARDEN_TABLE =
             ("CREATE TABLE " + TABLE_GARDEN + "(garden_id INTEGER PRIMARY KEY AUTOINCREMENT,garden_name VARCHAR(100)," +
-                    "garden_image VARCHAR(200),created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+                    "garden_image BLOB,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
                     "deleted_date VARCHAR(50),deleted_flag INTEGER)")
 
 
@@ -119,8 +119,8 @@ class Database(context: Context?) :
         db?.execSQL(CREATE_GARDEN_TABLE)
         db?.execSQL(INSERT_ROLES_ITEM)
         db?.execSQL(INSERT_USERS_ITEM)
-        db?.execSQL(INSERT_GARDEN_ITEM)
-        db?.execSQL(INSERT_GARDEN1_ITEM)
+//        db?.execSQL(INSERT_GARDEN_ITEM)
+//        db?.execSQL(INSERT_GARDEN1_ITEM)
         db?.execSQL(CREATE_BATCH_TABLE)
         db?.execSQL(CREATE_QUANTITY_DETAIL_TABLE)
         db?.execSQL(CREATE_VEGETABLE_TABLE)
@@ -601,10 +601,11 @@ class Database(context: Context?) :
      * @param batchQtyDetail
      * @return true/false
      */
-    fun findAllGarden():ArrayList<GardenCustom>{
-        val gardenList:ArrayList<GardenCustom> = ArrayList()
+    fun findAllGarden():ArrayList<Garden>{
+        val gardenList:ArrayList<Garden> = ArrayList()
         val selectQuery = "SELECT  * FROM $TABLE_GARDEN"
         val db = this.readableDatabase
+        var garden: Garden = Garden()
         var cursor: Cursor? = null
         try{
             cursor = db.rawQuery(selectQuery,null)
@@ -614,17 +615,104 @@ class Database(context: Context?) :
         }
         var garden_id: Int
         var garden_name: String
-        var garden_image : Int
+        var garden_image : ByteArray
         if (cursor.moveToFirst()) {
             do {
                 garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
                 garden_name = cursor.getString(cursor.getColumnIndex(COLUMN_GARDEN_NAME))
-                garden_image = R.drawable.kv2
-                val batch = GardenCustom(garden_id,garden_image,garden_name)
-                gardenList.add(batch)
+                garden_image = cursor.getBlob(cursor.getColumnIndex(COLUMN_GARDEN_IMAGE))
+                garden = Garden(garden_id,garden_name,garden_image)
+                gardenList.add(garden)
             } while (cursor.moveToNext())
         }
         return gardenList
+    }
+
+    /**
+     * This method to insert data vegetable
+     *
+     * @param batchQtyDetail
+     * @return true/false
+     */
+    fun addGardenImageDefault(garden: Garden) : Long{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_GARDEN_NAME, garden.gardenName)
+        contentValues.put(COLUMN_GARDEN_IMAGE, garden.gardenImage)
+        contentValues.put(COLUMN_CREATEDBY, garden.createdBy)
+        contentValues.put(COLUMN_CREATEDDATE, garden.createdDate)
+
+        // Inserting Row
+        val success = db.insert(TABLE_GARDEN, null, contentValues)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+    /**
+     * This method to update data garden
+     *
+     * @param garden
+     * @return int
+     */
+    fun updateGardenImageDefault(garden: Garden) : Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_GARDEN_ID,garden.gardenId)
+        contentValues.put(COLUMN_GARDEN_NAME, garden.gardenName)
+        contentValues.put(COLUMN_GARDEN_IMAGE, garden.gardenImage)
+        contentValues.put(COLUMN_UPDATED_DATE, garden.updatedDate)
+
+        // Inserting Row
+        val success = db.update(TABLE_GARDEN, contentValues,"garden_id="+garden.gardenId,null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to delete data
+     *
+     * @param batch_id
+     * @return Int
+     */
+    fun deleteGarden(garden_id: Int):Int{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_GARDEN_ID, garden_id)
+        // Deleting Row
+        val success = db.delete(TABLE_GARDEN,"garden_id="+garden_id,null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+    /**
+     * This method to find garden by id
+     *
+     * @param batch_id
+     * @return Batch
+     */
+    fun findGardenById(garden_id : Int):Garden{
+        val selectQuery = "SELECT  * FROM $TABLE_GARDEN WHERE $COLUMN_GARDEN_ID = $garden_id"
+        val db = this.readableDatabase
+        var garden: Garden = Garden()
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            Log.d("AAA",e.message)
+        }
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    var garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
+                    var garden_name = cursor.getString(cursor.getColumnIndex(COLUMN_GARDEN_NAME))
+                    var garden_image = cursor.getBlob(cursor.getColumnIndex(COLUMN_GARDEN_IMAGE))
+                    garden = Garden(garden_id,garden_name,garden_image)
+                } while (cursor.moveToNext())
+            }
+        }
+        cursor?.close()
+        return garden
     }
 
 
@@ -697,6 +785,7 @@ class Database(context: Context?) :
                 vegList.add(vegetable)
             } while (cursor.moveToNext())
         }
+        cursor?.close()
         return vegList
     }
 
@@ -742,6 +831,7 @@ class Database(context: Context?) :
                 } while (cursor.moveToNext())
             }
         }
+        cursor?.close()
         return vegetable
     }
 }
