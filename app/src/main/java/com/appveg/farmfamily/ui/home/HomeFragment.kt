@@ -1,5 +1,6 @@
 package com.appveg.farmfamily.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -32,7 +33,10 @@ class HomeFragment : Fragment() {
         grid.adapter = this.activity?.let {KhuVuonAdapter (it, gardens) }
 
         grid.setOnItemClickListener { adapterView, view, i, l ->
-            Toast.makeText(this.activity, " Selected Company is = "+ gardens.get(i).gardenName , Toast.LENGTH_SHORT).show()
+            var intent : Intent = Intent(activity, DetailGarden::class.java)
+            var id: String? = gardens.get(i).gardenCode
+            intent.putExtra("garden_code", id)
+            startActivity(intent)
         }
         return root.rootView
 

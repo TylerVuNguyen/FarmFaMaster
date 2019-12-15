@@ -10,7 +10,7 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="20dp"
@@ -30,7 +30,6 @@
             android:padding="10dp"
             android:singleLine="true"
             android:textColor="@color/black"
-            android:drawableLeft="@drawable/ic_edit"
             android:textSize="16sp" />
 
 
@@ -47,7 +46,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:background="@android:color/transparent"
-            android:drawableLeft="@drawable/ic_edit"
             android:drawablePadding="8dp"
             android:gravity="center_vertical"
             android:hint="@string/decription_device_vi"
@@ -61,8 +59,6 @@
             android:layout_width="fill_parent"
             android:layout_height="1px"
             android:background="@color/colorPrimary" />
-
-
 
         <TextView
 
@@ -84,44 +80,7 @@
             android:background="@color/colorPrimary" />
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:gravity="center">
-
-                <ImageView
-                    android:id="@+id/adddevice_img1"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:padding="7dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/maybom" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:gravity="center">
-
-                <ImageView
-                    android:id="@+id/adddevice_img2"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:padding="7dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/doph" />
-            </LinearLayout>
-
-        </LinearLayout>
 
         <ProgressBar
             android:id="@+id/adddevice_progressbar"
@@ -133,44 +92,164 @@
 
             />
 
-        <LinearLayout
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/add_image1"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:src="@drawable/doph" />
+
+                <!--    button to show picker diaglog-->
+
+                <ImageView
+                    android:id="@+id/add_image2"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/dinhduong" />
+
+
+                <ImageView
+                    android:id="@+id/add_image3"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/cambiennhietdo" />
+
+                <ImageView
+                    android:id="@+id/add_image9"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/maybo2" />
+            </TableRow>
+
+            <ProgressBar
+                android:id="@+id/addveg_progressbar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+
+                />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/add_image4"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:src="@drawable/quat" />
+
+                <!--    button to show picker diaglog-->
+
+                <ImageView
+                    android:id="@+id/add_image5"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/cambienmua" />
+
+
+                <ImageView
+                    android:id="@+id/add_image6"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/phunsuong2" />
+                <ImageView
+                    android:id="@+id/add_image8"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/quat" />
+            </TableRow>
+
+        </TableLayout>
+
+        <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:orientation="horizontal">
+            >
 
-            <LinearLayout
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="30dp">
+                android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/adddevice_img3"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:padding="7dp"
+                    android:id="@+id/add_camera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/dinhduong" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="30dp"
-                android:gravity="center">
+                    android:src="@drawable/ic_menu_camera" />
 
                 <ImageView
-                    android:id="@+id/adddevice_addImageDevice"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
+                    android:id="@+id/add_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_menu_gallery" />
-            </LinearLayout>
+            </TableRow>
+        </TableLayout>
 
-        </LinearLayout>
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <!--                <ImageView-->
+                <!--                    android:id="@+id/photo_camera"-->
+                <!--                    android:background="@null"-->
+                <!--                    android:layout_width="150dp"-->
+                <!--                    android:layout_height="150dp"-->
+                <!--                    android:padding="10dp"-->
+                <!--                    android:scaleType="centerInside"-->
+                <!--                    android:src="@drawable/imagecamera" />-->
+
+                <ImageView
+                    android:id="@+id/selected_image"
+                    android:background="@null"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:padding="10dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/imagegallery" />
+            </TableRow>
+        </TableLayout>
 
     </LinearLayout>
 

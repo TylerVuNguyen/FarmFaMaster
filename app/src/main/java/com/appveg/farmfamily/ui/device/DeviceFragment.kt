@@ -112,7 +112,7 @@ class DeviceFragment : Fragment() {
         var device: Device = Device()
         device.deviceID = 1
         device.deviceName = "Máy bơm "
-        device.deviceImg = R.drawable.maybom
+        device.deviceImg = R.drawable.maybo2
         result.add(device)
 
         device = Device()

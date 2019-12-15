@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.home.DetailGarden">
+
+    <!--  start block display sensor-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="2dp"
+        android:id="@+id/detailsContainer"
+        >
+        <!--android:layout_alignParentBottom="true"-->
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+
+            >
+            <LinearLayout android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:background="#3CF1EBF1"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00c5cd"
+                    android:text="Nhiệt độ"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"/>
+
+                <Space android:layout_width="wrap_content"
+                    android:layout_height="5dp"/>
+
+                <TextView
+                    android:id="@+id/temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:textSize="25dp"
+                    android:text="29°C"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:text="Normal"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:background="#3CF1EBF1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00c5cd"
+                    android:text="Độ pH "
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"/>
+
+                <Space android:layout_width="wrap_content"
+                    android:layout_height="5dp"/>
+
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:textSize="25dp"
+                    android:text="6.5"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:text="Normal"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:background="#3CF1EBF1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00c5cd"
+                    android:text="Độ ẩm "
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"/>
+
+                <Space android:layout_width="wrap_content"
+                    android:layout_height="5dp"/>
+
+                <TextView
+                    android:id="@+id/humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:textSize="25dp"
+                    android:text="30%"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:text="Normal"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <!--  end block display sensor-->
+
+        <!--        row device-->
+        <LinearLayout
+            android:id="@+id/row_device"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="#00c5cd"
+            android:orientation="vertical"
+
+            android:padding="3dp"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thiết bị"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+        <!--       end row device-->
+
+
+        <!--display List view device-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@id/detailsContainer"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical"
+            android:padding="10dp">
+        </LinearLayout>
+        <!--     end   display device list -->
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="5dp">
+
+        <Button
+            android:id="@+id/thongkekhuvuon"
+            style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/ic_menu_thongke"
+            android:text="Thống kê"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+</RelativeLayout>

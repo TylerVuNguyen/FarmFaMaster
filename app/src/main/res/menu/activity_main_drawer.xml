@@ -3,39 +3,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+    <item android:title="Thông tin &amp; điều khiển">
+        <menu>
+            <item
+                android:id="@+id/nav_home"
+                android:icon="@drawable/ic_menu_home"
+                android:title="@string/menu_home" />
+
+            <item
+                android:id="@+id/nav_statistics"
+                android:icon="@drawable/ic_menu_thongke"
+                android:title="Thống kê" />
+
+        </menu>
+    </item>
+
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+        <item android:title="Quản trị">
+            <menu>
+                <item
+                    android:id="@+id/nav_gallery"
+                    android:icon="@drawable/ic_menu_garden"
+                    android:title="@string/menu_gallery" />
 
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
+                <item
+                    android:id="@+id/nav_share"
+                    android:icon="@drawable/ic_menu_mass"
+                    android:title="@string/menu_share" />
+                <item
+                    android:id="@+id/nav_send"
+                    android:icon="@drawable/ic_menu_mass1"
+                    android:title="@string/menu_send" />
 
-        <item
-            android:id="@+id/nav_thamso"
-            android:icon="@drawable/ic_menu_send"
-            android:title="Quản lí tham số" />
+                <item
+                    android:id="@+id/nav_thamso"
+                    android:icon="@drawable/ic_menu_thamso"
+                    android:title="Quản lí tham số" />
 
-        <item
-            android:id="@+id/nav_vegetable"
-            android:icon="@drawable/ic_menu_send"
-            android:title="Quản lí các loại rau" />
+                <item
+                    android:id="@+id/nav_vegetable"
+                    android:icon="@drawable/ic_menu_veg"
+                    android:title="Quản lí các loại rau" />
 
-        <item
-            android:id="@+id/nav_device"
-            android:icon="@drawable/ic_menu_send"
-            android:title="Quản lí thiết bị" />
-
+                <item
+                    android:id="@+id/nav_device"
+                    android:icon="@drawable/ic_menu_device1"
+                    android:title="Quản lí thiết bị" />
+            </menu>
+        </item>
     </group>
 </menu>

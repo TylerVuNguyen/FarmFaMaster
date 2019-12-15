@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/nav_statistics"
+        android:name="com.appveg.farmfamily.ui.statistics.StatisticsFragment"
+        android:label="@string/menu_statistics"
+        tools:layout="@layout/fragment_statistics"  />
+
+    <fragment
         android:id="@+id/nav_gallery"
         android:name="com.appveg.farmfamily.ui.garden.GalleryFragment"
         android:label="@string/menu_gallery"
@@ -46,4 +52,6 @@
         android:name="com.appveg.farmfamily.ui.device.DeviceFragment"
         android:label="@string/menu_device"
         tools:layout="@layout/fragment_device" />
+
+
 </navigation>

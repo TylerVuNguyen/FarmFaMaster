@@ -1,9 +1,10 @@
+<!DOCTYPE resources [<!ENTITY copy "&#169;">]>
 <resources>
     <string name="app_name">FarmFa</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Giám sát nông nghiệp</string>
+    <string name="nav_header_subtitle">Bản quyền &copy; 2019-2022 smart farm  </string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
@@ -14,6 +15,7 @@
     <string name="menu_vegetable">Quản lý rau  </string>
     <string name="menu_device">Quản lý thiết bị  </string>
     <string name="menu_thamso">Quản lý tham số </string>
+    <string name="menu_statistics">Thống kê </string>
 
     <string name="email">Email </string>
     <string name="gender">Giới tính</string>
@@ -130,4 +132,12 @@
 
     <!-- end vegetable VI-->
 
+    <!--Temperature VI-->
+    <string name="decription_Temperature_vi">Nhiệt độ (°C)</string>
+    <!-- end Temperature VI-->
+
+    <!-- Humidity VI-->
+    <string name="decription_Humidity_vi">Độ ẩm (%)</string>
+    <!-- end  Humidity VI-->
+    Humidity
 </resources>

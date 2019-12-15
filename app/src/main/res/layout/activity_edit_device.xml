@@ -102,7 +102,7 @@
                     android:layout_height="130dp"
                     android:padding="7dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/maybom" />
+                    android:src="@drawable/maybo2" />
             </LinearLayout>
 
             <LinearLayout

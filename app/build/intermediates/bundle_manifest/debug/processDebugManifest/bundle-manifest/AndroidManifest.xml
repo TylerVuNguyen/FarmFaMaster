@@ -8,12 +8,14 @@
         android:minSdkVersion="22"
         android:targetSdkVersion="28" />
     <!-- Adding Read External Storage Permission usr pick img -->
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -25,6 +27,22 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.appveg.farmfamily.ui.chart.ChartActivity"
+            android:label="Biểu đồ"
+            android:parentActivityName="com.appveg.farmfamily.ui.chart.ChartActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.chart.ChartActivity" />
+        </activity>
+        <activity
+            android:name="com.appveg.farmfamily.ui.home.DetailGarden"
+            android:label="Thông tin khu vườn"
+            android:parentActivityName="com.appveg.farmfamily.ui.home.DetailGarden" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.home.DetailGarden" />
+        </activity>
         <activity
             android:name="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity"
             android:label="Sửa loại rau"
@@ -57,8 +75,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.appveg.farmfamily.ui.device.AddDeviceActivity" />
-        </activity>
-        <!-- <activity -->
+        </activity> <!-- <activity -->
         <!-- android:name=".ui.slideshow.DeviceDetailActivity" -->
         <!-- android:label="Chi tiết thiết bị" -->
         <!-- android:parentActivityName=".ui.slideshow.DeviceDetailActivity"> -->
@@ -87,8 +104,7 @@
             android:label="Sửa đợt sản lượng" />
         <activity
             android:name="com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity"
-            android:label="Chi tiết sản lượng" >
-        </activity>
+            android:label="Chi tiết sản lượng" />
         <activity
             android:name="com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity"
             android:label="Thêm đợt sản lượng " />
@@ -122,6 +138,70 @@
             android:name="com.appveg.farmfamily.ui.login.ForgotPPass"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <service
+            android:name="com.google.firebase.components.ComponentDiscoveryService"
+            android:directBootAware="true"
+            android:exported="false" >
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+        </service>
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.INSTALL_PACKAGES" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="com.appveg.farmfamily.firebaseinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <provider
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"

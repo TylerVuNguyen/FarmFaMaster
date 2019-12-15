@@ -67,6 +67,8 @@ class Database(context: Context?) :
         private val COLUMN_GARDEN_ID = "garden_id"
         private val COLUMN_GARDEN_NAME = "garden_name"
         private val COLUMN_GARDEN_IMAGE = "garden_image"
+        private val COLUMN_GARDEN_CODE = "garden_code"
+
 
     }
 
@@ -100,7 +102,7 @@ class Database(context: Context?) :
                     "deleted_date VARCHAR(50),deleted_flag INTEGER)")
 
         val CREATE_GARDEN_TABLE =
-            ("CREATE TABLE " + TABLE_GARDEN + "(garden_id INTEGER PRIMARY KEY AUTOINCREMENT,garden_name VARCHAR(100)," +
+            ("CREATE TABLE " + TABLE_GARDEN + "(garden_id INTEGER PRIMARY KEY AUTOINCREMENT,garden_code VARCHAR(100),garden_name VARCHAR(100)," +
                     "garden_image BLOB,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
                     "deleted_date VARCHAR(50),deleted_flag INTEGER)")
 
@@ -616,12 +618,15 @@ class Database(context: Context?) :
         var garden_id: Int
         var garden_name: String
         var garden_image : ByteArray
+        var garden_code : String
         if (cursor.moveToFirst()) {
             do {
                 garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
                 garden_name = cursor.getString(cursor.getColumnIndex(COLUMN_GARDEN_NAME))
                 garden_image = cursor.getBlob(cursor.getColumnIndex(COLUMN_GARDEN_IMAGE))
-                garden = Garden(garden_id,garden_name,garden_image)
+                garden_code = cursor.getString(cursor.getColumnIndex(COLUMN_GARDEN_CODE))
+
+                garden = Garden(garden_id,garden_code,garden_name,garden_image)
                 gardenList.add(garden)
             } while (cursor.moveToNext())
         }
@@ -641,6 +646,7 @@ class Database(context: Context?) :
         contentValues.put(COLUMN_GARDEN_IMAGE, garden.gardenImage)
         contentValues.put(COLUMN_CREATEDBY, garden.createdBy)
         contentValues.put(COLUMN_CREATEDDATE, garden.createdDate)
+        contentValues.put(COLUMN_GARDEN_CODE, garden.gardenCode)
 
         // Inserting Row
         val success = db.insert(TABLE_GARDEN, null, contentValues)
@@ -707,7 +713,8 @@ class Database(context: Context?) :
                     var garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
                     var garden_name = cursor.getString(cursor.getColumnIndex(COLUMN_GARDEN_NAME))
                     var garden_image = cursor.getBlob(cursor.getColumnIndex(COLUMN_GARDEN_IMAGE))
-                    garden = Garden(garden_id,garden_name,garden_image)
+                    var garden_code = cursor.getString(cursor.getColumnIndex(COLUMN_GARDEN_CODE))
+                    garden = Garden(garden_id,garden_code,garden_name,garden_image)
                 } while (cursor.moveToNext())
             }
         }
@@ -781,6 +788,7 @@ class Database(context: Context?) :
                 veg_id = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
                 veg_name = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_NAME))
                 veg_image = cursor.getBlob(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
+
                 val vegetable = Vegetable(veg_id,veg_name,veg_image)
                 vegList.add(vegetable)
             } while (cursor.moveToNext())

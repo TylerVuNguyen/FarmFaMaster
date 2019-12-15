@@ -2,12 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.appveg.farmfamily">
     <!-- Adding Read External Storage Permission usr pick img -->
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -16,14 +15,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.vegetable.EditVegetableActivity"
+        <activity android:name=".ui.chart.ChartActivity"
+            android:label="Biểu đồ"
+            android:parentActivityName=".ui.chart.ChartActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.chart.ChartActivity" />
+
+        </activity>
+        <activity
+            android:name=".ui.home.DetailGarden"
+            android:label="Thông tin khu vườn"
+            android:parentActivityName=".ui.home.DetailGarden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.home.DetailGarden" />
+        </activity>
+        <activity
+            android:name=".ui.vegetable.EditVegetableActivity"
             android:label="Sửa loại rau"
             android:parentActivityName=".ui.vegetable.EditVegetableActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity" />
         </activity>
-        <activity android:name=".ui.garden.AddDeviceForGardenActivity"></activity>
+        <activity android:name=".ui.garden.AddDeviceForGardenActivity" />
         <activity
             android:name=".ui.vegetable.AddVegetableActivity"
             android:label="Thêm loại rau"
@@ -47,15 +63,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.appveg.farmfamily.ui.device.AddDeviceActivity" />
-        </activity>
-<!--        <activity-->
-<!--            android:name=".ui.slideshow.DeviceDetailActivity"-->
-<!--            android:label="Chi tiết thiết bị"-->
-<!--            android:parentActivityName=".ui.slideshow.DeviceDetailActivity">-->
-<!--            <meta-data-->
-<!--                android:name="android.support.PARENT_ACTIVITY"-->
-<!--                android:value="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" />-->
-<!--        </activity>-->
+        </activity> <!-- <activity -->
+        <!-- android:name=".ui.slideshow.DeviceDetailActivity" -->
+        <!-- android:label="Chi tiết thiết bị" -->
+        <!-- android:parentActivityName=".ui.slideshow.DeviceDetailActivity"> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.support.PARENT_ACTIVITY" -->
+        <!-- android:value="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" /> -->
+        <!-- </activity> -->
         <activity
             android:name=".ui.garden.ThemKhuVuonActivity"
             android:label="Thêm khu vườn"
@@ -77,9 +92,7 @@
             android:label="Sửa đợt sản lượng" />
         <activity
             android:name=".ui.send.ChiTietSanLuongRauActivity"
-            android:label="Chi tiết sản lượng"
-            >
-        </activity>
+            android:label="Chi tiết sản lượng" />
         <activity
             android:name=".ui.send.ThemDotSanLuongActivity"
             android:label="Thêm đợt sản lượng " />

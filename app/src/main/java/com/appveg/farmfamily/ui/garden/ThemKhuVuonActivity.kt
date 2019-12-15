@@ -29,8 +29,10 @@ import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_5
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_6
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
+import java.text.Normalizer
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.regex.Pattern
 
 class ThemKhuVuonActivity : AppCompatActivity() {
     private val activity = this@ThemKhuVuonActivity
@@ -126,6 +128,10 @@ class ThemKhuVuonActivity : AppCompatActivity() {
         database = Database(activity)
         var garden_name = garden_name.text.toString().trim()
 
+        var garden_code = generateAssetTypeCode(garden_name)
+
+        Toast.makeText(this,garden_code, Toast.LENGTH_LONG).show()
+
         var checkGardenName = checkGardenName(garden_name)
         /*format date*/
         val current = Calendar.getInstance().time
@@ -144,7 +150,7 @@ class ThemKhuVuonActivity : AppCompatActivity() {
         var sizeImage = image.size
         if(sizeImage <= 2000000 ){
             if(checkGardenName && checkGardenImage ){
-                var garden = Garden(null, garden_name,image,"admin",formatted)
+                var garden = Garden(null,garden_code, garden_name,image,"admin",formatted)
                 var id  = database.addGardenImageDefault(garden)
                 if(id != null){
                     Toast.makeText(this,getString(R.string.insert_data_success_vi), Toast.LENGTH_LONG).show()
@@ -178,12 +184,13 @@ class ThemKhuVuonActivity : AppCompatActivity() {
     private fun checkGardenName(check: String): Boolean {
         database = Database(activity)
         var gardens = database.findAllGarden()
+        var garden_temp = generateAssetTypeCode(check)
         if (check.isEmpty()) {
             garden_name.error = getString(R.string.error_empty_common)
             return false
         }else{
             for (i in 0..gardens.size - 1){
-                if(check.equals(gardens.get(i).gardenName,true)){
+                if(garden_temp.equals(gardens.get(i).gardenCode,true)){
                     garden_name.error = getString(R.string.error_garden_exist)
                     return false
                 }
@@ -250,6 +257,20 @@ class ThemKhuVuonActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
+
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    fun generateAssetTypeCode(garden_name: String): String {
+        var result: String = ""
+
+        if(garden_name.isNotBlank()){
+            var temp: String = Normalizer.normalize(garden_name,Normalizer.Form.NFD)
+            var pattern : Pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+")
+            var garden_name_en = pattern.matcher(temp).replaceAll("")
+
+            result  = garden_name_en.trim().replace(" ","").toUpperCase()
+        }
+        return result
     }
 }

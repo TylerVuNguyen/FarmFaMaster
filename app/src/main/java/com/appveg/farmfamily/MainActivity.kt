@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import com.appveg.farmfamily.ui.database.Database
+import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_share, R.id.nav_send, R.id.nav_thamso, R.id.nav_vegetable, R.id.nav_device ), drawerLayout)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_share, R.id.nav_send, R.id.nav_thamso, R.id.nav_vegetable, R.id.nav_device, R.id.nav_statistics ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
