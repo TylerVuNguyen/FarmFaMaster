@@ -7,21 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
-import android.widget.TextView
 import com.appveg.farmfamily.R
 
 class DeviceAdapter (private var activity: Activity, private var items: ArrayList<Device>) :  BaseAdapter(){
 
     private class ViewHolder(row: View?) {
-        var device_name: TextView? = null
-        var img_device: ImageView? = null
-
+        var imgDevice: ImageView? = null
 
         init {
-            this.device_name = row?.findViewById<TextView>(R.id.viewdevice_nameDevice)
-            this.img_device = row?.findViewById<ImageView>(R.id.viewdevice_imageIconDevice)
-
-
+            this.imgDevice = row?.findViewById(R.id.view_device_image)
         }
     }
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -37,10 +31,9 @@ class DeviceAdapter (private var activity: Activity, private var items: ArrayLis
             viewHolder = view.tag as ViewHolder
         }
         var device = items[position]
-        viewHolder.device_name?.text = device.deviceName
-        viewHolder.img_device?.setImageResource(device.deviceImg!!)
+        viewHolder.imgDevice?.setImageResource(device.deviceImg!!)
 
-        return view as View
+        return view
     }
     override fun getItem(i: Int): Device {
         return items[i]

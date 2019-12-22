@@ -16,8 +16,11 @@ class DetailGarden : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_garden)
 
+        rainAlert()
         actionButton()
         gardenInfo()
+        gardenInfoRain()
+
 
 
     }
@@ -37,11 +40,50 @@ class DetailGarden : AppCompatActivity() {
         database = FirebaseDatabase.getInstance().reference
         // My top posts by number of stars
         var garden = getDataFromItent()
-        database.child(garden).addChildEventListener(object : ChildEventListener {
+        var gardenChild = getDataFromItent() + "D1"
+        database.child(garden).child(gardenChild).addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
                 var KHUVUON1 : DetailGardenFirebase? = dataSnapshot.getValue(DetailGardenFirebase::class.java)
                 temperature.text = KHUVUON1?.Temperature
                 humidity.text = KHUVUON1?.Humidity
+            }
+
+            override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {
+
+            }
+
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {
+
+            }
+
+            override fun onChildMoved(dataSnapshot: DataSnapshot, previousChildName: String?) {
+
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+
+            }
+        })
+    }
+
+    /**
+     * the method to gardenInfoRain
+     */
+    fun gardenInfoRain(){
+        database = FirebaseDatabase.getInstance().reference
+        // My top posts by number of stars
+        var garden = getDataFromItent()
+        var gardenChild = getDataFromItent() + "D2"
+        database.child(garden).child(gardenChild).addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
+                var KHUVUON1 : DetailGardenFirebaseRain? = dataSnapshot.getValue(DetailGardenFirebaseRain::class.java)
+                if(KHUVUON1?.Rain?.trim().equals("1")){
+                    imageView.setImageResource(R.drawable.mua)
+                    rain_text.text = "Trời đang mưa"
+                }else{
+                    imageView.setImageResource(R.drawable.khongmua)
+                    rain_text.text = "Trời Không mưa"
+                }
             }
 
             override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {
@@ -71,5 +113,9 @@ class DetailGarden : AppCompatActivity() {
             bundle.get("garden_code") as String
         return id
 
+    }
+    private fun rainAlert(){
+        this.imageView.setImageResource(R.drawable.khongmua)
+        this.rain_text.text = "Trời không mưa"
     }
 }

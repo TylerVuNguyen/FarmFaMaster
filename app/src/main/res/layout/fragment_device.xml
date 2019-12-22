@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/layoutDevice_screenshot"
+    android:background="@color/colorWhite"
     >
 
     <ProgressBar
@@ -14,19 +15,18 @@
         android:visibility="gone" />
 
     <LinearLayout
-        android:id="@+id/listDevice_devicefunction"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:orientation="vertical">
 
 
-        <com.baoyz.swipemenulistview.SwipeMenuListView
+        <ListView
             android:id="@+id/list_view_device"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        </com.baoyz.swipemenulistview.SwipeMenuListView>
+        </ListView>
 
     </LinearLayout>
 
@@ -39,20 +39,8 @@
         android:paddingTop="8dp"
         android:paddingBottom="5dp">
 
-        <!--        <Button-->
-        <!--            android:id="@+id/viewdevice_btn_back"-->
-        <!--            style="@style/Button"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_gravity="start"-->
-        <!--            android:layout_weight="1"-->
-        <!--            android:background="?android:attr/selectableItemBackground"-->
-        <!--            android:drawableTop="@drawable/btn_back"-->
-        <!--            android:text="Trở về"-->
-        <!--            android:textColor="@android:color/white" />-->
-
         <Button
-            android:id="@+id/viewdevice_btn_add"
+            android:id="@+id/view_device_btn_add"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -65,7 +53,7 @@
 
 
         <Button
-            android:id="@+id/viewdevice_btn_print"
+            android:id="@+id/view_device_btn_print"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -76,29 +64,4 @@
             android:text="In"
             android:textColor="@android:color/white" />
     </LinearLayout>
-
-
-    <!-- button them-->
-    <!--    <LinearLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_gravity="bottom"-->
-    <!--        android:orientation="vertical"-->
-    <!--        android:gravity="bottom"-->
-    <!--        android:padding="5dp"-->
-    <!--        android:paddingBottom="10dp"-->
-    <!--        >-->
-
-    <!--        <Button-->
-    <!--            android:id="@+id/addGarden"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="Thêm"-->
-    <!--            android:textColor="#FFFFFF"-->
-    <!--            android:background="@drawable/border_them"-->
-    <!--            android:padding="20dp"-->
-    <!--            android:layout_gravity="center" />-->
-
-
-    <!--    </LinearLayout>-->
 </RelativeLayout>

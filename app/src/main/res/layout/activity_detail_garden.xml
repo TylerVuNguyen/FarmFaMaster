@@ -8,126 +8,242 @@
 
     <!--  start block display sensor-->
     <LinearLayout
+        android:id="@+id/detailsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="2dp"
-        android:id="@+id/detailsContainer"
-        >
+        android:orientation="vertical">
         <!--android:layout_alignParentBottom="true"-->
-        <LinearLayout android:layout_width="match_parent"
+        <!-- row 1-->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="3"
 
             >
-            <LinearLayout android:layout_width="0dp"
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_weight="1"
+                android:background="@drawable/ic_nhietdo_sun"
                 android:gravity="center"
-                android:padding="8dp"
-                android:background="#3CF1EBF1"
-                >
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#00c5cd"
-                    android:text="Nhiệt độ"
                     android:gravity="center"
                     android:padding="2dp"
+                    android:text="Nhiệt độ"
                     android:textColor="#FFFFFF"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
-                <Space android:layout_width="wrap_content"
-                    android:layout_height="5dp"/>
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="5dp" />
 
                 <TextView
                     android:id="@+id/temperature"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="3dp"
-                    android:textSize="25dp"
-                    android:text="29°C"/>
+                    android:text="29°C"
+                    android:textSize="25dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14dp"
-                    android:text="Normal"/>
+                    android:text="Normal"
+                    android:textSize="14dp" />
             </LinearLayout>
 
-            <LinearLayout android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_weight="1"
+                android:background="@drawable/ic_ph"
                 android:gravity="center"
-                android:padding="8dp"
-                android:background="#3CF1EBF1">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#00c5cd"
-                    android:text="Độ pH "
                     android:gravity="center"
                     android:padding="2dp"
+                    android:text="Độ pH "
                     android:textColor="#FFFFFF"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
-                <Space android:layout_width="wrap_content"
-                    android:layout_height="5dp"/>
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="5dp" />
 
-                <TextView android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="3dp"
-                    android:textSize="25dp"
-                    android:text="6.5"/>
+                    android:text="6.5"
+                    android:textSize="25dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14dp"
-                    android:text="Normal"/>
+                    android:text="Normal"
+                    android:textSize="14dp" />
             </LinearLayout>
 
-            <LinearLayout android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_weight="1"
+                android:background="@drawable/ic_doam_temp12"
                 android:gravity="center"
-                android:padding="8dp"
-                android:background="#3CF1EBF1">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#00c5cd"
-                    android:text="Độ ẩm "
                     android:gravity="center"
                     android:padding="2dp"
+                    android:text="Độ ẩm "
                     android:textColor="#FFFFFF"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
-                <Space android:layout_width="wrap_content"
-                    android:layout_height="5dp"/>
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="5dp" />
 
                 <TextView
                     android:id="@+id/humidity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="3dp"
-                    android:textSize="25dp"
-                    android:text="30%"/>
+                    android:text="30%"
+                    android:textSize="25dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14dp"
-                    android:text="Normal"/>
+                    android:text="Normal"
+                    android:textSize="14dp" />
             </LinearLayout>
 
+        </LinearLayout>
+        <!-- row 2-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/ic_ppm"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00c5cd"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="PPM"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="5dp" />
+
+                <TextView
+                    android:id="@+id/ppm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:text="30%"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Normal"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00c5cd"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="Cảnh báo mưa"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="5dp" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/imageView"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    />
+
+
+                <TextView
+                    android:id="@+id/rain_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Normal"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+            </LinearLayout>
         </LinearLayout>
         <!--  end block display sensor-->
 
@@ -138,20 +254,21 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
             android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="8dp"
             android:background="#00c5cd"
-            android:orientation="vertical"
 
-            android:padding="3dp"
-            android:layout_marginTop="10dp">
+            android:orientation="vertical"
+            android:padding="3dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thiết bị"
                 android:layout_gravity="center"
                 android:gravity="center"
+                android:text="Thiết bị"
                 android:textColor="#FFFFFF"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
         <!--       end row device-->
@@ -161,15 +278,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="20dp"
             android:layout_below="@id/detailsContainer"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="20dp"
             android:orientation="vertical"
-            android:padding="10dp">
-        </LinearLayout>
+            android:padding="10dp"></LinearLayout>
         <!--     end   display device list -->
-
 
 
     </LinearLayout>

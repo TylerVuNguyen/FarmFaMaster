@@ -83,7 +83,7 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
             override fun onMenuItemClick(position: Int, menu: SwipeMenu, index: Int): Boolean {
                 when (index) {
                     0 -> {
-                       getForwardData(position)
+                        getForwardData(position)
                     }
                     1 -> {
                         // build alert dialog
@@ -94,13 +94,15 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
                             // if the dialog is cancelable
                             .setCancelable(false)
                             // positive button text and action
-                            .setPositiveButton("Có", DialogInterface.OnClickListener {
-                                    dialog, id -> removeBatch(position)
+                            .setPositiveButton("Có", DialogInterface.OnClickListener { dialog, id ->
+                                removeBatch(position)
                             })
                             // negative button text and action
-                            .setNegativeButton("Hủy", DialogInterface.OnClickListener {
-                                    dialog, id -> dialog.cancel()
-                            })
+                            .setNegativeButton(
+                                "Hủy",
+                                DialogInterface.OnClickListener { dialog, id ->
+                                    dialog.cancel()
+                                })
 
                         // create dialog box
                         val alert = dialogBuilder.create()
@@ -118,25 +120,26 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
         })
 
 
-    //su kien them san luong
-    themDotSanLuong.setOnClickListener {
-        var  intent: Intent  = Intent(activity, ThemDotSanLuongActivity::class.java)
-        intent.putExtra("garden_id",getDataFromItent())
-        activity.finish()
-        startActivity(intent)
+        //su kien them san luong
+        themDotSanLuong.setOnClickListener {
+            var intent: Intent = Intent(activity, ThemDotSanLuongActivity::class.java)
+            intent.putExtra("garden_id", getDataFromItent())
+            activity.finish()
+            startActivity(intent)
         }
     }
 
     /**
      * the method to get data from intent
      */
-    private fun getDataFromItent() : Int {
-        val bundle:Bundle = intent.extras
+    private fun getDataFromItent(): Int {
+        val bundle: Bundle = intent.extras
         val id: Int =
             bundle.get("garden_id") as Int
         return id
 
     }
+
     /**
      * the method to removeBatch
      */
@@ -153,16 +156,17 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
         }
         list_view.adapter = ChiTietAdapter(activity, bactchList)
     }
+
     /**
      * the method to display batch
      */
-    fun getListBatch(){
+    fun getListBatch() {
         var id = getDataFromItent()
         database = Database(activity)
         bactchList = database.viewBatchByGardenId(id)
-        if(bactchList.isNullOrEmpty()){
-            Toast.makeText(activity,"Dánh sách đợt đang trống !",Toast.LENGTH_LONG).show()
-        }else{
+        if (bactchList.isNullOrEmpty()) {
+            Toast.makeText(activity, "Dánh sách đợt đang trống !", Toast.LENGTH_LONG).show()
+        } else {
             list_view.adapter = ChiTietAdapter(activity, bactchList)
         }
     }
@@ -171,12 +175,12 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
     /**
      * the method to itent data for batch and batch detail
      */
-    fun getForwardData(position: Int){
+    fun getForwardData(position: Int) {
         var gardenIdForward = getDataFromItent()
         var batch_id = bactchList[position].batchId!!.toInt()
         var intent: Intent = Intent(applicationContext, SuaDotSanLuongActivity::class.java)
-        intent.putExtra("garden_id",gardenIdForward)
-        intent.putExtra("batch_id",batch_id)
+        intent.putExtra("garden_id", gardenIdForward)
+        intent.putExtra("batch_id", batch_id)
         activity.finish()
         startActivity(intent)
     }
@@ -184,12 +188,12 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
     /**
      * the method to itent data for batch and batch detail
      */
-    fun getForwardDataDetail(position: Int){
-            var intent: Intent = Intent(activity, ChiTietSanLuongRauActivity::class.java)
-            intent.putExtra("garden_id",getDataFromItent())
-            intent.putExtra("batch_id",bactchList.get(position).batchId)
-            activity.finish()
-            startActivity(intent)
+    fun getForwardDataDetail(position: Int) {
+        var intent: Intent = Intent(activity, ChiTietSanLuongRauActivity::class.java)
+        intent.putExtra("garden_id", getDataFromItent())
+        intent.putExtra("batch_id", bactchList.get(position).batchId)
+        activity.finish()
+        startActivity(intent)
     }
 
 }

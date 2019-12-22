@@ -24,8 +24,8 @@ class Garden {
     ) {
         this.gardenId = gardenId
         this.gardenCode = gardenCode
-        this.gardenImage = gardenImage
         this.gardenName = gardenName
+        this.gardenImage = gardenImage
         this.createdBy = createdBy
         this.createdDate = createdDate
     }
@@ -36,8 +36,8 @@ class Garden {
         updatedDate: String? = null
     ) {
         this.gardenId = gardenId
-        this.gardenImage = gardenImage
         this.gardenName = gardenName
+        this.gardenImage = gardenImage
         this.updatedDate = updatedDate
     }
 

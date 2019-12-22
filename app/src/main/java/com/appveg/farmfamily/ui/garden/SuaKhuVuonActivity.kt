@@ -149,12 +149,13 @@ class SuaKhuVuonActivity : AppCompatActivity() {
             database.updateGardenImageDefault(garden)
 
             Toast.makeText(this,getString(R.string.update_data_success_vi), Toast.LENGTH_LONG).show()
-            var fragmentAdapter : GalleryFragment = GalleryFragment()
-            // hide activity
-            EditGarden_Function.visibility = View.GONE
-            //action bar
-            activity.title = "Quản lý khu vườn"
-            supportFragmentManager.beginTransaction().replace(R.id.edit_fragmentContainer_garden, fragmentAdapter).commit()
+//            var fragmentAdapter : GalleryFragment = GalleryFragment()
+//            // hide activity
+//            EditGarden_Function.visibility = View.GONE
+//            //action bar
+//            activity.title = "Quản lý khu vườn"
+//            supportFragmentManager.beginTransaction().replace(R.id.edit_fragmentContainer_garden, fragmentAdapter).commit()
+            activity.finish()
 
         }else{
             Toast.makeText(this,getString(R.string.update_data_fail_vi), Toast.LENGTH_LONG).show()
@@ -166,17 +167,9 @@ class SuaKhuVuonActivity : AppCompatActivity() {
      */
     private fun checkGardenName(check: String): Boolean {
         database = Database(activity)
-        var gardens = database.findAllGarden()
         if (check.isEmpty()) {
-            garden_name.error = getString(R.string.error_empty_common)
+            garden_name_edit.error = getString(R.string.error_empty_common)
             return false
-        }else{
-            for (i in 0..gardens.size - 1){
-                if(check.equals(gardens.get(i).gardenName,true)){
-                    garden_name.error = getString(R.string.error_garden_exist)
-                    return false
-                }
-            }
         }
         return true
     }

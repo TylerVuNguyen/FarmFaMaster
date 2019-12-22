@@ -125,12 +125,13 @@ class EditVegetableActivity : AppCompatActivity() {
             database.updateVegImageDefault(vegetable)
 
             Toast.makeText(this,getString(R.string.update_data_success_vi),Toast.LENGTH_LONG).show()
-            var fragmentAdapter : VegetableFragment = VegetableFragment()
+ //           var fragmentAdapter : VegetableFragment = VegetableFragment()
             // hide activity
-            addveg_vegfunction_edit.visibility = View.GONE
-            //action bar
-            activity.title = "Quản lý các loại rau"
-            supportFragmentManager.beginTransaction().replace(R.id.edit_fragmentContainer, fragmentAdapter).commit()
+//            addveg_vegfunction_edit.visibility = View.GONE
+//            //action bar
+//            activity.title = "Quản lý các loại rau"
+//            supportFragmentManager.beginTransaction().replace(R.id.edit_fragmentContainer, fragmentAdapter).commit()
+            activity.finish()
 
         }else{
             Toast.makeText(this,getString(R.string.update_data_fail_vi), Toast.LENGTH_LONG).show()
@@ -227,6 +228,7 @@ class EditVegetableActivity : AppCompatActivity() {
 
         // gán lại id để tý update data
         var vegetable: Vegetable = getVegById(veg_id)
+
 
         var imageBitmap : ByteArray? = vegetable.vegImgBlob
         var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)

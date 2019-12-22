@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
+import com.appveg.farmfamily.ui.garden.QLKVAdapter
 import com.appveg.farmfamily.ui.send.ChiTietAdapter
 import com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity
 import com.baoyz.swipemenulistview.SwipeMenu
@@ -19,6 +20,7 @@ import com.baoyz.swipemenulistview.SwipeMenuCreator
 import com.baoyz.swipemenulistview.SwipeMenuItem
 import com.baoyz.swipemenulistview.SwipeMenuListView
 import kotlinx.android.synthetic.main.activity_chi_tiet_san_luong.*
+import kotlinx.android.synthetic.main.fragment_gallery.*
 import kotlinx.android.synthetic.main.fragment_vegetable.*
 
 class VegetableFragment  : Fragment() {
@@ -84,54 +86,47 @@ class VegetableFragment  : Fragment() {
 
         // set swipe
         listViewVegetable.setMenuCreator(creator)
-        listViewVegetable.setOnMenuItemClickListener(object :
-            SwipeMenuListView.OnMenuItemClickListener {
-            override fun onMenuItemClick(position: Int, menu: SwipeMenu, index: Int): Boolean {
-                when (index) {
-                    0 -> {
-                        getForwardData(position)
-                    }
-                    1 -> {
-                        // build alert dialog
-                        val dialogBuilder = AlertDialog.Builder(activity)
+        listViewVegetable.setOnMenuItemClickListener { position, menu, index ->
+            when (index) {
+                0 -> {
+                    getForwardData(position)
+                }
+                1 -> {
+                    // build alert dialog
+                    val dialogBuilder = AlertDialog.Builder(activity)
 
-                        // set message of alert dialog
-                        dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
-                            // if the dialog is cancelable
-                            .setCancelable(false)
-                            // positive button text and action
-                            .setPositiveButton("Có", DialogInterface.OnClickListener {
-                                    dialog, id -> removeVegetable(position)
-                            })
-                            // negative button text and action
-                            .setNegativeButton("Hủy", DialogInterface.OnClickListener {
-                                    dialog, id -> dialog.cancel()
-                            })
+                    // set message of alert dialog
+                    dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
+                        // if the dialog is cancelable
+                        .setCancelable(false)
+                        // positive button text and action
+                        .setPositiveButton("Có", DialogInterface.OnClickListener { dialog, id -> removeVegetable(position)
+                        })
+                        // negative button text and action
+                        .setNegativeButton("Hủy", DialogInterface.OnClickListener { dialog, id -> dialog.cancel()
+                        })
 
-                        // create dialog box
-                        val alert = dialogBuilder.create()
-                        // set title for alert dialog box
-                        alert.setTitle("Xóa chi tiết rau")
-                        // show alert dialog
-                        alert.show()
-                    }
-                }// open
-                // delete
-                // false : close the menu; true : not close the menu
-                return false
-            }
-        })
+                    // create dialog box
+                    val alert = dialogBuilder.create()
+                    // set title for alert dialog box
+                    alert.setTitle("Xóa chi tiết rau")
+                    // show alert dialog
+                    alert.show()
+                }
+            }// open
+            // delete
+            // false : close the menu; true : not close the menu
+            false
+        }
 
         //button them rau
         var viewveg_btn_add = root.findViewById(R.id.viewveg_btn_add) as Button
-        viewveg_btn_add.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                var intent: Intent = Intent(requireContext(), AddVegetableActivity::class.java)
-               activity?.onBackPressed()
-                //listRoom_roomfunction.visibility = View.GONE
-                startActivity(intent)
-            }
-        })
+        viewveg_btn_add.setOnClickListener {
+            var intent: Intent = Intent(requireContext(), AddVegetableActivity::class.java)
+            //activity?.onBackPressed()
+            //listRoom_roomfunction.visibility = View.GONE
+            startActivity(intent)
+        }
 
         return root.rootView
 
@@ -172,10 +167,17 @@ class VegetableFragment  : Fragment() {
     fun getForwardData(position: Int){
         var veg_id = vegetables[position].vegID!!.toInt()
         var intent: Intent = Intent(activity, EditVegetableActivity::class.java)
-        activity?.onBackPressed()
         intent.putExtra("veg_id",veg_id)
         startActivity(intent)
     }
 
+    /**
+     * the method to resume ( call when back stack)
+     */
+    override fun onResume() {
+        super.onResume()
+        vegetables = getListVeg()
+        list_view_vegetable.adapter = activity?.let { VegetableFragmentAdapter(it, vegetables) }
+    }
 
 }

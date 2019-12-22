@@ -69,6 +69,12 @@ class Database(context: Context?) :
         private val COLUMN_GARDEN_IMAGE = "garden_image"
         private val COLUMN_GARDEN_CODE = "garden_code"
 
+        /*device*/
+        private val COLUMN_DEVICE_ID = "device_id"
+        private val COLUMN_DEVICE_NAME = "garden_name"
+        private val COLUMN_DEVICE_IMAGE = "garden_image"
+        private val COLUMN_DEVICE_CODE = "garden_code"
+
 
     }
 
@@ -747,7 +753,7 @@ class Database(context: Context?) :
     /**
      * This method to update data vegetable
      *
-     * @param batchQtyDetail
+     * @param veg
      * @return true/false
      */
     fun updateVegImageDefault(veg: Vegetable) : Int {
@@ -842,4 +848,5 @@ class Database(context: Context?) :
         cursor?.close()
         return vegetable
     }
+    /*----------------------------------------------Device-------------------------------------------------*/
 }

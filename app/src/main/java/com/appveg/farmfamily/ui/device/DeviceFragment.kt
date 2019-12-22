@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ListView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.appveg.farmfamily.R
@@ -15,6 +16,7 @@ import com.baoyz.swipemenulistview.SwipeMenu
 import com.baoyz.swipemenulistview.SwipeMenuCreator
 import com.baoyz.swipemenulistview.SwipeMenuItem
 import com.baoyz.swipemenulistview.SwipeMenuListView
+import kotlinx.android.synthetic.main.fragment_device.*
 
 class DeviceFragment : Fragment() {
 
@@ -25,82 +27,23 @@ class DeviceFragment : Fragment() {
 
         val listDevice = listDevice()
 
-        var listviewDevice = root.findViewById(R.id.list_view_device) as SwipeMenuListView
+        var listViewDevice = root.findViewById(R.id.list_view_device) as ListView
+
+        listViewDevice.adapter = this.activity?.let { DeviceAdapter(it, listDevice) }
 
 
-        listviewDevice.adapter = this.activity?.let { DeviceAdapter(it, listDevice) }
-
-
-        listviewDevice.setOnItemClickListener { adapterView, view, i, l ->
-            //            if (listVeg.get(i).vegID == 1) {
-//                var intent: Intent = Intent(requireContext(), EditDeviceActivity::class.java);
-//                startActivity(intent)
-//            }
-            Toast.makeText(requireContext(),"ahihi", Toast.LENGTH_SHORT).show()
-
-        }
-
-
-        //swipemenulistview
-        val creator = SwipeMenuCreator { menu ->
-            // create "open" item
-            val editItem = SwipeMenuItem(
-                this.context
-            )
-//
-            // set item width
-            editItem.width = 100
-
-//            editItem.titleColor = Color.WHITE
-
-            //set icon
-            editItem.setIcon(R.drawable.ic_edit)
-            // add to menu
-            menu.addMenuItem(editItem)
-
-            // create "delete" item
-            val deleteItem = SwipeMenuItem(
-                this.context
-            )
-
-            // set item width
-            deleteItem.width = 100
-            // set a icon
-            deleteItem.setIcon(R.drawable.ic_delete)
-            // add to menu
-            menu.addMenuItem(deleteItem)
-        }
-
-        // set swipe
-        listviewDevice.setMenuCreator(creator)
-        listviewDevice.setOnMenuItemClickListener(object : SwipeMenuListView.OnMenuItemClickListener {
-            override fun onMenuItemClick(position: Int, menu: SwipeMenu, index: Int): Boolean {
-                when (index) {
-                    0 -> {
-                        var intent: Intent = Intent(requireContext(), EditDeviceActivity::class.java);
-                        startActivity(intent)
-//                        Toast.makeText(requireContext(), listDevice[position].toString(), Toast.LENGTH_LONG).show()
-                    }
-                    1 -> {
-                        Toast.makeText(requireContext(), listDevice[position].toString(), Toast.LENGTH_LONG).show()
-                    }
-                }// open
-                // delete
-                // false : close the menu; true : not close the menu
-                return false
-            }
-        })
-
-        //button them rau
-        var viewdevice_btn_add = root.findViewById(R.id.viewdevice_btn_add) as Button
-        viewdevice_btn_add.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(v: View?) {
-                var intent: Intent = Intent(requireContext(), AddDeviceActivity::class.java)
+        listViewDevice.setOnItemClickListener { adapterView, view, i, l ->
+            if (listDevice[i].deviceID == 1) {
+                var intent: Intent = Intent(requireContext(), DeviceDetailActivity::class.java)
                 startActivity(intent)
             }
+        }
 
-
-        })
+        var device_btn_add = root.findViewById(R.id.view_device_btn_add) as Button
+        device_btn_add.setOnClickListener {
+            var intent: Intent = Intent(requireContext(), AddDeviceActivity::class.java)
+            startActivity(intent)
+        }
 
         return root.rootView
 

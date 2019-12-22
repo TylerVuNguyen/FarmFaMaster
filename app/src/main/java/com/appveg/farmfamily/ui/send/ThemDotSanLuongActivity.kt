@@ -130,7 +130,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
         //spinner hien thi danh sach rau
         val listRau = arrayOf("Rau cải", "Rau ngót ", "Rau xà lách")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listRau)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1)
         positionSpinner.adapter = adapter
 
         positionSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {

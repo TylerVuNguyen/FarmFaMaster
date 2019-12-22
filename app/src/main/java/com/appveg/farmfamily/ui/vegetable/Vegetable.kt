@@ -4,7 +4,6 @@ class Vegetable {
 
     var vegID: Int? = 0
     var vegName: String? = ""
-    var vegImg: String? = null
     var vegImgBlob: ByteArray? = null
     var createdBy: String? = "admin"
     var createdDate: String? = null
@@ -41,7 +40,6 @@ class Vegetable {
     ) {
         this.vegID = vegID
         this.vegName = vegName
-        this.vegImg = vegImg
         this.vegImgBlob = vegImgBlob
         this.createdBy = createdBy
         this.createdDate = createdDate
@@ -61,36 +59,22 @@ class Vegetable {
     ) {
         this.vegID = vegID
         this.vegName = vegName
-        this.vegImg = vegImg
         this.createdBy = createdBy
         this.createdDate = createdDate
     }
     constructor(
         vegID: Int?,
         vegName: String?,
-        vegImg: ByteArray,
+        vegImgBlob: ByteArray,
         updatedDate: String?
     ) {
         this.vegID = vegID
         this.vegName = vegName
-        this.vegImg = vegImg.toString()
+        this.vegImgBlob = vegImgBlob
         this.updatedDate = updatedDate
     }
 
     constructor()
-    constructor(name: String) {
-        this.vegName = name
-        //data mac dinh la icon = 1: nguoi dung muon thay doi thi thay doi tren usng dung
-//        this.isActive = true
-        this.vegImg = null
-    }
-
-    constructor(vegID: Int?, vegName: String?) {
-        this.vegID = vegID
-        this.vegName = vegName
-//        this.isActive = true
-    }
-
 
     //get ALl Room
     constructor(vegID: Int?, vegName: String?, vegImgBlob: ByteArray) {

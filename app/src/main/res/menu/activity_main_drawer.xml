@@ -12,7 +12,7 @@
 
             <item
                 android:id="@+id/nav_statistics"
-                android:icon="@drawable/ic_menu_thongke"
+                android:icon="@drawable/ic_menu_thongke1"
                 android:title="Thống kê" />
 
         </menu>
@@ -44,6 +44,11 @@
                     android:id="@+id/nav_vegetable"
                     android:icon="@drawable/ic_menu_veg"
                     android:title="Quản lí các loại rau" />
+
+                <item
+                    android:id="@+id/nav_device_category"
+                    android:icon="@drawable/ic_menu_device_category"
+                    android:title="Quản lí loại thiết bị" />
 
                 <item
                     android:id="@+id/nav_device"

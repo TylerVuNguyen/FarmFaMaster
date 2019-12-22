@@ -122,7 +122,7 @@ class GalleryFragment : Fragment() {
         btn_garden_add.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 var intent: Intent = Intent(requireContext(), ThemKhuVuonActivity::class.java)
-                activity?.onBackPressed()
+                //activity?.onBackPressed()
                 //listRoom_roomfunction.visibility = View.GONE
                 startActivity(intent)
             }
@@ -166,9 +166,16 @@ class GalleryFragment : Fragment() {
     fun getForwardData(position: Int){
         var garden_id = gardens[position].gardenId!!.toInt()
         var intent: Intent = Intent(activity, SuaKhuVuonActivity::class.java)
-        activity?.onBackPressed()
         intent.putExtra("garden_id",garden_id)
         startActivity(intent)
     }
 
+    /**
+     * the method to resume ( call when back stack)
+     */
+    override fun onResume() {
+        super.onResume()
+        gardens = getListGarden()
+        list_view_garden.adapter = activity?.let { QLKVAdapter(it,gardens) }
+    }
 }
