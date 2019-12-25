@@ -264,7 +264,7 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/ic_add2"
-            android:text="Thêm"
+            android:text="Cập nhật"
             android:textColor="@android:color/white" />
 
         <Button

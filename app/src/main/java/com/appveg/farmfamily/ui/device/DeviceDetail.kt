@@ -74,5 +74,23 @@ class DeviceDetail {
         this.createdDate = createdDate
     }
 
+    constructor(
+        deviceDetailID: Int?,
+        deviceDetailImg: ByteArray?,
+        updatedDate: String?
+    ) {
+        this.deviceDetailID = deviceDetailID
+        this.deviceDetailImg = deviceDetailImg
+        this.updatedDate = updatedDate
+    }
+
+    constructor(
+        deviceDetailID: Int?,
+        deviceDetailStatus: String?
+    ) {
+        this.deviceDetailID = deviceDetailID
+        this.deviceDetailStatus = deviceDetailStatus
+    }
+
 
 }

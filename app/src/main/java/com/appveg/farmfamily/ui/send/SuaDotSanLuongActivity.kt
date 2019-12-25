@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
+import com.appveg.farmfamily.ui.vegetable.Vegetable
 import com.appveg.farmfamily.ui.vegetable.VegetableTemp
 import kotlinx.android.synthetic.main.activity_sua_dot_san_luong.*
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.*
@@ -29,6 +30,9 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
     private var selected: String? = ""
     private var listVeg: ArrayList<VegetableTemp> = ArrayList()
     private var sumQty : Int = 0
+
+    private var listVegetable: ArrayList<Vegetable> = ArrayList()
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sua_dot_san_luong)
@@ -400,5 +404,20 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
             }
 
         }
+    }
+
+    /**
+     * This method is to get list category
+     */
+    private fun getListVegetable(): ArrayList<String> {
+        database = Database(activity)
+        listVegetable = database.findAllVegetable()
+        var categories: ArrayList<String> = ArrayList()
+        if (!listVegetable.isNullOrEmpty()) {
+            for (i in 0 until listVegetable.size) {
+                categories.add(listVegetable[i].vegName!!)
+            }
+        }
+        return categories
     }
 }

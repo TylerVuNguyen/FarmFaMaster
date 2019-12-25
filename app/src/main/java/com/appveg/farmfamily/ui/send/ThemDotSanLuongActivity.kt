@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.*
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
+import com.appveg.farmfamily.ui.vegetable.Vegetable
 import com.appveg.farmfamily.ui.vegetable.VegetableTemp
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.*
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.pickDateBD
@@ -30,10 +31,12 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
     private lateinit var sendFragment: SendFragment
 
     private var selected: String? = ""
+
     private var listVeg: ArrayList<VegetableTemp> = ArrayList()
+
     private var sumQty: Int = 0
 
-
+    private var listVegetable: ArrayList<Vegetable> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -128,7 +131,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
         }
 
         //spinner hien thi danh sach rau
-        val listRau = arrayOf("Rau cải", "Rau ngót ", "Rau xà lách")
+        val listRau = getListVegetable()
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listRau)
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_1)
         positionSpinner.adapter = adapter
@@ -340,6 +343,21 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
         lv_themSL.adapter = ThemAdapter(activity, listVeg)
         // remove item of list then must be update list
         sumQuantity()
+    }
+
+    /**
+     * This method is to get list category
+     */
+    private fun getListVegetable(): ArrayList<String> {
+        database = Database(activity)
+        listVegetable = database.findAllVegetable()
+        var categories: ArrayList<String> = ArrayList()
+        if (!listVegetable.isNullOrEmpty()) {
+            for (i in 0 until listVegetable.size) {
+                categories.add(listVegetable[i].vegName!!)
+            }
+        }
+        return categories
     }
 
 }

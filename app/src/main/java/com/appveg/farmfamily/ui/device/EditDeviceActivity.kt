@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -14,6 +15,8 @@ import android.widget.*
 import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
+import com.appveg.farmfamily.ui.device_catogory.DeviceCategory
+import com.appveg.farmfamily.ui.vegetable.Vegetable
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_edit_device.*
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_1
@@ -25,7 +28,9 @@ import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_6
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_7
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_8
 import kotlinx.android.synthetic.main.activity_edit_vegetable.*
+import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
+import java.text.SimpleDateFormat
 import java.util.*
 
 class EditDeviceActivity : AppCompatActivity() {
@@ -41,6 +46,8 @@ class EditDeviceActivity : AppCompatActivity() {
 
     var devices: ArrayList<Device> = ArrayList()
 
+    private var deviceCategories: ArrayList<DeviceCategory> = ArrayList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_device)
@@ -50,9 +57,8 @@ class EditDeviceActivity : AppCompatActivity() {
         actionButtonForImageView()
 
 
-
         //spinner hien thi danh sach rau
-        val listSensor = arrayOf("Cảm biến", "Quạt", "Motor")
+        val listSensor = getListCategory()
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listSensor)
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_1)
         positionSpinner_edit.adapter = adapter
@@ -78,6 +84,7 @@ class EditDeviceActivity : AppCompatActivity() {
         // function init data for edit
         initDataEdit()
     }
+
     /**
      * This method to select image default
      */
@@ -145,9 +152,9 @@ class EditDeviceActivity : AppCompatActivity() {
 
     private fun actionButton() {
         /*event add veg*/
-//        btn_device_edit.setOnClickListener {
-//            updateDevice()
-//        }
+        btn_device_edit.setOnClickListener {
+            updateDeviceAndDeviceDetail()
+        }
 
         /*event call camera*/
         add_camera_device_edit.setOnClickListener {
@@ -161,7 +168,11 @@ class EditDeviceActivity : AppCompatActivity() {
     }
 
     private fun getImageFromCamera() {
-        ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.CAMERA), REQUEST_CODE_CAMERA)
+        ActivityCompat.requestPermissions(
+            activity,
+            arrayOf(Manifest.permission.CAMERA),
+            REQUEST_CODE_CAMERA
+        )
     }
 
     private fun getImageFromGallery() {
@@ -172,69 +183,50 @@ class EditDeviceActivity : AppCompatActivity() {
         )
     }
 
-//    private fun updateDevice() {
-//        database = Database(activity)
-//        var device_name = device_name_edit.text.toString().trim()
-//        // var deviceCategoryName = selected.toString()
-//        var deviceCategoryId = device_category_id.toInt()
-//
-//        var checkDeviceName = checkDeviceName(device_name)
-//
-//        /*format date*/
-//        val current = Calendar.getInstance().time
-//        val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
-//        val formatted: String = formatter.format(current)
-//
-//        val device_id = getDataFromItent()
-//
-//        var bitmapDrawable: BitmapDrawable = selected_image_device.drawable as BitmapDrawable
-//        var bitmap: Bitmap = bitmapDrawable.bitmap
-//        var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
-//        bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArray)
-//
-//
-//        var image: ByteArray = byteArray.toByteArray()
-//        var checkDeviceImage = checkDeviceImage(image)
-//
-//        var codeDeviceDetail = getRandomCodeDetail()
-//
-//        if (checkDeviceName && checkDeviceImage) {
-//            var device = Device(null, device_name, image,deviceCategoryId)
-//            var listDevice = getListDevice()
-//            var exits : Boolean = false
-//            var device_temp_id : Int = -1
-//            if(!listDevice.isNullOrEmpty()){
-//                for (i in 0 until listDevice.size){
-//                    if(listDevice[i].deviceName.equals(device_name)){
-//                        exits = true
-//                        device_temp_id = listDevice[i].deviceID!!
-//                    }
-//                }
-//            }
-//            // have two case
-//            if(!exits){
-//                var temp_id = database.addDeviceImageDefault(device)
-//                if(temp_id != null){
-//                    var deviceDetail = DeviceDetail(null,codeDeviceDetail,image,temp_id.toInt(),"N","admin",formatted)
-//                    database.addDeviceDetailImageDefault(deviceDetail)
-//                }
-//                Toast.makeText(this, getString(R.string.insert_data_success_vi), Toast.LENGTH_LONG)
-//                    .show()
-//                activity.finish()
-//            }else{
-//                var deviceDetail = DeviceDetail(null,codeDeviceDetail,image,device_temp_id,"B","admin",formatted)
-//                database.addDeviceDetailImageDefault(deviceDetail)
-//
-//                Toast.makeText(this, getString(R.string.insert_data_success_vi), Toast.LENGTH_LONG)
-//                    .show()
-//                activity.finish()
-//            }
-//
-//        } else {
-//            Toast.makeText(this, getString(R.string.insert_data_fail_vi), Toast.LENGTH_LONG).show()
-//        }
-//
-//    }
+    private fun updateDeviceAndDeviceDetail() {
+        database = Database(activity)
+        var device_name = device_name_edit.text.toString().trim()
+        // var deviceCategoryName = selected.toString()
+        var deviceCategoryId = device_category_id.toInt()
+
+        var checkDeviceName = checkDeviceName(device_name)
+
+        /*format date*/
+        val current = Calendar.getInstance().time
+        val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
+        val formatted: String = formatter.format(current)
+
+        val device_id = getDataFromItent()
+
+        var bitmapDrawable: BitmapDrawable = selected_image_device_edit.drawable as BitmapDrawable
+        var bitmap: Bitmap = bitmapDrawable.bitmap
+        var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArray)
+
+
+        var image: ByteArray = byteArray.toByteArray()
+        var checkDeviceImage = checkDeviceImage(image)
+
+        if (checkDeviceName && checkDeviceImage) {
+            var device = Device(device_id, device_name, image, deviceCategoryId)
+
+            database.updateDeviceImageDefault(device)
+
+            var deviceDetails = database.findAllDeviceDetail(device_id)
+            if(!deviceDetails.isNullOrEmpty()){
+                for (i in 0 until deviceDetails.size){
+                    var deviceDetail = DeviceDetail(deviceDetails[i].deviceDetailID, image, formatted)
+                    database.updateDeviceDetailImageDefault(deviceDetail)
+                }
+                Toast.makeText(this, getString(R.string.update_data_success_vi), Toast.LENGTH_LONG)
+                    .show()
+                activity.finish()
+            }
+        } else {
+            Toast.makeText(this, getString(R.string.update_data_fail_vi), Toast.LENGTH_LONG).show()
+        }
+
+    }
 
     /**
      * This method is to batch name
@@ -246,12 +238,13 @@ class EditDeviceActivity : AppCompatActivity() {
         }
         return true
     }
+
     /**
      * This method is to batch name
      */
     private fun checkDeviceImage(check: ByteArray): Boolean {
         if (check.isEmpty()) {
-            Toast.makeText(this,R.string.image_no_select_vi, Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.image_no_select_vi, Toast.LENGTH_LONG).show()
             return false
         }
         return true
@@ -335,8 +328,8 @@ class EditDeviceActivity : AppCompatActivity() {
         var device: Device = getDeviceById(device_id)
 
 
-        var imageBitmap : ByteArray? = device.deviceImg
-        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
+        var imageBitmap: ByteArray? = device.deviceImg
+        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap, 0, imageBitmap!!.size)
 
         this.selected_image_device_edit.setImageBitmap(bitmap)
         this.device_name_edit.setText(device.deviceName)
@@ -348,12 +341,27 @@ class EditDeviceActivity : AppCompatActivity() {
     /**
      * the method to get batch by id
      */
-    fun getDeviceById(device_id: Int) : Device {
+    fun getDeviceById(device_id: Int): Device {
         database = Database(activity)
-        var device : Device = Device()
-        if(device_id != null){
+        var device: Device = Device()
+        if (device_id != null) {
             device = database.findDeviceById(device_id)
         }
         return device
+    }
+
+    /**
+     * the method to get list category
+     */
+    private fun getListCategory(): ArrayList<String> {
+        database = Database(activity)
+        deviceCategories = database.findAllDeviceCategory()
+        var categories: ArrayList<String> = ArrayList()
+        if (!deviceCategories.isNullOrEmpty()) {
+            for (i in 0 until deviceCategories.size) {
+                categories.add(deviceCategories[i].dcategoryName!!)
+            }
+        }
+        return categories
     }
 }

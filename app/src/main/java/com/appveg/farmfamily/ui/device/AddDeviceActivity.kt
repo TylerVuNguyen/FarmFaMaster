@@ -15,6 +15,7 @@ import android.widget.*
 import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
+import com.appveg.farmfamily.ui.device_catogory.DeviceCategory
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_add_device.*
 import kotlinx.android.synthetic.main.activity_add_vegetable.*
@@ -26,6 +27,7 @@ import java.lang.StringBuilder
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.Random
+import kotlin.collections.ArrayList
 
 class AddDeviceActivity : AppCompatActivity() {
     var activity = this@AddDeviceActivity
@@ -40,6 +42,8 @@ class AddDeviceActivity : AppCompatActivity() {
 
     var devices: ArrayList<Device> = ArrayList()
 
+    private var deviceCategories: ArrayList<DeviceCategory> = ArrayList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_device)
@@ -48,9 +52,8 @@ class AddDeviceActivity : AppCompatActivity() {
         actionButtonForImageView()
 
 
-
         //spinner hien thi danh sach rau
-        val listSensor = arrayOf("Cảm biến", "Quạt", "Motor")
+        val listSensor = getListCategory()
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listSensor)
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_1)
         positionSpinner.adapter = adapter
@@ -133,7 +136,7 @@ class AddDeviceActivity : AppCompatActivity() {
         }
         add_image_device_8.setOnClickListener {
             var device_name_8 = "Cảm biến ánh sáng"
-            var device_img = R.drawable.quat
+            var device_img = R.drawable.anhsangss
             this.selected_image_device.setImageResource(device_img)
             this.device_name.setText(device_name_8)
             this.device_name.setSelection(device_name.text.length)
@@ -158,7 +161,11 @@ class AddDeviceActivity : AppCompatActivity() {
     }
 
     private fun getImageFromCamera() {
-        ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.CAMERA), REQUEST_CODE_CAMERA)
+        ActivityCompat.requestPermissions(
+            activity,
+            arrayOf(Manifest.permission.CAMERA),
+            REQUEST_CODE_CAMERA
+        )
     }
 
     private fun getImageFromGallery() {
@@ -172,7 +179,7 @@ class AddDeviceActivity : AppCompatActivity() {
     private fun addDeviceAndDeviceDetail() {
         database = Database(activity)
         var device_name = device_name.text.toString().trim()
-       // var deviceCategoryName = selected.toString()
+        // var deviceCategoryName = selected.toString()
         var deviceCategoryId = device_category_id.toInt()
 
         var checkDeviceName = checkDeviceName(device_name)
@@ -194,30 +201,46 @@ class AddDeviceActivity : AppCompatActivity() {
         var codeDeviceDetail = getRandomCodeDetail()
 
         if (checkDeviceName && checkDeviceImage) {
-            var device = Device(null, device_name, image,deviceCategoryId)
+            var device = Device(null, device_name, image, deviceCategoryId)
             var listDevice = getListDevice()
-            var exits : Boolean = false
-            var device_temp_id : Int = -1
-            if(!listDevice.isNullOrEmpty()){
-                for (i in 0 until listDevice.size){
-                    if(listDevice[i].deviceName.equals(device_name)){
+            var exits: Boolean = false
+            var device_temp_id: Int = -1
+            if (!listDevice.isNullOrEmpty()) {
+                for (i in 0 until listDevice.size) {
+                    if (listDevice[i].deviceName.equals(device_name)) {
                         exits = true
                         device_temp_id = listDevice[i].deviceID!!
                     }
                 }
             }
             // have two case
-            if(!exits){
+            if (!exits) {
                 var temp_id = database.addDeviceImageDefault(device)
-                if(temp_id != null){
-                    var deviceDetail = DeviceDetail(null,codeDeviceDetail,image,temp_id.toInt(),"N","admin",formatted)
+                if (temp_id != null) {
+                    var deviceDetail = DeviceDetail(
+                        null,
+                        codeDeviceDetail,
+                        image,
+                        temp_id.toInt(),
+                        "N",
+                        "admin",
+                        formatted
+                    )
                     database.addDeviceDetailImageDefault(deviceDetail)
                 }
                 Toast.makeText(this, getString(R.string.insert_data_success_vi), Toast.LENGTH_LONG)
                     .show()
                 activity.finish()
-            }else{
-                var deviceDetail = DeviceDetail(null,codeDeviceDetail,image,device_temp_id,"B","admin",formatted)
+            } else {
+                var deviceDetail = DeviceDetail(
+                    null,
+                    codeDeviceDetail,
+                    image,
+                    device_temp_id,
+                    "N",
+                    "admin",
+                    formatted
+                )
                 database.addDeviceDetailImageDefault(deviceDetail)
 
                 Toast.makeText(this, getString(R.string.insert_data_success_vi), Toast.LENGTH_LONG)
@@ -321,7 +344,7 @@ class AddDeviceActivity : AppCompatActivity() {
     }
 
 
-    fun getListDevice() : ArrayList<Device>{
+    fun getListDevice(): ArrayList<Device> {
         database = Database(activity)
         devices = database.findAllDevice()
         if (devices.isNullOrEmpty()) {
@@ -330,13 +353,28 @@ class AddDeviceActivity : AppCompatActivity() {
         return devices
     }
 
-    fun getRandomCodeDetail() : String{
+    fun getRandomCodeDetail(): String {
         var builder: StringBuilder = StringBuilder()
         builder.append("SS")
         val random = Random()
-        var ran : Int = random.nextInt(9999 - 1000) + 1000
+        var ran: Int = random.nextInt(9999 - 1000) + 1000
         builder.append(ran.toString())
         return builder.toString()
+    }
+
+    /**
+     * This method is to get list category
+     */
+    private fun getListCategory(): ArrayList<String> {
+        database = Database(activity)
+        deviceCategories = database.findAllDeviceCategory()
+        var categories: ArrayList<String> = ArrayList()
+        if (!deviceCategories.isNullOrEmpty()) {
+            for (i in 0 until deviceCategories.size) {
+                categories.add(deviceCategories[i].dcategoryName!!)
+            }
+        }
+        return categories
     }
 
 }

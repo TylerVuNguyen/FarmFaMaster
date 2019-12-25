@@ -1,25 +1,19 @@
 package com.appveg.farmfamily.ui.device
 
-import android.content.Intent
+import android.app.AlertDialog
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ListView
+import android.util.Log
 import android.widget.Toast
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
-import com.appveg.farmfamily.ui.send.ChiTietAdapter
-import com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity
-import com.baoyz.swipemenulistview.SwipeMenu
 import com.baoyz.swipemenulistview.SwipeMenuCreator
 import com.baoyz.swipemenulistview.SwipeMenuItem
-import com.baoyz.swipemenulistview.SwipeMenuListView
-import kotlinx.android.synthetic.main.activity_chi_tiet_san_luong.*
+import kotlinx.android.synthetic.main.activity_add_device.view.*
 import kotlinx.android.synthetic.main.activity_device_detail_status.*
 import kotlinx.android.synthetic.main.layout_device_detail.*
+import kotlin.Exception
 
 class DeviceDetailActivity : AppCompatActivity() {
 
@@ -35,6 +29,7 @@ class DeviceDetailActivity : AppCompatActivity() {
         val listDevice = getListDeviceDetail()
 
         list_view_device_detail.adapter = DeviceDetailAdapter(activity, listDevice)
+
         //swipemenulistview
         val creator = SwipeMenuCreator { menu ->
             // create "open" item
@@ -45,12 +40,6 @@ class DeviceDetailActivity : AppCompatActivity() {
             // set item width
             editItem.width = 100
 
-//            editItem.titleColor = Color.WHITE
-
-//                //set icon
-//                editItem.setIcon(R.drawable.ic_edit)
-//                // add to menu
-//                menu.addMenuItem(editItem)
 
             // create "delete" item
             val deleteItem = SwipeMenuItem(
@@ -70,11 +59,26 @@ class DeviceDetailActivity : AppCompatActivity() {
         list_view_device_detail.setOnMenuItemClickListener { position, menu, index ->
             when (index) {
                 0 -> {
-                    Toast.makeText(
-                        applicationContext,
-                        listDevice[position].toString(),
-                        Toast.LENGTH_LONG
-                    ).show()
+                    // build alert dialog
+                    val dialogBuilder = AlertDialog.Builder(activity)
+
+                    // set message of alert dialog
+                    dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
+                        // if the dialog is cancelable
+                        .setCancelable(false)
+                        // positive button text and action
+                        .setPositiveButton("Có", DialogInterface.OnClickListener { dialog, id -> removeDeviceAndDeviceDetail(position)
+                        })
+                        // negative button text and action
+                        .setNegativeButton("Hủy", DialogInterface.OnClickListener { dialog, id -> dialog.cancel()
+                        })
+
+                    // create dialog box
+                    val alert = dialogBuilder.create()
+                    // set title for alert dialog box
+                    alert.setTitle("Xóa chi tiết rau")
+                    // show alert dialog
+                    alert.show()
                 }
             }// open
             // delete
@@ -82,22 +86,13 @@ class DeviceDetailActivity : AppCompatActivity() {
             false
         }
 
-        //button them rau
-        device_btn_update.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                var intent: Intent = Intent(applicationContext, AddDeviceActivity::class.java)
-                startActivity(intent)
-            }
-
-
-        })
-
     }
+
 
     /**
      * the method to get data device
      */
-    fun getListDeviceDetail() : ArrayList<DeviceDetail>{
+    private fun getListDeviceDetail() : ArrayList<DeviceDetail>{
         database = Database(activity)
         var device_id: Int = getDataFromItent()
         deviceDetails = database.findAllDeviceDetail(device_id)
@@ -111,6 +106,35 @@ class DeviceDetailActivity : AppCompatActivity() {
             }
         }
         return deviceDetails
+    }
+
+    /**
+     * the method to removeBatch
+     */
+    private fun removeDeviceAndDeviceDetail(position: Int) {
+        database = Database(activity)
+
+        var device_id: Int = getDataFromItent()
+
+        var device_detail = database.deleteDetailDevice(deviceDetails[position].deviceDetailID!!.toInt())
+        deviceDetails.remove(deviceDetails[position])
+        if(deviceDetails.isNullOrEmpty()){
+            database.deleteDevice(device_id)
+            // finish because page no data
+            Toast.makeText(
+                activity,
+                getString(R.string.deleted_data_success_vi),
+                Toast.LENGTH_LONG
+            ).show()
+            activity.finish()
+        }else if (device_detail != null) {
+            Toast.makeText(
+                activity,
+                getString(R.string.deleted_data_success_vi),
+                Toast.LENGTH_LONG
+            ).show()
+            list_view_device_detail.adapter = DeviceDetailAdapter(activity, deviceDetails)
+        }
     }
 
     /**

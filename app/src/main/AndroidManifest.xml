@@ -15,13 +15,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.device.DeviceDetailActivity"
+        <activity android:name=".ui.device_catogory.EditDeviceCategory"
+            android:label="Sửa loại thiết bị"
+            android:parentActivityName=".ui.device_catogory.EditDeviceCategory">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.device_catogory.EditDeviceCategory" /></activity>
+
+        <activity android:name=".ui.device_catogory.AddDeviceCategory"
+            android:label="Thêm loại thiết bị"
+            android:parentActivityName=".ui.device_catogory.AddDeviceCategory">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.device_catogory.AddDeviceCategory" /></activity>
+
+        <activity
+            android:name=".ui.device.DeviceDetailActivity"
             android:label="Chi tiết thiết bị"
             android:parentActivityName=".ui.device.DeviceDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.appveg.farmfamily.ui.device.DeviceDetailActivity" />
-    </activity>
+        </activity>
         <activity
             android:name=".ui.settings.SettingsActivity"
             android:label="@string/title_activity_settings" />
