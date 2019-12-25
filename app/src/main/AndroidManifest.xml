@@ -15,7 +15,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.device.DeviceDetailActivity"></activity>
+        <activity android:name=".ui.device.DeviceDetailActivity"
+            android:label="Chi tiết thiết bị"
+            android:parentActivityName=".ui.device.DeviceDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.device.DeviceDetailActivity" />
+    </activity>
         <activity
             android:name=".ui.settings.SettingsActivity"
             android:label="@string/title_activity_settings" />

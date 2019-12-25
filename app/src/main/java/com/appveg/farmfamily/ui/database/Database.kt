@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import com.appveg.farmfamily.R
+import com.appveg.farmfamily.ui.device.Device
+import com.appveg.farmfamily.ui.device.DeviceDetail
 import com.appveg.farmfamily.ui.garden.Garden
 import com.appveg.farmfamily.ui.login.User
 import com.appveg.farmfamily.ui.send.Batch
@@ -27,7 +29,9 @@ class Database(context: Context?) :
         private val TABLE_BATCH_DETAIL = "bacth_quantity_detail"
         private val TABLE_VEGETABLE = "vegetable"
         private val TABLE_GARDEN = "garden"
-
+        private val TABLE_DEVICE = "device"
+        private val TABLE_DEVICE_DETAIL = "device_detail"
+        private val TABLE_DEVICE_CATEGORY = "device_category"
         /*users*/
         private val COLUMN_USER_ID = "user_id"
         private val COLUMN_USER_EMAIL = "email"
@@ -69,11 +73,20 @@ class Database(context: Context?) :
         private val COLUMN_GARDEN_IMAGE = "garden_image"
         private val COLUMN_GARDEN_CODE = "garden_code"
 
+        /*device category*/
+        private val COLUMN_DEVICE_CATEGORY_ID = "device_category_id"
+
         /*device*/
         private val COLUMN_DEVICE_ID = "device_id"
-        private val COLUMN_DEVICE_NAME = "garden_name"
-        private val COLUMN_DEVICE_IMAGE = "garden_image"
-        private val COLUMN_DEVICE_CODE = "garden_code"
+        private val COLUMN_DEVICE_NAME = "device_name"
+        private val COLUMN_DEVICE_IMAGE = "device_image"
+        private val COLUMN_DEVICE_NUM = "device_num"
+
+        /*device detail*/
+        private val COLUMN_DEVICE_DETAIL_ID = "device_detail_id"
+        private val COLUMN_DEVICE_DETAIL_IMAGE = "device_detail_image"
+        private val COLUMN_DEVICE_DETAIL_CODE = "device_detail_code"
+        private val COLUMN_DEVICE_DETAIL_STATUS = "device_detail_status"
 
 
     }
@@ -112,12 +125,21 @@ class Database(context: Context?) :
                     "garden_image BLOB,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
                     "deleted_date VARCHAR(50),deleted_flag INTEGER)")
 
+        val CREATE_DEVICE_TABLE =
+            ("CREATE TABLE " + TABLE_DEVICE + "(device_id INTEGER PRIMARY KEY AUTOINCREMENT,device_name VARCHAR(100)," +
+                    "device_image BLOB, device_num VARCHAR(100),device_category_id INTEGER)")
+
+        val CREATE_DEVICE_DETAIL_TABLE =
+            ("CREATE TABLE " + TABLE_DEVICE_DETAIL + "(device_detail_id INTEGER PRIMARY KEY AUTOINCREMENT,device_detail_code VARCHAR(100)," +
+                    "device_detail_image BLOB,device_detail_status VARCHAR(50),device_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+                    "deleted_date VARCHAR(50),deleted_flag INTEGER)")
+
 
         /*INSERT DATA*/
-        val INSERT_GARDEN_ITEM =
-            ("INSERT INTO garden VALUES(null,'Khu vườn 1','R.drawable.kv2','admin',null,null,null,null,null,1)")
-        val INSERT_GARDEN1_ITEM =
-            ("INSERT INTO garden VALUES(null,'Khu vườn 2','R.drawable.kv2','admin',null,null,null,null,null,1)")
+//        val INSERT_GARDEN_ITEM =
+//            ("INSERT INTO garden VALUES(null,'Khu vườn 1','R.drawable.kv2','admin',null,null,null,null,null,1)")
+//        val INSERT_GARDEN1_ITEM =
+//            ("INSERT INTO garden VALUES(null,'Khu vườn 2','R.drawable.kv2','admin',null,null,null,null,null,1)")
         val INSERT_ROLES_ITEM =
             ("INSERT INTO roles VALUES(null,'admin','admin','vu',null,null,null,null,null,1)")
         val INSERT_USERS_ITEM =
@@ -127,11 +149,11 @@ class Database(context: Context?) :
         db?.execSQL(CREATE_GARDEN_TABLE)
         db?.execSQL(INSERT_ROLES_ITEM)
         db?.execSQL(INSERT_USERS_ITEM)
-//        db?.execSQL(INSERT_GARDEN_ITEM)
-//        db?.execSQL(INSERT_GARDEN1_ITEM)
         db?.execSQL(CREATE_BATCH_TABLE)
         db?.execSQL(CREATE_QUANTITY_DETAIL_TABLE)
         db?.execSQL(CREATE_VEGETABLE_TABLE)
+        db?.execSQL(CREATE_DEVICE_TABLE)
+        db?.execSQL(CREATE_DEVICE_DETAIL_TABLE)
 
     }
 
@@ -849,4 +871,193 @@ class Database(context: Context?) :
         return vegetable
     }
     /*----------------------------------------------Device-------------------------------------------------*/
+    /**
+     * This method to insert data device
+     *
+     * @param device
+     * @return Long
+     */
+    fun addDeviceImageDefault(device: Device) : Long{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_DEVICE_NAME, device.deviceName)
+        contentValues.put(COLUMN_DEVICE_IMAGE, device.deviceImg)
+        contentValues.put(COLUMN_DEVICE_NUM, device.deviceNum)
+        contentValues.put(COLUMN_DEVICE_CATEGORY_ID, device.deviceCategoryId)
+
+
+        // Inserting Row
+        val success = db.insert(TABLE_DEVICE, null, contentValues)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to find all data device
+     *
+     * @return ArrayList
+     */
+    fun findAllDevice():ArrayList<Device>{
+        val deviceList:ArrayList<Device> = ArrayList()
+        val selectQuery = "SELECT  * FROM $TABLE_DEVICE"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            db.execSQL(selectQuery)
+            return ArrayList()
+        }
+        var device_id: Int
+        var device_name: String
+        var device_image : ByteArray
+        var device_num : String
+        if (cursor.moveToFirst()) {
+            do {
+                device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
+                device_name = cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_NAME))
+                device_image= cursor.getBlob(cursor.getColumnIndex(COLUMN_DEVICE_IMAGE))
+                device_num= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_NUM))
+
+                val device = Device(device_id,device_name,device_image,device_num)
+                deviceList.add(device)
+            } while (cursor.moveToNext())
+        }
+        cursor?.close()
+        return deviceList
+    }
+    /**
+     * This method to find vegetable by id
+     *
+     * @param batch_id
+     * @return Batch
+     */
+    fun findDeviceById(device_id : Int):Device{
+        val selectQuery = "SELECT  * FROM $TABLE_DEVICE WHERE $COLUMN_DEVICE_ID = $device_id"
+        val db = this.readableDatabase
+        var device:Device = Device()
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            Log.d("AAA",e.message)
+        }
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    var device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
+                    var device_name = cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_NAME))
+                    var device_image= cursor.getBlob(cursor.getColumnIndex(COLUMN_DEVICE_IMAGE))
+                    var device_num= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_NUM))
+                    var device_category_id = cursor.getInt(cursor.getColumnIndex(
+                        COLUMN_DEVICE_CATEGORY_ID))
+                    device = Device(device_id,device_name,device_image,device_num,device_category_id)
+                } while (cursor.moveToNext())
+            }
+        }
+        cursor?.close()
+        return device
+    }
+    /*----------------------------------------------Device detail-------------------------------------------------*/
+    /**
+     * This method to insert data device detail
+     *
+     * @param deviceDetail
+     * @return Long
+     */
+    fun addDeviceDetailImageDefault(deviceDetail: DeviceDetail) : Long{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_DEVICE_DETAIL_IMAGE, deviceDetail.deviceDetailImg)
+        contentValues.put(COLUMN_DEVICE_DETAIL_CODE, deviceDetail.deviceDetailCode)
+        contentValues.put(COLUMN_DEVICE_DETAIL_STATUS, deviceDetail.deviceDetailStatus)
+        contentValues.put(COLUMN_DEVICE_ID,deviceDetail.deviceID)
+        contentValues.put(COLUMN_CREATEDBY, deviceDetail.createdBy)
+        contentValues.put(COLUMN_CREATEDDATE, deviceDetail.createdDate)
+
+
+        // Inserting Row
+        val success = db.insert(TABLE_DEVICE_DETAIL, null, contentValues)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to update data devicedetail
+     *
+     * @param veg
+     * @return true/false
+     */
+    fun updateDeviceDetailImageDefault(deviceDetail: DeviceDetail) : Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_DEVICE_DETAIL_ID,deviceDetail.deviceDetailID)
+        contentValues.put(COLUMN_DEVICE_DETAIL_IMAGE, deviceDetail.deviceDetailImg)
+        contentValues.put(COLUMN_DEVICE_DETAIL_CODE, deviceDetail.deviceDetailCode)
+        contentValues.put(COLUMN_DEVICE_DETAIL_STATUS, deviceDetail.deviceDetailStatus)
+        contentValues.put(COLUMN_UPDATED_DATE, deviceDetail.updatedDate)
+
+        // Inserting Row
+        val success = db.update(TABLE_DEVICE_DETAIL, contentValues,"device_detail_id="+deviceDetail.deviceDetailID,null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to find All Device Detail
+     *
+     * @return ArrayList
+     */
+    fun findAllDeviceDetail(device_id: Int):ArrayList<DeviceDetail>{
+        val deviceDetailList:ArrayList<DeviceDetail> = ArrayList()
+        val selectQuery = "SELECT  * FROM $TABLE_DEVICE_DETAIL WHERE $COLUMN_DEVICE_ID = $device_id"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            db.execSQL(selectQuery)
+            return ArrayList()
+        }
+        var device_detail_id: Int
+        var device_detail_code: String
+        var device_detail_image : ByteArray
+        var device_detail_status : String
+        if (cursor.moveToFirst()) {
+            do {
+                device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
+                device_detail_code = cursor.getString(cursor.getColumnIndex(
+                    COLUMN_DEVICE_DETAIL_CODE))
+                device_detail_image= cursor.getBlob(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
+                device_detail_status= cursor.getString(cursor.getColumnIndex(
+                    COLUMN_DEVICE_DETAIL_STATUS))
+
+                val device = DeviceDetail(device_detail_id,device_detail_code,device_detail_image,device_detail_status)
+                deviceDetailList.add(device)
+            } while (cursor.moveToNext())
+        }
+        cursor?.close()
+        return deviceDetailList
+    }
+
+    /**
+     * This method to delete data
+     *
+     * @param batch_id
+     * @return Int
+     */
+    fun deleteDetailDevice(device_detail_id: Int):Int{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_DEVICE_DETAIL_ID, device_detail_id) // EmpModelClass UserId
+        // Deleting Row
+        val success = db.delete(TABLE_DEVICE_DETAIL, "device_detail_id=$device_detail_id",null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
 }

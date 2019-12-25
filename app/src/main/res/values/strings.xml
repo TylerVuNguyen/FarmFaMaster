@@ -124,14 +124,15 @@
     <string name="name_kv_vi">Tên khu vườn</string>
     <!--garden VI-->
 
-    <!--garden VI-->
-    <string name="name_device_vi">Tên thiết bị</string>
-    <string name="decription_device_vi">Mô tả thiết bị</string>
-    <!-- end garden VI-->
-
     <!--vegetable VI-->
 
     <!-- end vegetable VI-->
+
+    <!--device VI-->
+    <string name="name_device_vi">Tên thiết bị</string>
+    <string name="decription_device_vi">Mô tả thiết bị</string>
+    <string name="broken_device_vi">Hư hỏng</string>
+    <!-- end device VI-->
 
     <!--Temperature VI-->
     <string name="decription_Temperature_vi">Nhiệt độ (°C)</string>
@@ -140,6 +141,7 @@
     <!-- Humidity VI-->
     <string name="decription_Humidity_vi">Độ ẩm (%)</string>
     <string name="title_activity_settings">Settings</string>
+    <!-- end  Humidity VI-->
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
@@ -155,6 +157,5 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <!-- end  Humidity VI-->
-    Humidity
+
 </resources>

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutDevice_screenshot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/layoutDevice_screenshot"
-    android:background="@color/colorWhite"
-    >
+    android:background="@color/colorWhite">
 
     <ProgressBar
         android:id="@+id/viewlistdivce_progressbar"
@@ -25,7 +24,8 @@
         <com.baoyz.swipemenulistview.SwipeMenuListView
             android:id="@+id/list_view_device_detail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true">
 
         </com.baoyz.swipemenulistview.SwipeMenuListView>
 
@@ -41,7 +41,7 @@
         android:paddingBottom="5dp">
 
         <Button
-            android:id="@+id/viewdevice_btn_add"
+            android:id="@+id/device_btn_update"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -49,12 +49,12 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/ic_add2"
-            android:text="Thêm"
+            android:text="Cập nhật"
             android:textColor="@android:color/white" />
 
 
         <Button
-            android:id="@+id/viewdevice_btn_print"
+            android:id="@+id/device_btn_print"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -66,28 +66,4 @@
             android:textColor="@android:color/white" />
     </LinearLayout>
 
-
-    <!-- button them-->
-    <!--    <LinearLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_gravity="bottom"-->
-    <!--        android:orientation="vertical"-->
-    <!--        android:gravity="bottom"-->
-    <!--        android:padding="5dp"-->
-    <!--        android:paddingBottom="10dp"-->
-    <!--        >-->
-
-    <!--        <Button-->
-    <!--            android:id="@+id/addGarden"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="Thêm"-->
-    <!--            android:textColor="#FFFFFF"-->
-    <!--            android:background="@drawable/border_them"-->
-    <!--            android:padding="20dp"-->
-    <!--            android:layout_gravity="center" />-->
-
-
-    <!--    </LinearLayout>-->
 </RelativeLayout>

@@ -2,20 +2,27 @@ package com.appveg.farmfamily.ui.device
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
+import android.widget.TextView
 import com.appveg.farmfamily.R
 
 class DeviceAdapter (private var activity: Activity, private var items: ArrayList<Device>) :  BaseAdapter(){
 
     private class ViewHolder(row: View?) {
-        var imgDevice: ImageView? = null
+        var imgDevice: ImageView
+        var deviceName: TextView
+        var deviceNum: TextView
 
         init {
-            this.imgDevice = row?.findViewById(R.id.view_device_image)
+            this.imgDevice = row?.findViewById(R.id.view_device_image) as ImageView
+            this.deviceName = row?.findViewById(R.id.view_device_name) as TextView
+            this.deviceNum = row?.findViewById(R.id.view_device_num) as TextView
         }
     }
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -31,7 +38,14 @@ class DeviceAdapter (private var activity: Activity, private var items: ArrayLis
             viewHolder = view.tag as ViewHolder
         }
         var device = items[position]
-        viewHolder.imgDevice?.setImageResource(device.deviceImg!!)
+
+        viewHolder.deviceName.text = device.deviceName
+        viewHolder.deviceNum.text = device.deviceNum
+
+        // chuyển bytearray về bitmap để hiển thị
+        var imageBitmap : ByteArray? = device.deviceImg
+        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
+        viewHolder.imgDevice.setImageBitmap(bitmap)
 
         return view
     }

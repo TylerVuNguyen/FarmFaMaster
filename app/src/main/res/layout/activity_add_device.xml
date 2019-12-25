@@ -17,7 +17,7 @@
 
 
         <EditText
-            android:id="@+id/nameDevice"
+            android:id="@+id/device_name"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
 
@@ -102,7 +102,7 @@
                 android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/add_image1"
+                    android:id="@+id/add_image_device_1"
                     android:layout_width="80dp"
                     android:layout_height="70dp"
                     android:padding="7dp"
@@ -111,7 +111,7 @@
                 <!--    button to show picker diaglog-->
 
                 <ImageView
-                    android:id="@+id/add_image2"
+                    android:id="@+id/add_image_device_2"
                     android:layout_width="80dp"
                     android:layout_height="70dp"
                     android:padding="7dp"
@@ -120,7 +120,7 @@
 
 
                 <ImageView
-                    android:id="@+id/add_image3"
+                    android:id="@+id/add_image_device_3"
                     android:layout_width="80dp"
                     android:layout_height="70dp"
                     android:padding="7dp"
@@ -128,7 +128,7 @@
                     android:src="@drawable/cambiennhietdo" />
 
                 <ImageView
-                    android:id="@+id/add_image9"
+                    android:id="@+id/add_image_device_4"
                     android:layout_width="80dp"
                     android:layout_height="70dp"
                     android:padding="7dp"
@@ -152,7 +152,7 @@
                 android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/add_image4"
+                    android:id="@+id/add_image_device_5"
                     android:layout_width="80dp"
                     android:layout_height="70dp"
                     android:padding="7dp"
@@ -161,7 +161,7 @@
                 <!--    button to show picker diaglog-->
 
                 <ImageView
-                    android:id="@+id/add_image5"
+                    android:id="@+id/add_image_device_6"
                     android:layout_width="80dp"
                     android:layout_height="70dp"
                     android:padding="7dp"
@@ -170,14 +170,14 @@
 
 
                 <ImageView
-                    android:id="@+id/add_image6"
+                    android:id="@+id/add_image_device_7"
                     android:layout_width="80dp"
                     android:layout_height="70dp"
                     android:padding="7dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/phunsuong2" />
                 <ImageView
-                    android:id="@+id/add_image8"
+                    android:id="@+id/add_image_device_8"
                     android:layout_width="80dp"
                     android:layout_height="70dp"
                     android:padding="7dp"
@@ -200,7 +200,7 @@
                 android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/add_camera"
+                    android:id="@+id/add_camera_device"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
@@ -208,7 +208,7 @@
                     android:src="@drawable/ic_menu_camera" />
 
                 <ImageView
-                    android:id="@+id/add_image"
+                    android:id="@+id/add_image_device"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
@@ -239,7 +239,7 @@
                 <!--                    android:src="@drawable/imagecamera" />-->
 
                 <ImageView
-                    android:id="@+id/selected_image"
+                    android:id="@+id/selected_image_device"
                     android:layout_width="150dp"
                     android:layout_height="130dp"
                     android:background="@null"
@@ -262,17 +262,6 @@
         android:orientation="horizontal"
         android:paddingTop="10dp">
 
-        <Button
-            android:id="@+id/btn_device_back"
-            style="@style/Button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:drawableTop="@drawable/ic_back"
-            android:text="Trở về"
-            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/btn_device_add"

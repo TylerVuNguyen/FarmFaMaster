@@ -111,6 +111,7 @@ class EditVegetableActivity : AppCompatActivity() {
 
         val veg_id = getDataFromItent()
 
+        // covert image to ByteArray
         var bitmapDrawable: BitmapDrawable = selected_image_edit.drawable as BitmapDrawable
         var bitmap: Bitmap = bitmapDrawable.bitmap
         var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
@@ -125,12 +126,7 @@ class EditVegetableActivity : AppCompatActivity() {
             database.updateVegImageDefault(vegetable)
 
             Toast.makeText(this,getString(R.string.update_data_success_vi),Toast.LENGTH_LONG).show()
- //           var fragmentAdapter : VegetableFragment = VegetableFragment()
-            // hide activity
-//            addveg_vegfunction_edit.visibility = View.GONE
-//            //action bar
-//            activity.title = "Quản lý các loại rau"
-//            supportFragmentManager.beginTransaction().replace(R.id.edit_fragmentContainer, fragmentAdapter).commit()
+
             activity.finish()
 
         }else{

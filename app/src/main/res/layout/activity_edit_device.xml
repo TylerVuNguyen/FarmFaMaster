@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FFFFFF"
-    tools:context=".ui.device.EditDeviceActivity">
+    tools:context=".ui.device.AddDeviceActivity">
+
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="20dp"
@@ -17,9 +17,10 @@
 
 
         <EditText
-            android:id="@+id/nameDeviceEdit"
+            android:id="@+id/device_name_edit"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+
             android:background="@android:color/transparent"
             android:drawablePadding="8dp"
             android:gravity="center_vertical"
@@ -28,7 +29,6 @@
             android:padding="10dp"
             android:singleLine="true"
             android:textColor="@color/black"
-            android:drawableLeft="@drawable/ic_edit"
             android:textSize="16sp" />
 
 
@@ -38,30 +38,25 @@
             android:background="@color/colorPrimary" />
 
 
-
-        <EditText
-            android:id="@+id/decript_device_edit"
+        <Spinner
+            android:id="@+id/positionSpinner_edit"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:background="@android:color/transparent"
-            android:drawableLeft="@drawable/ic_edit"
             android:drawablePadding="8dp"
             android:gravity="center_vertical"
-            android:hint="@string/decription_device_vi"
             android:inputType="textCapWords"
-            android:padding="10dp"
+            android:padding="3dp"
             android:singleLine="true"
             android:textColor="@color/black"
+            android:textSize="16sp"
+            android:spinnerMode="dialog" />
 
-            android:textSize="16sp" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="1px"
             android:background="@color/colorPrimary" />
-
-
 
         <TextView
 
@@ -83,47 +78,10 @@
             android:background="@color/colorPrimary" />
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:gravity="center">
-
-                <ImageView
-                    android:id="@+id/adddevice_img1_edit"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:padding="7dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/maybo2" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:gravity="center">
-
-                <ImageView
-                    android:id="@+id/adddevice_img2_edit"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:padding="7dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/dinhduong" />
-            </LinearLayout>
-
-        </LinearLayout>
 
         <ProgressBar
-            android:id="@+id/adddevice_progressbar_edit"
+            android:id="@+id/adddevice_progressbar"
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -132,44 +90,156 @@
 
             />
 
-        <LinearLayout
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/add_image_device_1"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:src="@drawable/phss" />
+
+                <!--    button to show picker diaglog-->
+
+                <ImageView
+                    android:id="@+id/add_image_device_2"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/tds" />
+
+
+                <ImageView
+                    android:id="@+id/add_image_device_3"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/cambiennhietdo" />
+
+                <ImageView
+                    android:id="@+id/add_image_device_4"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/maybo2" />
+            </TableRow>
+
+            <ProgressBar
+                android:id="@+id/addveg_progressbar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+
+                />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/add_image_device_5"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:src="@drawable/quat" />
+
+                <!--    button to show picker diaglog-->
+
+                <ImageView
+                    android:id="@+id/add_image_device_6"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/cambienmua" />
+
+
+                <ImageView
+                    android:id="@+id/add_image_device_7"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/phunsuong2" />
+                <ImageView
+                    android:id="@+id/add_image_device_8"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/anhsangss" />
+            </TableRow>
+
+        </TableLayout>
+
+        <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:orientation="horizontal">
+            >
 
-            <LinearLayout
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="30dp">
+                android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/adddevice_img3_edit"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:padding="7dp"
+                    android:id="@+id/add_camera_device_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/doph" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="30dp"
-                android:gravity="center">
+                    android:src="@drawable/ic_menu_camera" />
 
                 <ImageView
-                    android:id="@+id/adddevice_addImageDevice"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
+                    android:id="@+id/add_image_device_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_menu_gallery" />
-            </LinearLayout>
+            </TableRow>
+        </TableLayout>
 
-        </LinearLayout>
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+
+                <ImageView
+                    android:id="@+id/selected_image_device_edit"
+                    android:layout_width="150dp"
+                    android:layout_height="130dp"
+                    android:background="@null"
+                    android:padding="10dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/imagegallery" />
+            </TableRow>
+        </TableLayout>
 
     </LinearLayout>
 
@@ -184,20 +254,9 @@
         android:orientation="horizontal"
         android:paddingTop="10dp">
 
-        <Button
-            android:id="@+id/btn_device_back_edit"
-            style="@style/Button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:drawableTop="@drawable/ic_back"
-            android:text="Trở lại"
-            android:textColor="@android:color/white" />
 
         <Button
-            android:id="@+id/btn_device_update"
+            android:id="@+id/btn_device_edit"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -205,11 +264,11 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/ic_add2"
-            android:text="Cập nhật"
+            android:text="Thêm"
             android:textColor="@android:color/white" />
 
         <Button
-            android:id="@+id/btn_device_save_edit"
+            android:id="@+id/btn_device_print"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -220,5 +279,4 @@
             android:text="In"
             android:textColor="@android:color/white" />
     </LinearLayout>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutDevice_screenshot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/layoutDevice_screenshot"
-    android:background="@color/colorWhite"
-    >
+    android:background="@color/colorWhite">
+
 
     <ProgressBar
         android:id="@+id/viewlistdivce_progressbar"
@@ -21,12 +21,13 @@
         android:orientation="vertical">
 
 
-        <ListView
+        <com.baoyz.swipemenulistview.SwipeMenuListView
             android:id="@+id/list_view_device"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true">
 
-        </ListView>
+        </com.baoyz.swipemenulistview.SwipeMenuListView>
 
     </LinearLayout>
 
@@ -64,4 +65,5 @@
             android:text="In"
             android:textColor="@android:color/white" />
     </LinearLayout>
+
 </RelativeLayout>

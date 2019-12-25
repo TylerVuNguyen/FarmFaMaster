@@ -39,7 +39,7 @@ class AddDeviceForGardenAdapter (private var activity: Activity, private var ite
         var device = items[position]
         viewHolder.lblName?.text = device.deviceName
 
-        viewHolder.imgDevice?.setImageResource(device.deviceImg!!)
+       // viewHolder.imgDevice?.setImageResource(device.deviceImg!!)
 
         return view as View
     }
