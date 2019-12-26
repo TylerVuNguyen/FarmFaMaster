@@ -27,20 +27,20 @@ class ChiTietSanLuongRauActivity : AppCompatActivity() {
         initBatchEdit()
 
         /*event cancel*/
-        cancel_action_detail.setOnClickListener {
-            var intent: Intent = Intent(activity, ChiTietDotSanLuongActivity::class.java)
-            intent.putExtra("garden_id", getDataFromItent())
-            activity.finish()
-            startActivity(intent)
-        }
+//        cancel_action_detail.setOnClickListener {
+//            var intent: Intent = Intent(activity, ChiTietDotSanLuongActivity::class.java)
+//            intent.putExtra("garden_id", getDataFromItent())
+//            activity.finish()
+//            startActivity(intent)
+//        }
 
         /*event back*/
-        backQty_Detail.setOnClickListener {
-            var intent: Intent = Intent(activity, ChiTietDotSanLuongActivity::class.java)
-            intent.putExtra("garden_id", getDataFromItent())
-            activity.finish()
-            startActivity(intent)
-        }
+//        backQty_Detail.setOnClickListener {
+//            var intent: Intent = Intent(activity, ChiTietDotSanLuongActivity::class.java)
+//            intent.putExtra("garden_id", getDataFromItent())
+//            activity.finish()
+//            startActivity(intent)
+//        }
 
     }
 

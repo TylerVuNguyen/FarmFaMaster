@@ -16,10 +16,12 @@ import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device_catogory.DeviceCategory
+import com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_add_device.*
 import kotlinx.android.synthetic.main.activity_add_vegetable.*
 import kotlinx.android.synthetic.main.activity_add_vegetable.selected_image
+import kotlinx.android.synthetic.main.activity_them_dot_san_luong.*
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.positionSpinner
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
@@ -157,6 +159,12 @@ class AddDeviceActivity : AppCompatActivity() {
         add_image_device.setOnClickListener {
             getImageFromGallery()
         }
+
+        /*event cancel*/
+        cancel_action_device.setOnClickListener {
+            activity.finish()
+        }
+
 
     }
 

@@ -32,7 +32,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
     private var sumQty : Int = 0
 
     private var listVegetable: ArrayList<Vegetable> = ArrayList()
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sua_dot_san_luong)
@@ -80,19 +80,19 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
 
         /*event cancel*/
         cancel_action_edit.setOnClickListener {
-            var intent: Intent = Intent(activity, ChiTietDotSanLuongActivity::class.java)
-            intent.putExtra("garden_id", getDataFromItent())
+//            var intent: Intent = Intent(activity, ChiTietDotSanLuongActivity::class.java)
+//            intent.putExtra("garden_id", getDataFromItent())
             activity.finish()
-            startActivity(intent)
+           // startActivity(intent)
         }
 
         /*event back*/
-        backQty_edit.setOnClickListener {
-            var intent: Intent = Intent(activity, ChiTietDotSanLuongActivity::class.java)
-            intent.putExtra("garden_id", getDataFromItent())
-            activity.finish()
-            startActivity(intent)
-        }
+//        backQty_edit.setOnClickListener {
+//            var intent: Intent = Intent(activity, ChiTietDotSanLuongActivity::class.java)
+//            intent.putExtra("garden_id", getDataFromItent())
+//            activity.finish()
+//            startActivity(intent)
+//        }
 
         // get create date
         pickDateBD_edit.setOnClickListener {
@@ -270,9 +270,10 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
                     ).show()
                 }
                 // reset list data for batch
-                var  intent: Intent  = Intent(activity, ChiTietDotSanLuongActivity::class.java)
-                intent.putExtra("garden_id",garden_id)
-                startActivity(intent)
+//                var  intent: Intent  = Intent(activity, ChiTietDotSanLuongActivity::class.java)
+//                intent.putExtra("garden_id",garden_id)
+//                startActivity(intent)
+                activity.finish()
             } catch (e: Exception) {
                 Log.d("AAA", e.message)
                 Toast.makeText(

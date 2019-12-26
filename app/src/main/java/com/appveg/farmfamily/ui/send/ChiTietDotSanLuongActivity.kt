@@ -13,6 +13,8 @@ import com.baoyz.swipemenulistview.SwipeMenuListView
 import kotlinx.android.synthetic.main.activity_chi_tiet_san_luong.*
 import android.widget.Toast
 import com.appveg.farmfamily.ui.database.Database
+import com.appveg.farmfamily.ui.device.DeviceAdapter
+import kotlinx.android.synthetic.main.fragment_device.*
 
 
 class ChiTietDotSanLuongActivity : AppCompatActivity() {
@@ -124,7 +126,6 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
         themDotSanLuong.setOnClickListener {
             var intent: Intent = Intent(activity, ThemDotSanLuongActivity::class.java)
             intent.putExtra("garden_id", getDataFromItent())
-            activity.finish()
             startActivity(intent)
         }
     }
@@ -181,7 +182,6 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
         var intent: Intent = Intent(applicationContext, SuaDotSanLuongActivity::class.java)
         intent.putExtra("garden_id", gardenIdForward)
         intent.putExtra("batch_id", batch_id)
-        activity.finish()
         startActivity(intent)
     }
 
@@ -192,9 +192,23 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
         var intent: Intent = Intent(activity, ChiTietSanLuongRauActivity::class.java)
         intent.putExtra("garden_id", getDataFromItent())
         intent.putExtra("batch_id", bactchList.get(position).batchId)
-        activity.finish()
         startActivity(intent)
     }
+
+    /**
+     * the method to resume ( call when back stack)
+     */
+    override fun onResume() {
+        super.onResume()
+        var id = getDataFromItent()
+        bactchList = database.viewBatchByGardenId(id)
+        if (bactchList.isNullOrEmpty()) {
+            Toast.makeText(activity, "Dánh sách đợt đang trống !", Toast.LENGTH_LONG).show()
+        } else {
+            list_view.adapter = ChiTietAdapter(activity, bactchList)
+        }
+    }
+
 
 }
 

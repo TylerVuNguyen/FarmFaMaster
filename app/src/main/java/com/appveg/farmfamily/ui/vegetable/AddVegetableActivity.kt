@@ -20,6 +20,7 @@ import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_add_device.*
 import kotlinx.android.synthetic.main.activity_add_vegetable.*
 import java.io.*
 import java.lang.reflect.Field
@@ -73,6 +74,42 @@ class AddVegetableActivity : AppCompatActivity() {
             this.veg_name.setText(veg_name_3)
             this.veg_name.setSelection(veg_name.text.length)
         }
+        add_image4.setOnClickListener {
+            var veg_name_4 = "Rau muống"
+            var veg_img = R.drawable.raumuong
+            this.selected_image.setImageResource(veg_img)
+            this.veg_name.setText(veg_name_4)
+            this.veg_name.setSelection(veg_name.text.length)
+        }
+        add_image5.setOnClickListener {
+            var veg_name_5 = "Ớt đỏ"
+            var veg_img = R.drawable.ot
+            this.selected_image.setImageResource(veg_img)
+            this.veg_name.setText(veg_name_5)
+            this.veg_name.setSelection(veg_name.text.length)
+        }
+        add_image6.setOnClickListener {
+            var add_image6 = "Dưa leo"
+            var veg_img = R.drawable.dualeo
+            this.selected_image.setImageResource(veg_img)
+            this.veg_name.setText(add_image6)
+            this.veg_name.setSelection(veg_name.text.length)
+        }
+        add_image7.setOnClickListener {
+            var add_image7 = "Bí đỏ"
+            var veg_img = R.drawable.bido
+            this.selected_image.setImageResource(veg_img)
+            this.veg_name.setText(add_image7)
+            this.veg_name.setSelection(veg_name.text.length)
+        }
+
+        add_image8.setOnClickListener {
+            var add_image8 = "Cà chua"
+            var veg_img = R.drawable.cachua
+            this.selected_image.setImageResource(veg_img)
+            this.veg_name.setText(add_image8)
+            this.veg_name.setSelection(veg_name.text.length)
+        }
     }
 
     private fun actionButton() {
@@ -88,6 +125,11 @@ class AddVegetableActivity : AppCompatActivity() {
         /*event call image*/
         add_image.setOnClickListener {
             getImageFromGallery()
+        }
+
+        /*event cancel*/
+        cancel_action_veg.setOnClickListener {
+            activity.finish()
         }
 
     }

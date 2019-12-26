@@ -1167,6 +1167,7 @@ drawable background_line_dashed
 drawable background_login
 drawable background_signup
 drawable backgroundmenu
+drawable bido
 drawable boder_chitiettungsl
 drawable border_backgroud_logo
 drawable border_huy
@@ -1185,6 +1186,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable cachua
 drawable cambienmua
 drawable cambiennhietdo
 drawable common_full_open_on_phone
@@ -1215,6 +1217,7 @@ drawable design_snackbar_background
 drawable dinhduong
 drawable doam
 drawable doph
+drawable dualeo
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_add2
@@ -1290,6 +1293,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable ot
 drawable ph
 drawable phss
 drawable phunsuong2
@@ -1297,6 +1301,7 @@ drawable preference_list_divider_material
 drawable quantity_drawable_selector
 drawable quat
 drawable raucai
+drawable raumuong
 drawable scroll_vertical_thumnb
 drawable side_nav_bar
 drawable tds
@@ -1394,6 +1399,10 @@ id add_image5
 id add_image5_edit
 id add_image6
 id add_image6_edit
+id add_image7
+id add_image7_edit
+id add_image8
+id add_image8_edit
 id add_image_device
 id add_image_device_1
 id add_image_device_2
@@ -1425,9 +1434,6 @@ id already_user
 id always
 id async
 id auto
-id backQty
-id backQty_Detail
-id backQty_edit
 id backToLoginBtn
 id barrier
 id batchName
@@ -1438,23 +1444,24 @@ id blocking
 id bottom
 id btLogin
 id btSignup
-id btn_Prt_Scr
-id btn_Prt_Scr_edit
 id btn_add_category
 id btn_add_device_category
 id btn_add_garden
 id btn_chart_print
 id btn_device_add
 id btn_device_edit
-id btn_device_print
-id btn_device_save
-id btn_device_update_status
 id btn_edit_garden
 id btn_print_device_category
 id buttonPanel
 id cancel_action
-id cancel_action_detail
+id cancel_action_device
+id cancel_action_device_category
+id cancel_action_device_edit
 id cancel_action_edit
+id cancel_action_garden
+id cancel_action_garden_edit
+id cancel_action_veg
+id cancel_action_veg_edit
 id category_image4
 id category_image5
 id category_image6
@@ -1509,8 +1516,6 @@ id dotRau_name
 id drawer_layout
 id editPass
 id editUserName
-id edit_fragmentContainer
-id edit_fragmentContainer_garden
 id edit_garden_camera
 id edit_garden_image
 id edit_query
@@ -1528,8 +1533,6 @@ id filled
 id fixed
 id forever
 id forgot_button
-id fragmentContainer
-id fragmentContainer_garden
 id fragment_khuvuon
 id fragment_qlkv
 id fullName
@@ -1548,11 +1551,9 @@ id homeAsUp
 id humidity
 id icon
 id icon_action
-id icon_delete_garden
 id icon_frame
 id icon_group
 id icon_only
-id icon_right
 id ifRoom
 id image
 id imageView
@@ -1645,6 +1646,7 @@ id positionSpinner_edit
 id ppm
 id progress_circular
 id progress_horizontal
+id qty_btn_print
 id radio
 id radioGenderGroup
 id radioNam
@@ -1696,7 +1698,6 @@ id showHome
 id showTitle
 id signUpBtn
 id single_khuvuon
-id single_rau
 id single_sanluong
 id smallLabel
 id snackbar_action
@@ -1790,7 +1791,6 @@ id view_device_name
 id view_device_num
 id view_error
 id view_offset_helper
-id viewgarden_icondelete
 id viewgarden_imageIconGarden
 id viewgarden_nameGarden
 id viewlistdivce_progressbar

@@ -159,7 +159,7 @@
                     android:id="@+id/selected_garden_image"
                     android:background="@null"
                     android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_height="130dp"
                     android:padding="10dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/imagegallery" />
@@ -189,24 +189,17 @@
             android:textColor="@android:color/white" />
 
         <Button
-            android:id="@+id/btn_Prt_Scr"
+            android:id="@+id/cancel_action_garden"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
-            android:drawableTop="@drawable/btn_print"
-            android:text="In"
+            android:drawableTop="@drawable/ic_cancel"
+            android:text="Huỷ"
             android:textColor="@android:color/white" />
 
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/fragmentContainer_garden"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        >
-
-    </FrameLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -59,9 +59,13 @@ class EditDeviceCategory : AppCompatActivity() {
     }
 
     private fun actionButton() {
-        /*event add veg*/
+        /*event add device category*/
         add_device_category_edit.setOnClickListener{
             editDeviceCategory()
+        }
+        /*event cancel*/
+        cancel_action_device_edit.setOnClickListener {
+            activity.finish()
         }
 
     }

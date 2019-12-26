@@ -316,17 +316,17 @@
                 android:paddingTop="8dp"
                 android:paddingBottom="5dp">
 
-                <Button
-                    android:id="@+id/backQty"
-                    style="@style/Button"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_weight="1"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:drawableTop="@drawable/btn_back"
-                    android:text="Trở về"
-                    android:textColor="@android:color/white" />
+<!--                <Button-->
+<!--                    android:id="@+id/backQty"-->
+<!--                    style="@style/Button"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="start"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="?android:attr/selectableItemBackground"-->
+<!--                    android:drawableTop="@drawable/btn_back"-->
+<!--                    android:text="Trở về"-->
+<!--                    android:textColor="@android:color/white" />-->
 
                 <Button
                     android:id="@+id/addQty"

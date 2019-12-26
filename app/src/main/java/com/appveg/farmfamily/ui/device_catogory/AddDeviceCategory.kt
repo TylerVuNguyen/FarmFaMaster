@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
+import kotlinx.android.synthetic.main.activity_add_device.*
 import kotlinx.android.synthetic.main.activity_add_device_category.*
 import kotlinx.android.synthetic.main.fragment_device_category.*
 import java.io.ByteArrayOutputStream
@@ -36,7 +37,10 @@ class AddDeviceCategory : AppCompatActivity() {
         btn_add_category.setOnClickListener{
             addDeviceCategory()
         }
-
+        /*event cancel*/
+        cancel_action_device_category.setOnClickListener {
+            activity.finish()
+        }
 
     }
 

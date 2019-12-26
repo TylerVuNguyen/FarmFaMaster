@@ -268,15 +268,15 @@
             android:textColor="@android:color/white" />
 
         <Button
-            android:id="@+id/btn_device_print"
+            android:id="@+id/cancel_action_device_edit"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
-            android:drawableTop="@drawable/btn_print"
-            android:text="In"
+            android:drawableTop="@drawable/ic_cancel"
+            android:text="Huỷ"
             android:textColor="@android:color/white" />
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

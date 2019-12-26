@@ -18,6 +18,7 @@ import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device_catogory.DeviceCategory
 import com.appveg.farmfamily.ui.vegetable.Vegetable
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_add_device.*
 import kotlinx.android.synthetic.main.activity_edit_device.*
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_1
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_2
@@ -163,6 +164,11 @@ class EditDeviceActivity : AppCompatActivity() {
         /*event call image*/
         add_image_device_edit.setOnClickListener {
             getImageFromGallery()
+        }
+
+        /*event cancel*/
+        cancel_action_device_edit.setOnClickListener {
+            activity.finish()
         }
 
     }

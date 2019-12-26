@@ -81,19 +81,19 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
 
         /*event cancel*/
         cancel_action.setOnClickListener {
-            var  intent: Intent  = Intent(activity, ChiTietDotSanLuongActivity::class.java)
-            intent.putExtra("garden_id",getDataFromItent())
+//            var  intent: Intent  = Intent(activity, ChiTietDotSanLuongActivity::class.java)
+//            intent.putExtra("garden_id",getDataFromItent())
             activity.finish()
-            startActivity(intent)
+//            startActivity(intent)
         }
 
-        /*event back*/
-        backQty.setOnClickListener {
-            var  intent: Intent  = Intent(activity, ChiTietDotSanLuongActivity::class.java)
-            intent.putExtra("garden_id",getDataFromItent())
-            activity.finish()
-            startActivity(intent)
-        }
+//        /*event back*/
+//        backQty.setOnClickListener {
+//            var  intent: Intent  = Intent(activity, ChiTietDotSanLuongActivity::class.java)
+//            intent.putExtra("garden_id",getDataFromItent())
+//            activity.finish()
+//            startActivity(intent)
+//        }
 
         // get create date
         pickDateBD.setOnClickListener {
@@ -169,13 +169,13 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
                 vegetableTemp.vegQty = quantityVegetable.toInt()
                 listVeg.add(vegetableTemp)
             }else {
-                for (i in 0..listVeg.size - 1) {
-                    if (vegName.equals(listVeg.get(i).vegName)) {
-                        var x: Int = listVeg.get(i).vegQty!!.toInt()
+                for (i in 0 until listVeg.size) {
+                    if (vegName == listVeg[i].vegName) {
+                        var x: Int = listVeg[i].vegQty!!.toInt()
                         x += quantityVegetable.toInt()
-                        vegetableTemp.vegName = listVeg.get(i).vegName
+                        vegetableTemp.vegName = listVeg[i].vegName
                         vegetableTemp.vegQty = x
-                        listVeg.remove(listVeg.get(i))
+                        listVeg.remove(listVeg[i])
                         listVeg.add(vegetableTemp)
                     } else if (i == listVeg.size - 1) {
                         vegetableTemp.vegName = selected.toString()
@@ -191,13 +191,13 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
                 vegetableTemp.vegQty = vegNumber
                 listVeg.add(vegetableTemp)
             }else {
-                for (i in 0..listVeg.size - 1) {
-                    if (vegName.equals(listVeg.get(i).vegName)) {
-                        var x: Int = listVeg.get(i).vegQty!!.toInt()
+                for (i in 0 until listVeg.size) {
+                    if (vegName == listVeg[i].vegName) {
+                        var x: Int = listVeg[i].vegQty!!.toInt()
                         x += vegNumber
-                        vegetableTemp.vegName = listVeg.get(i).vegName
+                        vegetableTemp.vegName = listVeg[i].vegName
                         vegetableTemp.vegQty = x
-                        listVeg.remove(listVeg.get(i))
+                        listVeg.remove(listVeg[i])
                         listVeg.add(vegetableTemp)
                     } else if (i == listVeg.size - 1) {
                         vegetableTemp.vegName = selected.toString()
@@ -278,9 +278,10 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
                     ).show()
                 }
                 // reset list data for batch
-                var  intent: Intent  = Intent(activity, ChiTietDotSanLuongActivity::class.java)
-                intent.putExtra("garden_id",garden_id)
-                startActivity(intent)
+//                var  intent: Intent  = Intent(activity, ChiTietDotSanLuongActivity::class.java)
+//                intent.putExtra("garden_id",garden_id)
+//                startActivity(intent)
+                activity.finish()
             } catch (e: Exception) {
                 Log.d("AAA", e.message)
                 Toast.makeText(

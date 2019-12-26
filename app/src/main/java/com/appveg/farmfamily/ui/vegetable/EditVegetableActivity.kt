@@ -19,6 +19,7 @@ import com.appveg.farmfamily.ui.send.Batch
 import com.appveg.farmfamily.ui.send.BatchQtyDetail
 import com.appveg.farmfamily.ui.send.ThemAdapter
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_add_device.*
 import kotlinx.android.synthetic.main.activity_add_vegetable.*
 import kotlinx.android.synthetic.main.activity_edit_vegetable.*
 import kotlinx.android.synthetic.main.activity_sua_dot_san_luong.*
@@ -73,6 +74,43 @@ class EditVegetableActivity : AppCompatActivity() {
             this.veg_name_edit.setText(veg_name_3)
             this.veg_name_edit.setSelection(veg_name_edit.text.length)
         }
+
+        add_image4_edit.setOnClickListener {
+            var veg_name_4 = "Rau muống"
+            var veg_img = R.drawable.raumuong
+            this.selected_image_edit.setImageResource(veg_img)
+            this.veg_name_edit.setText(veg_name_4)
+            this.veg_name_edit.setSelection(veg_name_edit.text.length)
+        }
+        add_image5_edit.setOnClickListener {
+            var veg_name_5 = "Ớt đỏ"
+            var veg_img = R.drawable.ot
+            this.selected_image_edit.setImageResource(veg_img)
+            this.veg_name_edit.setText(veg_name_5)
+            this.veg_name_edit.setSelection(veg_name_edit.text.length)
+        }
+        add_image6_edit.setOnClickListener {
+            var add_image6 = "Dưa leo"
+            var veg_img = R.drawable.dualeo
+            this.selected_image_edit.setImageResource(veg_img)
+            this.veg_name_edit.setText(add_image6)
+            this.veg_name_edit.setSelection(veg_name_edit.text.length)
+        }
+        add_image7_edit.setOnClickListener {
+            var add_image7 = "Bí đỏ"
+            var veg_img = R.drawable.bido
+            this.selected_image_edit.setImageResource(veg_img)
+            this.veg_name_edit.setText(add_image7)
+            this.veg_name_edit.setSelection(veg_name_edit.text.length)
+        }
+
+        add_image8_edit.setOnClickListener {
+            var add_image8 = "Cà chua"
+            var veg_img = R.drawable.cachua
+            this.selected_image_edit.setImageResource(veg_img)
+            this.veg_name_edit.setText(add_image8)
+            this.veg_name_edit.setSelection(veg_name_edit.text.length)
+        }
     }
 
     private fun actionButton() {
@@ -88,6 +126,11 @@ class EditVegetableActivity : AppCompatActivity() {
         /*event call image*/
         add_image_edit.setOnClickListener {
             getImageFromGallery()
+        }
+
+        /*event cancel*/
+        cancel_action_veg_edit.setOnClickListener {
+            activity.finish()
         }
 
     }

@@ -44,8 +44,8 @@
 
                 <ImageView
                     android:id="@+id/add_image1_edit"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
                     android:padding="7dp"
                     android:src="@drawable/xalach" />
 
@@ -53,8 +53,8 @@
 
                 <ImageView
                     android:id="@+id/add_image2_edit"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
                     android:padding="7dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/raucai" />
@@ -62,11 +62,19 @@
 
                 <ImageView
                     android:id="@+id/add_image3_edit"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
                     android:padding="7dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/xuplo" />
+
+                <ImageView
+                    android:id="@+id/add_image4_edit"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/raumuong" />
             </TableRow>
 
             <ProgressBar
@@ -85,30 +93,38 @@
                 android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/add_image4_edit"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:id="@+id/add_image5_edit"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
                     android:padding="7dp"
-                    android:src="@drawable/xalach" />
+                    android:src="@drawable/ot" />
 
                 <!--    button to show picker diaglog-->
 
                 <ImageView
-                    android:id="@+id/add_image5_edit"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:id="@+id/add_image6_edit"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
                     android:padding="7dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/raucai" />
+                    android:src="@drawable/dualeo" />
 
 
                 <ImageView
-                    android:id="@+id/add_image6_edit"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:id="@+id/add_image7_edit"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
                     android:padding="7dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/xuplo" />
+                    android:src="@drawable/bido" />
+
+                <ImageView
+                    android:id="@+id/add_image8_edit"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/cachua" />
             </TableRow>
 
         </TableLayout>
@@ -167,7 +183,7 @@
                     android:id="@+id/selected_image_edit"
                     android:background="@null"
                     android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_height="130dp"
                     android:padding="10dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/imagegallery" />
@@ -197,14 +213,17 @@
             android:text="Cập nhật"
             android:textColor="@android:color/white" />
 
+        <Button
+            android:id="@+id/cancel_action_veg_edit"
+            style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/ic_cancel"
+            android:text="Huỷ"
+            android:textColor="@android:color/white" />
     </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/edit_fragmentContainer"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        >
-
-    </FrameLayout>
 
 </RelativeLayout>

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
+    android:background="#FFFFFF"
     tools:context=".ui.vegetable.AddVegetableActivity">
 
     <LinearLayout
@@ -44,8 +45,8 @@
 
                 <ImageView
                     android:id="@+id/add_image1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
                     android:padding="7dp"
                     android:src="@drawable/xalach" />
 
@@ -53,8 +54,8 @@
 
                 <ImageView
                     android:id="@+id/add_image2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
                     android:padding="7dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/raucai" />
@@ -62,11 +63,19 @@
 
                 <ImageView
                     android:id="@+id/add_image3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
                     android:padding="7dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/xuplo" />
+
+                <ImageView
+                    android:id="@+id/add_image4"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/raumuong" />
             </TableRow>
 
             <ProgressBar
@@ -85,30 +94,38 @@
                 android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/add_image4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:id="@+id/add_image5"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
                     android:padding="7dp"
-                    android:src="@drawable/xalach" />
+                    android:src="@drawable/ot" />
 
                 <!--    button to show picker diaglog-->
 
                 <ImageView
-                    android:id="@+id/add_image5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:id="@+id/add_image6"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
                     android:padding="7dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/raucai" />
+                    android:src="@drawable/dualeo" />
 
 
                 <ImageView
-                    android:id="@+id/add_image6"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:id="@+id/add_image7"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
                     android:padding="7dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/xuplo" />
+                    android:src="@drawable/bido" />
+
+                <ImageView
+                    android:id="@+id/add_image8"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/cachua" />
             </TableRow>
 
         </TableLayout>
@@ -167,7 +184,7 @@
                     android:id="@+id/selected_image"
                     android:background="@null"
                     android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_height="130dp"
                     android:padding="10dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/imagegallery" />
@@ -197,12 +214,17 @@
             android:text="Thêm"
             android:textColor="@android:color/white" />
 
-    </LinearLayout>
-    <FrameLayout
-        android:id="@+id/fragmentContainer"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        >
+        <Button
+            android:id="@+id/cancel_action_veg"
+            style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/ic_cancel"
+            android:text="Huỷ"
+            android:textColor="@android:color/white" />
 
-    </FrameLayout>
+    </LinearLayout>
 </RelativeLayout>

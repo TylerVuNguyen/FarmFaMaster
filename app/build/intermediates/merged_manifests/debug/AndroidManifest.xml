@@ -128,13 +128,28 @@
         </activity>
         <activity
             android:name="com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity"
-            android:label="Sửa đợt sản lượng" />
+            android:label="Sửa đợt sản lượng"
+            android:parentActivityName="com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity" />
+        </activity>
         <activity
             android:name="com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity"
-            android:label="Chi tiết sản lượng" />
+            android:label="Chi tiết sản lượng"
+            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity" />
+        </activity>
         <activity
             android:name="com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity"
-            android:label="Thêm đợt sản lượng " />
+            android:label="Thêm đợt sản lượng "
+            android:parentActivityName="com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity" />
+        </activity>
         <activity
             android:name="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity"
             android:label="Danh sách đợt sản lượng"

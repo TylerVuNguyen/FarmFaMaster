@@ -114,6 +114,10 @@ class SuaKhuVuonActivity : AppCompatActivity() {
         edit_garden_image.setOnClickListener {
             getImageFromGallery()
         }
+        /*event cancel*/
+        cancel_action_garden_edit.setOnClickListener {
+            activity.finish()
+        }
     }
 
     private fun getImageFromCamera() {

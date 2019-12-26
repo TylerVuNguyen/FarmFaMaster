@@ -140,7 +140,7 @@
                     android:id="@+id/selected_device_category_image_edit"
                     android:background="@null"
                     android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_height="130dp"
                     android:padding="10dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/imagegallery" />
@@ -170,12 +170,17 @@
             android:text="Thêm"
             android:textColor="@android:color/white" />
 
+        <Button
+            android:id="@+id/cancel_action_device_edit"
+            style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/ic_cancel"
+            android:text="Huỷ"
+            android:textColor="@android:color/white" />
     </LinearLayout>
-    <FrameLayout
-        android:id="@+id/fragmentContainer"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        >
 
-    </FrameLayout>
 </RelativeLayout>

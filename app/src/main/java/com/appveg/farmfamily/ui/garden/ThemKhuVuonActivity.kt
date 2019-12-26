@@ -20,6 +20,7 @@ import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.vegetable.VegetableFragment
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_add_device.*
 import kotlinx.android.synthetic.main.activity_add_vegetable.*
 import kotlinx.android.synthetic.main.activity_sua_khu_vuon.*
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.*
@@ -119,6 +120,11 @@ class ThemKhuVuonActivity : AppCompatActivity() {
         /*event call image*/
         add_garden_image.setOnClickListener {
             getImageFromGallery()
+        }
+
+        /*event cancel*/
+        cancel_action_garden.setOnClickListener {
+            activity.finish()
         }
 
     }
