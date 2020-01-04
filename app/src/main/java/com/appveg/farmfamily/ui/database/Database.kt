@@ -1256,4 +1256,6 @@ class Database(context: Context?) :
         return success
     }
 
+    /*----------------------------------------------SELECT DEVICE FOR GARDEN -------------------------------------------------*/
+    
 }

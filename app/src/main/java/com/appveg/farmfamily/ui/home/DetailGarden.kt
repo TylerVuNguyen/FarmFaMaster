@@ -7,11 +7,17 @@ import android.util.Log
 import android.widget.Toast
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.chart.ChartActivity
+import com.appveg.farmfamily.ui.database.Database
+import com.appveg.farmfamily.ui.send.ChiTietAdapter
+import com.appveg.farmfamily.ui.vegetable.Vegetable
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_chi_tiet_san_luong.*
 import kotlinx.android.synthetic.main.activity_detail_garden.*
 
 class DetailGarden : AppCompatActivity() {
     private lateinit var database: DatabaseReference
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_garden)
@@ -20,7 +26,6 @@ class DetailGarden : AppCompatActivity() {
         actionButton()
         gardenInfo()
         gardenInfoRain()
-
 
 
     }
@@ -114,8 +119,13 @@ class DetailGarden : AppCompatActivity() {
         return id
 
     }
+
+
     private fun rainAlert(){
         this.imageView.setImageResource(R.drawable.khongmua)
         this.rain_text.text = "Trời không mưa"
     }
+
+
+
 }

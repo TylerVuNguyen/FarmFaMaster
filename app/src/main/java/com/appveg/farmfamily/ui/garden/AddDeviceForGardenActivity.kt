@@ -1,15 +1,18 @@
 package com.appveg.farmfamily.ui.garden
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.device.Device
 import com.appveg.farmfamily.ui.garden.AddDeviceForGardenAdapter
+import kotlinx.android.synthetic.main.activity_add_device.*
 
 import kotlinx.android.synthetic.main.activity_add_device_for_garden.*
 
 class AddDeviceForGardenActivity : AppCompatActivity() {
+    private val activity = this@AddDeviceForGardenActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +34,21 @@ class AddDeviceForGardenActivity : AppCompatActivity() {
 //
 //        }
 
+        /*action button*/
+        actionButton()
 
+    }
+
+    private fun actionButton() {
+        /*event add veg*/
+        btn_add_veg_garden_forward.setOnClickListener {
+            var intent: Intent = Intent(activity,SelectVegGardenActivity::class.java)
+            startActivity(intent)
+        }
+        btn_add_device_garden_forward.setOnClickListener {
+            var intent: Intent = Intent(activity,SelectDeviceGardenActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 //        private fun listDeviceForKV(): ArrayList<Device> {

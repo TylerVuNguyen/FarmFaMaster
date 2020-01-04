@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relative_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -242,14 +243,43 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00c5cd"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="Cảnh báo mưa"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
 
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="5dp" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/imageView1"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    />
+
+
+                <TextView
+                    android:id="@+id/rain_text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Normal"
+                    android:textSize="14dp" />
             </LinearLayout>
         </LinearLayout>
         <!--  end block display sensor-->
+        <!--  end block display sensor-->
 
-        <!--        row device-->
+        <!--        row veg-->
         <LinearLayout
-            android:id="@+id/row_device"
+            android:id="@+id/row_veg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
@@ -257,7 +287,6 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="8dp"
             android:background="#00c5cd"
-
             android:orientation="vertical"
             android:padding="3dp">
 
@@ -266,27 +295,145 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Thiết bị"
+                android:text="@string/Veg_title_vi"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <!--       end veg device-->
+
+
+        <!--display List view device-->
+        <LinearLayout
+            android:id="@+id/linear_list_veg"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_below="@id/detailsContainer"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ListView
+                android:id="@+id/list_veg_detail_garden"
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
+        </LinearLayout>
+        <!--     end   display device list -->
+
+        <Space
+            android:layout_width="2dp"
+            android:layout_height="10dp" />
+
+        <!--     device category veg-->
+        <LinearLayout
+            android:id="@+id/row_device"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="8dp"
+            android:background="#00c5cd"
+            android:orientation="vertical"
+            android:padding="3dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/control_device_vi"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold" />
 
         </LinearLayout>
         <!--       end row device-->
 
-
-        <!--display List view device-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_below="@id/detailsContainer"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="20dp"
-            android:orientation="vertical"
-            android:padding="10dp"></LinearLayout>
-        <!--     end   display device list -->
+            android:layout_height="100dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
 
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/back"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="OFF"
+                    android:drawableTop="@drawable/ic_cai_o_mua"
+                    android:textColor="@color/gray_background"
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:text="Chưa cài đặt"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/back"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:drawableTop="@drawable/ic_may_bom"
+                    android:text="ON"
+                    android:textColor="@color/gray_background"
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:text="Đang sử dụng"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/back"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="OFF"
+                    android:drawableTop="@drawable/ic_bong_den_sang"
+                    android:textColor="@color/gray_background"
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:text="Chưa cài đặt"
+                    android:textSize="14dp" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 
@@ -312,4 +459,6 @@
             android:textColor="@android:color/white" />
 
     </LinearLayout>
+
+
 </RelativeLayout>

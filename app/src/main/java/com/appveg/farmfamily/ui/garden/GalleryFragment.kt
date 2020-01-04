@@ -79,54 +79,50 @@ class GalleryFragment : Fragment() {
 
         // set swipe
         listViewGarden.setMenuCreator(creator)
-        listViewGarden.setOnMenuItemClickListener(object :
-            SwipeMenuListView.OnMenuItemClickListener {
-            override fun onMenuItemClick(position: Int, menu: SwipeMenu, index: Int): Boolean {
-                when (index) {
-                    0 -> {
-                        getForwardData(position)
-                    }
-                    1 -> {
-                        // build alert dialog
-                        val dialogBuilder = AlertDialog.Builder(activity)
+        listViewGarden.setOnMenuItemClickListener { position, menu, index ->
+            when (index) {
+                0 -> {
+                    getForwardData(position)
+                }
+                1 -> {
+                    // build alert dialog
+                    val dialogBuilder = AlertDialog.Builder(activity)
 
-                        // set message of alert dialog
-                        dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
-                            // if the dialog is cancelable
-                            .setCancelable(false)
-                            // positive button text and action
-                            .setPositiveButton("Có", DialogInterface.OnClickListener {
-                                    dialog, id -> removeGarden(position)
-                            })
-                            // negative button text and action
-                            .setNegativeButton("Hủy", DialogInterface.OnClickListener {
-                                    dialog, id -> dialog.cancel()
-                            })
+                    // set message of alert dialog
+                    dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
+                        // if the dialog is cancelable
+                        .setCancelable(false)
+                        // positive button text and action
+                        .setPositiveButton("Có", DialogInterface.OnClickListener { dialog, id -> removeGarden(position)
+                        })
+                        // negative button text and action
+                        .setNegativeButton("Hủy", DialogInterface.OnClickListener { dialog, id -> dialog.cancel()
+                        })
 
-                        // create dialog box
-                        val alert = dialogBuilder.create()
-                        // set title for alert dialog box
-                        alert.setTitle("Xóa chi tiết rau")
-                        // show alert dialog
-                        alert.show()
-                    }
-                }// open
-                // delete
-                // false : close the menu; true : not close the menu
-                return false
-            }
-        })
+                    // create dialog box
+                    val alert = dialogBuilder.create()
+                    // set title for alert dialog box
+                    alert.setTitle("Xóa chi tiết rau")
+                    // show alert dialog
+                    alert.show()
+                }
+            }// open
+            // delete
+            // false : close the menu; true : not close the menu
+            false
+        }
 
         //button them khu vườn
         var btn_garden_add = root.findViewById(R.id.garden_btn_add) as Button
-        btn_garden_add.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                var intent: Intent = Intent(requireContext(), ThemKhuVuonActivity::class.java)
-                //activity?.onBackPressed()
-                //listRoom_roomfunction.visibility = View.GONE
-                startActivity(intent)
-            }
-        })
+        btn_garden_add.setOnClickListener {
+            var intent: Intent = Intent(requireContext(), ThemKhuVuonActivity::class.java)
+            startActivity(intent)
+        }
+
+        listViewGarden.setOnItemClickListener { adapterView, view, i, l ->
+            var intent: Intent = Intent(requireContext(), AddDeviceForGardenActivity::class.java)
+            startActivity(intent)
+        }
 
         return root.rootView
 

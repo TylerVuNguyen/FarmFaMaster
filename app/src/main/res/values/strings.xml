@@ -16,6 +16,7 @@
     <string name="menu_device_category">Quản lý loại thiết bị</string>
     <string name="menu_device">Quản lý thiết bị  </string>
     <string name="menu_thamso">Quản lý tham số </string>
+
     <string name="menu_statistics">Thống kê </string>
 
     <string name="email">Email </string>
@@ -125,13 +126,16 @@
     <!--garden VI-->
 
     <!--vegetable VI-->
-
+    <string name="Veg_title_vi">Loại rau được trồng</string>
     <!-- end vegetable VI-->
 
     <!--device VI-->
     <string name="name_device_vi">Tên thiết bị</string>
     <string name="decription_device_vi">Mô tả thiết bị</string>
     <string name="broken_device_vi">Hư hỏng</string>
+    <string name="control_device_vi">Điều khiển thiết bị</string>
+    <string name="control_device_setting_vi">Thiết bị đã cài đặt</string>
+    <string name="select_device_and_veg_vi">Đã chọn (0)</string>
     <!-- end device VI-->
 
     <!--Temperature VI-->

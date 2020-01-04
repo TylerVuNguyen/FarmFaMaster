@@ -28,6 +28,30 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
+            android:name="com.appveg.farmfamily.ui.garden.SelectVegGardenActivity"
+            android:label="Thêm loại rau cho khu vườn"
+            android:parentActivityName="com.appveg.farmfamily.ui.garden.SelectVegGardenActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.garden.SelectVegGardenActivity" />
+        </activity>
+        <activity
+            android:name="com.appveg.farmfamily.ui.garden.SelectDeviceGardenActivity"
+            android:label="Thêm thiết bị cho khu vườn"
+            android:parentActivityName="com.appveg.farmfamily.ui.garden.SelectDeviceGardenActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.garden.SelectDeviceGardenActivity" />
+        </activity>
+        <activity
+            android:name="com.appveg.farmfamily.ui.garden.AddDeviceForGardenActivity"
+            android:label="Chi tiết khu vườn"
+            android:parentActivityName="com.appveg.farmfamily.ui.garden.AddDeviceForGardenActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.garden.AddDeviceForGardenActivity" />
+        </activity>
+        <activity
             android:name="com.appveg.farmfamily.ui.device_catogory.EditDeviceCategory"
             android:label="Sửa loại thiết bị"
             android:parentActivityName="com.appveg.farmfamily.ui.device_catogory.EditDeviceCategory" >
@@ -78,7 +102,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity" />
         </activity>
-        <activity android:name="com.appveg.farmfamily.ui.garden.AddDeviceForGardenActivity" />
         <activity
             android:name="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity"
             android:label="Thêm loại rau"
