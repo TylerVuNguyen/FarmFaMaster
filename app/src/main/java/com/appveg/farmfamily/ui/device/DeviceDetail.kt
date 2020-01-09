@@ -6,6 +6,7 @@ class DeviceDetail {
     var deviceDetailImg : ByteArray? = null
     var deviceID : Int? = 0
     var deviceDetailStatus :String?=""
+    var gardenDetailId: Int? = 0
     var createdBy: String? = "admin"
     var createdDate: String? = null
     var updatedBy: String? = ""
@@ -23,6 +24,7 @@ class DeviceDetail {
         deviceDetailImg: ByteArray?,
         deviceID: Int?,
         deviceDetailStatus: String?,
+        gardenDetailId : Int,
         createdBy: String?,
         createdDate: String?,
         updatedBy: String?,
@@ -36,6 +38,7 @@ class DeviceDetail {
         this.deviceDetailImg = deviceDetailImg
         this.deviceID = deviceID
         this.deviceDetailStatus = deviceDetailStatus
+        this.gardenDetailId = gardenDetailId
         this.createdBy = createdBy
         this.createdDate = createdDate
         this.updatedBy = updatedBy

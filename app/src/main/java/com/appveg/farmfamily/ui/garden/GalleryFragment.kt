@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
-import com.baoyz.swipemenulistview.SwipeMenu
 import com.baoyz.swipemenulistview.SwipeMenuCreator
 import com.baoyz.swipemenulistview.SwipeMenuItem
 import com.baoyz.swipemenulistview.SwipeMenuListView
@@ -113,14 +112,16 @@ class GalleryFragment : Fragment() {
         }
 
         //button them khu vườn
-        var btn_garden_add = root.findViewById(R.id.garden_btn_add) as Button
-        btn_garden_add.setOnClickListener {
+        var btnGardenAdd = root.findViewById(R.id.garden_btn_add) as Button
+        btnGardenAdd.setOnClickListener {
             var intent: Intent = Intent(requireContext(), ThemKhuVuonActivity::class.java)
             startActivity(intent)
         }
 
         listViewGarden.setOnItemClickListener { adapterView, view, i, l ->
+            var gardenId = gardens[i].gardenId!!
             var intent: Intent = Intent(requireContext(), AddDeviceForGardenActivity::class.java)
+            intent.putExtra("garden_id",gardenId)
             startActivity(intent)
         }
 
@@ -131,7 +132,7 @@ class GalleryFragment : Fragment() {
     /**
      * the method to display batch
      */
-    fun getListGarden() : ArrayList<Garden>{
+    private fun getListGarden() : ArrayList<Garden>{
         database = Database(activity)
         gardens = database.findAllGarden()
         if (gardens.isNullOrEmpty()) {
@@ -144,9 +145,9 @@ class GalleryFragment : Fragment() {
      */
     private fun removeGarden(position: Int) {
         database = Database(activity)
-        var garden_id = database.deleteGarden(gardens[position].gardenId!!.toInt())
+        var gardenId = database.deleteGarden(gardens[position].gardenId!!.toInt())
         gardens.remove(gardens[position])
-        if (garden_id != null) {
+        if (gardenId != null) {
             Toast.makeText(
                 activity,
                 getString(R.string.deleted_data_success_vi),
@@ -159,10 +160,10 @@ class GalleryFragment : Fragment() {
     /**
      * the method to itent data for Veg
      */
-    fun getForwardData(position: Int){
-        var garden_id = gardens[position].gardenId!!.toInt()
+    private fun getForwardData(position: Int){
+        var gardenId = gardens[position].gardenId!!.toInt()
         var intent: Intent = Intent(activity, SuaKhuVuonActivity::class.java)
-        intent.putExtra("garden_id",garden_id)
+        intent.putExtra("garden_id",gardenId)
         startActivity(intent)
     }
 

@@ -36,14 +36,13 @@ class QLKVAdapter (private var activity: Activity, private var items: ArrayList<
             view = convertView
             viewHolder = view.tag as ViewHolder
         }
-        var garden : Garden = getItem(position) as Garden
+        var garden : Garden = getItem(position)
         viewHolder.qlkhuvuon_name!!.text = garden.gardenName
 
         // chuyển bytearray về bitmap để hiển thị
         var imageBitmap : ByteArray? = garden.gardenImage
         var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
         viewHolder.qlkhuvuon_photo!!.setImageBitmap(bitmap)
-        return view as View
 
         return view as View
     }

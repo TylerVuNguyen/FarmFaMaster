@@ -14,13 +14,10 @@ import com.appveg.farmfamily.ui.device.Device
 
 class AddDeviceForGardenAdapter (private var activity: Activity, private var items: ArrayList<Device>) :  BaseAdapter(){
     private class ViewHolder(row: View?) {
-        var lblName: TextView? = null
         var imgDevice: ImageView? = null
 
         init {
-            this.lblName = row?.findViewById<TextView>(R.id.lbl_name)
-
-            this.imgDevice = row?.findViewById<ImageView>(R.id.img_device_kv)
+            this.imgDevice = row?.findViewById(R.id.img_device_kv)
 
         }
     }
@@ -37,7 +34,6 @@ class AddDeviceForGardenAdapter (private var activity: Activity, private var ite
             viewHolder = view.tag as ViewHolder
         }
         var device = items[position]
-        viewHolder.lblName?.text = device.deviceName
 
        // viewHolder.imgDevice?.setImageResource(device.deviceImg!!)
 

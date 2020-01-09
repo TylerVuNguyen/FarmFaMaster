@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context=".ui.garden.AddDeviceForGardenActivity">
 
     <LinearLayout
@@ -43,7 +44,7 @@
             android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/fragment_khuvuon"
+            android:id="@+id/gird_veg_for_garden_select"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"

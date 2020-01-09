@@ -1496,6 +1496,7 @@ id container
 id content
 id contentPanel
 id coordinator
+id count_select_device
 id custom
 id customPanel
 id dark
@@ -1520,6 +1521,7 @@ id device_category_image6_edit
 id device_category_name
 id device_category_name_edit
 id device_checked
+id device_for_garden_checked
 id device_name
 id device_name_edit
 id dialog_button
@@ -1555,6 +1557,9 @@ id garden_btn_print
 id garden_name
 id garden_name_edit
 id ghost_view
+id gird_device_for_garden
+id gird_device_for_garden_select
+id gird_veg_for_garden_select
 id glide_custom_view_target_tag
 id gone
 id group_divider
@@ -1573,10 +1578,12 @@ id imageView
 id imageView1
 id image_view_garden
 id img_device_category
+id img_device_for_garden
 id img_device_kv
 id img_dotRau
 id img_kv
 id img_kvcuasl
+id img_veg_for_garden
 id info
 id invisible
 id italic
@@ -1941,6 +1948,7 @@ layout image_frame
 layout layout_add_device
 layout layout_device
 layout layout_device_detail
+layout layout_device_for_garden
 layout layout_item_device_for_garden
 layout layout_khuvuon
 layout layout_khuvuon_cua_sanluong
@@ -1948,6 +1956,7 @@ layout layout_list_device_category
 layout layout_listview_garden
 layout layout_listview_garden_area
 layout layout_ql_khuvuon
+layout layout_veg_for_garden
 layout layoutlistview_chitietdot_sanluong
 layout list_itemrau_themsl
 layout login
@@ -2137,6 +2146,8 @@ string menu_share
 string menu_statistics
 string menu_thamso
 string menu_vegetable
+string message_Setting_vi
+string message_unSetting_vi
 string messages_header
 string mobileNumber
 string mtrl_chip_close_icon_content_description

@@ -3,13 +3,11 @@ package com.appveg.farmfamily.ui.garden
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.device.Device
-import com.appveg.farmfamily.ui.garden.AddDeviceForGardenAdapter
-import kotlinx.android.synthetic.main.activity_add_device.*
 
 import kotlinx.android.synthetic.main.activity_add_device_for_garden.*
+import kotlinx.android.synthetic.main.fragment_gallery.*
 
 class AddDeviceForGardenActivity : AppCompatActivity() {
     private val activity = this@AddDeviceForGardenActivity
@@ -40,58 +38,36 @@ class AddDeviceForGardenActivity : AppCompatActivity() {
     }
 
     private fun actionButton() {
+        var gardenId = getDataFromItent()
         /*event add veg*/
         btn_add_veg_garden_forward.setOnClickListener {
             var intent: Intent = Intent(activity,SelectVegGardenActivity::class.java)
+            intent.putExtra("garden_id",gardenId)
             startActivity(intent)
         }
         btn_add_device_garden_forward.setOnClickListener {
             var intent: Intent = Intent(activity,SelectDeviceGardenActivity::class.java)
+            intent.putExtra("garden_id",gardenId)
             startActivity(intent)
         }
 
     }
-//        private fun listDeviceForKV(): ArrayList<Device> {
-//            var result = ArrayList<Device>()
-//            var device: Device = Device()
-//            device.deviceID = 1
-//            device.deviceName = "Thiết bị 1"
-//            device.deviceImg = R.drawable.kv2
-//            result.add(device)
-//
-//            device = Device()
-//            device.deviceID = 2
-//            device.deviceName = "Thiết bị 2"
-//            device.deviceImg = R.drawable.kv2
-//            result.add(device)
-//
-//            device = Device()
-//            device.deviceID = 3
-//            device.deviceName = "Thiết bị 3"
-//            device.deviceImg = R.drawable.kv2
-//            result.add(device)
-//
-//            device = Device()
-//            device.deviceID = 4
-//            device.deviceName = "Thiết bị 4"
-//            device.deviceImg = R.drawable.kv2
-//            result.add(device)
-//
-//            device = Device()
-//            device.deviceID = 4
-//            device.deviceName = "Thiết bị 4"
-//            device.deviceImg = R.drawable.kv2
-//            result.add(device)
-//
-//            device = Device()
-//            device.deviceID = 4
-//            device.deviceName = "Thiết bị 4"
-//            device.deviceImg = R.drawable.kv2
-//            result.add(device)
-//
-//
-//
-//
-//            return result
-//        }
+    /**
+     * the method to get data from intent
+     */
+    private fun getDataFromItent(): Int {
+        val bundle: Bundle = intent.extras
+        val id: Int =
+            bundle.get("garden_id") as Int
+        return id
+    }
+
+    /**
+     * the method to resume ( call when back stack)
+     */
+//    override fun onResume() {
+//        super.onResume()
+//        gardens = getListGarden()
+//        list_view_garden.adapter = activity?.let { QLKVAdapter(it,gardens) }
+//    }
 }

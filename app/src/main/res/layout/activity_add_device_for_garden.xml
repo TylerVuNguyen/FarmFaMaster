@@ -83,7 +83,7 @@
             android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/fragment_khuvuon"
+            android:id="@+id/gird_device_for_garden"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"

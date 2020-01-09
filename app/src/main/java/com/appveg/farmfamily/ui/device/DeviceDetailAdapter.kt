@@ -21,7 +21,7 @@ class DeviceDetailAdapter (private var activity: Activity, private var items: Ar
     private lateinit var database: Database
 
     private class ViewHolder(row: View?) {
-        var deviceDetailImage: ImageView
+        var deviceDetailImage: ImageView? = null
         var deviceDetailStatus: TextView
         var deviceDetailCode: TextView
         var deviceDetailStatusChecked: CheckBox
@@ -61,7 +61,7 @@ class DeviceDetailAdapter (private var activity: Activity, private var items: Ar
         // chuyển bytearray về bitmap để hiển thị
         var imageBitmap : ByteArray? = deviceDetail.deviceDetailImg
         var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
-        viewHolder.deviceDetailImage.setImageBitmap(bitmap)
+        viewHolder.deviceDetailImage!!.setImageBitmap(bitmap)
 
         return view
     }
@@ -74,7 +74,7 @@ class DeviceDetailAdapter (private var activity: Activity, private var items: Ar
     override fun getCount(): Int {
         return items.size
     }
-
+    // checked load default (case broken)
     private fun checked(status: String): Boolean{
         var result: Boolean = false
         if("Đã hư hỏng" == status.trim()){

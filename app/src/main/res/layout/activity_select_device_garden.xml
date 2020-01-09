@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".ui.garden.AddDeviceForGardenActivity">
 
     <LinearLayout
@@ -26,6 +27,7 @@
             android:padding="3dp">
 
             <TextView
+                android:id="@+id/count_select_device"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -40,21 +42,24 @@
 
         <!--display List view device-->
         <GridView
-            android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/fragment_khuvuon"
+            android:id="@+id/gird_device_for_garden_select"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:numColumns="3"
             android:horizontalSpacing="10dp"
             android:verticalSpacing="10dp"
-            android:padding="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="50dp"
             />
         <!--     end   display device list -->
 
     </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -73,8 +78,8 @@
             android:layout_gravity="start"
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
-            android:drawableTop="@drawable/ic_add2"
-            android:text="Thêm"
+            android:drawableTop="@drawable/btn_print"
+            android:text="In"
             android:textColor="@android:color/white" />
 
         <Button
