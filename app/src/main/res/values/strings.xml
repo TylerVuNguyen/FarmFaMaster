@@ -127,6 +127,7 @@
 
     <!--vegetable VI-->
     <string name="Veg_title_vi">Loại rau được trồng</string>
+    <string name="Veg_Empty_Message_vi">Dánh sách loại rau đang trống !</string>
     <!-- end vegetable VI-->
 
     <!--device VI-->
@@ -138,6 +139,7 @@
     <string name="message_unSetting_vi">Đã gở cài đặt thiết bị</string>
     <string name="message_Setting_vi">Đã cài đặt thiết bị</string>
     <string name="select_device_and_veg_vi">Đã thêm (0) thiết bị</string>
+    <string name="select_veg_vi">Đã thêm (0) loại rau</string>
     <!-- end device VI-->
 
     <!--Temperature VI-->

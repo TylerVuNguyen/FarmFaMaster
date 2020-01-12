@@ -1114,6 +1114,8 @@ class Database(context: Context?) :
         var device_detail_code: String
         var device_detail_image : ByteArray
         var device_detail_status : String
+        var device_id : Int
+        var garden_id : Int
         if (cursor.moveToFirst()) {
             do {
                 device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
@@ -1122,8 +1124,10 @@ class Database(context: Context?) :
                 device_detail_image= cursor.getBlob(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
                 device_detail_status= cursor.getString(cursor.getColumnIndex(
                     COLUMN_DEVICE_DETAIL_STATUS))
+                device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
+                garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
-                val device = DeviceDetail(device_detail_id,device_detail_code,device_detail_image,device_detail_status)
+                val device = DeviceDetail(device_detail_id,device_detail_code,device_detail_image,device_detail_status,device_id,garden_id)
                 deviceDetailList.add(device)
             } while (cursor.moveToNext())
         }
@@ -1298,6 +1302,8 @@ class Database(context: Context?) :
         var device_detail_code: String
         var device_detail_image : ByteArray
         var device_detail_status : String
+        var device_id : Int
+        var garden_id : Int
         if (cursor.moveToFirst()) {
             do {
                 device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
@@ -1306,8 +1312,10 @@ class Database(context: Context?) :
                 device_detail_image= cursor.getBlob(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
                 device_detail_status= cursor.getString(cursor.getColumnIndex(
                     COLUMN_DEVICE_DETAIL_STATUS))
+                device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
+                garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
-                val device = DeviceDetail(device_detail_id,device_detail_code,device_detail_image,device_detail_status)
+                val device = DeviceDetail(device_detail_id,device_detail_code,device_detail_image,device_detail_status,device_id,garden_id)
                 deviceDetailList.add(device)
             } while (cursor.moveToNext())
         }

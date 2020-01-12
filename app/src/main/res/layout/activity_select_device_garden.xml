@@ -71,7 +71,7 @@
         android:paddingTop="10dp">
 
         <Button
-            android:id="@+id/btn_add_device_garden"
+            android:id="@+id/btn_print_device_garden"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

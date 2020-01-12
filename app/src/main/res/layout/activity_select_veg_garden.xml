@@ -27,11 +27,12 @@
             android:padding="3dp">
 
             <TextView
+                android:id="@+id/count_select_veg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@string/select_device_and_veg_vi"
+                android:text="@string/select_veg_vi"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold" />
 
@@ -41,7 +42,6 @@
 
         <!--display List view device-->
         <GridView
-            android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/gird_veg_for_garden_select"
@@ -51,7 +51,9 @@
             android:numColumns="3"
             android:horizontalSpacing="10dp"
             android:verticalSpacing="10dp"
-            android:padding="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="50dp"
             />
         <!--     end   display device list -->
 
@@ -67,15 +69,15 @@
         android:paddingTop="10dp">
 
         <Button
-            android:id="@+id/btn_add_veg_garden"
+            android:id="@+id/btn_print_veg_garden"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
-            android:drawableTop="@drawable/ic_add2"
-            android:text="Thêm"
+            android:drawableTop="@drawable/btn_print"
+            android:text="In"
             android:textColor="@android:color/white" />
 
         <Button

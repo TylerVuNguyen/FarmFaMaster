@@ -14,16 +14,24 @@ import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device.DeviceDetail
 
 
-class SelectDeviceGardenAdapter (private var activity: Activity, private var items: ArrayList<DeviceDetail>,private var gardenId : Int,private var countDefault :Int) :  BaseAdapter() {
+class SelectDeviceGardenAdapter(
+    private var activity: Activity,
+    private var items: ArrayList<DeviceDetail>,
+    private var gardenId: Int,
+    private var countDefault: Int
+) : BaseAdapter() {
     private lateinit var database: Database
     private var deviceStatus: Boolean = false
-    private var count : Int = 0
+    private var count: Int = 0
+
     private class ViewHolder(row: View?) {
         var imgDeviceForGarden: ImageView? = null
         var deviceForGardenChecked: CheckBox
+
         init {
             this.imgDeviceForGarden = row?.findViewById(R.id.img_device_for_garden)
-            this.deviceForGardenChecked = row?.findViewById(R.id.device_for_garden_checked) as CheckBox
+            this.deviceForGardenChecked =
+                row?.findViewById(R.id.device_for_garden_checked) as CheckBox
         }
     }
 
@@ -50,15 +58,28 @@ class SelectDeviceGardenAdapter (private var activity: Activity, private var ite
 
         var deviceCountSelect: TextView = activity.findViewById(R.id.count_select_device)
 
-        viewHolder.deviceForGardenChecked.isChecked = checked(deviceDetailForGarden.deviceDetailStatus!!)
+        viewHolder.deviceForGardenChecked.isChecked =
+            checked(deviceDetailForGarden.deviceDetailStatus!!)
 
+        // set count load default
+        count = countDefault
+
+        // event checked
         viewHolder.deviceForGardenChecked.setOnClickListener {
-            setCount()
             deviceStatus = viewHolder.deviceForGardenChecked.isChecked
-            var temp = updateStatus(gardenId,deviceDetailForGarden.deviceDetailID!!,deviceStatus)
-            notice(temp,deviceStatus)
-            viewHolder.deviceForGardenChecked.isChecked = deviceStatus
-            deviceCountSelect.text = countSelected(deviceStatus)
+            var temp = updateStatus(
+                gardenId,
+                deviceDetailForGarden.deviceDetailID!!,
+                deviceStatus,
+                deviceDetailForGarden.deviceID!!
+            )
+            if (temp != null && temp != 0) {
+                notice(temp, deviceStatus)
+                viewHolder.deviceForGardenChecked.isChecked = deviceStatus
+                deviceCountSelect.text = countSelected(deviceStatus)
+            }else if(temp == 0){
+                viewHolder.deviceForGardenChecked.isChecked = false
+            }
         }
 
         return view
@@ -77,19 +98,20 @@ class SelectDeviceGardenAdapter (private var activity: Activity, private var ite
     }
 
     // checked load default (case broken)
-    private fun checked(status: String): Boolean{
+    private fun checked(status: String): Boolean {
         var result = false
-        if("Y" == status.trim()){
+        if ("Y" == status.trim()) {
             result = true
         }
         return result
     }
+
     // count selected
-    private fun countSelected(deviceStatus: Boolean) : String{
+    private fun countSelected(deviceStatus: Boolean): String {
         var result = ""
-        if(!deviceStatus && count != 0){
+        if (!deviceStatus && count != 0) {
             count--
-        }else if (deviceStatus){
+        } else if (deviceStatus) {
             count++
         }
         result = "Đã thêm ($count) thiết bị"
@@ -97,33 +119,43 @@ class SelectDeviceGardenAdapter (private var activity: Activity, private var ite
         return result
     }
 
-    private fun setCount(){
-        if(countDefault != null && countDefault != 0 ){
-            count = countDefault
-        }
-    }
 
     // display message settings
-    private fun notice(temp : Int,status : Boolean){
-        if(temp != null && status){
-            Toast.makeText(activity,"Đã cài đặt thiết bị",Toast.LENGTH_SHORT).show()
-        }else{
-            Toast.makeText(activity,"Đã gở cài đặt thiết bị",Toast.LENGTH_SHORT).show()
+    private fun notice(temp: Int, status: Boolean) {
+        if (temp != null && status) {
+            Toast.makeText(activity, "Đã cài đặt thiết bị", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(activity, "Đã gở cài đặt thiết bị", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun updateStatus(gardenId: Int,id: Int,checked: Boolean) : Int{
+    // update device for garden
+    private fun updateStatus(gardenId: Int, id: Int, checked: Boolean, deviceId: Int): Int {
         database = Database(activity)
-        var deviceDetail1 : DeviceDetail = DeviceDetail()
-        if(checked){
+        var deviceDetail1: DeviceDetail = DeviceDetail()
+        var temps = database.findAllDeviceDetail(deviceId)
+
+        var result = false
+        if (!temps.isNullOrEmpty()) {
+            for (i in 0 until temps.size) {
+                if (temps[i].gardenDetailId != -1) {
+                    result = true
+                }
+            }
+        }
+
+        if (checked && !result) {
             deviceDetail1.deviceDetailID = id
             deviceDetail1.gardenDetailId = gardenId
             deviceDetail1.deviceDetailStatus = "Y"
+        } else if(checked && result) {
+            Toast.makeText(activity, "Thiết bị đã tồn tại", Toast.LENGTH_SHORT).show()
         }else{
             deviceDetail1.deviceDetailID = id
             deviceDetail1.gardenDetailId = -1
             deviceDetail1.deviceDetailStatus = "N"
         }
+
         return database.updateDeviceForGarden(deviceDetail1)
     }
 }

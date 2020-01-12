@@ -6,7 +6,7 @@ class DeviceDetail {
     var deviceDetailImg : ByteArray? = null
     var deviceID : Int? = 0
     var deviceDetailStatus :String?=""
-    var gardenDetailId: Int? = 0
+    var gardenDetailId: Int? = -1
     var createdBy: String? = "admin"
     var createdDate: String? = null
     var updatedBy: String? = ""
@@ -46,6 +46,21 @@ class DeviceDetail {
         this.deletedBy = deletedBy
         this.deletedDate = deletedDate
         this.deletedFlag = deletedFlag
+    }
+    constructor(
+        deviceDetailID: Int?,
+        deviceDetailCode: String?,
+        deviceDetailImg: ByteArray?,
+        deviceDetailStatus: String?,
+        deviceID: Int?,
+        gardenDetailId: Int?
+    ) {
+        this.deviceDetailID = deviceDetailID
+        this.deviceDetailCode = deviceDetailCode
+        this.deviceDetailImg = deviceDetailImg
+        this.deviceDetailStatus = deviceDetailStatus
+        this.deviceID = deviceID
+        this.gardenDetailId = gardenDetailId
     }
     constructor(
         deviceDetailID: Int?,

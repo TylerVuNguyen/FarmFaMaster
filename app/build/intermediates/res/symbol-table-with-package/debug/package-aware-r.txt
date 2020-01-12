@@ -1454,10 +1454,8 @@ id btLogin
 id btSignup
 id btn_add_category
 id btn_add_device_category
-id btn_add_device_garden
 id btn_add_device_garden_forward
 id btn_add_garden
-id btn_add_veg_garden
 id btn_add_veg_garden_forward
 id btn_chart_print
 id btn_device_add
@@ -1465,6 +1463,8 @@ id btn_device_cancel
 id btn_device_edit
 id btn_edit_garden
 id btn_print_device_category
+id btn_print_device_garden
+id btn_print_veg_garden
 id btn_veg_cancel
 id buttonPanel
 id cancel_action
@@ -1497,6 +1497,7 @@ id content
 id contentPanel
 id coordinator
 id count_select_device
+id count_select_veg
 id custom
 id customPanel
 id dark
@@ -1813,6 +1814,7 @@ id unlabeled
 id up
 id useLogo
 id userEmailId
+id veg_for_garden_checked
 id veg_item
 id veg_name
 id veg_name_edit
@@ -2012,6 +2014,7 @@ mipmap ic_nhietdo
 mipmap ic_nhietdo_foreground
 mipmap ic_nhietdo_round
 navigation mobile_navigation
+string Veg_Empty_Message_vi
 string Veg_title_vi
 string abc_action_bar_home_description
 string abc_action_bar_up_description
@@ -2176,6 +2179,7 @@ string registered_emailid
 string reply_title
 string search_menu_title
 string select_device_and_veg_vi
+string select_veg_vi
 string selected_item
 string show_pwd
 string signUp

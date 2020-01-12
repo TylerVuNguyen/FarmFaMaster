@@ -8,19 +8,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.CheckBox
 import android.widget.ImageView
+import android.widget.TextView
 import com.appveg.farmfamily.R
+import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device.DeviceDetail
 import com.appveg.farmfamily.ui.vegetable.Vegetable
 
 
-class SelectVegGardenAdapter (private var activity: Activity, private var items: ArrayList<Vegetable>) :  BaseAdapter() {
+class SelectVegGardenAdapter (private var activity: Activity, private var items: ArrayList<Vegetable>, private var gardenId: Int,
+                              private var countDefault: Int) :  BaseAdapter() {
+    private lateinit var database: Database
+    private var vegStatus: Boolean = false
+    private var count: Int = 0
     private class ViewHolder(row: View?) {
         var imgVegForGarden: ImageView? = null
-
+        var vegForGardenChecked: CheckBox
         init {
             this.imgVegForGarden = row?.findViewById(R.id.img_veg_for_garden)
-
+            this.vegForGardenChecked = row?.findViewById(R.id.veg_for_garden_checked) as CheckBox
         }
     }
 
@@ -44,6 +51,14 @@ class SelectVegGardenAdapter (private var activity: Activity, private var items:
         var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap, 0, imageBitmap!!.size)
         viewHolder.imgVegForGarden!!.setImageBitmap(bitmap)
 
+        //var vegCountSelect: TextView = activity.findViewById(R.id.count_select_veg)
+
+        viewHolder.vegForGardenChecked.isChecked =
+            checked(vegetableForGarden.gardenId)
+
+        // set count load default
+        count = countDefault
+
         return view
     }
 
@@ -57,5 +72,14 @@ class SelectVegGardenAdapter (private var activity: Activity, private var items:
 
     override fun getCount(): Int {
         return items.size
+    }
+
+    // checked load default
+    private fun checked(gardenId: Int): Boolean {
+        var result = false
+        if (gardenId != -1) {
+            result = true
+        }
+        return result
     }
 }
