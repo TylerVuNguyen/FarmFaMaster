@@ -4,16 +4,12 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.baoyz.swipemenulistview.SwipeMenuCreator
 import com.baoyz.swipemenulistview.SwipeMenuItem
-import kotlinx.android.synthetic.main.activity_add_device.view.*
 import kotlinx.android.synthetic.main.activity_device_detail_status.*
-import kotlinx.android.synthetic.main.layout_device_detail.*
-import kotlin.Exception
 
 class DeviceDetailActivity : AppCompatActivity() {
 
@@ -114,12 +110,12 @@ class DeviceDetailActivity : AppCompatActivity() {
     private fun removeDeviceAndDeviceDetail(position: Int) {
         database = Database(activity)
 
-        var device_id: Int = getDataFromItent()
+        var deviceId: Int = getDataFromItent()
 
-        var device_detail = database.deleteDetailDevice(deviceDetails[position].deviceDetailID!!.toInt())
+        var deviceDetail = database.deleteDetailDevice(deviceDetails[position].deviceDetailID!!.toInt())
         deviceDetails.remove(deviceDetails[position])
         if(deviceDetails.isNullOrEmpty()){
-            database.deleteDevice(device_id)
+            database.deleteDevice(deviceId)
             // finish because page no data
             Toast.makeText(
                 activity,
@@ -127,7 +123,7 @@ class DeviceDetailActivity : AppCompatActivity() {
                 Toast.LENGTH_LONG
             ).show()
             activity.finish()
-        }else if (device_detail != null) {
+        }else if (deviceDetail != null) {
             Toast.makeText(
                 activity,
                 getString(R.string.deleted_data_success_vi),
@@ -158,7 +154,6 @@ class DeviceDetailActivity : AppCompatActivity() {
         }else if(("B") == status){
             result = "Đã hư hỏng"
         }
-
         return result
     }
 }

@@ -99,9 +99,13 @@ class DeviceDetailAdapter (private var activity: Activity, private var items: Ar
         if(checked){
             deviceDetail1.deviceDetailID = id
             deviceDetail1.deviceDetailStatus = "B"
+            deviceDetail1.gardenDetailId = -1
+            deviceDetail1.deviceDetailCodeSS = ""
         }else{
             deviceDetail1.deviceDetailID = id
             deviceDetail1.deviceDetailStatus = "N"
+            deviceDetail1.gardenDetailId = -1
+            deviceDetail1.deviceDetailCodeSS = ""
         }
         database.updateDeviceDetailStatus(deviceDetail1)
 

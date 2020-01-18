@@ -38,22 +38,22 @@
                 <item
                     android:id="@+id/nav_thamso"
                     android:icon="@drawable/ic_menu_thamso"
-                    android:title="Quản lí tham số" />
+                    android:title="Quản lý tham số" />
 
                 <item
                     android:id="@+id/nav_vegetable"
                     android:icon="@drawable/ic_menu_veg"
-                    android:title="Quản lí các loại rau" />
+                    android:title="Quản lý các loại rau" />
 
                 <item
                     android:id="@+id/nav_device_category"
                     android:icon="@drawable/ic_menu_device_category"
-                    android:title="Quản lí loại thiết bị" />
+                    android:title="Quản lý loại thiết bị" />
 
                 <item
                     android:id="@+id/nav_device"
                     android:icon="@drawable/ic_menu_device1"
-                    android:title="Quản lí thiết bị" />
+                    android:title="Quản lý thiết bị" />
             </menu>
         </item>
     </group>

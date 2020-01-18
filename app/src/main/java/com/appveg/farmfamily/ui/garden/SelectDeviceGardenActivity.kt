@@ -44,7 +44,8 @@ class SelectDeviceGardenActivity : AppCompatActivity() {
      */
     private fun getListDeviceForGarden() : ArrayList<DeviceDetail>{
         database = Database(activity)
-        deviceForGardens = database.findAllDeviceDetailForGarden()
+        var gardenId: Int = getDataFromItent()
+        deviceForGardens = database.findAllDeviceDetailForGarden(gardenId)
         if (deviceForGardens.isNullOrEmpty()) {
             Toast.makeText(activity, "Dánh sách thiết bị đang trống !", Toast.LENGTH_LONG).show()
         }else{

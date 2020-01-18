@@ -165,5 +165,13 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <!-- param -->
+    <string name="from_vi">Từ</string>
+    <string name="to_vi">Đến</string>
+    <string name="day_vi">Ban ngày</string>
+    <string name="night_vi">Ban đêm</string>
+    <string name="temp_param_vi">Nhiệt độ</string>
+
+
 
 </resources>

@@ -136,7 +136,7 @@ class VegetableFragment  : Fragment() {
     /**
      * the method to display batch
      */
-    fun getListVeg() : ArrayList<Vegetable>{
+    private fun getListVeg() : ArrayList<Vegetable>{
         database = Database(activity)
         vegetables = database.findAllVegetable()
         if (vegetables.isNullOrEmpty()) {

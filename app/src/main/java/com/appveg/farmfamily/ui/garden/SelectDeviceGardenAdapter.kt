@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +11,8 @@ import android.widget.*
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device.DeviceDetail
+import java.text.Normalizer
+import java.util.regex.Pattern
 
 
 class SelectDeviceGardenAdapter(
@@ -133,29 +134,45 @@ class SelectDeviceGardenAdapter(
     private fun updateStatus(gardenId: Int, id: Int, checked: Boolean, deviceId: Int): Int {
         database = Database(activity)
         var deviceDetail1: DeviceDetail = DeviceDetail()
-        var temps = database.findAllDeviceDetail(deviceId)
+        var temps = database.findAllDeviceDetail(deviceId,gardenId)
+        var device = database.findDeviceById(deviceId)
+        var codeSS = generateAssetTypeCode(device.deviceName!!) + gardenId.toString()
+
 
         var result = false
         if (!temps.isNullOrEmpty()) {
-            for (i in 0 until temps.size) {
-                if (temps[i].gardenDetailId != -1) {
-                    result = true
-                }
-            }
+            result = true
         }
 
         if (checked && !result) {
             deviceDetail1.deviceDetailID = id
             deviceDetail1.gardenDetailId = gardenId
             deviceDetail1.deviceDetailStatus = "Y"
+            deviceDetail1.deviceDetailCodeSS = codeSS
+
+            Toast.makeText(activity,codeSS, Toast.LENGTH_SHORT).show()
         } else if(checked && result) {
             Toast.makeText(activity, "Thiết bị đã tồn tại", Toast.LENGTH_SHORT).show()
         }else{
             deviceDetail1.deviceDetailID = id
             deviceDetail1.gardenDetailId = -1
             deviceDetail1.deviceDetailStatus = "N"
+            deviceDetail1.deviceDetailCodeSS = ""
         }
 
         return database.updateDeviceForGarden(deviceDetail1)
+    }
+
+    private fun generateAssetTypeCode(device_name: String): String {
+        var result: String = ""
+
+        if (device_name.isNotBlank()) {
+            var temp: String = Normalizer.normalize(device_name, Normalizer.Form.NFD)
+            var pattern: Pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+")
+            var gardenNameEn = pattern.matcher(temp).replaceAll("")
+
+            result = gardenNameEn.trim().replace(" ", "").toUpperCase()
+        }
+        return result
     }
 }

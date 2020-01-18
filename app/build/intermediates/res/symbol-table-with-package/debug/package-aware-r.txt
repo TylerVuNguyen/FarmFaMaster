@@ -1178,6 +1178,7 @@ drawable border_khungedt
 drawable border_khungkhuvuon
 drawable border_login
 drawable border_them
+drawable border_vuong
 drawable btn_back
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -1223,6 +1224,7 @@ drawable dualeo
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_add2
+drawable ic_add_param
 drawable ic_arrow_down_24dp
 drawable ic_back
 drawable ic_bong_den
@@ -1456,6 +1458,7 @@ id btn_add_category
 id btn_add_device_category
 id btn_add_device_garden_forward
 id btn_add_garden
+id btn_add_param
 id btn_add_veg_garden_forward
 id btn_chart_print
 id btn_device_add
@@ -1467,6 +1470,7 @@ id btn_print_device_garden
 id btn_print_veg_garden
 id btn_veg_cancel
 id buttonPanel
+id cai_dat
 id cancel_action
 id cancel_action_device
 id cancel_action_device_category
@@ -1474,6 +1478,7 @@ id cancel_action_device_edit
 id cancel_action_edit
 id cancel_action_garden
 id cancel_action_garden_edit
+id cancel_action_param
 id cancel_action_veg
 id cancel_action_veg_edit
 id category_image4
@@ -1581,6 +1586,7 @@ id image_view_garden
 id img_device_category
 id img_device_for_garden
 id img_device_kv
+id img_device_veg_of_param
 id img_dotRau
 id img_kv
 id img_kvcuasl
@@ -1602,8 +1608,11 @@ id linear_doam
 id linear_dopH
 id linear_hide
 id linear_list_veg
+id linear_nhiet_do_ban_dem
 id linear_nhietdo
+id linear_ph
 id linear_ppm
+id linear_temperature_day
 id listDevice_devicefunction
 id listMode
 id listRoom_roomfunction
@@ -1616,6 +1625,7 @@ id list_view_device
 id list_view_device_category
 id list_view_device_detail
 id list_view_garden
+id list_view_param
 id list_view_vegetable
 id listview_Detail
 id lv_themSL
@@ -1631,6 +1641,7 @@ id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
 id name_device_category
+id name_device_param
 id name_khuvuoncuasl
 id name_kv
 id nav_controller_view_tag
@@ -1664,6 +1675,11 @@ id parentPanel
 id parent_matrix
 id password
 id percent
+id ph_from
+id ph_param
+id ph_param_from
+id ph_param_to
+id ph_to
 id pickDateBD
 id pickDateBD_edit
 id pickDateKT
@@ -1672,6 +1688,8 @@ id pin
 id positionSpinner
 id positionSpinner_edit
 id ppm
+id ppm_from
+id ppm_to
 id progress_circular
 id progress_horizontal
 id qty_btn_print
@@ -1756,6 +1774,10 @@ id submenuarrow
 id submit_area
 id switchWidget
 id tabMode
+id table_layout_ban_dem
+id table_layout_day
+id table_layout_pH
+id table_layout_ppm
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -1764,7 +1786,14 @@ id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id temp_day_from
+id temp_day_to
+id temp_night_from
+id temp_night_to
 id temperature
+id temperature_param
+id temperature_param_from
+id temperature_param_to
 id text
 id text2
 id textSpacerNoButtons
@@ -1829,6 +1858,10 @@ id view_device_name
 id view_device_num
 id view_error
 id view_offset_helper
+id view_param_btn_print
+id view_veg_param_image
+id view_veg_param_name
+id view_veg_param_status
 id viewgarden_imageIconGarden
 id viewgarden_nameGarden
 id viewlistdivce_progressbar
@@ -1902,6 +1935,7 @@ layout abc_tooltip
 layout activity_add_device
 layout activity_add_device_category
 layout activity_add_device_for_garden
+layout activity_add_param
 layout activity_add_vegetable
 layout activity_chart
 layout activity_chi_tiet_san_luong
@@ -1912,6 +1946,7 @@ layout activity_edit_device
 layout activity_edit_device_category
 layout activity_edit_vegetable
 layout activity_main
+layout activity_param
 layout activity_select_device_garden
 layout activity_select_veg_garden
 layout activity_sua_dot_san_luong
@@ -1957,8 +1992,10 @@ layout layout_khuvuon_cua_sanluong
 layout layout_list_device_category
 layout layout_listview_garden
 layout layout_listview_garden_area
+layout layout_param
 layout layout_ql_khuvuon
 layout layout_veg_for_garden
+layout layout_veg_pram_detail
 layout layoutlistview_chitietdot_sanluong
 layout list_itemrau_themsl
 layout login
@@ -2086,6 +2123,7 @@ string confirm_passoword_vi
 string control_device_setting_vi
 string control_device_vi
 string copy
+string day_vi
 string decription_Humidity_vi
 string decription_Temperature_vi
 string decription_device_vi
@@ -2119,6 +2157,7 @@ string fail_message
 string firebase_database_url
 string forgot
 string forgot_pass_vi
+string from_vi
 string fullName
 string full_name_vi
 string gcm_defaultSenderId
@@ -2164,6 +2203,7 @@ string nav_header_title
 string navigation_drawer_close
 string navigation_drawer_open
 string newUser
+string night_vi
 string not_set
 string passowrd
 string passowrd_vi
@@ -2194,6 +2234,7 @@ string success_message
 string summary_collapsed_preference_list
 string sync_header
 string sync_title
+string temp_param_vi
 string terms_conditions
 string text_accounts
 string text_already_member
@@ -2202,6 +2243,7 @@ string text_not_member
 string text_register
 string title_activity_settings
 string title_context_menu
+string to_vi
 string update_data_fail_vi
 string update_data_success_vi
 string userName

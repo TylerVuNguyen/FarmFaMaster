@@ -27,6 +27,16 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.appveg.farmfamily.ui.param.ParamActivity" >
+        </activity>
+        <activity
+            android:name="com.appveg.farmfamily.ui.param.AddParamActivity"
+            android:label="Thêm cài đặt tham số"
+            android:parentActivityName="com.appveg.farmfamily.ui.param.AddParamActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.param.AddParamActivity" />
+        </activity>
         <activity
             android:name="com.appveg.farmfamily.ui.garden.SelectVegGardenActivity"
             android:label="Thêm loại rau cho khu vườn"

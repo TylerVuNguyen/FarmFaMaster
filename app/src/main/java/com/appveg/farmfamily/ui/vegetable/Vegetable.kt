@@ -6,6 +6,7 @@ class Vegetable {
     var vegName: String? = ""
     var vegImgBlob: ByteArray? = null
     var gardenId: Int = -1
+    var paramId: Int = -1
     var createdBy: String? = "admin"
     var createdDate: String? = null
     var updatedBy: String? = ""
@@ -31,6 +32,7 @@ class Vegetable {
         vegName: String?,
         vegImgBlob: ByteArray,
         gardenId: Int,
+        paramId: Int,
         createdBy: String?,
         createdDate: String?,
         updatedBy: String?,
@@ -43,6 +45,7 @@ class Vegetable {
         this.vegName = vegName
         this.vegImgBlob = vegImgBlob
         this.gardenId = gardenId
+        this.paramId = paramId
         this.createdBy = createdBy
         this.createdDate = createdDate
         this.updatedBy = updatedBy
@@ -82,6 +85,19 @@ class Vegetable {
         this.vegID = vegID
         this.vegName = vegName
         this.vegImgBlob = vegImgBlob
+    }
+    constructor(vegID: Int?, vegName: String?, vegImgBlob: ByteArray,gardenId: Int) {
+        this.vegID = vegID
+        this.vegName = vegName
+        this.vegImgBlob = vegImgBlob
+        this.gardenId = gardenId
+    }
+    constructor(vegID: Int?, vegName: String?, vegImgBlob: ByteArray,gardenId: Int,paramId: Int) {
+        this.vegID = vegID
+        this.vegName = vegName
+        this.vegImgBlob = vegImgBlob
+        this.gardenId = gardenId
+        this.paramId = paramId
     }
 
 

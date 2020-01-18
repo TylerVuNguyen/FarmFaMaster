@@ -44,9 +44,17 @@ class SelectVegGardenActivity : AppCompatActivity() {
      */
     private fun getListVegForGarden() : ArrayList<Vegetable>{
         database = Database(activity)
-        vegForGardens = database.findAllVegetableForGarden()
+        var gardenId: Int = getDataFromItent()
+        vegForGardens = database.findAllVegetableForGarden(gardenId)
         if (vegForGardens.isNullOrEmpty()) {
             Toast.makeText(activity, getString(R.string.Veg_Empty_Message_vi), Toast.LENGTH_LONG).show()
+        }else{
+            for (item in 0 until vegForGardens.size){
+                if(-1 != vegForGardens[item].gardenId){
+                    count++
+                }
+            }
+            vegCountSelect.text = "Đã thêm ($count) loại rau"
         }
         return vegForGardens
     }

@@ -15,23 +15,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.param.ParamActivity"
+            >
 
-        <activity android:name=".ui.garden.SelectVegGardenActivity"
+        </activity>
+        <activity android:name=".ui.param.AddParamActivity"
+            android:label="Thêm cài đặt tham số"
+            android:parentActivityName=".ui.param.AddParamActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.param.AddParamActivity" />
+        </activity>
+        <activity
+            android:name=".ui.garden.SelectVegGardenActivity"
             android:label="Thêm loại rau cho khu vườn"
             android:parentActivityName=".ui.garden.SelectVegGardenActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.appveg.farmfamily.ui.garden.SelectVegGardenActivity" />
         </activity>
-        <activity android:name=".ui.garden.SelectDeviceGardenActivity"
+        <activity
+            android:name=".ui.garden.SelectDeviceGardenActivity"
             android:label="Thêm thiết bị cho khu vườn"
             android:parentActivityName=".ui.garden.SelectDeviceGardenActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.appveg.farmfamily.ui.garden.SelectDeviceGardenActivity" />
-
         </activity>
-
         <activity
             android:name=".ui.garden.AddDeviceForGardenActivity"
             android:label="Chi tiết khu vườn"
@@ -40,7 +50,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.appveg.farmfamily.ui.garden.AddDeviceForGardenActivity" />
         </activity>
-
         <activity
             android:name=".ui.device_catogory.EditDeviceCategory"
             android:label="Sửa loại thiết bị"
@@ -92,7 +101,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity" />
         </activity>
-
         <activity
             android:name=".ui.vegetable.AddVegetableActivity"
             android:label="Thêm loại rau"

@@ -7,10 +7,7 @@ import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.CheckBox
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device.DeviceDetail
@@ -22,6 +19,7 @@ class SelectVegGardenAdapter (private var activity: Activity, private var items:
     private lateinit var database: Database
     private var vegStatus: Boolean = false
     private var count: Int = 0
+
     private class ViewHolder(row: View?) {
         var imgVegForGarden: ImageView? = null
         var vegForGardenChecked: CheckBox
@@ -51,13 +49,30 @@ class SelectVegGardenAdapter (private var activity: Activity, private var items:
         var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap, 0, imageBitmap!!.size)
         viewHolder.imgVegForGarden!!.setImageBitmap(bitmap)
 
-        //var vegCountSelect: TextView = activity.findViewById(R.id.count_select_veg)
+        var vegCountSelect: TextView = activity.findViewById(R.id.count_select_veg)
 
         viewHolder.vegForGardenChecked.isChecked =
             checked(vegetableForGarden.gardenId)
 
         // set count load default
         count = countDefault
+
+        // event checked
+        viewHolder.vegForGardenChecked.setOnClickListener {
+            vegStatus = viewHolder.vegForGardenChecked.isChecked
+            var temp = updateStatus(
+                gardenId,
+                vegetableForGarden.vegID!!,
+                vegStatus
+            )
+            if (temp != null && temp != 0) {
+                notice(temp, vegStatus)
+                viewHolder.vegForGardenChecked.isChecked = vegStatus
+                vegCountSelect.text = countSelected(vegStatus)
+            }else if(temp == 0){
+                viewHolder.vegForGardenChecked.isChecked = false
+            }
+        }
 
         return view
     }
@@ -81,5 +96,53 @@ class SelectVegGardenAdapter (private var activity: Activity, private var items:
             result = true
         }
         return result
+    }
+
+    // count selected
+    private fun countSelected(vegStatus: Boolean): String {
+        var result = ""
+        if (!vegStatus && count != 0) {
+            count--
+        } else if (vegStatus) {
+            count++
+        }
+        result = "Đã thêm ($count) loại rau"
+
+        return result
+    }
+
+
+    // display message settings
+    private fun notice(temp: Int, status: Boolean) {
+        if (temp != null && status) {
+            Toast.makeText(activity, "Đã thêm loại rau", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(activity, "Đã xóa loại rau", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+    // update device for garden
+    private fun updateStatus(gardenId: Int, id: Int, checked: Boolean): Int {
+        database = Database(activity)
+        var vegetable: Vegetable = Vegetable()
+        var temps = database.findVegetableForGardenByGardenId(gardenId)
+
+        var result = false
+        if (!temps.isNullOrEmpty()) {
+            result = true
+        }
+
+        if (checked && !result) {
+            vegetable.vegID = id
+            vegetable.gardenId = gardenId
+        } else if(checked && result) {
+            Toast.makeText(activity, "Chỉ được thêm một loại rau cho khu vườn", Toast.LENGTH_SHORT).show()
+        }else{
+            vegetable.vegID = id
+            vegetable.gardenId = -1
+        }
+
+        return database.updateVegForGarden(vegetable)
     }
 }
