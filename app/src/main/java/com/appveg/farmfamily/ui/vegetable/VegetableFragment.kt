@@ -12,15 +12,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
-import com.appveg.farmfamily.ui.garden.QLKVAdapter
-import com.appveg.farmfamily.ui.send.ChiTietAdapter
-import com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity
-import com.baoyz.swipemenulistview.SwipeMenu
 import com.baoyz.swipemenulistview.SwipeMenuCreator
 import com.baoyz.swipemenulistview.SwipeMenuItem
 import com.baoyz.swipemenulistview.SwipeMenuListView
-import kotlinx.android.synthetic.main.activity_chi_tiet_san_luong.*
-import kotlinx.android.synthetic.main.fragment_gallery.*
 import kotlinx.android.synthetic.main.fragment_vegetable.*
 
 class VegetableFragment  : Fragment() {
@@ -149,9 +143,12 @@ class VegetableFragment  : Fragment() {
      */
     private fun removeVegetable(position: Int) {
         database = Database(activity)
-        var veg_id = database.deleteVeg(vegetables[position].vegID!!.toInt())
+        var vegId = database.deleteVeg(vegetables[position].vegID!!.toInt())
+        if(vegetables[position].paramId != 0){
+             database.deleteParam(vegetables[position].paramId)
+        }
         vegetables.remove(vegetables[position])
-        if (veg_id != null) {
+        if (vegId != null) {
             Toast.makeText(
                 activity,
                 getString(R.string.deleted_data_success_vi),
@@ -164,10 +161,10 @@ class VegetableFragment  : Fragment() {
     /**
      * the method to itent data for Veg
      */
-    fun getForwardData(position: Int){
-        var veg_id = vegetables[position].vegID!!.toInt()
+    private fun getForwardData(position: Int){
+        var vegId = vegetables[position].vegID!!.toInt()
         var intent: Intent = Intent(activity, EditVegetableActivity::class.java)
-        intent.putExtra("veg_id",veg_id)
+        intent.putExtra("veg_id",vegId)
         startActivity(intent)
     }
 

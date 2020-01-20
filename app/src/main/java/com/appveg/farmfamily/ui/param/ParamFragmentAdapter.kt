@@ -9,10 +9,11 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.vegetable.Vegetable
 
-class ParamFragmentAdapter (private var activity: Activity, private var items: ArrayList<Vegetable>) :  BaseAdapter(){
+class ParamFragmentAdapter (private val activity: FragmentActivity?, private var items: ArrayList<Vegetable>) :  BaseAdapter(){
 
     //1
     override fun getCount(): Int {
@@ -75,7 +76,7 @@ class ParamFragmentAdapter (private var activity: Activity, private var items: A
 
     private fun getStatus(paramId : Int) : String{
         var result = "Chưa cài đặt tham số"
-        if(paramId != -1 && paramId != null){
+        if(paramId != 0 ){
             result = "Đã cài đặt tham số"
         }
         return result

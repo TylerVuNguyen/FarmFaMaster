@@ -1465,6 +1465,7 @@ id btn_device_add
 id btn_device_cancel
 id btn_device_edit
 id btn_edit_garden
+id btn_edit_param
 id btn_print_device_category
 id btn_print_device_garden
 id btn_print_veg_garden
@@ -1676,10 +1677,12 @@ id parent_matrix
 id password
 id percent
 id ph_from
+id ph_from_edit
 id ph_param
 id ph_param_from
 id ph_param_to
 id ph_to
+id ph_to_edit
 id pickDateBD
 id pickDateBD_edit
 id pickDateKT
@@ -1689,7 +1692,9 @@ id positionSpinner
 id positionSpinner_edit
 id ppm
 id ppm_from
+id ppm_from_edit
 id ppm_to
+id ppm_to_edit
 id progress_circular
 id progress_horizontal
 id qty_btn_print
@@ -1787,9 +1792,13 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id temp_day_from
+id temp_day_from_edit
 id temp_day_to
+id temp_day_to_edit
 id temp_night_from
+id temp_night_from_edit
 id temp_night_to
+id temp_night_to_edit
 id temperature
 id temperature_param
 id temperature_param_from
@@ -1944,6 +1953,7 @@ layout activity_detail_garden
 layout activity_device_detail_status
 layout activity_edit_device
 layout activity_edit_device_category
+layout activity_edit_param
 layout activity_edit_vegetable
 layout activity_main
 layout activity_param
@@ -2147,6 +2157,7 @@ string error_message_password
 string error_name_batch
 string error_password_match
 string error_start_date_batch
+string error_to_smaller_from
 string error_username_pass_invalid
 string error_valid_email_password
 string error_veg_exist
@@ -2189,6 +2200,8 @@ string menu_statistics
 string menu_thamso
 string menu_vegetable
 string message_Setting_vi
+string message_no_setting_param
+string message_setting_param
 string message_unSetting_vi
 string messages_header
 string mobileNumber

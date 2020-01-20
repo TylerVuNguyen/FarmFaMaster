@@ -10,19 +10,12 @@ import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
-import com.appveg.farmfamily.ui.send.Batch
-import com.appveg.farmfamily.ui.send.BatchQtyDetail
-import com.appveg.farmfamily.ui.send.ThemAdapter
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_add_device.*
-import kotlinx.android.synthetic.main.activity_add_vegetable.*
 import kotlinx.android.synthetic.main.activity_edit_vegetable.*
-import kotlinx.android.synthetic.main.activity_sua_dot_san_luong.*
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
 import java.text.SimpleDateFormat
@@ -152,7 +145,7 @@ class EditVegetableActivity : AppCompatActivity() {
         val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
         val formatted: String = formatter.format(current)
 
-        val veg_id = getDataFromItent()
+        val vegId = getDataFromItent()
 
         // covert image to ByteArray
         var bitmapDrawable: BitmapDrawable = selected_image_edit.drawable as BitmapDrawable
@@ -165,7 +158,7 @@ class EditVegetableActivity : AppCompatActivity() {
         var checkVegImage = checkVegImage(image)
 
         if(checkVegName && checkVegImage){
-            var vegetable = Vegetable(veg_id, veg_name,image,formatted)
+            var vegetable = Vegetable(vegId, veg_name,image,formatted)
             database.updateVegImageDefault(vegetable)
 
             Toast.makeText(this,getString(R.string.update_data_success_vi),Toast.LENGTH_LONG).show()
@@ -263,10 +256,10 @@ class EditVegetableActivity : AppCompatActivity() {
      * This method is to remove data
      */
     private fun initDataEdit() {
-        val veg_id: Int = getDataFromItent()
+        val vegId: Int = getDataFromItent()
 
         // gán lại id để tý update data
-        var vegetable: Vegetable = getVegById(veg_id)
+        var vegetable: Vegetable = getVegById(vegId)
 
 
         var imageBitmap : ByteArray? = vegetable.vegImgBlob
@@ -280,7 +273,7 @@ class EditVegetableActivity : AppCompatActivity() {
     /**
      * the method to get batch by id
      */
-    fun getVegById(veg_id: Int) : Vegetable{
+    private fun getVegById(veg_id: Int) : Vegetable{
         database = Database(activity)
         var vegetable : Vegetable = Vegetable()
         if(veg_id != null){

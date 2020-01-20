@@ -2,8 +2,7 @@ package com.appveg.farmfamily.ui.param
 
 class Param {
 
-    var vegParamId : Int?=0
-    var vegId : Int?=0
+    var paramId : Int? = -1
 
     var tempToNight : String? =null
     var tempFromNight : String? = null
@@ -25,9 +24,9 @@ class Param {
     var deletedDate: String? = ""
     var deletedFlag: Int = 1
 
+
     constructor(
-        vegParamId : Int?,
-        vegId : Int?,
+        paramId : Int?,
         tempToNight : String?,
         tempFromNight : String?,
         tempToDay: String?,
@@ -45,8 +44,7 @@ class Param {
         deletedFlag: Int
 
     ){
-        this.vegParamId = vegParamId
-        this.vegId = vegId
+        this.paramId = paramId
         this.tempToNight = tempToNight
         this.tempFromNight = tempFromNight
         this.tempToDay = tempToDay
@@ -65,8 +63,7 @@ class Param {
     }
 
     constructor(
-        vegParamId : Int?,
-        vegId : Int?,
+        paramId : Int?,
         tempToNight : String?,
         tempFromNight : String?,
         tempToDay: String?,
@@ -79,8 +76,7 @@ class Param {
         createdDate: String?
 
     ){
-        this.vegParamId = vegParamId
-        this.vegId = vegId
+        this.paramId = paramId
         this.tempToNight = tempToNight
         this.tempFromNight = tempFromNight
         this.tempToDay = tempToDay
@@ -94,7 +90,57 @@ class Param {
     }
 
     constructor(
-        vegParamId : Int?,
+        paramId : Int?,
+        tempToNight : String?,
+        tempFromNight : String?,
+        tempToDay: String?,
+        tempFromDay : String?,
+        phTo : String?,
+        phFrom : String?,
+        ppmTo :String?,
+        ppmFrom :String?,
+        updatedDate: String?
+
+    ){
+        this.paramId = paramId
+        this.tempToNight = tempToNight
+        this.tempFromNight = tempFromNight
+        this.tempToDay = tempToDay
+        this.tempFromDay = tempFromDay
+        this.phTo = phTo
+        this.phFrom = phFrom
+        this.ppmTo = ppmTo
+        this.ppmFrom = ppmFrom
+        this.updatedDate = updatedDate
+    }
+
+    constructor(
+        tempToNight : String?,
+        tempFromNight : String?,
+        tempToDay: String?,
+        tempFromDay : String?,
+        phTo : String?,
+        phFrom : String?,
+        ppmTo :String?,
+        ppmFrom :String?,
+        createdBy: String?,
+        createdDate: String?
+
+    ){
+        this.tempToNight = tempToNight
+        this.tempFromNight = tempFromNight
+        this.tempToDay = tempToDay
+        this.tempFromDay = tempFromDay
+        this.phTo = phTo
+        this.phFrom = phFrom
+        this.ppmTo = ppmTo
+        this.ppmFrom = ppmFrom
+        this.createdBy = createdBy
+        this.createdDate = createdDate
+    }
+
+    constructor(
+        paramId : Int?,
         tempToNight : String?,
         tempFromNight : String?,
         tempToDay: String?,
@@ -103,7 +149,7 @@ class Param {
         createdDate: String?
 
     ){
-        this.vegParamId = vegParamId
+        this.paramId = paramId
         this.tempToNight = tempToNight
         this.tempFromNight = tempFromNight
         this.tempToDay = tempToDay
@@ -111,6 +157,31 @@ class Param {
         this.createdBy = createdBy
         this.createdDate = createdDate
     }
+
+    constructor(
+        paramId: Int?,
+        tempToNight : String?,
+        tempFromNight : String?,
+        tempToDay: String?,
+        tempFromDay : String?,
+        phTo : String?,
+        phFrom : String?,
+        ppmTo :String?,
+        ppmFrom :String?
+
+    ){
+        this.paramId = paramId
+        this.tempToNight = tempToNight
+        this.tempFromNight = tempFromNight
+        this.tempToDay = tempToDay
+        this.tempFromDay = tempFromDay
+        this.phTo = phTo
+        this.phFrom = phFrom
+        this.ppmTo = ppmTo
+        this.ppmFrom = ppmFrom
+    }
+
+    constructor()
 
 
 }

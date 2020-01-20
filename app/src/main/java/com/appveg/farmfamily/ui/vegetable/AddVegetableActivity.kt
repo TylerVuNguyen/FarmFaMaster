@@ -5,28 +5,22 @@ import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.database.CursorWindow
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.view.View
 import android.widget.*
 import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_add_device.*
 import kotlinx.android.synthetic.main.activity_add_vegetable.*
 import java.io.*
-import java.lang.reflect.Field
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.jar.Manifest
 
 
 class AddVegetableActivity : AppCompatActivity() {
@@ -148,9 +142,9 @@ class AddVegetableActivity : AppCompatActivity() {
 
     private fun addVegetable() {
         database = Database(activity)
-        var veg_name = veg_name.text.toString().trim()
+        var vegName = veg_name.text.toString().trim()
 
-        var checkVegName = checkVegName(veg_name)
+        var checkVegName = checkVegName(vegName)
         /*format date*/
         val current = Calendar.getInstance().time
         val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
@@ -166,17 +160,11 @@ class AddVegetableActivity : AppCompatActivity() {
         var checkVegImage = checkVegImage(image)
 
         if (checkVegName && checkVegImage) {
-            var vegetable = Vegetable(null, veg_name, image, "admin", formatted)
+            var vegetable = Vegetable(null, vegName, image, "admin", formatted)
             var id = database.addVegImageDefault(vegetable)
             if (id != null) {
                 Toast.makeText(this, getString(R.string.insert_data_success_vi), Toast.LENGTH_LONG)
                     .show()
-                //var fragmentAdapter : VegetableFragment = VegetableFragment()
-                // hide activity
-//                    addveg_vegfunction.visibility = View.GONE
-//                    //action bar
-//                    activity.title = "Quản lý các loại rau"
-//                    supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragmentAdapter).commit()
                 activity.finish()
             }
 
@@ -196,8 +184,8 @@ class AddVegetableActivity : AppCompatActivity() {
             veg_name.error = getString(R.string.error_empty_common)
             return false
         } else {
-            for (i in 0..vegs.size - 1) {
-                if (check.equals(vegs.get(i).vegName, true)) {
+            for (i in 0 until vegs.size) {
+                if (check.equals(vegs[i].vegName, true)) {
                     veg_name.error = getString(R.string.error_veg_exist)
                     return false
                 }

@@ -86,6 +86,7 @@ class Vegetable {
         this.vegName = vegName
         this.vegImgBlob = vegImgBlob
     }
+
     constructor(vegID: Int?, vegName: String?, vegImgBlob: ByteArray,gardenId: Int) {
         this.vegID = vegID
         this.vegName = vegName

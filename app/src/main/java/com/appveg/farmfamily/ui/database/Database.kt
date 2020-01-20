@@ -13,6 +13,7 @@ import com.appveg.farmfamily.ui.device.DeviceDetail
 import com.appveg.farmfamily.ui.device_catogory.DeviceCategory
 import com.appveg.farmfamily.ui.garden.Garden
 import com.appveg.farmfamily.ui.login.User
+import com.appveg.farmfamily.ui.param.Param
 import com.appveg.farmfamily.ui.send.Batch
 import com.appveg.farmfamily.ui.send.BatchCustom
 import com.appveg.farmfamily.ui.send.BatchQtyDetail
@@ -33,6 +34,7 @@ class Database(context: Context?) :
         private val TABLE_DEVICE = "device"
         private val TABLE_DEVICE_DETAIL = "device_detail"
         private val TABLE_DEVICE_CATEGORY = "device_category"
+        private val TABLE_PARAM = "param"
         /*users*/
         private val COLUMN_USER_ID = "user_id"
         private val COLUMN_USER_EMAIL = "email"
@@ -93,8 +95,16 @@ class Database(context: Context?) :
         private val COLUMN_DEVICE_DETAIL_CODE_SS = "device_detail_code_ss"
         private val COLUMN_DEVICE_DETAIL_STATUS = "device_detail_status"
 
-        /*device*/
+        /*param*/
         private val COLUMN_PARAM_ID = "param_id"
+        private val COLUMN_TEMP_TO_NIGHT ="temp_to_night"
+        private val COLUMN_TEMP_FROM_NIGHT = "temp_from_night"
+        private val COLUMN_TEMP_TO_DAY ="temp_to_day"
+        private val COLUMN_TEMP_FROM_DAY="temp_from_day"
+        private val COLUMN_PH_TO = "ph_to"
+        private val COLUMN_PH_FROM= "ph_from"
+        private val COLUMN_PPM_TO= "ppm_to"
+        private val COLUMN_PPM_FROM = "ppm_from"
 
 
     }
@@ -147,6 +157,11 @@ class Database(context: Context?) :
                     "device_category_image BLOB,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
                     "deleted_date VARCHAR(50),deleted_flag INTEGER)")
 
+        val CREATE_PARAM_TABLE =
+            ("CREATE TABLE " + TABLE_PARAM + "(param_id INTEGER PRIMARY KEY AUTOINCREMENT,veg_id INTEGER,temp_to_night VARCHAR(100),temp_from_night VARCHAR(100)," +
+                    "temp_to_day VARCHAR(100), temp_from_day VARCHAR(100),  ph_to VARCHAR(100), ph_from VARCHAR(100),ppm_to VARCHAR(100),ppm_from VARCHAR(100), created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+                    "deleted_date VARCHAR(50),deleted_flag INTEGER)")
+
 
         /*INSERT DATA*/
 //        val INSERT_GARDEN_ITEM =
@@ -168,6 +183,7 @@ class Database(context: Context?) :
         db?.execSQL(CREATE_DEVICE_TABLE)
         db?.execSQL(CREATE_DEVICE_DETAIL_TABLE)
         db?.execSQL(CREATE_DEVICE_CATEGORY_TABLE)
+        db?.execSQL(CREATE_PARAM_TABLE)
 
 
     }
@@ -877,10 +893,14 @@ class Database(context: Context?) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    var veg_id = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
-                    var veg_name = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_NAME))
-                    var veg_image = cursor.getBlob(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
-                    vegetable = Vegetable(veg_id,veg_name,veg_image)
+                    var vegId = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
+                    var vegName = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_NAME))
+                    var vegImage = cursor.getBlob(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
+                    var paramId = cursor.getInt(cursor.getColumnIndex(COLUMN_PARAM_ID))
+                    vegetable.vegID = vegId
+                    vegetable.vegName = vegName
+                    vegetable.vegImgBlob = vegImage
+                    vegetable.paramId = paramId
                 } while (cursor.moveToNext())
             }
         }
@@ -1462,7 +1482,7 @@ class Database(context: Context?) :
         cursor?.close()
         return deviceDetailList
     }
-/*---------------------------------------------- SETTNG PARAM FOR VEGETABLE -------------------------------------------------*/
+/*---------------------------------------------- SETTING PARAM FOR VEGETABLE -------------------------------------------------*/
     /**
      * This method to insert data vegetable
      *
@@ -1479,24 +1499,149 @@ class Database(context: Context?) :
             db.execSQL(selectQuery)
             return ArrayList()
         }
-        var veg_id: Int
-        var veg_name: String
-        var veg_image : ByteArray
-        var garden_id : Int
-        var param_id : Int
+        var vegId: Int
+        var vegName: String
+        var vegImage : ByteArray
+        var gardenId : Int
+        var paramId : Int
         if (cursor.moveToFirst()) {
             do {
-                veg_id = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
-                veg_name = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_NAME))
-                veg_image = cursor.getBlob(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
-                garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
-                param_id = cursor.getInt(cursor.getColumnIndex(COLUMN_PARAM_ID))
+                vegId = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
+                vegName = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_NAME))
+                vegImage = cursor.getBlob(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
+                gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
+                paramId = cursor.getInt(cursor.getColumnIndex(COLUMN_PARAM_ID))
 
-                val vegetable = Vegetable(veg_id,veg_name,veg_image,garden_id)
+                val vegetable = Vegetable(vegId,vegName,vegImage,gardenId,paramId)
                 vegList.add(vegetable)
             } while (cursor.moveToNext())
         }
         cursor?.close()
         return vegList
     }
+
+    /**
+     * This method to insert data param
+     *
+     * @param param
+     * @return true/false
+     */
+    fun addParam(param: Param) : Long{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_TEMP_FROM_DAY, param.tempFromDay)
+        contentValues.put(COLUMN_TEMP_TO_DAY, param.tempToDay)
+        contentValues.put(COLUMN_PH_FROM, param.phFrom)
+        contentValues.put(COLUMN_PH_TO, param.phTo)
+        contentValues.put(COLUMN_PPM_FROM,param.ppmFrom)
+        contentValues.put(COLUMN_PPM_TO,param.ppmTo)
+        contentValues.put(COLUMN_TEMP_TO_NIGHT,param.tempToNight)
+        contentValues.put(COLUMN_TEMP_FROM_NIGHT,param.tempFromNight)
+
+        // Inserting Row
+        val success = db.insert(TABLE_PARAM, null, contentValues)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+    /**
+     * This method to update data param
+     *
+     * @param param
+     * @return true/false
+     */
+    fun updateParam(param: Param) : Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_PARAM_ID,param.paramId)
+        contentValues.put(COLUMN_TEMP_FROM_DAY, param.tempFromDay)
+        contentValues.put(COLUMN_TEMP_TO_DAY, param.tempToDay)
+        contentValues.put(COLUMN_PH_FROM, param.phFrom)
+        contentValues.put(COLUMN_PH_TO, param.phTo)
+        contentValues.put(COLUMN_PPM_FROM,param.ppmFrom)
+        contentValues.put(COLUMN_PPM_TO,param.ppmTo)
+        contentValues.put(COLUMN_TEMP_TO_NIGHT,param.tempToNight)
+        contentValues.put(COLUMN_TEMP_FROM_NIGHT,param.tempFromNight)
+
+        // Inserting Row
+        val success = db.update(TABLE_PARAM, contentValues, "param_id="+param.paramId, null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to update data param
+     *
+     * @param param
+     * @return true/false
+     */
+    fun updateParamIdForVeg(paramId : Long ,veg_id: Int) : Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_VEG_ID, veg_id)
+        contentValues.put(COLUMN_PARAM_ID,paramId)
+
+        // Inserting Row
+        val success = db.update(TABLE_VEGETABLE, contentValues, "veg_id=$veg_id", null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to delete pram
+     *
+     * @param paramId
+     * @return Int
+     */
+    fun deleteParam(paramId: Int):Int{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_PARAM_ID, paramId) // EmpModelClass UserId
+        // Deleting Row
+        val success = db.delete(TABLE_PARAM, "param_id=$paramId",null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to find vegetable by id
+     *
+     * @param batch_id
+     * @return Batch
+     */
+    fun findParamById(paramId : Int):Param{
+        val selectQuery = "SELECT  * FROM $TABLE_PARAM WHERE $COLUMN_PARAM_ID = $paramId"
+        val db = this.readableDatabase
+        var param:Param = Param()
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            Log.d("AAA",e.message)
+        }
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    var param_id = cursor.getInt(cursor.getColumnIndex(COLUMN_PARAM_ID))
+                    var tempDayFrom = cursor.getString(cursor.getColumnIndex(COLUMN_TEMP_FROM_DAY))
+                    var tempDayTo = cursor.getString(cursor.getColumnIndex(COLUMN_TEMP_TO_DAY))
+                    var tempNightFrom = cursor.getString(cursor.getColumnIndex(
+                        COLUMN_TEMP_FROM_NIGHT))
+                    var tempNightTo = cursor.getString(cursor.getColumnIndex(COLUMN_TEMP_TO_NIGHT))
+                    var ppmFrom = cursor.getString(cursor.getColumnIndex(COLUMN_PPM_FROM))
+                    var ppmTo = cursor.getString(cursor.getColumnIndex(COLUMN_PPM_TO))
+                    var phFrom = cursor.getString(cursor.getColumnIndex(COLUMN_PH_FROM))
+                    var phTo = cursor.getString(cursor.getColumnIndex(COLUMN_PH_TO))
+
+                    param = Param(param_id,tempNightTo,tempNightFrom,tempDayTo,tempDayFrom,phTo,phFrom,ppmTo,ppmFrom)
+                } while (cursor.moveToNext())
+            }
+        }
+        cursor?.close()
+        return param
+    }
+
 }

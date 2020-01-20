@@ -15,11 +15,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.param.ParamActivity"
-            >
+        <activity android:name=".ui.param.EditParamActivity"
+            android:label="Sửa cài đặt tham số"
+            android:parentActivityName=".ui.param.EditParamActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.param.EditParamActivity" />
 
         </activity>
-        <activity android:name=".ui.param.AddParamActivity"
+        <activity android:name=".ui.param.ParamActivity"></activity>
+        <activity
+            android:name=".ui.param.AddParamActivity"
             android:label="Thêm cài đặt tham số"
             android:parentActivityName=".ui.param.AddParamActivity">
             <meta-data

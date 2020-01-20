@@ -108,6 +108,7 @@
     <string name="error_username_pass_invalid">Tên đăng nhập hoặc mật khẩu không đúng !</string>
     <string name="error_veg_exist">Loại rau này đã tồn tại !</string>
     <string name="error_garden_exist">Khu vườn này đã tồn tại !</string>
+    <string name="error_to_smaller_from">Giá trị đến không được nhỏ hơn giá trị từ</string>
     <!--The end error-->
 
     <!--common-->
@@ -171,7 +172,8 @@
     <string name="day_vi">Ban ngày</string>
     <string name="night_vi">Ban đêm</string>
     <string name="temp_param_vi">Nhiệt độ</string>
-
+    <string name="message_setting_param">Tham số đã được cài đặt cho loại rau này !</string>
+    <string name="message_no_setting_param">Chưa cài đặt tham số cho loại rau này !</string>
 
 
 </resources>

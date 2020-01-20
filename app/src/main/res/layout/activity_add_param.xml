@@ -51,7 +51,7 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="@string/day_vi"
-                android:textStyle="italic" />
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="wrap_content"
@@ -103,6 +103,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
+                    android:inputType="number"
                     android:ems="10" />
             </TableRow>
         </TableLayout>
@@ -131,7 +132,7 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="@string/night_vi"
-                android:textStyle="italic" />
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="wrap_content"
@@ -183,6 +184,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
+                    android:inputType="number"
                     android:ems="10" />
             </TableRow>
         </TableLayout>
@@ -247,6 +249,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
+                    android:inputType="number"
                     android:ems="10" />
             </TableRow>
         </TableLayout>
@@ -310,6 +313,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
+                    android:inputType="number"
                     android:ems="10" />
             </TableRow>
         </TableLayout>

@@ -12,12 +12,16 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
-import com.appveg.farmfamily.ui.device.AddDeviceActivity
+import com.appveg.farmfamily.ui.device.DeviceAdapter
+import com.appveg.farmfamily.ui.vegetable.EditVegetableActivity
 import com.appveg.farmfamily.ui.vegetable.Vegetable
 import com.appveg.farmfamily.ui.vegetable.VegetableFragmentAdapter
 import com.baoyz.swipemenulistview.SwipeMenuCreator
 import com.baoyz.swipemenulistview.SwipeMenuItem
 import com.baoyz.swipemenulistview.SwipeMenuListView
+import kotlinx.android.synthetic.main.fragment_device.*
+import kotlinx.android.synthetic.main.fragment_thamso.*
+import kotlinx.android.synthetic.main.fragment_vegetable.*
 
 class ThamSoFragment : Fragment() {
 
@@ -110,12 +114,10 @@ class ThamSoFragment : Fragment() {
         listViewVegetable.setOnMenuItemClickListener { position, menu, index ->
             when (index) {
                 0 -> {
-                    //getForwardData(position)
-                    var intent: Intent = Intent(requireContext(), AddParamActivity::class.java)
-                    startActivity(intent)
+                    checkedBeforeForwardData(position)
                 }
                 1 -> {
-                    //getForwardData(position)
+                    getForwardData(position)
                 }
                 2 -> {
                     // build alert dialog
@@ -127,7 +129,7 @@ class ThamSoFragment : Fragment() {
                         .setCancelable(false)
                         // positive button text and action
                         .setPositiveButton("Có", DialogInterface.OnClickListener { dialog, id ->
-                            //removeVegetable(position)
+                            removeParam(position)
                         })
                         // negative button text and action
                         .setNegativeButton("Hủy", DialogInterface.OnClickListener { dialog, id -> dialog.cancel()
@@ -160,5 +162,62 @@ class ThamSoFragment : Fragment() {
             Toast.makeText(activity, "Dánh sách rau đang trống !", Toast.LENGTH_LONG).show()
         }
         return vegetables
+    }
+
+    /**
+     * the method to itent data for Veg
+     */
+    private fun checkedBeforeForwardData(position: Int){
+        var vegId = vegetables[position].vegID!!.toInt()
+        var vegetable : Vegetable = database.findVegetableById(vegId)
+        if(vegetable.paramId != 0 ){
+            Toast.makeText(activity,getString(R.string.message_setting_param),Toast.LENGTH_SHORT).show()
+        }else{
+            var intent: Intent = Intent(requireContext(), AddParamActivity::class.java)
+            intent.putExtra("veg_id",vegId)
+            startActivity(intent)
+        }
+    }
+
+    /**
+     * the method to resume ( call when back stack)
+     */
+    override fun onResume() {
+        super.onResume()
+        vegetables = getListVeg()
+        list_view_param.adapter = activity?.let { ParamFragmentAdapter(it,vegetables) }
+    }
+
+    /**
+     * the method to itent data for param
+     */
+    private fun getForwardData(position: Int){
+        var paramId = vegetables[position].paramId!!.toInt()
+        if(paramId != 0 ){
+            var intent: Intent = Intent(activity, EditParamActivity::class.java)
+            intent.putExtra("param_id",paramId)
+            startActivity(intent)
+        }else{
+            Toast.makeText(activity,getString(R.string.message_no_setting_param),Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
+    /**
+     * the method to removeBatch
+     */
+    private fun removeParam(position: Int) {
+        database = Database(activity)
+        var paramId = database.deleteParam(vegetables[position].paramId)
+        if (paramId != null) {
+            database.updateParamIdForVeg(0, vegetables[position].vegID!!)
+            Toast.makeText(
+                activity,
+                getString(R.string.deleted_data_success_vi),
+                Toast.LENGTH_LONG
+            ).show()
+        }
+        vegetables = getListVeg()
+        list_view_param.adapter = ParamFragmentAdapter(activity, vegetables)
     }
 }
