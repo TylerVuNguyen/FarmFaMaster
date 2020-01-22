@@ -205,51 +205,35 @@ class Database(context: Context?) :
      *
      * @return list
      */
-    fun getAllUser(): List<User> {
-
-        // array of columns to fetch
-        val columns = arrayOf(
-            COLUMN_USER_ID,
-            COLUMN_USER_EMAIL,
-            COLUMN_USER_NAME,
-            COLUMN_USER_FULL_NAME,
-            COLUMN_USER_PASSWORD
-        )
-
-        // sorting orders
-        val sortOrder = "$COLUMN_USER_NAME ASC"
-        val userList = ArrayList<User>()
-
+    fun getAllUser(): ArrayList<User> {
+        var userList:ArrayList<User> = ArrayList()
+        val selectQuery = "SELECT  * FROM $TABLE_USERS"
         val db = this.readableDatabase
-
-        // query the user table
-        val cursor = db.query(
-            TABLE_USERS, //Table to query
-            columns,            //columns to return
-            null,     //columns for the WHERE clause
-            null,  //The values for the WHERE clause
-            null,      //group the rows
-            null,       //filter by row groups
-            sortOrder
-        )         //The sort order
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            db.execSQL(selectQuery)
+            return ArrayList()
+        }
+        var userId: Int
+        var userNameEmail: String
+        var userName : String
+        var userFullName : String
+        var password : String
+        var status : Int
         if (cursor.moveToFirst()) {
             do {
-                val user = User(
-                    id = cursor.getString(cursor.getColumnIndex(COLUMN_USER_ID)).toInt(),
-                    userName = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)),
-                    fullName = cursor.getString(cursor.getColumnIndex(COLUMN_USER_FULL_NAME)),
-                    email = cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)),
-                    password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD)),
-                    gender = cursor.getString(cursor.getColumnIndex(COLUMN_USER_GENDER)),
-                    status = cursor.getString(cursor.getColumnIndex(COLUMN_USER_STATUS)).toInt(),
-                    createdBy = cursor.getString(cursor.getColumnIndex(COLUMN_CREATEDBY)),
-                    createdDate = cursor.getString(cursor.getColumnIndex(COLUMN_CREATEDDATE))
-                )
+                userId = cursor.getInt(cursor.getColumnIndex(COLUMN_USER_ID))
+                userNameEmail = cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL))
+                userName = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME))
+                userFullName = cursor.getString(cursor.getColumnIndex(COLUMN_USER_FULL_NAME))
+                password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD))
+                status = cursor.getInt(cursor.getColumnIndex(COLUMN_USER_STATUS))
+                val user = User(userId,userName,userFullName,userNameEmail,password,status)
                 userList.add(user)
             } while (cursor.moveToNext())
         }
-        cursor.close()
-        db.close()
         return userList
     }
 
@@ -295,6 +279,22 @@ class Database(context: Context?) :
             arrayOf(user.id.toString())
         )
         db.close()
+    }
+
+    fun updateStatusByUserNameEmail(userNameEmail: String) : Int {
+        val db = this.writableDatabase
+
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_USER_EMAIL, userNameEmail)
+        contentValues.put(COLUMN_USER_STATUS, 1)
+
+        // updating row
+        val success = db.update(
+            TABLE_USERS, contentValues, "$COLUMN_USER_EMAIL = ?",
+            arrayOf(userNameEmail)
+        )
+        db.close()
+        return success
     }
 
     /**
@@ -501,7 +501,7 @@ class Database(context: Context?) :
         val contentValues = ContentValues()
         contentValues.put(COLUMN_BATCH_ID, batch_id) // EmpModelClass UserId
         // Deleting Row
-        val success = db.delete(TABLE_BATCH,"batch_id="+batch_id,null)
+        val success = db.delete(TABLE_BATCH, "batch_id=$batch_id",null)
         deleteBatchDetail(batch_id)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
@@ -536,7 +536,7 @@ class Database(context: Context?) :
         val contentValues = ContentValues()
         contentValues.put(COLUMN_BATCH_DETAIL_ID, batchQtyDetailId) // EmpModelClass UserId
         // Deleting Row
-        val success = db.delete(TABLE_BATCH_DETAIL,"qty_detail_id="+batchQtyDetailId,null)
+        val success = db.delete(TABLE_BATCH_DETAIL, "qty_detail_id=$batchQtyDetailId",null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success

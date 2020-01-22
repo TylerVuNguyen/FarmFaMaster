@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_thamso,
                 R.id.nav_vegetable,
                 R.id.nav_device,
-                R.id.nav_statistics,
+                R.id.nav_users,
                 R.id.nav_device_category
             ), drawerLayout
         )

@@ -12,15 +12,15 @@ class ForgotPPass : AppCompatActivity() {
         setContentView(R.layout.forgotpass)
 
 //        var registered_emailid = findViewById(R.id.registered_emailid) as EditText
-        var bt_submit = findViewById(R.id.forgot_button) as Button
-        var bt_back = findViewById(R.id.backToLoginBtn) as Button
+        var btSubmit = findViewById<Button>(R.id.forgot_button)
+        var btBack = findViewById<Button>(R.id.backToLoginBtn)
 
-        bt_submit.setOnClickListener{
+        btSubmit.setOnClickListener{
             //            var email = registered_emailid.text
             val intent: Intent = Intent(this, com.appveg.farmfamily.MainActivity::class.java)
             startActivity(intent)
         }
-        bt_back.setOnClickListener{
+        btBack.setOnClickListener{
             val intent: Intent = Intent(this, com.appveg.farmfamily.ui.login.LoginActivity::class.java)
             startActivity(intent)
         }

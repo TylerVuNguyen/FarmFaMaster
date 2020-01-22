@@ -36,7 +36,7 @@
 18-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:26:22-107
 19
 20    <application
-20-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:11:5-211:19
+20-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:11:5-216:19
 21        android:allowBackup="true"
 21-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:12:9-35
 22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -177,375 +177,384 @@
 93-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
 94        </activity>
 95        <activity
-95-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:83:9-85:63
+95-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:83:9-90:20
 96            android:name="com.appveg.farmfamily.ui.settings.SettingsActivity"
 96-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:84:13-57
-97            android:label="@string/title_activity_settings" />
-97-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:85:13-60
-98        <activity
-98-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:86:9-93:20
-99            android:name="com.appveg.farmfamily.ui.chart.ChartActivity"
-99-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:87:13-51
-100            android:label="Biểu đồ"
-100-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:88:13-36
-101            android:parentActivityName="com.appveg.farmfamily.ui.chart.ChartActivity" >
-101-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:89:13-65
-102            <meta-data
-102-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
-103                android:name="android.support.PARENT_ACTIVITY"
-103-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
-104                android:value="com.appveg.farmfamily.ui.chart.ChartActivity" />
-104-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
-105        </activity>
-106        <activity
-106-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:94:9-101:20
-107            android:name="com.appveg.farmfamily.ui.home.DetailGarden"
-107-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:95:13-49
-108            android:label="Thông tin khu vườn"
-108-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:96:13-47
-109            android:parentActivityName="com.appveg.farmfamily.ui.home.DetailGarden" >
-109-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:97:13-63
-110            <meta-data
-110-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
-111                android:name="android.support.PARENT_ACTIVITY"
-111-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
-112                android:value="com.appveg.farmfamily.ui.home.DetailGarden" />
-112-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
-113        </activity>
-114        <activity
-114-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:102:9-109:20
-115            android:name="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity"
-115-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:103:13-63
-116            android:label="Sửa loại rau"
-116-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:104:13-41
-117            android:parentActivityName="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity" >
-117-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:105:13-77
-118            <meta-data
-118-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
-119                android:name="android.support.PARENT_ACTIVITY"
-119-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
-120                android:value="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity" />
-120-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
-121        </activity>
-122        <activity
-122-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:110:9-117:20
-123            android:name="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity"
-123-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:111:13-62
-124            android:label="Thêm loại rau"
-124-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:112:13-42
-125            android:parentActivityName="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity" >
-125-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:113:13-76
-126            <meta-data
-126-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
-127                android:name="android.support.PARENT_ACTIVITY"
-127-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
-128                android:value="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity" />
-128-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
-129        </activity>
-130        <activity
-130-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:118:9-125:20
-131            android:name="com.appveg.farmfamily.ui.device.EditDeviceActivity"
-131-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:119:13-57
-132            android:label="Sửa thiết bị"
-132-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:120:13-41
-133            android:parentActivityName="com.appveg.farmfamily.ui.device.EditDeviceActivity" >
-133-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:121:13-71
-134            <meta-data
-134-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
-135                android:name="android.support.PARENT_ACTIVITY"
-135-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
-136                android:value="com.appveg.farmfamily.ui.device.EditDeviceActivity" />
-136-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
-137        </activity>
-138        <activity
-138-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:126:9-133:20
-139            android:name="com.appveg.farmfamily.ui.device.AddDeviceActivity"
-139-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:127:13-56
-140            android:label="Thêm thiết bị"
-140-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:128:13-42
-141            android:parentActivityName="com.appveg.farmfamily.ui.device.AddDeviceActivity" >
-141-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:129:13-70
-142            <meta-data
-142-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
-143                android:name="android.support.PARENT_ACTIVITY"
-143-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
-144                android:value="com.appveg.farmfamily.ui.device.AddDeviceActivity" />
-144-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
-145        </activity> <!-- <activity -->
-146        <!-- android:name=".ui.slideshow.DeviceDetailActivity" -->
-147        <!-- android:label="Chi tiết thiết bị" -->
-148        <!-- android:parentActivityName=".ui.slideshow.DeviceDetailActivity"> -->
-149        <!-- <meta-data -->
-150        <!-- android:name="android.support.PARENT_ACTIVITY" -->
-151        <!-- android:value="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" /> -->
-152        <!-- </activity> -->
-153        <activity
-153-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:141:9-148:20
-154            android:name="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity"
-154-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:142:13-58
-155            android:label="Thêm khu vườn"
-155-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:143:13-42
-156            android:parentActivityName="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" >
-156-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:144:13-72
-157            <meta-data
-157-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
-158                android:name="android.support.PARENT_ACTIVITY"
-158-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
-159                android:value="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" />
-159-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
-160        </activity>
-161        <activity
-161-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:149:9-156:20
-162            android:name="com.appveg.farmfamily.ui.garden.SuaKhuVuonActivity"
-162-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:150:13-57
-163            android:label="Sửa khu vườn"
-163-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:151:13-41
-164            android:parentActivityName="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" >
-164-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:152:13-72
-165            <meta-data
-165-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
-166                android:name="android.support.PARENT_ACTIVITY"
-166-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
-167                android:value="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" />
-167-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
-168        </activity>
-169        <activity
-169-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:157:9-164:20
-170            android:name="com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity"
-170-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:158:13-59
-171            android:label="Sửa đợt sản lượng"
-171-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:159:13-46
-172            android:parentActivityName="com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity" >
-172-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:160:13-73
-173            <meta-data
-173-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
-174                android:name="android.support.PARENT_ACTIVITY"
-174-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
-175                android:value="com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity" />
-175-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
-176        </activity>
-177        <activity
-177-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:165:9-172:20
-178            android:name="com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity"
-178-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:166:13-63
-179            android:label="Chi tiết sản lượng"
-179-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:167:13-47
-180            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity" >
-180-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:168:13-77
-181            <meta-data
-181-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
-182                android:name="android.support.PARENT_ACTIVITY"
-182-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
-183                android:value="com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity" />
-183-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
-184        </activity>
-185        <activity
-185-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:173:9-180:20
-186            android:name="com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity"
-186-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:174:13-60
-187            android:label="Thêm đợt sản lượng "
-187-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:175:13-48
-188            android:parentActivityName="com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity" >
-188-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:176:13-74
-189            <meta-data
-189-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
-190                android:name="android.support.PARENT_ACTIVITY"
-190-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
-191                android:value="com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity" />
-191-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
-192        </activity>
-193        <activity
-193-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:181:9-188:20
-194            android:name="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity"
-194-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:182:13-63
-195            android:label="Danh sách đợt sản lượng"
-195-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:183:13-52
-196            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity" >
-196-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:184:13-77
-197            <meta-data
-197-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
-198                android:name="android.support.PARENT_ACTIVITY"
-198-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
-199                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
-199-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
-200        </activity>
-201        <activity
-201-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:189:9-192:59
-202            android:name="com.appveg.farmfamily.MainActivity"
-202-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:190:13-41
-203            android:label="@string/app_name"
-203-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:191:13-45
-204            android:theme="@style/AppTheme.NoActionBar" />
-204-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:192:13-56
-205        <activity
-205-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:193:9-202:20
-206            android:name="com.appveg.farmfamily.ui.login.LoginActivity"
-206-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:194:13-51
-207            android:label="@string/app_name"
-207-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:195:13-45
-208            android:theme="@style/AppTheme.NoActionBar" >
-208-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:196:13-56
-209            <intent-filter>
-209-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:197:13-201:29
-210                <action android:name="android.intent.action.MAIN" />
-210-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:198:17-69
-210-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:198:25-66
-211
-212                <category android:name="android.intent.category.LAUNCHER" />
-212-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:200:17-77
-212-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:200:27-74
-213            </intent-filter>
-214        </activity>
-215        <activity
-215-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:203:9-206:59
-216            android:name="com.appveg.farmfamily.ui.login.SignUpActivity"
-216-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:204:13-52
-217            android:label="@string/app_name"
-217-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:205:13-45
-218            android:theme="@style/AppTheme.NoActionBar" />
-218-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:206:13-56
-219        <activity
-219-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:207:9-210:59
-220            android:name="com.appveg.farmfamily.ui.login.ForgotPPass"
-220-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:208:13-49
-221            android:label="@string/app_name"
-221-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:209:13-45
-222            android:theme="@style/AppTheme.NoActionBar" />
-222-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:210:13-56
-223        <activity
-223-->[com.karumi:dexter:5.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\64f3c346ab16c3bdfb5112d4f9792b77\jetified-dexter-5.0.0\AndroidManifest.xml:27:9-29:72
-224            android:name="com.karumi.dexter.DexterActivity"
-224-->[com.karumi:dexter:5.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\64f3c346ab16c3bdfb5112d4f9792b77\jetified-dexter-5.0.0\AndroidManifest.xml:28:13-60
-225            android:theme="@style/Dexter.Internal.Theme.Transparent" />
-225-->[com.karumi:dexter:5.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\64f3c346ab16c3bdfb5112d4f9792b77\jetified-dexter-5.0.0\AndroidManifest.xml:29:13-69
-226
-227        <service
-227-->[com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:29:9-35:19
-228            android:name="com.google.firebase.components.ComponentDiscoveryService"
-228-->[com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:30:13-84
-229            android:directBootAware="true"
-229-->[com.google.firebase:firebase-common:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\2c4df67c9ae9f9a4b8312fe5c8fe49b0\firebase-common-19.2.0\AndroidManifest.xml:15:13-43
-230            android:exported="false" >
-230-->[com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:31:13-37
-231            <meta-data
-231-->[com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:32:13-34:85
-232                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
-232-->[com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:33:17-109
-233                android:value="com.google.firebase.components.ComponentRegistrar" />
-233-->[com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:34:17-82
-234            <meta-data
-234-->[com.google.android.gms:play-services-measurement-api:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\b8b52c895fef82a07c222f81e6c5cb44\play-services-measurement-api-17.2.0\AndroidManifest.xml:30:13-32:85
-235                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-235-->[com.google.android.gms:play-services-measurement-api:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\b8b52c895fef82a07c222f81e6c5cb44\play-services-measurement-api-17.2.0\AndroidManifest.xml:31:17-139
-236                android:value="com.google.firebase.components.ComponentRegistrar" />
-236-->[com.google.android.gms:play-services-measurement-api:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\b8b52c895fef82a07c222f81e6c5cb44\play-services-measurement-api-17.2.0\AndroidManifest.xml:32:17-82
-237            <meta-data
-237-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:32:13-34:85
-238                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-238-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:33:17-96
-239                android:value="com.google.firebase.components.ComponentRegistrar" />
-239-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:34:17-82
-240        </service>
-241
-242        <receiver
-242-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:37:9-44:20
-243            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-243-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:38:13-78
-244            android:exported="true"
-244-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:39:13-36
-245            android:permission="com.google.android.c2dm.permission.SEND" >
-245-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:40:13-73
-246            <intent-filter>
-246-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:41:13-43:29
-247                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-247-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:42:17-81
-247-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:42:25-78
-248            </intent-filter>
-249        </receiver>
-250
-251        <activity
-251-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\264061288151d675e3b511688a977c72\play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-252            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-252-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\264061288151d675e3b511688a977c72\play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-253            android:exported="false"
-253-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\264061288151d675e3b511688a977c72\play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-254            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-254-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\264061288151d675e3b511688a977c72\play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+97            android:label="Cài đặt"
+97-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:85:13-36
+98            android:parentActivityName="com.appveg.farmfamily.ui.settings.SettingsActivity" >
+98-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:86:13-71
+99            <meta-data
+99-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
+100                android:name="android.support.PARENT_ACTIVITY"
+100-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
+101                android:value="com.appveg.farmfamily.ui.settings.SettingsActivity" />
+101-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
+102        </activity>
+103        <activity
+103-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:91:9-98:20
+104            android:name="com.appveg.farmfamily.ui.chart.ChartActivity"
+104-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:92:13-51
+105            android:label="Biểu đồ"
+105-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:93:13-36
+106            android:parentActivityName="com.appveg.farmfamily.ui.chart.ChartActivity" >
+106-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:94:13-65
+107            <meta-data
+107-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
+108                android:name="android.support.PARENT_ACTIVITY"
+108-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
+109                android:value="com.appveg.farmfamily.ui.chart.ChartActivity" />
+109-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
+110        </activity>
+111        <activity
+111-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:99:9-106:20
+112            android:name="com.appveg.farmfamily.ui.home.DetailGarden"
+112-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:100:13-49
+113            android:label="Thông tin khu vườn"
+113-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:101:13-47
+114            android:parentActivityName="com.appveg.farmfamily.ui.home.DetailGarden" >
+114-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:102:13-63
+115            <meta-data
+115-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
+116                android:name="android.support.PARENT_ACTIVITY"
+116-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
+117                android:value="com.appveg.farmfamily.ui.home.DetailGarden" />
+117-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
+118        </activity>
+119        <activity
+119-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:107:9-114:20
+120            android:name="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity"
+120-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:108:13-63
+121            android:label="Sửa loại rau"
+121-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:109:13-41
+122            android:parentActivityName="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity" >
+122-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:110:13-77
+123            <meta-data
+123-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
+124                android:name="android.support.PARENT_ACTIVITY"
+124-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
+125                android:value="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity" />
+125-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
+126        </activity>
+127        <activity
+127-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:115:9-122:20
+128            android:name="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity"
+128-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:116:13-62
+129            android:label="Thêm loại rau"
+129-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:117:13-42
+130            android:parentActivityName="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity" >
+130-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:118:13-76
+131            <meta-data
+131-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
+132                android:name="android.support.PARENT_ACTIVITY"
+132-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
+133                android:value="com.appveg.farmfamily.ui.vegetable.AddVegetableActivity" />
+133-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
+134        </activity>
+135        <activity
+135-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:123:9-130:20
+136            android:name="com.appveg.farmfamily.ui.device.EditDeviceActivity"
+136-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:124:13-57
+137            android:label="Sửa thiết bị"
+137-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:125:13-41
+138            android:parentActivityName="com.appveg.farmfamily.ui.device.EditDeviceActivity" >
+138-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:126:13-71
+139            <meta-data
+139-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
+140                android:name="android.support.PARENT_ACTIVITY"
+140-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
+141                android:value="com.appveg.farmfamily.ui.device.EditDeviceActivity" />
+141-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
+142        </activity>
+143        <activity
+143-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:131:9-138:20
+144            android:name="com.appveg.farmfamily.ui.device.AddDeviceActivity"
+144-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:132:13-56
+145            android:label="Thêm thiết bị"
+145-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:133:13-42
+146            android:parentActivityName="com.appveg.farmfamily.ui.device.AddDeviceActivity" >
+146-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:134:13-70
+147            <meta-data
+147-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
+148                android:name="android.support.PARENT_ACTIVITY"
+148-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
+149                android:value="com.appveg.farmfamily.ui.device.AddDeviceActivity" />
+149-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
+150        </activity> <!-- <activity -->
+151        <!-- android:name=".ui.slideshow.DeviceDetailActivity" -->
+152        <!-- android:label="Chi tiết thiết bị" -->
+153        <!-- android:parentActivityName=".ui.slideshow.DeviceDetailActivity"> -->
+154        <!-- <meta-data -->
+155        <!-- android:name="android.support.PARENT_ACTIVITY" -->
+156        <!-- android:value="com.appveg.farmfamily.ui.slideshow.DeviceDetailActivity" /> -->
+157        <!-- </activity> -->
+158        <activity
+158-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:146:9-153:20
+159            android:name="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity"
+159-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:147:13-58
+160            android:label="Thêm khu vườn"
+160-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:148:13-42
+161            android:parentActivityName="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" >
+161-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:149:13-72
+162            <meta-data
+162-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
+163                android:name="android.support.PARENT_ACTIVITY"
+163-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
+164                android:value="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" />
+164-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
+165        </activity>
+166        <activity
+166-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:154:9-161:20
+167            android:name="com.appveg.farmfamily.ui.garden.SuaKhuVuonActivity"
+167-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:155:13-57
+168            android:label="Sửa khu vườn"
+168-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:156:13-41
+169            android:parentActivityName="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" >
+169-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:157:13-72
+170            <meta-data
+170-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
+171                android:name="android.support.PARENT_ACTIVITY"
+171-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
+172                android:value="com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity" />
+172-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
+173        </activity>
+174        <activity
+174-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:162:9-169:20
+175            android:name="com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity"
+175-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:163:13-59
+176            android:label="Sửa đợt sản lượng"
+176-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:164:13-46
+177            android:parentActivityName="com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity" >
+177-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:165:13-73
+178            <meta-data
+178-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
+179                android:name="android.support.PARENT_ACTIVITY"
+179-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
+180                android:value="com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity" />
+180-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
+181        </activity>
+182        <activity
+182-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:170:9-177:20
+183            android:name="com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity"
+183-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:171:13-63
+184            android:label="Chi tiết sản lượng"
+184-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:172:13-47
+185            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity" >
+185-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:173:13-77
+186            <meta-data
+186-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
+187                android:name="android.support.PARENT_ACTIVITY"
+187-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
+188                android:value="com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity" />
+188-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
+189        </activity>
+190        <activity
+190-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:178:9-185:20
+191            android:name="com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity"
+191-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:179:13-60
+192            android:label="Thêm đợt sản lượng "
+192-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:180:13-48
+193            android:parentActivityName="com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity" >
+193-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:181:13-74
+194            <meta-data
+194-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
+195                android:name="android.support.PARENT_ACTIVITY"
+195-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
+196                android:value="com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity" />
+196-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
+197        </activity>
+198        <activity
+198-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:186:9-193:20
+199            android:name="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity"
+199-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:187:13-63
+200            android:label="Danh sách đợt sản lượng"
+200-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:188:13-52
+201            android:parentActivityName="com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity" >
+201-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:189:13-77
+202            <meta-data
+202-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-23:84
+203                android:name="android.support.PARENT_ACTIVITY"
+203-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:17-63
+204                android:value="com.appveg.farmfamily.ui.send.SendFragment" />
+204-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-81
+205        </activity>
+206        <activity
+206-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:194:9-197:59
+207            android:name="com.appveg.farmfamily.MainActivity"
+207-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:195:13-41
+208            android:label="@string/app_name"
+208-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:196:13-45
+209            android:theme="@style/AppTheme.NoActionBar" />
+209-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:197:13-56
+210        <activity
+210-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:198:9-207:20
+211            android:name="com.appveg.farmfamily.ui.login.LoginActivity"
+211-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:199:13-51
+212            android:label="@string/app_name"
+212-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:200:13-45
+213            android:theme="@style/AppTheme.NoActionBar" >
+213-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:201:13-56
+214            <intent-filter>
+214-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:202:13-206:29
+215                <action android:name="android.intent.action.MAIN" />
+215-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:203:17-69
+215-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:203:25-66
+216
+217                <category android:name="android.intent.category.LAUNCHER" />
+217-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:205:17-77
+217-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:205:27-74
+218            </intent-filter>
+219        </activity>
+220        <activity
+220-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:208:9-211:59
+221            android:name="com.appveg.farmfamily.ui.login.SignUpActivity"
+221-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:209:13-52
+222            android:label="@string/app_name"
+222-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:210:13-45
+223            android:theme="@style/AppTheme.NoActionBar" />
+223-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:211:13-56
+224        <activity
+224-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:212:9-215:59
+225            android:name="com.appveg.farmfamily.ui.login.ForgotPPass"
+225-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:213:13-49
+226            android:label="@string/app_name"
+226-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:214:13-45
+227            android:theme="@style/AppTheme.NoActionBar" />
+227-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:215:13-56
+228        <activity
+228-->[com.karumi:dexter:5.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\64f3c346ab16c3bdfb5112d4f9792b77\jetified-dexter-5.0.0\AndroidManifest.xml:27:9-29:72
+229            android:name="com.karumi.dexter.DexterActivity"
+229-->[com.karumi:dexter:5.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\64f3c346ab16c3bdfb5112d4f9792b77\jetified-dexter-5.0.0\AndroidManifest.xml:28:13-60
+230            android:theme="@style/Dexter.Internal.Theme.Transparent" />
+230-->[com.karumi:dexter:5.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\64f3c346ab16c3bdfb5112d4f9792b77\jetified-dexter-5.0.0\AndroidManifest.xml:29:13-69
+231
+232        <service
+232-->[com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:29:9-35:19
+233            android:name="com.google.firebase.components.ComponentDiscoveryService"
+233-->[com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:30:13-84
+234            android:directBootAware="true"
+234-->[com.google.firebase:firebase-common:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\2c4df67c9ae9f9a4b8312fe5c8fe49b0\firebase-common-19.2.0\AndroidManifest.xml:15:13-43
+235            android:exported="false" >
+235-->[com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:31:13-37
+236            <meta-data
+236-->[com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:32:13-34:85
+237                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+237-->[com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:33:17-109
+238                android:value="com.google.firebase.components.ComponentRegistrar" />
+238-->[com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:34:17-82
+239            <meta-data
+239-->[com.google.android.gms:play-services-measurement-api:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\b8b52c895fef82a07c222f81e6c5cb44\play-services-measurement-api-17.2.0\AndroidManifest.xml:30:13-32:85
+240                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+240-->[com.google.android.gms:play-services-measurement-api:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\b8b52c895fef82a07c222f81e6c5cb44\play-services-measurement-api-17.2.0\AndroidManifest.xml:31:17-139
+241                android:value="com.google.firebase.components.ComponentRegistrar" />
+241-->[com.google.android.gms:play-services-measurement-api:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\b8b52c895fef82a07c222f81e6c5cb44\play-services-measurement-api-17.2.0\AndroidManifest.xml:32:17-82
+242            <meta-data
+242-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:32:13-34:85
+243                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+243-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:33:17-96
+244                android:value="com.google.firebase.components.ComponentRegistrar" />
+244-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:34:17-82
+245        </service>
+246
+247        <receiver
+247-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:37:9-44:20
+248            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+248-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:38:13-78
+249            android:exported="true"
+249-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:39:13-36
+250            android:permission="com.google.android.c2dm.permission.SEND" >
+250-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:40:13-73
+251            <intent-filter>
+251-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:41:13-43:29
+252                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+252-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:42:17-81
+252-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:42:25-78
+253            </intent-filter>
+254        </receiver>
 255
-256        <receiver
-256-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:29:9-33:20
-257            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-257-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:30:13-85
-258            android:enabled="true"
-258-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:31:13-35
-259            android:exported="false" >
-259-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:32:13-37
-260        </receiver>
+256        <activity
+256-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\264061288151d675e3b511688a977c72\play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+257            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+257-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\264061288151d675e3b511688a977c72\play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+258            android:exported="false"
+258-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\264061288151d675e3b511688a977c72\play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+259            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+259-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\264061288151d675e3b511688a977c72\play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+260
 261        <receiver
-261-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:34:9-42:20
-262            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
-262-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:35:13-100
+261-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:29:9-33:20
+262            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+262-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:30:13-85
 263            android:enabled="true"
-263-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:36:13-35
-264            android:exported="true"
-264-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:37:13-36
-265            android:permission="android.permission.INSTALL_PACKAGES" >
-265-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:38:13-69
-266            <intent-filter>
-266-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:39:13-41:29
-267                <action android:name="com.android.vending.INSTALL_REFERRER" />
-267-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:40:17-79
-267-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:40:25-76
-268            </intent-filter>
-269        </receiver>
-270
-271        <service
-271-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:44:9-47:40
-272            android:name="com.google.android.gms.measurement.AppMeasurementService"
-272-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:45:13-84
-273            android:enabled="true"
-273-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:46:13-35
-274            android:exported="false" />
-274-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:47:13-37
-275        <service
-275-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:48:9-52:72
-276            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-276-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:49:13-87
-277            android:enabled="true"
-277-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:50:13-35
-278            android:exported="false"
-278-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:51:13-37
-279            android:permission="android.permission.BIND_JOB_SERVICE" />
-279-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:52:13-69
-280
-281        <provider
-281-->[com.google.firebase:firebase-common:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\2c4df67c9ae9f9a4b8312fe5c8fe49b0\firebase-common-19.2.0\AndroidManifest.xml:19:9-23:39
-282            android:name="com.google.firebase.provider.FirebaseInitProvider"
-282-->[com.google.firebase:firebase-common:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\2c4df67c9ae9f9a4b8312fe5c8fe49b0\firebase-common-19.2.0\AndroidManifest.xml:20:13-77
-283            android:authorities="com.appveg.farmfamily.firebaseinitprovider"
-283-->[com.google.firebase:firebase-common:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\2c4df67c9ae9f9a4b8312fe5c8fe49b0\firebase-common-19.2.0\AndroidManifest.xml:21:13-72
-284            android:exported="false"
-284-->[com.google.firebase:firebase-common:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\2c4df67c9ae9f9a4b8312fe5c8fe49b0\firebase-common-19.2.0\AndroidManifest.xml:22:13-37
-285            android:initOrder="100" />
-285-->[com.google.firebase:firebase-common:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\2c4df67c9ae9f9a4b8312fe5c8fe49b0\firebase-common-19.2.0\AndroidManifest.xml:23:13-36
-286
-287        <meta-data
-287-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\cb88d5a7629625c35ff3ef98f81f6609\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-288            android:name="com.google.android.gms.version"
-288-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\cb88d5a7629625c35ff3ef98f81f6609\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-289            android:value="@integer/google_play_services_version" />
-289-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\cb88d5a7629625c35ff3ef98f81f6609\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-290
-291        <provider
-291-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\9940d448ff0ec756c6afd6b4db3a61f4\lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
-292            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-292-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\9940d448ff0ec756c6afd6b4db3a61f4\lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
-293            android:authorities="com.appveg.farmfamily.lifecycle-process"
-293-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\9940d448ff0ec756c6afd6b4db3a61f4\lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
-294            android:exported="false"
-294-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\9940d448ff0ec756c6afd6b4db3a61f4\lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
-295            android:multiprocess="true" />
-295-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\9940d448ff0ec756c6afd6b4db3a61f4\lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
-296    </application>
-297
-298</manifest>
+263-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:31:13-35
+264            android:exported="false" >
+264-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:32:13-37
+265        </receiver>
+266        <receiver
+266-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:34:9-42:20
+267            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+267-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:35:13-100
+268            android:enabled="true"
+268-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:36:13-35
+269            android:exported="true"
+269-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:37:13-36
+270            android:permission="android.permission.INSTALL_PACKAGES" >
+270-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:38:13-69
+271            <intent-filter>
+271-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:39:13-41:29
+272                <action android:name="com.android.vending.INSTALL_REFERRER" />
+272-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:40:17-79
+272-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:40:25-76
+273            </intent-filter>
+274        </receiver>
+275
+276        <service
+276-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:44:9-47:40
+277            android:name="com.google.android.gms.measurement.AppMeasurementService"
+277-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:45:13-84
+278            android:enabled="true"
+278-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:46:13-35
+279            android:exported="false" />
+279-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:47:13-37
+280        <service
+280-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:48:9-52:72
+281            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+281-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:49:13-87
+282            android:enabled="true"
+282-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:50:13-35
+283            android:exported="false"
+283-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:51:13-37
+284            android:permission="android.permission.BIND_JOB_SERVICE" />
+284-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\ca7cd62a73c23fdc7d1f20b7bfc58d51\play-services-measurement-17.2.0\AndroidManifest.xml:52:13-69
+285
+286        <provider
+286-->[com.google.firebase:firebase-common:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\2c4df67c9ae9f9a4b8312fe5c8fe49b0\firebase-common-19.2.0\AndroidManifest.xml:19:9-23:39
+287            android:name="com.google.firebase.provider.FirebaseInitProvider"
+287-->[com.google.firebase:firebase-common:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\2c4df67c9ae9f9a4b8312fe5c8fe49b0\firebase-common-19.2.0\AndroidManifest.xml:20:13-77
+288            android:authorities="com.appveg.farmfamily.firebaseinitprovider"
+288-->[com.google.firebase:firebase-common:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\2c4df67c9ae9f9a4b8312fe5c8fe49b0\firebase-common-19.2.0\AndroidManifest.xml:21:13-72
+289            android:exported="false"
+289-->[com.google.firebase:firebase-common:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\2c4df67c9ae9f9a4b8312fe5c8fe49b0\firebase-common-19.2.0\AndroidManifest.xml:22:13-37
+290            android:initOrder="100" />
+290-->[com.google.firebase:firebase-common:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\2c4df67c9ae9f9a4b8312fe5c8fe49b0\firebase-common-19.2.0\AndroidManifest.xml:23:13-36
+291
+292        <meta-data
+292-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\cb88d5a7629625c35ff3ef98f81f6609\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+293            android:name="com.google.android.gms.version"
+293-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\cb88d5a7629625c35ff3ef98f81f6609\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+294            android:value="@integer/google_play_services_version" />
+294-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\cb88d5a7629625c35ff3ef98f81f6609\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+295
+296        <provider
+296-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\9940d448ff0ec756c6afd6b4db3a61f4\lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
+297            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+297-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\9940d448ff0ec756c6afd6b4db3a61f4\lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
+298            android:authorities="com.appveg.farmfamily.lifecycle-process"
+298-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\9940d448ff0ec756c6afd6b4db3a61f4\lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
+299            android:exported="false"
+299-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\9940d448ff0ec756c6afd6b4db3a61f4\lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
+300            android:multiprocess="true" />
+300-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\9940d448ff0ec756c6afd6b4db3a61f4\lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
+301    </application>
+302
+303</manifest>

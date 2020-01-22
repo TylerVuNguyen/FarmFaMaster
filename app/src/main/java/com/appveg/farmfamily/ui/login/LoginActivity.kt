@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
+import com.appveg.farmfamily.ui.garden.Garden
+import kotlinx.android.synthetic.main.login.*
 
 class LoginActivity  : AppCompatActivity() {
     private val activity = this@LoginActivity
@@ -24,10 +26,12 @@ class LoginActivity  : AppCompatActivity() {
 
     private lateinit var database: Database
 
+    var users: ArrayList<User> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
 
+        initLogin()
         //edit text
         edtUserNameEmail = findViewById(R.id.editUserName)
         editPass = findViewById(R.id.editPass)
@@ -40,9 +44,9 @@ class LoginActivity  : AppCompatActivity() {
 
 
         btLogin.setOnClickListener{
-          //verifyFromSQLite()
-            val intent: Intent = Intent(this, com.appveg.farmfamily.MainActivity::class.java)
-            startActivity(intent)
+            verifyFromSQLite()
+//            val intent: Intent = Intent(this, com.appveg.farmfamily.MainActivity::class.java)
+//            startActivity(intent)
         }
 
         btSignup.setOnClickListener{
@@ -73,6 +77,10 @@ class LoginActivity  : AppCompatActivity() {
         if (database!!.checkUser(edtUserNameEmail!!.text.toString().trim { it <= ' ' }, editPass!!.text.toString().trim { it <= ' ' })) {
             val accountsIntent = Intent(activity, com.appveg.farmfamily.MainActivity::class.java)
             // accountsIntent.putExtra("EMAIL", textInputEditTextEmail!!.text.toString().trim { it <= ' ' })
+            var checked = remember.isChecked
+            if(checked){
+                database.updateStatusByUserNameEmail(userNameEmail)
+            }
             emptyInputEditText()
             startActivity(accountsIntent)
         }else{
@@ -108,5 +116,16 @@ class LoginActivity  : AppCompatActivity() {
     private fun emptyInputEditText() {
         edtUserNameEmail!!.text = null
         editPass!!.text = null
+    }
+
+    private fun initLogin(){
+        database = Database(activity)
+        users = database.getAllUser()
+        for (item in 0 until users.size){
+            if(users[item].status != 0){
+                val accountsIntent = Intent(activity, com.appveg.farmfamily.MainActivity::class.java)
+                startActivity(accountsIntent)
+            }
+        }
     }
 }

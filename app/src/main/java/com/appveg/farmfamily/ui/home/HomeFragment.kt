@@ -45,7 +45,7 @@ class HomeFragment : Fragment() {
     /**
      * the method to display batch
      */
-    fun getListGarden() : ArrayList<Garden>{
+    private fun getListGarden() : ArrayList<Garden>{
         database = Database(activity)
         gardens = database.findAllGarden()
         if (gardens.isNullOrEmpty()) {

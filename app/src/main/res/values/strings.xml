@@ -7,6 +7,7 @@
     <string name="nav_header_subtitle">Bản quyền &copy; 2019-2022 smart farm  </string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="action_settings_vi">Cài đặt</string>
 
     <string name="menu_home">Trang chủ</string>
     <string name="menu_gallery">Quản lý khu vườn </string>
@@ -17,7 +18,7 @@
     <string name="menu_device">Quản lý thiết bị  </string>
     <string name="menu_thamso">Quản lý tham số </string>
 
-    <string name="menu_statistics">Thống kê </string>
+    <string name="menu_users">Quản lý người dùng</string>
 
     <string name="email">Email </string>
     <string name="gender">Giới tính</string>
@@ -174,6 +175,14 @@
     <string name="temp_param_vi">Nhiệt độ</string>
     <string name="message_setting_param">Tham số đã được cài đặt cho loại rau này !</string>
     <string name="message_no_setting_param">Chưa cài đặt tham số cho loại rau này !</string>
+
+
+    <string name="select_language_vi">Chọn ngôn ngữ</string>
+    <string name="language_vi_en">Ngôn ngữ</string>
+    <string name="change_pass_vi">Đổi mật khẩu</string>
+    <string name="log_out_system_vi">Đăng xuất</string>
+    <string name="account_vi">Tài khoản và mật khẩu</string>
+
 
 
 </resources>

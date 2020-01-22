@@ -1271,6 +1271,7 @@ drawable ic_nhietdo_sun
 drawable ic_person_white_24dp
 drawable ic_ph
 drawable ic_ppm
+drawable ic_users
 drawable imagecamera
 drawable imagegallery
 drawable img_border_room
@@ -1489,6 +1490,7 @@ id center
 id center_horizontal
 id center_vertical
 id chains
+id change_pass
 id checkbox
 id checked
 id chronometer
@@ -1597,6 +1599,7 @@ id invisible
 id italic
 id item_touch_helper_previous_elevation
 id labeled
+id language_vi_en
 id largeLabel
 id layoutDevice_screenshot
 id layoutroom_screenshot
@@ -1629,6 +1632,7 @@ id list_view_garden
 id list_view_param
 id list_view_vegetable
 id listview_Detail
+id log_out
 id lv_themSL
 id lv_themSL_edit
 id main
@@ -1653,8 +1657,8 @@ id nav_home
 id nav_host_fragment
 id nav_send
 id nav_share
-id nav_statistics
 id nav_thamso
+id nav_users
 id nav_vegetable
 id nav_view
 id navigation_header_container
@@ -1990,6 +1994,7 @@ layout fragment_send
 layout fragment_share
 layout fragment_statistics
 layout fragment_thamso
+layout fragment_users
 layout fragment_vegetable
 layout image_frame
 layout layout_add_device
@@ -2090,7 +2095,9 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string account_vi
 string action_settings
+string action_settings_vi
 string add_veg_vi
 string add_vi
 string already_user
@@ -2106,6 +2113,7 @@ string batch_add_success
 string bottom_sheet_behavior
 string broken_device_vi
 string cancel_vi
+string change_pass_vi
 string character_counter_content_description
 string character_counter_pattern
 string choose_img_vi
@@ -2187,7 +2195,9 @@ string hint_password
 string image_no_select_vi
 string insert_data_fail_vi
 string insert_data_success_vi
+string language_vi_en
 string location
+string log_out_system_vi
 string login
 string login_vi
 string menu_device
@@ -2196,8 +2206,8 @@ string menu_gallery
 string menu_home
 string menu_send
 string menu_share
-string menu_statistics
 string menu_thamso
+string menu_users
 string menu_vegetable
 string message_Setting_vi
 string message_no_setting_param
@@ -2232,6 +2242,7 @@ string registered_emailid
 string reply_title
 string search_menu_title
 string select_device_and_veg_vi
+string select_language_vi
 string select_veg_vi
 string selected_item
 string show_pwd
