@@ -42,6 +42,10 @@ class ThamSoFragment : Fragment() {
 
         listViewVegetable.adapter = this.activity?.let { ParamFragmentAdapter(it, vegetables) }
 
+        listViewVegetable.setOnItemClickListener { adapterView, view, i, l ->
+            checkedBeforeForwardData1(i)
+        }
+
         //swipemenulistview
         val creator = SwipeMenuCreator { menu ->
 
@@ -176,6 +180,21 @@ class ThamSoFragment : Fragment() {
             var intent: Intent = Intent(requireContext(), AddParamActivity::class.java)
             intent.putExtra("veg_id",vegId)
             startActivity(intent)
+        }
+    }
+
+    /**
+     * the method to itent data for Veg
+     */
+    private fun checkedBeforeForwardData1(position: Int){
+        var vegId = vegetables[position].vegID!!.toInt()
+        var vegetable : Vegetable = database.findVegetableById(vegId)
+        if(vegetable.paramId != 0 ){
+            var intent: Intent = Intent(requireContext(), ParamDetailActivity::class.java)
+            intent.putExtra("param_id",vegetables[position].paramId)
+            startActivity(intent)
+        }else{
+            Toast.makeText(activity,getString(R.string.message_no_setting_param),Toast.LENGTH_SHORT).show()
         }
     }
 

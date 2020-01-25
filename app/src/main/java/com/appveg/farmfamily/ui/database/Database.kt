@@ -205,9 +205,42 @@ class Database(context: Context?) :
      *
      * @return list
      */
+    fun getUserByEmail(email : String): User {
+        val selectQuery = "SELECT * FROM $TABLE_USERS"
+        val db = this.readableDatabase
+        var user:User = User()
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            Log.d("AAA",e.message)
+        }
+        var userId: Int
+        var userNameEmail: String
+        var userFullName : String
+        var password : String
+        var status : Int
+        if (cursor!!.moveToFirst()) {
+            do {
+                userId = cursor.getInt(cursor.getColumnIndex(COLUMN_USER_ID))
+                userNameEmail = cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL))
+                userFullName = cursor.getString(cursor.getColumnIndex(COLUMN_USER_FULL_NAME))
+                password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD))
+                status = cursor.getInt(cursor.getColumnIndex(COLUMN_USER_STATUS))
+                user = User(userId,userFullName,userNameEmail,password,status)
+            } while (cursor.moveToNext())
+        }
+        return user
+    }
+
+    /**
+     * This method is to fetch all user and return the list of user records
+     *
+     * @return list
+     */
     fun getAllUser(): ArrayList<User> {
         var userList:ArrayList<User> = ArrayList()
-        val selectQuery = "SELECT  * FROM $TABLE_USERS"
+        val selectQuery = "SELECT * FROM $TABLE_USERS"
         val db = this.readableDatabase
         var cursor: Cursor? = null
         try{
@@ -218,7 +251,6 @@ class Database(context: Context?) :
         }
         var userId: Int
         var userNameEmail: String
-        var userName : String
         var userFullName : String
         var password : String
         var status : Int
@@ -226,11 +258,10 @@ class Database(context: Context?) :
             do {
                 userId = cursor.getInt(cursor.getColumnIndex(COLUMN_USER_ID))
                 userNameEmail = cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL))
-                userName = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME))
                 userFullName = cursor.getString(cursor.getColumnIndex(COLUMN_USER_FULL_NAME))
                 password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD))
                 status = cursor.getInt(cursor.getColumnIndex(COLUMN_USER_STATUS))
-                val user = User(userId,userName,userFullName,userNameEmail,password,status)
+                val user = User(userId,userFullName,userNameEmail,password,status)
                 userList.add(user)
             } while (cursor.moveToNext())
         }
@@ -242,11 +273,10 @@ class Database(context: Context?) :
      *
      * @param user
      */
-    fun addUser(user: User) {
+    fun addUser(user: User) : Long {
         val db = this.writableDatabase
         val values = ContentValues()
-        values.put(COLUMN_USER_NAME, user.userName)
-        values.put(COLUMN_CREATEDBY, user.fullName)
+        values.put(COLUMN_USER_FULL_NAME, user.fullName)
         values.put(COLUMN_USER_EMAIL, user.email)
         values.put(COLUMN_USER_PASSWORD, user.password)
         values.put(COLUMN_USER_GENDER, user.gender)
@@ -254,8 +284,9 @@ class Database(context: Context?) :
         values.put(COLUMN_CREATEDDATE, user.createdDate)
 
         // Inserting Row
-        db.insert(TABLE_USERS, null, values)
+        val success = db.insert(TABLE_USERS, null, values)
         db.close()
+        return success
     }
 
     /**
@@ -267,7 +298,6 @@ class Database(context: Context?) :
         val db = this.writableDatabase
 
         val values = ContentValues()
-        values.put(COLUMN_USER_NAME, user.userName)
         values.put(COLUMN_CREATEDBY, user.fullName)
         values.put(COLUMN_USER_EMAIL, user.email)
         values.put(COLUMN_USER_PASSWORD, user.password)
@@ -281,17 +311,33 @@ class Database(context: Context?) :
         db.close()
     }
 
-    fun updateStatusByUserNameEmail(userNameEmail: String) : Int {
+    fun updateStatusByUserNameEmail(userNameEmail: String, status : Int) : Int {
         val db = this.writableDatabase
 
         val contentValues = ContentValues()
         contentValues.put(COLUMN_USER_EMAIL, userNameEmail)
-        contentValues.put(COLUMN_USER_STATUS, 1)
+        contentValues.put(COLUMN_USER_STATUS, status)
 
         // updating row
         val success = db.update(
             TABLE_USERS, contentValues, "$COLUMN_USER_EMAIL = ?",
             arrayOf(userNameEmail)
+        )
+        db.close()
+        return success
+    }
+
+    fun updateStatusById(user: User) : Int {
+        val db = this.writableDatabase
+
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_USER_ID, user.id)
+        contentValues.put(COLUMN_USER_STATUS, user.status)
+
+        // updating row
+        val success = db.update(
+            TABLE_USERS, contentValues, "$COLUMN_USER_ID = ?",
+            arrayOf(user.id.toString())
         )
         db.close()
         return success
@@ -1338,7 +1384,7 @@ class Database(context: Context?) :
      */
     fun findAllVegetableForGarden(garden_id: Int):ArrayList<Vegetable>{
         val vegList:ArrayList<Vegetable> = ArrayList()
-        val selectQuery = "SELECT  * FROM $TABLE_VEGETABLE WHERE $COLUMN_GARDEN_ID = -1 OR $COLUMN_GARDEN_ID = $garden_id"
+        val selectQuery = "SELECT * FROM $TABLE_VEGETABLE WHERE $COLUMN_GARDEN_ID IS NULL OR $COLUMN_GARDEN_ID = 0 OR $COLUMN_GARDEN_ID = $garden_id"
         val db = this.readableDatabase
         var cursor: Cursor? = null
         try{
@@ -1347,18 +1393,18 @@ class Database(context: Context?) :
             db.execSQL(selectQuery)
             return ArrayList()
         }
-        var veg_id: Int
-        var veg_name: String
-        var veg_image : ByteArray
-        var garden_id: Int
+        var vegID: Int
+        var vegName: String
+        var vegImage : ByteArray
+        var gardenId: Int
         if (cursor.moveToFirst()) {
             do {
-                veg_id = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
-                veg_name = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_NAME))
-                veg_image = cursor.getBlob(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
-                garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
+                vegID = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
+                vegName = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_NAME))
+                vegImage = cursor.getBlob(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
+                gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
-                val vegetable = Vegetable(veg_id,veg_name,veg_image,garden_id)
+                val vegetable = Vegetable(vegID,vegName,vegImage,gardenId)
                 vegList.add(vegetable)
             } while (cursor.moveToNext())
         }
@@ -1374,7 +1420,7 @@ class Database(context: Context?) :
      */
     fun findVegetableForGardenByGardenId(garden_id: Int):ArrayList<Vegetable>{
         val vegList:ArrayList<Vegetable> = ArrayList()
-        val selectQuery = "SELECT  * FROM $TABLE_VEGETABLE WHERE $COLUMN_GARDEN_ID = $garden_id"
+        val selectQuery = "SELECT * FROM $TABLE_VEGETABLE WHERE $COLUMN_GARDEN_ID = $garden_id"
         val db = this.readableDatabase
         var cursor: Cursor? = null
         try{

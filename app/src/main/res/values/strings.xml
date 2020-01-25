@@ -105,7 +105,10 @@
     <string name="error_empty_common">Trường này không được để trống !</string>
     <string name="error_match_password">Mật khẩu đăng ký không khớp !</string>
     <string name="error_invalid_email">Trường email không hợp lệ !</string>
+    <string name="error_invalid_email_exits">Email đã tồn tại !</string>
     <string name="sign_up_success">Đăng ký thành công !</string>
+    <string name="sign_blocked">Tài khoản này đã bị khóa !</string>
+    <string name="sign_up_fail">Đăng ký thất bại !</string>
     <string name="error_username_pass_invalid">Tên đăng nhập hoặc mật khẩu không đúng !</string>
     <string name="error_veg_exist">Loại rau này đã tồn tại !</string>
     <string name="error_garden_exist">Khu vườn này đã tồn tại !</string>
@@ -182,7 +185,7 @@
     <string name="change_pass_vi">Đổi mật khẩu</string>
     <string name="log_out_system_vi">Đăng xuất</string>
     <string name="account_vi">Tài khoản và mật khẩu</string>
-
+    <string name="block_user_vi">Khóa</string>
 
 
 </resources>

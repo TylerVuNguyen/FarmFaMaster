@@ -2,14 +2,15 @@ package com.appveg.farmfamily.ui.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
+import java.text.SimpleDateFormat
+import java.util.*
 
-class SignUpActivity  : AppCompatActivity() {
+class SignUpActivity : AppCompatActivity() {
     private val activity = this@SignUpActivity
 
     private lateinit var fullName: EditText
@@ -17,12 +18,11 @@ class SignUpActivity  : AppCompatActivity() {
     private lateinit var password: EditText
     private lateinit var confirmPassword: EditText
 
-    private lateinit var already_user: TextView
+    private lateinit var alreadyUser: TextView
 
-    private lateinit var btSignup: Button
+    private lateinit var btSign: Button
 
-    private lateinit var radioGenderGroup : RadioGroup
-
+    private lateinit var radioGenderGroup: RadioGroup
 
 
     private lateinit var database: Database
@@ -38,22 +38,20 @@ class SignUpActivity  : AppCompatActivity() {
         confirmPassword = findViewById(R.id.confirmPassword)
 
         //button
-        already_user = findViewById(R.id.already_user)
-        btSignup = findViewById(R.id.signUpBtn)
+        alreadyUser = findViewById(R.id.already_user)
+        btSign = findViewById(R.id.signUpBtn)
 
         //radio button
         radioGenderGroup = findViewById(R.id.radioGenderGroup)
 
 
-
-
         //buotn listener sig up
-        btSignup.setOnClickListener{
+        btSign.setOnClickListener {
             verifyFromSQLite()
         }
 
         //button lister already user
-        already_user.setOnClickListener{
+        alreadyUser.setOnClickListener {
             val intent: Intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
@@ -63,7 +61,7 @@ class SignUpActivity  : AppCompatActivity() {
     /**
      * This method is to validate the input text fields and verify login credentials from SQLite
      */
-    private fun verifyFromSQLite(){
+    private fun verifyFromSQLite() {
         database = Database(activity)
         val userFullName = fullName.text.toString().trim()
         val userEmail = email.text.toString().trim()
@@ -71,8 +69,8 @@ class SignUpActivity  : AppCompatActivity() {
         val userConfirmPass = confirmPassword.text.toString().trim()
 
         // radio button gender
-        val userSelectedID : Int = radioGenderGroup.checkedRadioButtonId
-        val userRadioGenderGroup = findViewById(userSelectedID) as RadioButton
+        val userSelectedID: Int = radioGenderGroup.checkedRadioButtonId
+        val userRadioGenderGroup = findViewById<RadioButton>(userSelectedID)
         val userGenderGroup = userRadioGenderGroup.text.toString().trim()
 
         // validate
@@ -81,78 +79,104 @@ class SignUpActivity  : AppCompatActivity() {
         var checkPassword = checkPassword(userPassword)
         var checkConfirmPass = checkConfirmPassword(userConfirmPass)
 
+        val current = Calendar.getInstance().time
+        val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
+        val formatted: String = formatter.format(current)
+
         var checkMatchPass: Boolean = false
-        if(checkPassword && checkConfirmPass){
-            checkMatchPass = checkMatchPass(userPassword,userConfirmPass)
+        if (checkPassword && checkConfirmPass) {
+            checkMatchPass = checkMatchPass(userPassword, userConfirmPass)
         }
 
-        if(checkFullName && checkEmail && checkConfirmPass && checkPassword && checkMatchPass){
+        if (checkFullName && checkEmail && checkConfirmPass && checkPassword && checkMatchPass) {
             // if checked all then add user
             // new user
-            var user : User = User(null,null,userFullName,userEmail,userPassword,userGenderGroup,1,"admin",null)
-            if(user != null){
-                try {
-                    database!!.addUser(user)
-                    Toast.makeText(applicationContext,getString(R.string.sign_up_success),
-                        Toast.LENGTH_LONG).show()
-                }catch (e : Exception){
-                    Log.d("AAA",e.message)
-                }
-
+            var user: User = User(
+                null,
+                userFullName,
+                userEmail,
+                userPassword,
+                userGenderGroup,
+                1,
+                "admin",
+                formatted
+            )
+            var id = database!!.addUser(user)
+            if (id != null) {
+                Toast.makeText(
+                    applicationContext, getString(R.string.sign_up_success),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else{
+                Toast.makeText(
+                    applicationContext, getString(R.string.sign_up_fail),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
-
-
     }
 
     /**
      * This method is to email
      */
-    private fun checkEmail(check: String) : Boolean {
+    private fun checkEmail(check: String): Boolean {
+        var users = database.getAllUser()
         if (check.isEmpty()) {
             email.error = getString(R.string.error_empty_common)
             return false
-        }else if(!Patterns.EMAIL_ADDRESS.matcher(check).matches()){
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(check).matches()) {
             email.error = getString(R.string.error_invalid_email)
             return false
+        } else {
+            if (!users.isNullOrEmpty()) {
+                for (item in 0 until users.size) {
+                    if (check == users[item].email) {
+                        email.error = getString(R.string.error_invalid_email_exits)
+                    }
+                }
+            }
         }
         return true
     }
+
     /**
      * This method is to full name
      */
-    private fun checkFullName(check: String) : Boolean {
+    private fun checkFullName(check: String): Boolean {
         if (check.isEmpty()) {
             fullName.error = getString(R.string.error_empty_common)
             return false
         }
         return true
     }
+
     /**
      * This method is to password
      */
-    private fun checkPassword(check: String) : Boolean {
+    private fun checkPassword(check: String): Boolean {
         if (check.isEmpty()) {
             password.error = getString(R.string.error_empty_common)
             return false
         }
         return true
     }
+
     /**
      * This method is to confirmPassword
      */
-    private fun checkConfirmPassword(check: String) : Boolean {
+    private fun checkConfirmPassword(check: String): Boolean {
         if (check.isEmpty()) {
             confirmPassword.error = getString(R.string.error_empty_common)
             return false
         }
         return true
     }
+
     /**
      * This method is to checkMatchPass
      */
-    private fun checkMatchPass(check1: String,check2: String) : Boolean {
-        if (!check1.equals(check2)) {
+    private fun checkMatchPass(check1: String, check2: String): Boolean {
+        if (check1 != check2) {
             confirmPassword.error = getString(R.string.error_match_password)
             return false
         }

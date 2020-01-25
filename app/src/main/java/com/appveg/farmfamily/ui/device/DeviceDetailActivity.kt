@@ -138,9 +138,7 @@ class DeviceDetailActivity : AppCompatActivity() {
      */
     private fun getDataFromItent(): Int {
         val bundle: Bundle = intent.extras
-        val id: Int =
-            bundle.get("device_id") as Int
-        return id
+        return bundle.get("device_id") as Int
     }
     /**
      * the method to convert status

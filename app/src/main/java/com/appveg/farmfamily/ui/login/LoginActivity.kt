@@ -74,19 +74,43 @@ class LoginActivity  : AppCompatActivity() {
         checkEmail(userNameEmail)
         checkPassword(userNamePass)
 
-        if (database!!.checkUser(edtUserNameEmail!!.text.toString().trim { it <= ' ' }, editPass!!.text.toString().trim { it <= ' ' })) {
-            val accountsIntent = Intent(activity, com.appveg.farmfamily.MainActivity::class.java)
-            // accountsIntent.putExtra("EMAIL", textInputEditTextEmail!!.text.toString().trim { it <= ' ' })
-            var checked = remember.isChecked
-            if(checked){
-                database.updateStatusByUserNameEmail(userNameEmail)
+        var result = false
+        var users = database.getAllUser()
+        for (item in 0 until users.size){
+            if(userNameEmail == users[item].email){
+                if(3 == users[item].status){
+                    result = true
+                }
             }
-            emptyInputEditText()
-            startActivity(accountsIntent)
-        }else{
-            Toast.makeText(applicationContext,getString(R.string.error_username_pass_invalid),
-                Toast.LENGTH_LONG).show()
         }
+        // nếu mà nó bằng 3 thì nó đã bị khóa
+        if(!result){
+            if (database!!.checkUser(
+                    edtUserNameEmail!!.text.toString().trim { it <= ' ' },
+                    editPass!!.text.toString().trim { it <= ' ' })
+            ) {
+                val accountsIntent =
+                    Intent(activity, com.appveg.farmfamily.MainActivity::class.java)
+                // accountsIntent.putExtra("EMAIL", textInputEditTextEmail!!.text.toString().trim { it <= ' ' })
+                var checked = remember.isChecked
+                if (checked) {
+                    database.updateStatusByUserNameEmail(userNameEmail, 1)
+                }
+                emptyInputEditText()
+                startActivity(accountsIntent)
+            } else {
+                Toast.makeText(
+                    applicationContext, getString(R.string.error_username_pass_invalid),
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }else{
+            Toast.makeText(
+                applicationContext, getString(R.string.sign_blocked),
+                Toast.LENGTH_LONG
+            ).show()
+        }
+
 
     }
     /**
@@ -122,7 +146,7 @@ class LoginActivity  : AppCompatActivity() {
         database = Database(activity)
         users = database.getAllUser()
         for (item in 0 until users.size){
-            if(users[item].status != 0){
+            if(users[item].status != 0 && users[item].status != 3){
                 val accountsIntent = Intent(activity, com.appveg.farmfamily.MainActivity::class.java)
                 startActivity(accountsIntent)
             }

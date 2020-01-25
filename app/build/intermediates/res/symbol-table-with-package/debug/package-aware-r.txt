@@ -1630,6 +1630,7 @@ id list_view_device_category
 id list_view_device_detail
 id list_view_garden
 id list_view_param
+id list_view_users
 id list_view_vegetable
 id listview_Detail
 id log_out
@@ -1681,11 +1682,13 @@ id parent_matrix
 id password
 id percent
 id ph_from
+id ph_from_detail
 id ph_from_edit
 id ph_param
 id ph_param_from
 id ph_param_to
 id ph_to
+id ph_to_detail
 id ph_to_edit
 id pickDateBD
 id pickDateBD_edit
@@ -1696,8 +1699,10 @@ id positionSpinner
 id positionSpinner_edit
 id ppm
 id ppm_from
+id ppm_from_detail
 id ppm_from_edit
 id ppm_to
+id ppm_to_detail
 id ppm_to_edit
 id progress_circular
 id progress_horizontal
@@ -1796,12 +1801,16 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id temp_day_from
+id temp_day_from_detail
 id temp_day_from_edit
 id temp_day_to
+id temp_day_to_detail
 id temp_day_to_edit
 id temp_night_from
+id temp_night_from_detail
 id temp_night_from_edit
 id temp_night_to
+id temp_night_to_detail
 id temp_night_to_edit
 id temperature
 id temperature_param
@@ -1856,6 +1865,7 @@ id unlabeled
 id up
 id useLogo
 id userEmailId
+id user_checked
 id veg_for_garden_checked
 id veg_item
 id veg_name
@@ -1872,6 +1882,8 @@ id view_device_num
 id view_error
 id view_offset_helper
 id view_param_btn_print
+id view_user_full_name
+id view_users_email
 id view_veg_param_image
 id view_veg_param_name
 id view_veg_param_status
@@ -1960,7 +1972,7 @@ layout activity_edit_device_category
 layout activity_edit_param
 layout activity_edit_vegetable
 layout activity_main
-layout activity_param
+layout activity_param_detail
 layout activity_select_device_garden
 layout activity_select_veg_garden
 layout activity_sua_dot_san_luong
@@ -2009,6 +2021,7 @@ layout layout_listview_garden
 layout layout_listview_garden_area
 layout layout_param
 layout layout_ql_khuvuon
+layout layout_users
 layout layout_veg_for_garden
 layout layout_veg_pram_detail
 layout layoutlistview_chitietdot_sanluong
@@ -2110,6 +2123,7 @@ string attachment_title
 string back
 string batch_add_failed
 string batch_add_success
+string block_user_vi
 string bottom_sheet_behavior
 string broken_device_vi
 string cancel_vi
@@ -2156,6 +2170,7 @@ string error_empty_common
 string error_end_date_batch
 string error_garden_exist
 string error_invalid_email
+string error_invalid_email_exits
 string error_match_password
 string error_message_age
 string error_message_confirm_password
@@ -2247,6 +2262,8 @@ string select_veg_vi
 string selected_item
 string show_pwd
 string signUp
+string sign_blocked
+string sign_up_fail
 string sign_up_success
 string sign_up_vi
 string signature_title

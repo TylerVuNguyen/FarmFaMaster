@@ -2,7 +2,6 @@ package com.appveg.farmfamily.ui.login
 
 class User {
     var id: Int? = null
-    var userName: String? = ""
     var fullName: String? = ""
     var email: String? = ""
     var password: String? = ""
@@ -19,7 +18,6 @@ class User {
 
     constructor(
         id: Int,
-        userName: String?,
         fullName: String?,
         email: String?,
         password: String?,
@@ -35,7 +33,6 @@ class User {
         deletedFlag: Int
     ) {
         this.id = id
-        this.userName = userName
         this.fullName = fullName
         this.email = email
         this.password = password
@@ -53,7 +50,6 @@ class User {
 
     constructor(
         id: Int?,
-        userName: String?,
         fullName: String?,
         email: String?,
         password: String?,
@@ -63,7 +59,6 @@ class User {
         createdDate: String?
     ) {
         this.id = id
-        this.userName = userName
         this.fullName = fullName
         this.email = email
         this.password = password
@@ -75,17 +70,16 @@ class User {
 
     constructor(
         id: Int?,
-        userName: String?,
         fullName: String?,
         email: String?,
         password: String?,
         status: Int
     ) {
         this.id = id
-        this.userName = userName
         this.fullName = fullName
         this.email = email
         this.password = password
         this.status = status
     }
+    constructor()
 }

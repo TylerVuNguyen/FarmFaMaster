@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_select_veg_garden.*
 
 class SelectVegGardenActivity : AppCompatActivity() {
     private val activity = this@SelectVegGardenActivity
-    var vegForGardens: ArrayList<Vegetable> = ArrayList()
+    private var vegForGardens: ArrayList<Vegetable> = ArrayList()
     private lateinit var database: Database
 
     private lateinit var grid : GridView
@@ -50,7 +50,7 @@ class SelectVegGardenActivity : AppCompatActivity() {
             Toast.makeText(activity, getString(R.string.Veg_Empty_Message_vi), Toast.LENGTH_LONG).show()
         }else{
             for (item in 0 until vegForGardens.size){
-                if(-1 != vegForGardens[item].gardenId){
+                if(0 != vegForGardens[item].gardenId){
                     count++
                 }
             }

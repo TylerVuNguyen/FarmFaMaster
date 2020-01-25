@@ -10,11 +10,6 @@
                 android:icon="@drawable/ic_menu_home"
                 android:title="@string/menu_home" />
 
-            <item
-                android:id="@+id/nav_users"
-                android:icon="@drawable/ic_users"
-                android:title="Quản lý người dùng" />
-
         </menu>
     </item>
 
@@ -54,6 +49,11 @@
                     android:id="@+id/nav_device"
                     android:icon="@drawable/ic_menu_device1"
                     android:title="Quản lý thiết bị" />
+
+                <item
+                    android:id="@+id/nav_users"
+                    android:icon="@drawable/ic_users"
+                    android:title="Quản lý người dùng" />
             </menu>
         </item>
     </group>

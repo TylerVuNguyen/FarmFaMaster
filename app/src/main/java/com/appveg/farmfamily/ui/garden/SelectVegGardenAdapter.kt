@@ -92,7 +92,7 @@ class SelectVegGardenAdapter (private var activity: Activity, private var items:
     // checked load default
     private fun checked(gardenId: Int): Boolean {
         var result = false
-        if (gardenId != -1) {
+        if (gardenId != 0) {
             result = true
         }
         return result
@@ -140,7 +140,7 @@ class SelectVegGardenAdapter (private var activity: Activity, private var items:
             Toast.makeText(activity, "Chỉ được thêm một loại rau cho khu vườn", Toast.LENGTH_SHORT).show()
         }else{
             vegetable.vegID = id
-            vegetable.gardenId = -1
+            vegetable.gardenId = 0
         }
 
         return database.updateVegForGarden(vegetable)
