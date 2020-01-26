@@ -35,29 +35,6 @@ class UsersFragment : Fragment() {
 
         //swipemenulistview
         val creator = SwipeMenuCreator { menu ->
-            // create "open" item
-            val editItem = SwipeMenuItem(
-                this.context
-            )
-//            // set item background
-//            openItem.background = ColorDrawable(
-//                Color.rgb(0x00, 0x66,0xff
-//                )
-//            )
-            // set item width
-            editItem.width = 100
-            // set item title
-//            editItem.title = "Open"
-//            // set item title fontsize
-//            editItem.titleSize = 18
-            // set item title font color
-//            editItem.titleColor = Color.WHITE
-
-            //set icon
-            editItem.setIcon(R.drawable.ic_edit)
-            // add to menu
-            menu.addMenuItem(editItem)
-
             // create "delete" item
             val deleteItem = SwipeMenuItem(
                 this.context

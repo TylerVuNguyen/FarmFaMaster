@@ -130,8 +130,9 @@ class SignUpActivity : AppCompatActivity() {
         } else {
             if (!users.isNullOrEmpty()) {
                 for (item in 0 until users.size) {
-                    if (check == users[item].email) {
+                    if (check.equals(users[item].email,true)) {
                         email.error = getString(R.string.error_invalid_email_exits)
+                        return false
                     }
                 }
             }

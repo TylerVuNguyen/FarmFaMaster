@@ -21,7 +21,7 @@ class ForgotPPass : AppCompatActivity() {
             startActivity(intent)
         }
         btBack.setOnClickListener{
-            val intent: Intent = Intent(this, com.appveg.farmfamily.ui.login.LoginActivity::class.java)
+            val intent: Intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 

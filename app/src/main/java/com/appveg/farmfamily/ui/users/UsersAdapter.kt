@@ -1,6 +1,7 @@
 package com.appveg.farmfamily.ui.users
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,11 @@ import android.widget.BaseAdapter
 import android.widget.CheckBox
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.FragmentActivity
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
+import com.appveg.farmfamily.ui.login.LoginActivity
 import com.appveg.farmfamily.ui.login.User
 
 class UsersAdapter(private var activity: FragmentActivity?, private var items: ArrayList<User>) :  BaseAdapter() {
@@ -46,9 +49,10 @@ class UsersAdapter(private var activity: FragmentActivity?, private var items: A
         viewHolder.fullName.text = user.fullName
         viewHolder.email.text = user.email
         viewHolder.userStatusChecked.setOnClickListener {
-            var deviceStatus = viewHolder.userStatusChecked.isChecked
-            updateStatus(deviceStatus, user.id!!)
-            viewHolder.userStatusChecked.isChecked = deviceStatus
+            var userStatus = viewHolder.userStatusChecked.isChecked
+            updateStatus(userStatus, user.id!!)
+            viewHolder.userStatusChecked.isChecked = userStatus
+            checkLogOut(user)
         }
         viewHolder.userStatusChecked.isChecked = checked(user.status)
 
@@ -87,5 +91,12 @@ class UsersAdapter(private var activity: FragmentActivity?, private var items: A
             user.status = 0
         }
         return database.updateStatusById(user)
+    }
+
+    private fun checkLogOut(user : User){
+        if(user.status != 0 && user.status != 3){
+            val accountsIntent = Intent(activity, LoginActivity::class.java)
+            activity!!.startActivity(accountsIntent)
+        }
     }
 }
