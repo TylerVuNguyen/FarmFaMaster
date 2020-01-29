@@ -4,12 +4,13 @@ package com.appveg.farmfamily.ui.send
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.DialogInterface
-import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.vegetable.Vegetable
@@ -21,6 +22,8 @@ import kotlinx.android.synthetic.main.activity_them_dot_san_luong.positionSpinne
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.textViewPickKT
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.textViewPickStart
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -30,6 +33,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
     private lateinit var database: Database
     private lateinit var sendFragment: SendFragment
 
+    private var veg_id: Long = -1
     private var selected: String? = ""
 
     private var listVeg: ArrayList<VegetableTemp> = ArrayList()
@@ -103,7 +107,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
                 DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
                     textViewPickStart.error = null
                     textViewPickStart.clearFocus()
-                    textViewPickStart.setText("" + dayOfMonth + "/" + (month + 1) + "/" + year)
+                    textViewPickStart.setText("" + year + "-" + (month + 1) + "-" + dayOfMonth)
                 },
                 now.get(Calendar.YEAR),
                 now.get(Calendar.MONTH),
@@ -120,7 +124,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
                 DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
                     textViewPickKT.error = null
                     textViewPickKT.clearFocus()
-                    textViewPickKT.setText("" + dayOfMonth + "/" + (month + 1) + "/" + year)
+                    textViewPickKT.setText("" + year + "-" + (month + 1) + "-" + dayOfMonth)
                 },
                 now.get(Calendar.YEAR),
                 now.get(Calendar.MONTH),
@@ -150,6 +154,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
                 // either one will work as well
                 //val item = parent.getItemAtPosition(position) as String
                 selected = adapter.getItem(position)
+                veg_id = id
             }
         }
 
@@ -163,46 +168,49 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
         val quantityVegetable = txt_qtyVeg.text.toString()
         var vegetableTemp: VegetableTemp = VegetableTemp()
         var vegName = selected.toString()
-        if (quantityVegetable.isNotBlank()) {
-            if(listVeg.isNullOrEmpty()){
-                vegetableTemp.vegName = selected.toString()
-                vegetableTemp.vegQty = quantityVegetable.toInt()
-                listVeg.add(vegetableTemp)
-            }else {
-                for (i in 0 until listVeg.size) {
-                    if (vegName == listVeg[i].vegName) {
-                        var x: Int = listVeg[i].vegQty!!.toInt()
-                        x += quantityVegetable.toInt()
-                        vegetableTemp.vegName = listVeg[i].vegName
-                        vegetableTemp.vegQty = x
-                        listVeg.remove(listVeg[i])
-                        listVeg.add(vegetableTemp)
-                    } else if (i == listVeg.size - 1) {
-                        vegetableTemp.vegName = selected.toString()
-                        vegetableTemp.vegQty = quantityVegetable.toInt()
-                        listVeg.add(vegetableTemp)
+        var checkSelectVeg = checkSelectVeg(veg_id.toInt())
+        if(checkSelectVeg) {
+            if (quantityVegetable.isNotBlank()) {
+                if (listVeg.isNullOrEmpty()) {
+                    vegetableTemp.vegName = selected.toString()
+                    vegetableTemp.vegQty = quantityVegetable.toInt()
+                    listVeg.add(vegetableTemp)
+                } else {
+                    for (i in 0 until listVeg.size) {
+                        if (vegName == listVeg[i].vegName) {
+                            var x: Int = listVeg[i].vegQty!!.toInt()
+                            x += quantityVegetable.toInt()
+                            vegetableTemp.vegName = listVeg[i].vegName
+                            vegetableTemp.vegQty = x
+                            listVeg.remove(listVeg[i])
+                            listVeg.add(vegetableTemp)
+                        } else if (i == listVeg.size - 1) {
+                            vegetableTemp.vegName = selected.toString()
+                            vegetableTemp.vegQty = quantityVegetable.toInt()
+                            listVeg.add(vegetableTemp)
+                        }
                     }
                 }
-            }
-        } else {
-            var vegNumber = 0
-            if(listVeg.isNullOrEmpty()){
-                vegetableTemp.vegName = selected.toString()
-                vegetableTemp.vegQty = vegNumber
-                listVeg.add(vegetableTemp)
-            }else {
-                for (i in 0 until listVeg.size) {
-                    if (vegName == listVeg[i].vegName) {
-                        var x: Int = listVeg[i].vegQty!!.toInt()
-                        x += vegNumber
-                        vegetableTemp.vegName = listVeg[i].vegName
-                        vegetableTemp.vegQty = x
-                        listVeg.remove(listVeg[i])
-                        listVeg.add(vegetableTemp)
-                    } else if (i == listVeg.size - 1) {
-                        vegetableTemp.vegName = selected.toString()
-                        vegetableTemp.vegQty = vegNumber
-                        listVeg.add(vegetableTemp)
+            } else {
+                var vegNumber = 0
+                if (listVeg.isNullOrEmpty()) {
+                    vegetableTemp.vegName = selected.toString()
+                    vegetableTemp.vegQty = vegNumber
+                    listVeg.add(vegetableTemp)
+                } else {
+                    for (i in 0 until listVeg.size) {
+                        if (vegName == listVeg[i].vegName) {
+                            var x: Int = listVeg[i].vegQty!!.toInt()
+                            x += vegNumber
+                            vegetableTemp.vegName = listVeg[i].vegName
+                            vegetableTemp.vegQty = x
+                            listVeg.remove(listVeg[i])
+                            listVeg.add(vegetableTemp)
+                        } else if (i == listVeg.size - 1) {
+                            vegetableTemp.vegName = selected.toString()
+                            vegetableTemp.vegQty = vegNumber
+                            listVeg.add(vegetableTemp)
+                        }
                     }
                 }
             }
@@ -233,11 +241,13 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
         var selectedBatchName = batchName.text.toString()
         var totalQty = sumQty.toString().trim()
 
-        var garden_id = getDataFromItent()
+        var gardenId = getDataFromItent()
 
         var checkStartDate = checkStartDate(selectedStartDate)
         var checkEndDate = checkEndDate(selectedEndDate)
         var checkBatchName = checkBatchName(selectedBatchName)
+        var checkDate = checkDate(selectedStartDate,selectedEndDate)
+
 
         var batch: Batch = Batch(
             null,
@@ -245,11 +255,11 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
             selectedBatchName,
             selectedEndDate,
             totalQty,
-            garden_id,
+            gardenId,
             "admin",
             selectedStartDate
         )
-        if (checkStartDate && checkEndDate && checkBatchName) {
+        if (checkStartDate && checkEndDate && checkBatchName && checkDate) {
             /*format date*/
             val current = Calendar.getInstance().time
             val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
@@ -292,6 +302,9 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
         }
 
     }
+
+
+
     /**
      * the method to get data from intent
      */
@@ -335,6 +348,18 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
     }
 
     /**
+     * This method is to batch name
+     */
+    private fun checkSelectVeg(check: Int): Boolean {
+        database = Database(activity)
+        if (-1 == check) {
+            Toast.makeText(this, R.string.error_empty_veg_category_common, Toast.LENGTH_SHORT).show()
+            return false
+        }
+        return true
+    }
+
+    /**
      * This method is to remove data
      */
     private fun removeDataListVeg(id: Int) {
@@ -359,6 +384,19 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
             }
         }
         return categories
+    }
+
+    private fun checkDate(selectedStartDate: String, selectedEndDate: String): Boolean {
+        val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+        var date1 = formatter.parse(selectedStartDate)
+        var date2 = formatter.parse(selectedEndDate)
+        var compare = date1.compareTo(date2)
+        if(compare > 0){
+            textViewPickStart.error = getString(R.string.error_to_smaller_from)
+            textViewPickKT.error = getString(R.string.error_to_smaller_from)
+            return false
+        }
+        return true
     }
 
 }

@@ -1840,6 +1840,7 @@ id titleDividerNoCustom
 id title_chart
 id title_chart_1
 id title_template
+id tong_san_luong
 id toolbar
 id top
 id topPanel
@@ -2167,6 +2168,8 @@ string email
 string error_common_email_password
 string error_email_exists
 string error_empty_common
+string error_empty_device_category_common
+string error_empty_veg_category_common
 string error_end_date_batch
 string error_garden_exist
 string error_invalid_email
@@ -2287,6 +2290,7 @@ string title_context_menu
 string to_vi
 string update_data_fail_vi
 string update_data_success_vi
+string update_vi
 string userName
 string user_name_login_vi
 string user_name_vi

@@ -524,13 +524,15 @@ class Database(context: Context?) :
         var batch_name: String
         var batch_image : Int
         var garden_id : Int
+        var totalQty : String
         if (cursor.moveToFirst()) {
             do {
                 batch_id = cursor.getInt(cursor.getColumnIndex(COLUMN_BATCH_ID))
                 batch_name = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_NAME))
                 batch_image = R.drawable.kv2
                 garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_BATCH_GARDEN_ID))
-                val batch = BatchCustom(batch_id, batch_image ,batch_name,garden_id)
+                totalQty = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_TOTAL_QTY))
+                val batch = BatchCustom(batch_id, batch_image ,batch_name,totalQty,garden_id)
                 batchList.add(batch)
             } while (cursor.moveToNext())
         }

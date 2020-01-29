@@ -173,7 +173,7 @@
 
                     <EditText
                         android:id="@+id/txt_qtyVeg_edit"
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:maxLines="1"

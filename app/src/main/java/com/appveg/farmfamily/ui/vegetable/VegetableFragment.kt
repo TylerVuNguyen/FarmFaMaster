@@ -144,6 +144,7 @@ class VegetableFragment  : Fragment() {
     private fun removeVegetable(position: Int) {
         database = Database(activity)
         var vegId = database.deleteVeg(vegetables[position].vegID!!.toInt())
+        // delete param if exits
         if(vegetables[position].paramId != 0){
              database.deleteParam(vegetables[position].paramId)
         }

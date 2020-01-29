@@ -787,11 +787,11 @@ public final class R {
         public static final int title = 0x7f090202;
         public static final int titleDividerNoCustom = 0x7f090203;
         public static final int title_template = 0x7f090206;
-        public static final int topPanel = 0x7f090209;
-        public static final int unchecked = 0x7f09021a;
-        public static final int uniform = 0x7f09021b;
-        public static final int up = 0x7f09021d;
-        public static final int wrap_content = 0x7f090244;
+        public static final int topPanel = 0x7f09020a;
+        public static final int unchecked = 0x7f09021b;
+        public static final int uniform = 0x7f09021c;
+        public static final int up = 0x7f09021e;
+        public static final int wrap_content = 0x7f090245;
     }
     public static final class integer {
         private integer() {}
@@ -886,8 +886,8 @@ public final class R {
         public static final int abc_shareactionprovider_share_with = 0x7f10001a;
         public static final int abc_shareactionprovider_share_with_application = 0x7f10001b;
         public static final int abc_toolbar_collapse_description = 0x7f10001c;
-        public static final int search_menu_title = 0x7f1000b0;
-        public static final int status_bar_notification_info_overflow = 0x7f1000bd;
+        public static final int search_menu_title = 0x7f1000b2;
+        public static final int status_bar_notification_info_overflow = 0x7f1000bf;
     }
     public static final class style {
         private style() {}

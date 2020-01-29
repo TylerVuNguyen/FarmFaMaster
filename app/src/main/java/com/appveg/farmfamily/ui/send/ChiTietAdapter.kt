@@ -32,12 +32,14 @@ class ChiTietAdapter(private val context: ChiTietDotSanLuongActivity, private va
     private class ViewHolder(row: View?) {
         var dotRau_name: TextView
         var img_dotRau: ImageView
+        var tongSanLuong: TextView
 
 
 
         init {
             this.dotRau_name = row?.findViewById(R.id.dotRau_name) as TextView
             this.img_dotRau = row?.findViewById(R.id.img_dotRau) as ImageView
+            this.tongSanLuong = row?.findViewById(R.id.tong_san_luong) as TextView
 
 
         }
@@ -63,6 +65,7 @@ class ChiTietAdapter(private val context: ChiTietDotSanLuongActivity, private va
         var dotRau : BatchCustom = getItem(position) as BatchCustom
         viewHolder.dotRau_name.text = dotRau.batchName
         viewHolder.img_dotRau.setImageResource(dotRau.batchImage!!)
+        viewHolder.tongSanLuong.text = "Tổng sản lượng: " + dotRau.totalQuantity + "/kg"
 
         return view as View
 

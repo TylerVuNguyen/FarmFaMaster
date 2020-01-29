@@ -16,12 +16,8 @@ import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device_catogory.DeviceCategory
-import com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_add_device.*
-import kotlinx.android.synthetic.main.activity_add_vegetable.*
-import kotlinx.android.synthetic.main.activity_add_vegetable.selected_image
-import kotlinx.android.synthetic.main.activity_them_dot_san_luong.*
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.positionSpinner
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
@@ -186,11 +182,12 @@ class AddDeviceActivity : AppCompatActivity() {
 
     private fun addDeviceAndDeviceDetail() {
         database = Database(activity)
-        var device_name = device_name.text.toString().trim()
+        var deviceName = device_name.text.toString().trim()
         // var deviceCategoryName = selected.toString()
         var deviceCategoryId = device_category_id.toInt()
 
-        var checkDeviceName = checkDeviceName(device_name)
+        var checkDeviceName = checkDeviceName(deviceName)
+        var checkDeviceCategory = checkDeviceCategory(deviceCategoryId)
 
         /*format date*/
         val current = Calendar.getInstance().time
@@ -208,16 +205,16 @@ class AddDeviceActivity : AppCompatActivity() {
 
         var codeDeviceDetail = getRandomCodeDetail()
 
-        if (checkDeviceName && checkDeviceImage) {
-            var device = Device(null, device_name, image, deviceCategoryId)
+        if (checkDeviceName && checkDeviceImage && checkDeviceCategory) {
+            var device = Device(null, deviceName, image, deviceCategoryId)
             var listDevice = getListDevice()
             var exits: Boolean = false
-            var device_temp_id: Int = -1
+            var deviceTempId: Int = -1
             if (!listDevice.isNullOrEmpty()) {
                 for (i in 0 until listDevice.size) {
-                    if (listDevice[i].deviceName.equals(device_name)) {
+                    if (listDevice[i].deviceName.equals(deviceName)) {
                         exits = true
-                        device_temp_id = listDevice[i].deviceID!!
+                        deviceTempId = listDevice[i].deviceID!!
                     }
                 }
             }
@@ -244,7 +241,7 @@ class AddDeviceActivity : AppCompatActivity() {
                     null,
                     codeDeviceDetail,
                     image,
-                    device_temp_id,
+                    deviceTempId,
                     "N",
                     "admin",
                     formatted
@@ -267,17 +264,21 @@ class AddDeviceActivity : AppCompatActivity() {
      */
     private fun checkDeviceName(check: String): Boolean {
         database = Database(activity)
-        var vegs = database.findAllVegetable()
         if (check.isEmpty()) {
-            veg_name.error = getString(R.string.error_empty_common)
+            device_name.error = getString(R.string.error_empty_common)
             return false
-        } else {
-            for (i in 0..vegs.size - 1) {
-                if (check.equals(vegs.get(i).vegName, true)) {
-                    veg_name.error = getString(R.string.error_veg_exist)
-                    return false
-                }
-            }
+        }
+        return true
+    }
+
+    /**
+     * This method is to batch name
+     */
+    private fun checkDeviceCategory(check: Int): Boolean {
+        database = Database(activity)
+        if (-1 == check) {
+            Toast.makeText(this, R.string.error_empty_device_category_common, Toast.LENGTH_SHORT).show()
+            return false
         }
         return true
     }
@@ -287,7 +288,7 @@ class AddDeviceActivity : AppCompatActivity() {
      */
     private fun checkDeviceImage(check: ByteArray): Boolean {
         if (check.isEmpty()) {
-            Toast.makeText(this, R.string.image_no_select_vi, Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.image_no_select_vi, Toast.LENGTH_SHORT).show()
             return false
         }
         Log.d("CAT", check.size.toString())

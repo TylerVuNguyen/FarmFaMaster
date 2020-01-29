@@ -27,6 +27,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
 
     private lateinit var database: Database
 
+    private var veg_id: Long = -1
     private var selected: String? = ""
     private var listVeg: ArrayList<VegetableTemp> = ArrayList()
     private var sumQty : Int = 0
@@ -38,6 +39,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sua_dot_san_luong)
         /*init data edit*/
         initBatchEdit()
+        sumQuantity()
 
         /*event add data to lisview*/
         addSoSL_edit.setOnClickListener {
@@ -102,7 +104,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
                 DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
                     textViewPickStart_edit.error = null
                     textViewPickStart_edit.clearFocus()
-                    textViewPickStart_edit.setText("" + dayOfMonth + "/" + month + "/" + year)
+                    textViewPickStart_edit.setText("" + year + "-" + (month + 1) + "-" + dayOfMonth)
                 },
                 now.get(Calendar.YEAR),
                 now.get(Calendar.MONTH),
@@ -119,7 +121,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
                 DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
                     textViewPickKT_edit.error = null
                     textViewPickKT_edit.clearFocus()
-                    textViewPickKT_edit.setText("" + dayOfMonth + "/" + month + "/" + year)
+                    textViewPickKT_edit.setText("" + year + "-" + (month + 1) + "-" + dayOfMonth)
                 },
                 now.get(Calendar.YEAR),
                 now.get(Calendar.MONTH),
@@ -130,7 +132,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
         }
 
         //spinner hien thi danh sach rau
-        val listRau = arrayOf("Rau cải", "Rau ngót ", "Rau xà lách")
+        val listRau = getListVegetable()
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listRau)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         positionSpinner_edit.adapter = adapter
@@ -149,6 +151,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
                 // either one will work as well
                 //val item = parent.getItemAtPosition(position) as String
                 selected = adapter.getItem(position)
+                veg_id = id
             }
         }
 
@@ -160,32 +163,52 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
         val quantityVegetable = txt_qtyVeg_edit.text.toString()
         var vegetableTemp: VegetableTemp = VegetableTemp()
         var vegName = selected.toString()
-        if (quantityVegetable.trim() != "") {
-            if(listVeg.isNullOrEmpty()){
-                vegetableTemp.vegName = selected.toString()
-                vegetableTemp.vegQty = quantityVegetable.toInt()
-                listVeg.add(vegetableTemp)
-            }else {
-                for (i in 0..listVeg.size - 1) {
-                    if (vegName.equals(listVeg.get(i).vegName)) {
-                        var x: Int = listVeg.get(i).vegQty!!.toInt()
-                        x += quantityVegetable.toInt()
-                        vegetableTemp.vegName = listVeg.get(i).vegName
-                        vegetableTemp.vegQty = x
-                        listVeg.remove(listVeg.get(i))
-                        listVeg.add(vegetableTemp)
-                    } else if (i == listVeg.size - 1) {
-                        vegetableTemp.vegName = selected.toString()
-                        vegetableTemp.vegQty = quantityVegetable.toInt()
-                        listVeg.add(vegetableTemp)
+        var checkSelectVeg = checkSelectVeg(veg_id.toInt())
+        if(checkSelectVeg) {
+            if (quantityVegetable.isNotBlank()) {
+                if (listVeg.isNullOrEmpty()) {
+                    vegetableTemp.vegName = selected.toString()
+                    vegetableTemp.vegQty = quantityVegetable.toInt()
+                    listVeg.add(vegetableTemp)
+                } else {
+                    for (i in 0 until listVeg.size) {
+                        if (vegName == listVeg[i].vegName) {
+                            var x: Int = listVeg[i].vegQty!!.toInt()
+                            x += quantityVegetable.toInt()
+                            vegetableTemp.vegName = listVeg[i].vegName
+                            vegetableTemp.vegQty = x
+                            listVeg.remove(listVeg[i])
+                            listVeg.add(vegetableTemp)
+                        } else if (i == listVeg.size - 1) {
+                            vegetableTemp.vegName = selected.toString()
+                            vegetableTemp.vegQty = quantityVegetable.toInt()
+                            listVeg.add(vegetableTemp)
+                        }
+                    }
+                }
+            } else {
+                var vegNumber = 0
+                if (listVeg.isNullOrEmpty()) {
+                    vegetableTemp.vegName = selected.toString()
+                    vegetableTemp.vegQty = vegNumber
+                    listVeg.add(vegetableTemp)
+                } else {
+                    for (i in 0 until listVeg.size) {
+                        if (vegName == listVeg[i].vegName) {
+                            var x: Int = listVeg[i].vegQty!!.toInt()
+                            x += vegNumber
+                            vegetableTemp.vegName = listVeg[i].vegName
+                            vegetableTemp.vegQty = x
+                            listVeg.remove(listVeg[i])
+                            listVeg.add(vegetableTemp)
+                        } else if (i == listVeg.size - 1) {
+                            vegetableTemp.vegName = selected.toString()
+                            vegetableTemp.vegQty = vegNumber
+                            listVeg.add(vegetableTemp)
+                        }
                     }
                 }
             }
-        } else {
-            var vegNumber = 0
-            vegetableTemp.vegName = selected.toString()
-            vegetableTemp.vegQty = vegNumber
-            listVeg.add(vegetableTemp)
         }
         //display list view
         lv_themSL_edit.adapter = ThemAdapter(activity, listVeg)
@@ -220,6 +243,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
         var checkStartDate = checkStartDate(selectedStartDate)
         var checkEndDate = checkEndDate(selectedEndDate)
         var checkBatchName = checkBatchName(selectedBatchName)
+        var checkDate = checkDate(selectedStartDate,selectedEndDate)
 
         /*format date*/
         val current = Calendar.getInstance().time
@@ -227,7 +251,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
         val formatted: String = formatter.format(current)
 
         var batch: Batch = Batch(batch_id,selectedBatchName,selectedEndDate,totalQty,garden_id,selectedStartDate,"admin",formatted)
-        if (checkStartDate && checkEndDate && checkBatchName) {
+        if (checkStartDate && checkEndDate && checkBatchName && checkDate) {
 
             /*end format date*/
             try {
@@ -420,5 +444,30 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
             }
         }
         return categories
+    }
+
+    /**
+     * This method is to batch name
+     */
+    private fun checkSelectVeg(check: Int): Boolean {
+        database = Database(activity)
+        if (-1 == check) {
+            Toast.makeText(this, R.string.error_empty_veg_category_common, Toast.LENGTH_SHORT).show()
+            return false
+        }
+        return true
+    }
+
+    private fun checkDate(selectedStartDate: String, selectedEndDate: String): Boolean {
+        val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+        var date1 = formatter.parse(selectedStartDate)
+        var date2 = formatter.parse(selectedEndDate)
+        var compare = date1.compareTo(date2)
+        if(compare > 0){
+            textViewPickStart.error = getString(R.string.error_to_smaller_from)
+            textViewPickKT.error = getString(R.string.error_to_smaller_from)
+            return false
+        }
+        return true
     }
 }

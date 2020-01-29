@@ -95,8 +95,6 @@
     <!--the end sign up-->
 
     <!--quantity-->
-    <string name="add_vi">Thêm</string>
-    <string name="cancel_vi">Hủy</string>
     <string name="add_veg_vi">Thêm chi tiết</string>
 
     <!--The end quantity-->
@@ -124,6 +122,9 @@
     <string name="deleted_data_success_vi">Xóa thành công !</string>
     <string name="size_image_large">Kích thước ảnh quả lớn !</string>
     <string name="image_no_select_vi">Bạn chưa chọn ảnh !</string>
+    <string name="add_vi">Thêm</string>
+    <string name="update_vi">Cập nhật</string>
+    <string name="cancel_vi">Hủy</string>
     <!--end common-->
 
     <!--garden VI-->
@@ -133,9 +134,11 @@
     <!--vegetable VI-->
     <string name="Veg_title_vi">Loại rau được trồng</string>
     <string name="Veg_Empty_Message_vi">Dánh sách loại rau đang trống !</string>
+    <string name="error_empty_veg_category_common">Trường loại rau không được để trống !</string>
     <!-- end vegetable VI-->
 
     <!--device VI-->
+    <string name="error_empty_device_category_common">Trường loại thiết bị không được để trống !</string>
     <string name="name_device_vi">Tên thiết bị</string>
     <string name="decription_device_vi">Mô tả thiết bị</string>
     <string name="broken_device_vi">Hư hỏng</string>
