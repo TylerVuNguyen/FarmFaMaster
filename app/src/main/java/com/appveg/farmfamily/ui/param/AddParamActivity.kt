@@ -161,7 +161,7 @@ class AddParamActivity : AppCompatActivity() {
 
     private fun checkFromSmallerTo(value1: String,value2: String): Boolean {
         if (value1.isNotBlank() && value2.isNotBlank()) {
-            if(value2.toInt() < value1.toInt()){
+            if(value2.toDouble() < value1.toDouble()){
                 temp_day_from.error = getString(R.string.error_to_smaller_from)
                 temp_day_to.error = getString(R.string.error_to_smaller_from)
                 return false
@@ -171,7 +171,7 @@ class AddParamActivity : AppCompatActivity() {
     }
     private fun checkFromSmallerTo1(value1: String,value2: String): Boolean {
         if (value1.isNotBlank() && value2.isNotBlank()) {
-            if(value2.toInt() < value1.toInt()){
+            if(value2.toDouble() < value1.toDouble()){
                 temp_night_from.error = getString(R.string.error_to_smaller_from)
                 temp_night_to.error = getString(R.string.error_to_smaller_from)
                 return false
@@ -181,7 +181,7 @@ class AddParamActivity : AppCompatActivity() {
     }
     private fun checkFromSmallerTo2(value1: String,value2: String): Boolean {
         if (value1.isNotBlank() && value2.isNotBlank()) {
-            if(value2.toInt() < value1.toInt()){
+            if(value2.toDouble() < value1.toDouble()){
                 ph_from.error = getString(R.string.error_to_smaller_from)
                 ph_to.error = getString(R.string.error_to_smaller_from)
                 return false
@@ -191,7 +191,7 @@ class AddParamActivity : AppCompatActivity() {
     }
     private fun checkFromSmallerTo3(value1: String,value2: String): Boolean {
         if (value1.isNotBlank() && value2.isNotBlank()) {
-            if(value2.toInt() < value1.toInt()){
+            if(value2.toDouble() < value1.toDouble()){
                 ppm_from.error = getString(R.string.error_to_smaller_from)
                 ppm_to.error = getString(R.string.error_to_smaller_from)
                 return false

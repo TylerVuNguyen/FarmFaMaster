@@ -214,7 +214,7 @@ class EditParamActivity : AppCompatActivity() {
 
     private fun checkFromSmallerTo(value1: String,value2: String): Boolean {
         if (value1.isNotBlank() && value2.isNotBlank()) {
-            if(value2.toInt() < value1.toInt()){
+            if(value2.toDouble() < value1.toDouble()){
                 temp_day_from_edit.error = getString(R.string.error_to_smaller_from)
                 temp_day_to_edit.error = getString(R.string.error_to_smaller_from)
                 return false
@@ -224,7 +224,7 @@ class EditParamActivity : AppCompatActivity() {
     }
     private fun checkFromSmallerTo1(value1: String,value2: String): Boolean {
         if (value1.isNotBlank() && value2.isNotBlank()) {
-            if(value2.toInt() < value1.toInt()){
+            if(value2.toDouble() < value1.toDouble()){
                 temp_night_from_edit.error = getString(R.string.error_to_smaller_from)
                 temp_night_to_edit.error = getString(R.string.error_to_smaller_from)
                 return false
@@ -234,7 +234,7 @@ class EditParamActivity : AppCompatActivity() {
     }
     private fun checkFromSmallerTo2(value1: String,value2: String): Boolean {
         if (value1.isNotBlank() && value2.isNotBlank()) {
-            if(value2.toInt() < value1.toInt()){
+            if(value2.toDouble() < value1.toDouble()){
                 ph_from_edit.error = getString(R.string.error_to_smaller_from)
                 ph_to_edit.error = getString(R.string.error_to_smaller_from)
                 return false
@@ -244,7 +244,7 @@ class EditParamActivity : AppCompatActivity() {
     }
     private fun checkFromSmallerTo3(value1: String,value2: String): Boolean {
         if (value1.isNotBlank() && value2.isNotBlank()) {
-            if(value2.toInt() < value1.toInt()){
+            if(value2.toDouble() < value1.toDouble()){
                 ppm_from_edit.error = getString(R.string.error_to_smaller_from)
                 ppm_to_edit.error = getString(R.string.error_to_smaller_from)
                 return false

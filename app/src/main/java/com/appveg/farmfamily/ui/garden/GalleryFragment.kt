@@ -101,7 +101,7 @@ class GalleryFragment : Fragment() {
                     // create dialog box
                     val alert = dialogBuilder.create()
                     // set title for alert dialog box
-                    alert.setTitle("Xóa chi tiết rau")
+                    alert.setTitle("Xóa khu vườn")
                     // show alert dialog
                     alert.show()
                 }

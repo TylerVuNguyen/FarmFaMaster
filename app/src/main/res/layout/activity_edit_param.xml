@@ -89,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number|numberDecimal" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -103,7 +103,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
-                    android:inputType="number"
+                    android:inputType="number|numberDecimal"
                     android:ems="10" />
             </TableRow>
         </TableLayout>
@@ -170,7 +170,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number|numberDecimal" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -184,7 +184,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
-                    android:inputType="number"
+                    android:inputType="number|numberDecimal"
                     android:ems="10" />
             </TableRow>
         </TableLayout>
@@ -235,7 +235,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number|numberDecimal" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -249,7 +249,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
-                    android:inputType="number"
+                    android:inputType="number|numberDecimal"
                     android:ems="10" />
             </TableRow>
         </TableLayout>
@@ -299,7 +299,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number|numberDecimal" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -313,7 +313,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
-                    android:inputType="number"
+                    android:inputType="number|numberDecimal"
                     android:ems="10" />
             </TableRow>
         </TableLayout>
