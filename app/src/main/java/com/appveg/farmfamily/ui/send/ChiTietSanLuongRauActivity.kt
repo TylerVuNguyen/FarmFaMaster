@@ -83,7 +83,7 @@ class ChiTietSanLuongRauActivity : AppCompatActivity() {
 
         if(!listBatchDetail.isNullOrEmpty()){
             for (item in listBatchDetail) {
-                var vegetable = VegetableTemp(item.qtyDetailId, item.vegetableName,item.vegetableQuantity?.toInt())
+                var vegetable = VegetableTemp(item.qtyDetailId, item.vegetableName,item.vegetableQuantity?.toDouble())
                 listVeg.add(vegetable)
             }
             if(listVeg.isNullOrEmpty()){

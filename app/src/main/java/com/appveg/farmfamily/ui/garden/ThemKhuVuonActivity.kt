@@ -200,8 +200,8 @@ class ThemKhuVuonActivity : AppCompatActivity() {
             garden_name.error = getString(R.string.error_empty_common)
             return false
         } else {
-            for (i in 0..gardens.size - 1) {
-                if (garden_temp.equals(gardens.get(i).gardenCode, true)) {
+            for (i in 0 until gardens.size) {
+                if (garden_temp.equals(gardens[i].gardenCode, true)) {
                     garden_name.error = getString(R.string.error_garden_exist)
                     return false
                 }

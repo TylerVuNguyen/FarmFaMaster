@@ -2165,6 +2165,7 @@ string delete
 string deleted_data_success_vi
 string edit
 string email
+string error_batch_exist
 string error_common_email_password
 string error_email_exists
 string error_empty_common

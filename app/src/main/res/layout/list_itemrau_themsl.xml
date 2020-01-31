@@ -17,7 +17,7 @@
 
             <TextView
                 android:id="@+id/txt_rau"
-                android:layout_width="65dp"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:paddingLeft="15dp"
@@ -30,7 +30,7 @@
                 android:text="0"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:paddingLeft="-45dp"/>
+                android:paddingLeft="-30dp"/>
 
             <TextView
                 android:layout_width="20dp"

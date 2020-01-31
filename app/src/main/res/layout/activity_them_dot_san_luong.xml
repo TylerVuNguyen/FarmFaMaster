@@ -177,7 +177,7 @@
                         android:maxLength="7"
                         android:drawableLeft="@color/colorPrimary"
                         android:focusable="true"
-                        android:inputType="number" />
+                        android:inputType="number|numberDecimal" />
 
                 </TableRow>
 

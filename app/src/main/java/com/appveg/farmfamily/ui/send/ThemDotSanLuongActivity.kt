@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_them_dot_san_luong.pickDateKT
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.positionSpinner
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.textViewPickKT
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.textViewPickStart
+import kotlinx.android.synthetic.main.activity_them_khu_vuon.*
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -38,7 +39,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
 
     private var listVeg: ArrayList<VegetableTemp> = ArrayList()
 
-    private var sumQty: Int = 0
+    private var sumQty: Double = 0.0
 
     private var listVegetable: ArrayList<Vegetable> = ArrayList()
 
@@ -173,26 +174,26 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
             if (quantityVegetable.isNotBlank()) {
                 if (listVeg.isNullOrEmpty()) {
                     vegetableTemp.vegName = selected.toString()
-                    vegetableTemp.vegQty = quantityVegetable.toInt()
+                    vegetableTemp.vegQty = quantityVegetable.toDouble()
                     listVeg.add(vegetableTemp)
                 } else {
                     for (i in 0 until listVeg.size) {
                         if (vegName == listVeg[i].vegName) {
-                            var x: Int = listVeg[i].vegQty!!.toInt()
-                            x += quantityVegetable.toInt()
+                            var x: Double = listVeg[i].vegQty!!.toDouble()
+                            x += quantityVegetable.toDouble()
                             vegetableTemp.vegName = listVeg[i].vegName
                             vegetableTemp.vegQty = x
                             listVeg.remove(listVeg[i])
                             listVeg.add(vegetableTemp)
                         } else if (i == listVeg.size - 1) {
                             vegetableTemp.vegName = selected.toString()
-                            vegetableTemp.vegQty = quantityVegetable.toInt()
+                            vegetableTemp.vegQty = quantityVegetable.toDouble()
                             listVeg.add(vegetableTemp)
                         }
                     }
                 }
             } else {
-                var vegNumber = 0
+                var vegNumber = 0.0
                 if (listVeg.isNullOrEmpty()) {
                     vegetableTemp.vegName = selected.toString()
                     vegetableTemp.vegQty = vegNumber
@@ -200,7 +201,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
                 } else {
                     for (i in 0 until listVeg.size) {
                         if (vegName == listVeg[i].vegName) {
-                            var x: Int = listVeg[i].vegQty!!.toInt()
+                            var x: Double = listVeg[i].vegQty!!.toDouble()
                             x += vegNumber
                             vegetableTemp.vegName = listVeg[i].vegName
                             vegetableTemp.vegQty = x
@@ -223,9 +224,9 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
      * the method to sum total quantity
      */
     private fun sumQuantity() {
-        sumQty = 0
+        sumQty = 0.0
         for (item in listVeg) {
-            var x: Int = item.vegQty!!.toInt()
+            var x: Double = item.vegQty!!.toDouble()
             sumQty += x
         }
         totalQty.text = sumQty.toString().trim() + "/kg"
@@ -243,8 +244,6 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
 
         var gardenId = getDataFromItent()
 
-        var checkStartDate = checkStartDate(selectedStartDate)
-        var checkEndDate = checkEndDate(selectedEndDate)
         var checkBatchName = checkBatchName(selectedBatchName)
         var checkDate = checkDate(selectedStartDate,selectedEndDate)
 
@@ -259,7 +258,8 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
             "admin",
             selectedStartDate
         )
-        if (checkStartDate && checkEndDate && checkBatchName && checkDate) {
+
+        if (checkBatchName && checkDate) {
             /*format date*/
             val current = Calendar.getInstance().time
             val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
@@ -314,35 +314,23 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
             bundle.get("garden_id") as Int
         return id
     }
-    /**
-     * This method is to check start date
-     */
-    private fun checkStartDate(check: String): Boolean {
-        if (check.isEmpty()) {
-            textViewPickStart.error = getString(R.string.error_empty_common)
-            return false
-        }
-        return true
-    }
-
-    /**
-     * This method is to check end date
-     */
-    private fun checkEndDate(check: String): Boolean {
-        if (check.isEmpty()) {
-            textViewPickKT.error = getString(R.string.error_empty_common)
-            return false
-        }
-        return true
-    }
 
     /**
      * This method is to batch name
      */
     private fun checkBatchName(check: String): Boolean {
+        database = Database(activity)
+        var batchs = database.findAllBatch()
         if (check.isEmpty()) {
             batchName.error = getString(R.string.error_empty_common)
             return false
+        }else{
+            for (i in 0 until batchs.size) {
+                if (check.equals(batchs[i].batchName, true)) {
+                    batchName.error = getString(R.string.error_batch_exist)
+                    return false
+                }
+            }
         }
         return true
     }
@@ -387,14 +375,26 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
     }
 
     private fun checkDate(selectedStartDate: String, selectedEndDate: String): Boolean {
-        val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
-        var date1 = formatter.parse(selectedStartDate)
-        var date2 = formatter.parse(selectedEndDate)
-        var compare = date1.compareTo(date2)
-        if(compare > 0){
-            textViewPickStart.error = getString(R.string.error_to_smaller_from)
-            textViewPickKT.error = getString(R.string.error_to_smaller_from)
+        if(selectedStartDate.isBlank() && selectedEndDate.isBlank()) {
+            textViewPickStart.error = getString(R.string.error_empty_common)
+            textViewPickKT.error = getString(R.string.error_empty_common)
             return false
+        }else if (selectedStartDate.isBlank()) {
+            textViewPickStart.error = getString(R.string.error_empty_common)
+            return false
+        }else if(selectedEndDate.isBlank()) {
+            textViewPickKT.error = getString(R.string.error_empty_common)
+            return false
+        }else {
+            val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+            var date1 = formatter.parse(selectedStartDate)
+            var date2 = formatter.parse(selectedEndDate)
+            var compare = date1.compareTo(date2)
+            if(compare > 0){
+                textViewPickStart.error = getString(R.string.error_to_smaller_from)
+                textViewPickKT.error = getString(R.string.error_to_smaller_from)
+                return false
+            }
         }
         return true
     }

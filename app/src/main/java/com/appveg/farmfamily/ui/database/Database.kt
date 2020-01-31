@@ -562,12 +562,12 @@ class Database(context: Context?) :
      * @param batch_id
      * @return Int
      */
-    fun deleteBatchDetail(batch_id: Int):Int{
+    fun deleteBatchDetail(batchQtyDetailId: Int):Int{
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(COLUMN_BATCH_ID, batch_id) // EmpModelClass UserId
+        contentValues.put(COLUMN_BATCH_DETAIL_ID, batchQtyDetailId) // EmpModelClass UserId
         // Deleting Row
-        val success = db.delete(TABLE_BATCH_DETAIL,"qty_id="+batch_id,null)
+        val success = db.delete(TABLE_BATCH_DETAIL, "$COLUMN_BATCH_DETAIL_ID=$batchQtyDetailId",null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -670,6 +670,39 @@ class Database(context: Context?) :
             }
         }
         return batch
+    }
+
+    /**
+     * This method to find batch
+     *
+     * @param batch_id
+     * @return Batch
+     */
+    fun findAllBatch():ArrayList<Batch>{
+        val selectQuery = "SELECT  * FROM $TABLE_BATCH"
+        val db = this.readableDatabase
+        var batchs: ArrayList<Batch> = ArrayList()
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            Log.d("AAA",e.message)
+        }
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    var batchId = cursor.getInt(cursor.getColumnIndex(COLUMN_BATCH_ID))
+                    var batchName = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_NAME))
+                    var createdDate = cursor.getString(cursor.getColumnIndex(COLUMN_CREATEDDATE))
+                    var theEndDate = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_END_DATE))
+                    var totalQuantity = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_TOTAL_QTY))
+                    var updatedDate = cursor.getString(cursor.getColumnIndex(COLUMN_UPDATED_DATE))
+                    var batch = Batch(batchId,batchName,theEndDate,totalQuantity,createdDate,"admin",updatedDate)
+                    batchs.add(batch)
+                } while (cursor.moveToNext())
+            }
+        }
+        return batchs
     }
     /**
      * This method to find all batch detail by id
