@@ -79,7 +79,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
             // create dialog box
             val alert = dialogBuilder.create()
             // set title for alert dialog box
-            alert.setTitle("Xóa đợt sản lượng")
+            alert.setTitle("Xóa chi tiết sản lượng")
             // show alert dialog
             alert.show()
         }
@@ -183,8 +183,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
                             x += quantityVegetable.toDouble()
                             vegetableTemp.vegName = listVeg[i].vegName
                             vegetableTemp.vegQty = x
-                            listVeg.remove(listVeg[i])
-                            listVeg.add(vegetableTemp)
+                            listVeg[i] = vegetableTemp
                         } else if (i == listVeg.size - 1) {
                             vegetableTemp.vegName = selected.toString()
                             vegetableTemp.vegQty = quantityVegetable.toDouble()
@@ -205,8 +204,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
                             x += vegNumber
                             vegetableTemp.vegName = listVeg[i].vegName
                             vegetableTemp.vegQty = x
-                            listVeg.remove(listVeg[i])
-                            listVeg.add(vegetableTemp)
+                            listVeg[i] = vegetableTemp
                         } else if (i == listVeg.size - 1) {
                             vegetableTemp.vegName = selected.toString()
                             vegetableTemp.vegQty = vegNumber

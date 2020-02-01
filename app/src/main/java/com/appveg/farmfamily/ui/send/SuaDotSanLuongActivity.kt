@@ -75,7 +75,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
             // create dialog box
             val alert = dialogBuilder.create()
             // set title for alert dialog box
-            alert.setTitle("Xóa đợt sản lượng")
+            alert.setTitle("Xóa chi tiết sản lượng")
             // show alert dialog
             alert.show()
         }
@@ -163,32 +163,52 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
         val quantityVegetable = txt_qtyVeg_edit.text.toString()
         var vegetableTemp: VegetableTemp = VegetableTemp()
         var vegName = selected.toString()
-        if (quantityVegetable.trim() != "") {
-            if(listVeg.isNullOrEmpty()){
-                vegetableTemp.vegName = selected.toString()
-                vegetableTemp.vegQty = quantityVegetable.toDouble()
-                listVeg.add(vegetableTemp)
-            }else {
-                for (i in 0 until listVeg.size) {
-                    if (vegName == listVeg[i].vegName) {
-                        var x: Double = listVeg[i].vegQty!!.toDouble()
-                        x += quantityVegetable.toDouble()
-                        vegetableTemp.vegName = listVeg[i].vegName
-                        vegetableTemp.vegQty = x
-                        listVeg.remove(listVeg[i])
-                        listVeg.add(vegetableTemp)
-                    } else if (i == listVeg.size - 1) {
-                        vegetableTemp.vegName = selected.toString()
-                        vegetableTemp.vegQty = quantityVegetable.toDouble()
-                        listVeg.add(vegetableTemp)
+        var checkSelectVeg = checkSelectVeg(veg_id.toInt())
+        if(checkSelectVeg) {
+            if (quantityVegetable.isNotBlank()) {
+                if (listVeg.isNullOrEmpty()) {
+                    vegetableTemp.vegName = selected.toString()
+                    vegetableTemp.vegQty = quantityVegetable.toDouble()
+                    listVeg.add(vegetableTemp)
+                } else {
+                    for (i in 0 until listVeg.size) {
+                        if (vegName == listVeg[i].vegName) {
+                            var x: Double = listVeg[i].vegQty!!.toDouble()
+                            x += quantityVegetable.toDouble()
+                            vegetableTemp.vegName = listVeg[i].vegName
+                            vegetableTemp.vegQty = x
+                            listVeg[i] = vegetableTemp
+                            break
+                        } else if (i == listVeg.size - 1) {
+                            vegetableTemp.vegName = selected.toString()
+                            vegetableTemp.vegQty = quantityVegetable.toDouble()
+                            listVeg.add(vegetableTemp)
+                        }
+                    }
+                }
+            } else {
+                var vegNumber = 0.0
+                if (listVeg.isNullOrEmpty()) {
+                    vegetableTemp.vegName = selected.toString()
+                    vegetableTemp.vegQty = vegNumber
+                    listVeg.add(vegetableTemp)
+                } else {
+                    for (i in 0 until listVeg.size) {
+                        if (vegName == listVeg[i].vegName) {
+                            var x: Double = listVeg[i].vegQty!!.toDouble()
+                            x += vegNumber
+                            vegetableTemp.vegName = listVeg[i].vegName
+                            vegetableTemp.vegQty = x
+                            listVeg[i] = vegetableTemp
+                            break
+                        } else if (i == listVeg.size - 1) {
+                            vegetableTemp.vegName = selected.toString()
+                            vegetableTemp.vegQty = vegNumber
+                            listVeg.add(vegetableTemp)
+                        }
                     }
                 }
             }
-        } else {
-            var vegNumber = 0.0
-            vegetableTemp.vegName = selected.toString()
-            vegetableTemp.vegQty = vegNumber
-            listVeg.add(vegetableTemp)
         }
         //display list view
         lv_themSL_edit.adapter = ThemAdapter(activity, listVeg)
@@ -236,21 +256,6 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
                 removeDataListVegDb(batch_id)
                 if (!listVeg.isNullOrEmpty()) {
                     for (item in listVeg) {
-                        // có hai trường hợp:
-                        // 1 là đã tồn tại chỉ cần update
-                        // 2 là thêm mới
-                        if(item.vegId != null && item.vegId != -1){
-                            var batchQtyDetail: BatchQtyDetail = BatchQtyDetail(
-                                item.vegId,
-                                batch_id,
-                                item.vegName,
-                                item.vegQty.toString(),
-                                "admin",
-                                "admin",
-                                formatted
-                            )
-                            database!!.updateBatchDetail(batchQtyDetail)
-                        }else{
                             var batchQtyDetail: BatchQtyDetail = BatchQtyDetail(
                                 null,
                                 batch_id,
@@ -260,8 +265,6 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
                                 formatted
                             )
                             database!!.addBatchDetail(batchQtyDetail)
-                        }
-
                     }
                 }
                 if(id != null){
@@ -335,6 +338,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
         var listBatchDetail = database.findAllBatchDetailById(batchId)
         if(!listBatchDetail.isNullOrEmpty()){
             for (item in 0 until listBatchDetail.size){
+                //trường hợp đã lưu vào db
                 database.deleteBatchDetail(listBatchDetail[item].qtyDetailId!!)
             }
         }

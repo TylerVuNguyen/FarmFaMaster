@@ -2256,6 +2256,7 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string preference_copied
+string print_vi
 string project_id
 string registered_emailid
 string reply_title
