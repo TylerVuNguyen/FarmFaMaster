@@ -94,7 +94,9 @@ class LoginActivity  : AppCompatActivity() {
                 // accountsIntent.putExtra("EMAIL", textInputEditTextEmail!!.text.toString().trim { it <= ' ' })
                 var checked = remember.isChecked
                 if (checked) {
-                    database.updateStatusByUserNameEmail(userNameEmail, 1)
+                    database.updateStatusByUserNameEmail(userNameEmail,2)
+                }else{
+                    database.updateStatusByUserNameEmail(userNameEmail,1)
                 }
                 emptyInputEditText()
                 startActivity(accountsIntent)
@@ -146,7 +148,7 @@ class LoginActivity  : AppCompatActivity() {
         database = Database(activity)
         users = database.getAllUser()
         for (item in 0 until users.size){
-            if(users[item].status != 0 && users[item].status != 3){
+            if(users[item].status != 0 && users[item].status != 1 && users[item].status != 3){
                 val accountsIntent = Intent(activity, com.appveg.farmfamily.MainActivity::class.java)
                 startActivity(accountsIntent)
             }

@@ -97,7 +97,7 @@ class SignUpActivity : AppCompatActivity() {
                 userEmail,
                 userPassword,
                 userGenderGroup,
-                1,
+                0,
                 "admin",
                 formatted
             )
