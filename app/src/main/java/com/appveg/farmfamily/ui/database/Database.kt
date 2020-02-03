@@ -988,6 +988,42 @@ class Database(context: Context?) :
         cursor?.close()
         return vegetable
     }
+
+    /**
+     * This method to find vegetable by gardenId
+     *
+     * @param batch_id
+     * @return Batch
+     */
+    fun findVegetableByGardenId(garden_id : Int): ArrayList<Vegetable>{
+        val selectQuery = "SELECT  * FROM $TABLE_VEGETABLE WHERE $COLUMN_GARDEN_ID = $garden_id"
+        val db = this.readableDatabase
+        var vegetables:ArrayList<Vegetable> = ArrayList()
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            Log.d("AAA",e.message)
+        }
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    var vegId = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
+                    var vegName = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_NAME))
+                    var vegImage = cursor.getBlob(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
+                    var paramId = cursor.getInt(cursor.getColumnIndex(COLUMN_PARAM_ID))
+                    var vegetable = Vegetable()
+                    vegetable.vegID = vegId
+                    vegetable.vegName = vegName
+                    vegetable.vegImgBlob = vegImage
+                    vegetable.paramId = paramId
+                    vegetables.add(vegetable)
+                } while (cursor.moveToNext())
+            }
+        }
+        cursor?.close()
+        return vegetables
+    }
     /*----------------------------------------------Device-------------------------------------------------*/
     /**
      * This method to insert data device
@@ -1378,6 +1414,48 @@ class Database(context: Context?) :
     fun findAllDeviceDetailForGarden(gardenId: Int):ArrayList<DeviceDetail>{
         val deviceDetailList:ArrayList<DeviceDetail> = ArrayList()
         val selectQuery = "SELECT  * FROM $TABLE_DEVICE_DETAIL WHERE $COLUMN_DEVICE_DETAIL_STATUS = 'N' OR $COLUMN_GARDEN_ID = $gardenId"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            db.execSQL(selectQuery)
+            return ArrayList()
+        }
+        var device_detail_id: Int
+        var device_detail_code: String
+        var device_detail_image : ByteArray
+        var device_detail_status : String
+        var device_id : Int
+        var garden_id : Int
+        if (cursor.moveToFirst()) {
+            do {
+                device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
+                device_detail_code = cursor.getString(cursor.getColumnIndex(
+                    COLUMN_DEVICE_DETAIL_CODE))
+                device_detail_image= cursor.getBlob(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
+                device_detail_status= cursor.getString(cursor.getColumnIndex(
+                    COLUMN_DEVICE_DETAIL_STATUS))
+                device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
+                garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
+
+                val device = DeviceDetail(device_detail_id,device_detail_code,device_detail_image,device_detail_status,device_id,garden_id)
+                deviceDetailList.add(device)
+            } while (cursor.moveToNext())
+        }
+        cursor?.close()
+        return deviceDetailList
+    }
+
+    /**
+     * This method to find all device detail for garden
+     *
+     * @param no data
+     * @return ArrayList
+     */
+    fun findAllDeviceByGardenId(gardenId: Int):ArrayList<DeviceDetail>{
+        val deviceDetailList:ArrayList<DeviceDetail> = ArrayList()
+        val selectQuery = "SELECT  * FROM $TABLE_DEVICE_DETAIL WHERE $COLUMN_GARDEN_ID = $gardenId"
         val db = this.readableDatabase
         var cursor: Cursor? = null
         try{

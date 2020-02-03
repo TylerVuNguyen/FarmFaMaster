@@ -277,50 +277,50 @@
         <!--  end block display sensor-->
         <!--  end block display sensor-->
 
-        <!--        row veg-->
-        <LinearLayout
-            android:id="@+id/row_veg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/title"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="8dp"
-            android:background="#00c5cd"
-            android:orientation="vertical"
-            android:padding="3dp">
+<!--        &lt;!&ndash;        row veg&ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:id="@+id/row_veg"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/title"-->
+<!--            android:layout_marginLeft="8dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginRight="8dp"-->
+<!--            android:background="#00c5cd"-->
+<!--            android:orientation="vertical"-->
+<!--            android:padding="3dp">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/Veg_title_vi"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:gravity="center"-->
+<!--                android:text="@string/Veg_title_vi"-->
+<!--                android:textColor="#FFFFFF"-->
+<!--                android:textStyle="bold" />-->
 
-        </LinearLayout>
-        <!--       end veg device-->
+<!--        </LinearLayout>-->
+<!--        &lt;!&ndash;       end veg device&ndash;&gt;-->
 
 
-        <!--display List view device-->
-        <LinearLayout
-            android:id="@+id/linear_list_veg"
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_below="@id/detailsContainer"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="20dp"
-            android:orientation="vertical"
-            android:padding="10dp">
+<!--        &lt;!&ndash;display List view device&ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:id="@+id/linear_list_veg"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="90dp"-->
+<!--            android:layout_below="@id/detailsContainer"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_marginRight="20dp"-->
+<!--            android:orientation="vertical"-->
+<!--            android:padding="10dp">-->
 
-            <ListView
-                android:id="@+id/list_veg_detail_garden"
-                android:layout_width="match_parent"
-                android:layout_height="60dp" />
-        </LinearLayout>
-        <!--     end   display device list -->
+<!--            <ListView-->
+<!--                android:id="@+id/list_veg_detail_garden"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp" />-->
+<!--        </LinearLayout>-->
+<!--        &lt;!&ndash;     end   display device list &ndash;&gt;-->
 
         <Space
             android:layout_width="2dp"

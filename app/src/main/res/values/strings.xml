@@ -127,6 +127,7 @@
     <string name="update_vi">Cập nhật</string>
     <string name="cancel_vi">Hủy</string>
     <string name="print_vi">In</string>
+    <string name="no_data_vi">Không có dữ liệu</string>
     <!--end common-->
 
     <!--garden VI-->
@@ -180,7 +181,7 @@
     <string name="to_vi">Đến</string>
     <string name="day_vi">Ban ngày</string>
     <string name="night_vi">Ban đêm</string>
-    <string name="temp_param_vi">Nhiệt độ</string>
+    <string name="temp_param_vi">Nhiệt độ (°C)</string>
     <string name="message_setting_param">Tham số đã được cài đặt cho loại rau này !</string>
     <string name="message_no_setting_param">Chưa cài đặt tham số cho loại rau này !</string>
 

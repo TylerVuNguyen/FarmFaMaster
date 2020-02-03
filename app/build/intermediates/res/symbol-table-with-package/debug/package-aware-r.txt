@@ -1159,6 +1159,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable anhsangss
+drawable avatar
 drawable avd_hide_password
 drawable avd_show_password
 drawable back
@@ -1531,8 +1532,10 @@ id device_category_name
 id device_category_name_edit
 id device_checked
 id device_for_garden_checked
+id device_for_garden_checked_1
 id device_name
 id device_name_edit
+id device_no_data
 id dialog_button
 id dimensions
 id direct
@@ -1588,7 +1591,7 @@ id imageView1
 id image_view_garden
 id img_device_category
 id img_device_for_garden
-id img_device_kv
+id img_device_for_garden_1
 id img_device_veg_of_param
 id img_dotRau
 id img_kv
@@ -1602,8 +1605,10 @@ id labeled
 id language_vi_en
 id largeLabel
 id layoutDevice_screenshot
+id layout_list_veg
+id layout_no_data_device
+id layout_no_data_veg
 id layoutroom_screenshot
-id lbl_name
 id left
 id light
 id line1
@@ -1611,7 +1616,6 @@ id line3
 id linear_doam
 id linear_dopH
 id linear_hide
-id linear_list_veg
 id linear_nhiet_do_ban_dem
 id linear_nhietdo
 id linear_ph
@@ -1622,7 +1626,6 @@ id listMode
 id listRoom_roomfunction
 id list_device_category
 id list_item
-id list_veg_detail_garden
 id list_veg_for_garden
 id list_view
 id list_view_device
@@ -1725,7 +1728,6 @@ id remember
 id right
 id right_icon
 id right_side
-id rl_content
 id row_device
 id row_veg
 id save_image_matrix
@@ -1868,9 +1870,9 @@ id useLogo
 id userEmailId
 id user_checked
 id veg_for_garden_checked
-id veg_item
 id veg_name
 id veg_name_edit
+id veg_no_data
 id view_device_btn_add
 id view_device_btn_print
 id view_device_category_edit
@@ -2014,7 +2016,7 @@ layout layout_add_device
 layout layout_device
 layout layout_device_detail
 layout layout_device_for_garden
-layout layout_item_device_for_garden
+layout layout_device_for_garden_1
 layout layout_khuvuon
 layout layout_khuvuon_cua_sanluong
 layout layout_list_device_category
@@ -2024,6 +2026,7 @@ layout layout_param
 layout layout_ql_khuvuon
 layout layout_users
 layout layout_veg_for_garden
+layout layout_veg_for_garden_1
 layout layout_veg_pram_detail
 layout layoutlistview_chitietdot_sanluong
 layout list_itemrau_themsl
@@ -2246,6 +2249,7 @@ string navigation_drawer_close
 string navigation_drawer_open
 string newUser
 string night_vi
+string no_data_vi
 string not_set
 string passowrd
 string passowrd_vi

@@ -73,7 +73,6 @@ class DeviceCategoryFragment : Fragment() {
                 when (index) {
                     0 -> {
                         getForwardData(position)
-                        Toast.makeText(requireContext(),"ahihi", Toast.LENGTH_SHORT).show()
                     }
                     1 -> {
                         // build alert dialog

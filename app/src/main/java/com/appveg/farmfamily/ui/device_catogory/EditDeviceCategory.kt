@@ -94,9 +94,8 @@ class EditDeviceCategory : AppCompatActivity() {
         if(checkDCategoryName && checkDCategoryImg){
             var dcategory = DeviceCategory(dcategory_id, dcategory_name,image,formatted)
             database.updateDeviceCategoryImageDefault(dcategory)
-
             Toast.makeText(this,getString(R.string.update_data_success_vi),Toast.LENGTH_LONG).show()
-
+            activity.finish()
         }else{
             Toast.makeText(this,getString(R.string.update_data_fail_vi), Toast.LENGTH_LONG).show()
         }
