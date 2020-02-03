@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
+import kotlinx.android.synthetic.main.activity_add_device_category.*
 import kotlinx.android.synthetic.main.activity_edit_device_category.*
 import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
@@ -106,9 +107,18 @@ class EditDeviceCategory : AppCompatActivity() {
      * This method is to batch name
      */
     private fun checkDCategoryName(check: String): Boolean {
+        database = Database(activity)
+        var deviceCategorys = database.findAllDeviceCategory()
         if (check.isEmpty()) {
             device_category_name_edit.error = getString(R.string.error_empty_common)
             return false
+        }else{
+            for (i in 0 until deviceCategorys.size){
+                if(check.equals(deviceCategorys[i].dcategoryName,true)){
+                    device_category_name_edit.error = getString(R.string.error_device_exist)
+                    return false
+                }
+            }
         }
         return true
     }
@@ -154,7 +164,7 @@ class EditDeviceCategory : AppCompatActivity() {
     /**
      * the method to get batch by id
      */
-    fun getDCategoryById(dcategory_id: Int) : DeviceCategory{
+    private fun getDCategoryById(dcategory_id: Int) : DeviceCategory{
         database = Database(activity)
         var dcategory : DeviceCategory = DeviceCategory()
         if(dcategory_id != null){

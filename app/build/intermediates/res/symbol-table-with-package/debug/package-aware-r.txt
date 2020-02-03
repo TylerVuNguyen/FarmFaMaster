@@ -2170,6 +2170,7 @@ string edit
 string email
 string error_batch_exist
 string error_common_email_password
+string error_device_exist
 string error_email_exists
 string error_empty_common
 string error_empty_device_category_common

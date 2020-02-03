@@ -81,9 +81,9 @@ class AddDeviceCategory : AppCompatActivity() {
             device_category_name.error = getString(R.string.error_empty_common)
             return false
         }else{
-            for (i in 0..deviceCategorys.size - 1){
-                if(check.equals(deviceCategorys.get(i).dcategoryName,true)){
-                    device_category_name.error = getString(R.string.error_veg_exist)
+            for (i in 0 until deviceCategorys.size){
+                if(check.equals(deviceCategorys[i].dcategoryName,true)){
+                    device_category_name.error = getString(R.string.error_device_exist)
                     return false
                 }
             }

@@ -94,7 +94,7 @@ class DeviceCategoryFragment : Fragment() {
                         // create dialog box
                         val alert = dialogBuilder.create()
                         // set title for alert dialog box
-                        alert.setTitle("Xóa chi tiết rau")
+                        alert.setTitle("Xóa chi tiết loại thiết bị")
                         // show alert dialog
                         alert.show()
                     }

@@ -15,6 +15,7 @@ import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_add_vegetable.*
 import kotlinx.android.synthetic.main.activity_edit_vegetable.*
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
@@ -175,9 +176,18 @@ class EditVegetableActivity : AppCompatActivity() {
      * This method is to batch name
      */
     private fun checkVegName(check: String): Boolean {
+        database = Database(activity)
+        var vegs = database.findAllVegetable()
         if (check.isEmpty()) {
             veg_name_edit.error = getString(R.string.error_empty_common)
             return false
+        }else {
+            for (i in 0 until vegs.size) {
+                if (check.equals(vegs[i].vegName, true)) {
+                    veg_name_edit.error = getString(R.string.error_veg_exist)
+                    return false
+                }
+            }
         }
         return true
     }

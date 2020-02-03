@@ -77,7 +77,7 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/btn_print"
-            android:text="In"
+            android:text="@string/print_vi"
             android:textColor="@android:color/white" />
 
         <Button
@@ -89,7 +89,7 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/ic_cancel"
-            android:text="Hũy"
+            android:text="@string/cancel_vi"
             android:textColor="@android:color/white" />
 
     </LinearLayout>
