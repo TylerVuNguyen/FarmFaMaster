@@ -44,6 +44,9 @@ class Database(context: Context?) :
         private val COLUMN_USER_GENDER = "gender"
         private val COLUMN_USER_STATUS = "status"
 
+        /*users*/
+        private val COLUMN_ROLE_ID = "role_id"
+
         /*common*/
         private val COLUMN_CREATEDBY = "created_by"
         private val COLUMN_CREATEDDATE = "created_date"
@@ -118,7 +121,7 @@ class Database(context: Context?) :
     override fun onCreate(db: SQLiteDatabase?) {
         /*TABLE PROJECT*/
         val CREATE_USERS_TABLE =
-            ("CREATE TABLE " + TABLE_USERS + " (user_id INTEGER PRIMARY KEY AUTOINCREMENT,user_name VARCHAR(50),full_name VARCHAR(50)," +
+            ("CREATE TABLE " + TABLE_USERS + " (user_id INTEGER PRIMARY KEY AUTOINCREMENT,full_name VARCHAR(50)," +
                     "email VARCHAR(50),password VARCHAR(50),gender VARCHAR(10),status INTEGER,role_id INTEGER,created_by VARCHAR(50)," +
                     "created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50),deleted_date VARCHAR(50),deleted_flag INTEGER)")
         val CREATE_ROLES_TABLE =
@@ -170,12 +173,15 @@ class Database(context: Context?) :
 //            ("INSERT INTO garden VALUES(null,'Khu vườn 2','R.drawable.kv2','admin',null,null,null,null,null,1)")
         val INSERT_ROLES_ITEM =
             ("INSERT INTO roles VALUES(null,'admin','admin','vu',null,null,null,null,null,1)")
+        val INSERT_ROLES_ITEM_1 =
+            ("INSERT INTO roles VALUES(null,'user','user','vu',null,null,null,null,null,1)")
         val INSERT_USERS_ITEM =
-            ("INSERT INTO users VALUES(null,'admin','NGUYEN HOANG VU','hvu3011@gmail.com','admin','1','active',1,'vu',null,null,null,null,null,1)")
+            ("INSERT INTO users VALUES(null,'NGUYEN HOANG VU','hvu3011@gmail.com','admin','1','active',1,'vu',null,null,null,null,null,1)")
         db?.execSQL(CREATE_USERS_TABLE)
         db?.execSQL(CREATE_ROLES_TABLE)
         db?.execSQL(CREATE_GARDEN_TABLE)
         db?.execSQL(INSERT_ROLES_ITEM)
+        db?.execSQL(INSERT_ROLES_ITEM_1)
         db?.execSQL(INSERT_USERS_ITEM)
         db?.execSQL(CREATE_BATCH_TABLE)
         db?.execSQL(CREATE_QUANTITY_DETAIL_TABLE)
@@ -220,6 +226,7 @@ class Database(context: Context?) :
         var userFullName : String
         var password : String
         var status : Int
+        var roleId : Int
         if (cursor!!.moveToFirst()) {
             do {
                 userId = cursor.getInt(cursor.getColumnIndex(COLUMN_USER_ID))
@@ -227,7 +234,8 @@ class Database(context: Context?) :
                 userFullName = cursor.getString(cursor.getColumnIndex(COLUMN_USER_FULL_NAME))
                 password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD))
                 status = cursor.getInt(cursor.getColumnIndex(COLUMN_USER_STATUS))
-                user = User(userId,userFullName,userNameEmail,password,status)
+                roleId = cursor.getInt(cursor.getColumnIndex(COLUMN_ROLE_ID))
+                user = User(userId,userFullName,userNameEmail,password,status,roleId)
             } while (cursor.moveToNext())
         }
         return user
@@ -254,6 +262,7 @@ class Database(context: Context?) :
         var userFullName : String
         var password : String
         var status : Int
+        var roleId : Int
         if (cursor.moveToFirst()) {
             do {
                 userId = cursor.getInt(cursor.getColumnIndex(COLUMN_USER_ID))
@@ -261,7 +270,8 @@ class Database(context: Context?) :
                 userFullName = cursor.getString(cursor.getColumnIndex(COLUMN_USER_FULL_NAME))
                 password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD))
                 status = cursor.getInt(cursor.getColumnIndex(COLUMN_USER_STATUS))
-                val user = User(userId,userFullName,userNameEmail,password,status)
+                roleId = cursor.getInt(cursor.getColumnIndex(COLUMN_ROLE_ID))
+                val user = User(userId,userFullName,userNameEmail,password,status,roleId)
                 userList.add(user)
             } while (cursor.moveToNext())
         }
@@ -280,6 +290,8 @@ class Database(context: Context?) :
         values.put(COLUMN_USER_EMAIL, user.email)
         values.put(COLUMN_USER_PASSWORD, user.password)
         values.put(COLUMN_USER_GENDER, user.gender)
+        values.put(COLUMN_USER_STATUS, user.status)
+        values.put(COLUMN_ROLE_ID,user.roleId)
         values.put(COLUMN_CREATEDBY, user.createdBy)
         values.put(COLUMN_CREATEDDATE, user.createdDate)
 

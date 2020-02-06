@@ -55,6 +55,7 @@ class User {
         password: String?,
         gender: String?,
         status: Int,
+        roleId: Int,
         createdBy: String?,
         createdDate: String?
     ) {
@@ -64,6 +65,7 @@ class User {
         this.password = password
         this.gender = gender
         this.status = status
+        this.roleId = roleId
         this.createdBy = createdBy
         this.createdDate = createdDate
     }
@@ -73,13 +75,15 @@ class User {
         fullName: String?,
         email: String?,
         password: String?,
-        status: Int
+        status: Int,
+        roleId: Int
     ) {
         this.id = id
         this.fullName = fullName
         this.email = email
         this.password = password
         this.status = status
+        this.roleId = roleId
     }
     constructor()
 }

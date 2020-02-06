@@ -94,8 +94,10 @@ class LoginActivity  : AppCompatActivity() {
                 // accountsIntent.putExtra("EMAIL", textInputEditTextEmail!!.text.toString().trim { it <= ' ' })
                 var checked = remember.isChecked
                 if (checked) {
+                    updateStatusBeforeLogin()
                     database.updateStatusByUserNameEmail(userNameEmail,2)
                 }else{
+                    updateStatusBeforeLogin()
                     database.updateStatusByUserNameEmail(userNameEmail,1)
                 }
                 emptyInputEditText()
@@ -124,6 +126,21 @@ class LoginActivity  : AppCompatActivity() {
             return false
         }
         return true
+    }
+    /**
+     * This method is to password
+     */
+    private fun updateStatusBeforeLogin(){
+        database = Database(activity)
+        users = database.getAllUser()
+        var user = User()
+        for (item in 0 until users.size){
+            if(users[item].status == 1){
+                user.id = users[item].id
+                user.status = 0
+                database.updateStatusById(user)
+            }
+        }
     }
     /**
      * This method is to password

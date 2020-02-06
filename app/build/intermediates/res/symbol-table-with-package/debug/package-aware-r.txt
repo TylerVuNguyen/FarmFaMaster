@@ -1965,6 +1965,7 @@ layout activity_add_device_category
 layout activity_add_device_for_garden
 layout activity_add_param
 layout activity_add_vegetable
+layout activity_change_password
 layout activity_chart
 layout activity_chi_tiet_san_luong
 layout activity_chi_tiet_tung_san_luong
@@ -2155,6 +2156,7 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string confirmPassword
+string confirm_passoword_new_vi
 string confirm_passoword_vi
 string control_device_setting_vi
 string control_device_vi
@@ -2252,7 +2254,9 @@ string newUser
 string night_vi
 string no_data_vi
 string not_set
+string old_passowrd_vi
 string passowrd
+string passowrd_new_vi
 string passowrd_vi
 string password_login_vi
 string password_toggle_content_description

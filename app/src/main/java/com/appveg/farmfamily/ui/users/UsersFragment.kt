@@ -78,7 +78,7 @@ class UsersFragment : Fragment() {
                     // create dialog box
                     val alert = dialogBuilder.create()
                     // set title for alert dialog box
-                    alert.setTitle("Xóa chi tiết rau")
+                    alert.setTitle("Xóa người dùng")
                     // show alert dialog
                     alert.show()
                 }
@@ -96,10 +96,16 @@ class UsersFragment : Fragment() {
     private fun getListUser(): ArrayList<User> {
         database = Database(activity)
         users = database.getAllUser()
+        var listUser = ArrayList<User>()
         if (users.isNullOrEmpty()) {
             Toast.makeText(activity, "Dánh sách người dùng đang trống !", Toast.LENGTH_LONG).show()
         }
-        return users
+        for (item in 0 until users.size){
+            if(2 == users[item].roleId){
+                listUser.add(users[item])
+            }
+        }
+        return listUser
     }
 
     /**

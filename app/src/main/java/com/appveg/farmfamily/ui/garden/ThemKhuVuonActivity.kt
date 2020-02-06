@@ -7,22 +7,14 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
-import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
-import com.appveg.farmfamily.ui.vegetable.VegetableFragment
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_add_device.*
-import kotlinx.android.synthetic.main.activity_add_vegetable.*
-import kotlinx.android.synthetic.main.activity_sua_khu_vuon.*
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.*
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_1
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_2
@@ -30,7 +22,6 @@ import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_3
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_4
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_5
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_6
-import kotlinx.android.synthetic.main.fragment_gallery.*
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
 import java.text.Normalizer
@@ -86,20 +77,20 @@ class ThemKhuVuonActivity : AppCompatActivity() {
 
         add_image_garden_4.setOnClickListener {
             var garden_img = R.drawable.kv2
-            var garden_name_4 = "Khu vườn 1"
+            var garden_name_4 = "Khu vườn 4"
             this.selected_garden_image.setImageResource(garden_img)
             this.garden_name.setText(garden_name_4)
             this.garden_name.setSelection(garden_name.text.length)
         }
         add_image_garden_5.setOnClickListener {
             var garden_img = R.drawable.kv2
-            var garden_name_5 = "Khu vườn 2"
+            var garden_name_5 = "Khu vườn 5"
             this.selected_garden_image.setImageResource(garden_img)
             this.garden_name.setText(garden_name_5)
             this.garden_name.setSelection(garden_name.text.length)
         }
         add_image_garden_6.setOnClickListener {
-            var garden_name_6 = "Khu vườn 3"
+            var garden_name_6 = "Khu vườn 6"
             var garden_img = R.drawable.kv2
             this.selected_garden_image.setImageResource(garden_img)
             this.garden_name.setText(garden_name_6)
@@ -147,13 +138,13 @@ class ThemKhuVuonActivity : AppCompatActivity() {
 
     private fun addGarden() {
         database = Database(activity)
-        var garden_name = garden_name.text.toString().trim()
+        var gardenName = garden_name.text.toString().trim()
 
-        var garden_code = generateAssetTypeCode(garden_name)
+        var gardenCode = generateAssetTypeCode(gardenName)
 
-        Toast.makeText(this, garden_code, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, gardenCode, Toast.LENGTH_LONG).show()
 
-        var checkGardenName = checkGardenName(garden_name)
+        var checkGardenName = checkGardenName(gardenName)
         /*format date*/
         val current = Calendar.getInstance().time
         val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
@@ -170,17 +161,11 @@ class ThemKhuVuonActivity : AppCompatActivity() {
 
         var sizeImage = image.size
         if (checkGardenName && checkGardenImage) {
-            var garden = Garden(null, garden_code, garden_name, image, "admin", formatted)
+            var garden = Garden(null, gardenCode, gardenName, image, "admin", formatted)
             var id = database.addGardenImageDefault(garden)
             if (id != null) {
                 Toast.makeText(this, getString(R.string.insert_data_success_vi), Toast.LENGTH_LONG)
                     .show()
-                //var fragmentAdapter : GalleryFragment = GalleryFragment()
-                // hide activity
-                //addGarden_Function.visibility = View.GONE
-                //action bar
-                //supportFragmentManager.beginTransaction().add(R.id.fragmentContainer_garden, fragmentAdapter).addToBackStack(null).commit()
-                //gardens = getListGarden()
                 activity.finish()
             }
 

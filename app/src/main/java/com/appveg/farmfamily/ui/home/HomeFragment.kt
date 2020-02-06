@@ -34,8 +34,10 @@ class HomeFragment : Fragment() {
 
         grid.setOnItemClickListener { adapterView, view, i, l ->
             var intent : Intent = Intent(activity, DetailGarden::class.java)
-            var id: String? = gardens.get(i).gardenCode
-            intent.putExtra("garden_code", id)
+            var gardenCode = gardens[i].gardenCode
+            var id = gardens[i].gardenId
+            intent.putExtra("garden_code", gardenCode)
+            intent.putExtra("garden_id",id)
             startActivity(intent)
         }
         return root.rootView

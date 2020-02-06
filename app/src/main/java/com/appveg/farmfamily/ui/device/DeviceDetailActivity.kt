@@ -72,7 +72,7 @@ class DeviceDetailActivity : AppCompatActivity() {
                     // create dialog box
                     val alert = dialogBuilder.create()
                     // set title for alert dialog box
-                    alert.setTitle("Xóa chi tiết rau")
+                    alert.setTitle("Xóa chi tiết thiết bị")
                     // show alert dialog
                     alert.show()
                 }

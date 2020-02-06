@@ -2072,6 +2072,10 @@
         "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\101984016d81c721080a90a24e529ea1\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
+        "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_change_password.xml.flat",
+        "source": "G:\\GITHUB\\FarmFaMaster\\app\\src\\main\\res\\layout\\activity_change_password.xml"
+    },
+    {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_calendar_foreground.png.flat",
         "source": "G:\\GITHUB\\FarmFaMaster\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_calendar_foreground.png"
     },

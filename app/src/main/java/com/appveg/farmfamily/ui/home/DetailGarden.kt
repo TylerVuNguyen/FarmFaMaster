@@ -3,15 +3,9 @@ package com.appveg.farmfamily.ui.home
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.chart.ChartActivity
-import com.appveg.farmfamily.ui.database.Database
-import com.appveg.farmfamily.ui.send.ChiTietAdapter
-import com.appveg.farmfamily.ui.vegetable.Vegetable
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_chi_tiet_san_luong.*
 import kotlinx.android.synthetic.main.activity_detail_garden.*
 
 class DetailGarden : AppCompatActivity() {
@@ -114,9 +108,17 @@ class DetailGarden : AppCompatActivity() {
      */
     private fun getDataFromItent() : String {
         val bundle:Bundle = intent.extras
-        val id: String =
-            bundle.get("garden_code") as String
-        return id
+        return bundle.get("garden_code") as String
+
+    }
+
+
+    /**
+     * the method to get data from intent
+     */
+    private fun getDataFromItent1() : String {
+        val bundle:Bundle = intent.extras
+        return bundle.get("garden_code") as String
 
     }
 
