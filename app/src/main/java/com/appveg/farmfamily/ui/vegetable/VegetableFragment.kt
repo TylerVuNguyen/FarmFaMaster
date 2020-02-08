@@ -22,7 +22,6 @@ class VegetableFragment  : Fragment() {
     private lateinit var database: Database
 
     var vegetables: ArrayList<Vegetable> = ArrayList()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {

@@ -1446,6 +1446,7 @@ id already_user
 id always
 id async
 id auto
+id backHome
 id backToLoginBtn
 id barrier
 id batchName
@@ -1491,7 +1492,8 @@ id center
 id center_horizontal
 id center_vertical
 id chains
-id change_pass
+id changePass
+id changePassBtn
 id checkbox
 id checked
 id chronometer
@@ -1500,6 +1502,7 @@ id clip_vertical
 id collapseActionView
 id combinedChart
 id combinedChart1
+id confirmNewPass
 id confirmPassword
 id container
 id content
@@ -1667,12 +1670,14 @@ id nav_vegetable
 id nav_view
 id navigation_header_container
 id never
+id newPass
 id none
 id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
 id off
+id oldPass
 id on
 id op1
 id op2
@@ -2126,6 +2131,7 @@ string attachment_summary_off
 string attachment_summary_on
 string attachment_title
 string back
+string back_home_vi
 string batch_add_failed
 string batch_add_success
 string block_user_vi
@@ -2182,12 +2188,14 @@ string error_garden_exist
 string error_invalid_email
 string error_invalid_email_exits
 string error_match_password
+string error_match_password_1
 string error_message_age
 string error_message_confirm_password
 string error_message_email
 string error_message_name
 string error_message_password
 string error_name_batch
+string error_old_password
 string error_password_match
 string error_start_date_batch
 string error_to_smaller_from

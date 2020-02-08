@@ -310,10 +310,8 @@ class Database(context: Context?) :
         val db = this.writableDatabase
 
         val values = ContentValues()
-        values.put(COLUMN_CREATEDBY, user.fullName)
-        values.put(COLUMN_USER_EMAIL, user.email)
         values.put(COLUMN_USER_PASSWORD, user.password)
-        values.put(COLUMN_USER_GENDER, user.gender)
+        values.put(COLUMN_UPDATED_DATE, user.updatedDate)
 
         // updating row
         db.update(

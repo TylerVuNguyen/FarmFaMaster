@@ -95,6 +95,7 @@
     <string name="confirm_passoword_vi">nhập lại mật khẩu</string>
     <string name="confirm_passoword_new_vi">nhập lại mật khẩu</string>
     <string name="already_user_vi">Bạn đã có tài khoản? đăng nhập ngay.</string>
+    <string name="back_home_vi">Quay lại trang chủ</string>
     <!--the end sign up-->
 
     <!--quantity-->
@@ -105,6 +106,8 @@
     <!--error VI-->
     <string name="error_empty_common">Trường này không được để trống !</string>
     <string name="error_match_password">Mật khẩu đăng ký không khớp !</string>
+    <string name="error_match_password_1">Mật khẩu mới không khớp !</string>
+    <string name="error_old_password">Mật khẩu cũ không đúng !</string>
     <string name="error_invalid_email">Trường email không hợp lệ !</string>
     <string name="error_invalid_email_exits">Email đã tồn tại !</string>
     <string name="sign_up_success">Đăng ký thành công !</string>

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-226:12
-INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-226:12
-INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-226:12
-INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-226:12
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-228:12
+INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-228:12
+INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-228:12
+INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-228:12
 MERGED from [ir.farshid_roohi:linegraph:0.1.1] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\35849f6afa5c3d1459ad8c65bbcc366e\linegraph-0.1.1\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.navigation:navigation-ui-ktx:2.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\f1781561c1d454596a44c5638724cde1\navigation-ui-ktx-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-ui:2.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\cacbdd794a3c464e3557e02468a54ce3\jetified-navigation-ui-2.0.0\AndroidManifest.xml:17:1-22:12
@@ -78,20 +78,20 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [androidx.print:print:1.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\a4efba1ac7f714b2298184d98d747521\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\fec5405cf7ccd3b4c8d626d6216b1e89\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-database-collection:17.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\bafcb63d6e133900c9df02cbe50cff04\firebase-database-collection-17.0.0\AndroidManifest.xml:2:1-7:12
-INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-226:12
-INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-226:12
-INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-226:12
+INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-228:12
+INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-228:12
+INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-228:12
 	package
 		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:3:5-36
 		INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml
 		INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-226:12
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-228:12
 		INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-226:12
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-228:12
 		INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:11-69
@@ -140,7 +140,7 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.0] C:
 	android:name
 		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:9:22-76
 application
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:11:5-224:19
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:11:5-226:19
 MERGED from [com.karumi:dexter:5.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\64f3c346ab16c3bdfb5112d4f9792b77\jetified-dexter-5.0.0\AndroidManifest.xml:26:5-30:19
 MERGED from [com.karumi:dexter:5.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\64f3c346ab16c3bdfb5112d4f9792b77\jetified-dexter-5.0.0\AndroidManifest.xml:26:5-30:19
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\c2ba22029843c0f2d33a93c9e5ecd889\material-1.0.0\AndroidManifest.xml:22:5-20
@@ -209,10 +209,6 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\NG
 		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:12:9-35
 	android:theme
 		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:17:9-40
-activity#com.appveg.farmfamily.ui.login.ChangePasswordActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:18:9-78
-	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:18:19-66
 activity#com.appveg.farmfamily.ui.param.ParamDetailActivity
 ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:19:9-26:20
 	android:parentActivityName
@@ -437,6 +433,12 @@ ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:220:9-223:59
 		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:223:13-56
 	android:name
 		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:221:13-49
+activity#com.appveg.farmfamily.ui.login.ChangePasswordActivity
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:224:9-225:59
+	android:theme
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:225:13-56
+	android:name
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:224:19-66
 uses-sdk
 INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml

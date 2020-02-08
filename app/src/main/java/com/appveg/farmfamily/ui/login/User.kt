@@ -85,5 +85,15 @@ class User {
         this.status = status
         this.roleId = roleId
     }
+
+    constructor(
+        id: Int?,
+        password: String?,
+        updatedDate: String?
+    ) {
+        this.id = id
+        this.password = password
+        this.updatedDate = updatedDate
+    }
     constructor()
 }

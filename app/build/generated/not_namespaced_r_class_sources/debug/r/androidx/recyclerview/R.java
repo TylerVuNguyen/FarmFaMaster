@@ -108,36 +108,36 @@ public final class R {
         public static final int action_text = 0x7f09003a;
         public static final int actions = 0x7f09003b;
         public static final int async = 0x7f09007a;
-        public static final int blocking = 0x7f090082;
-        public static final int bottom = 0x7f090083;
-        public static final int chronometer = 0x7f0900ac;
-        public static final int end = 0x7f0900e1;
-        public static final int forever = 0x7f0900ed;
-        public static final int icon = 0x7f090101;
-        public static final int icon_group = 0x7f090104;
-        public static final int info = 0x7f090113;
-        public static final int italic = 0x7f090115;
-        public static final int item_touch_helper_previous_elevation = 0x7f090116;
-        public static final int left = 0x7f09011f;
-        public static final int line1 = 0x7f090121;
-        public static final int line3 = 0x7f090122;
-        public static final int none = 0x7f090159;
-        public static final int normal = 0x7f09015a;
-        public static final int notification_background = 0x7f09015b;
-        public static final int notification_main_column = 0x7f09015c;
-        public static final int notification_main_column_container = 0x7f09015d;
-        public static final int right = 0x7f090193;
-        public static final int right_icon = 0x7f090194;
-        public static final int right_side = 0x7f090195;
-        public static final int start = 0x7f0901cd;
-        public static final int tag_transition_group = 0x7f0901dd;
-        public static final int tag_unhandled_key_event_manager = 0x7f0901de;
-        public static final int tag_unhandled_key_listeners = 0x7f0901df;
-        public static final int text = 0x7f0901f0;
-        public static final int text2 = 0x7f0901f1;
-        public static final int time = 0x7f090202;
-        public static final int title = 0x7f090203;
-        public static final int top = 0x7f09020a;
+        public static final int blocking = 0x7f090083;
+        public static final int bottom = 0x7f090084;
+        public static final int chronometer = 0x7f0900ae;
+        public static final int end = 0x7f0900e4;
+        public static final int forever = 0x7f0900f0;
+        public static final int icon = 0x7f090104;
+        public static final int icon_group = 0x7f090107;
+        public static final int info = 0x7f090116;
+        public static final int italic = 0x7f090118;
+        public static final int item_touch_helper_previous_elevation = 0x7f090119;
+        public static final int left = 0x7f090122;
+        public static final int line1 = 0x7f090124;
+        public static final int line3 = 0x7f090125;
+        public static final int none = 0x7f09015d;
+        public static final int normal = 0x7f09015e;
+        public static final int notification_background = 0x7f09015f;
+        public static final int notification_main_column = 0x7f090160;
+        public static final int notification_main_column_container = 0x7f090161;
+        public static final int right = 0x7f090198;
+        public static final int right_icon = 0x7f090199;
+        public static final int right_side = 0x7f09019a;
+        public static final int start = 0x7f0901d2;
+        public static final int tag_transition_group = 0x7f0901e2;
+        public static final int tag_unhandled_key_event_manager = 0x7f0901e3;
+        public static final int tag_unhandled_key_listeners = 0x7f0901e4;
+        public static final int text = 0x7f0901f5;
+        public static final int text2 = 0x7f0901f6;
+        public static final int time = 0x7f090207;
+        public static final int title = 0x7f090208;
+        public static final int top = 0x7f09020f;
     }
     public static final class integer {
         private integer() {}
@@ -157,7 +157,7 @@ public final class R {
     public static final class string {
         private string() {}
 
-        public static final int status_bar_notification_info_overflow = 0x7f1000c6;
+        public static final int status_bar_notification_info_overflow = 0x7f1000c9;
     }
     public static final class style {
         private style() {}

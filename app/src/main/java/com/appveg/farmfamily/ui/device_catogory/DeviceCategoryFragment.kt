@@ -126,7 +126,7 @@ class DeviceCategoryFragment : Fragment() {
         database = Database(activity)
         deviceCategories = database.findAllDeviceCategory()
         if (deviceCategories.isNullOrEmpty()) {
-            Toast.makeText(activity, "Dánh sách rau đang trống !", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, "Dánh sách thiết bị đang trống !", Toast.LENGTH_LONG).show()
         }
         return deviceCategories
     }

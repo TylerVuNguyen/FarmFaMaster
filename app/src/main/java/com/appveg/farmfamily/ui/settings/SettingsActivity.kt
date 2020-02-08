@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceFragmentCompat
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
+import com.appveg.farmfamily.ui.login.ChangePasswordActivity
 import com.appveg.farmfamily.ui.login.LoginActivity
 import com.appveg.farmfamily.ui.login.User
 import kotlinx.android.synthetic.main.settings_activity.*
@@ -48,7 +49,11 @@ class SettingsActivity : AppCompatActivity() {
             alert.setTitle("Đăng xuất")
             // show alert dialog
             alert.show()
+        }
 
+        changePass.setOnClickListener {
+            val intent: Intent = Intent(this, ChangePasswordActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -62,7 +67,7 @@ class SettingsActivity : AppCompatActivity() {
         users = database.getAllUser()
         if(!users.isNullOrEmpty()){
             for (item in 0 until users.size ){
-                if( 1 == users[item].status){
+                if(2 == users[item].status){
                     var id = database.updateStatusByUserNameEmail(users[item].email!!,0)
                 }
             }
