@@ -9,7 +9,6 @@ import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.core.app.ActivityCompat
@@ -74,6 +73,7 @@ class AddDeviceActivity : AppCompatActivity() {
 
             }
         }
+
     }
 
     /**
@@ -103,7 +103,7 @@ class AddDeviceActivity : AppCompatActivity() {
         }
 
         add_image_device_4.setOnClickListener {
-            var device_name_4 = "Máy bơm"
+            var device_name_4 = "Máy bơm dung dịch"
             var device_img = R.drawable.maybo2
             this.selected_image_device.setImageResource(device_img)
             this.device_name.setText(device_name_4)
@@ -139,6 +139,27 @@ class AddDeviceActivity : AppCompatActivity() {
             this.device_name.setText(device_name_8)
             this.device_name.setSelection(device_name.text.length)
         }
+        add_image_device_9.setOnClickListener {
+            var device_name_9 = "Cảm biến độ ẩm"
+            var device_img = R.drawable.doamoo
+            this.selected_image_device.setImageResource(device_img)
+            this.device_name.setText(device_name_9)
+            this.device_name.setSelection(device_name.text.length)
+        }
+        add_image_device_10.setOnClickListener {
+            var device_name_10 = "Máy bơm phun sương"
+            var device_img = R.drawable.maybomphunsuong
+            this.selected_image_device.setImageResource(device_img)
+            this.device_name.setText(device_name_10)
+            this.device_name.setSelection(device_name.text.length)
+        }
+        add_image_device_11.setOnClickListener {
+            var device_name_11 = "Cảm biến siêu âm"
+            var device_img = R.drawable.sieuam
+            this.selected_image_device.setImageResource(device_img)
+            this.device_name.setText(device_name_11)
+            this.device_name.setSelection(device_name.text.length)
+        }
     }
 
     private fun actionButton() {
@@ -148,13 +169,13 @@ class AddDeviceActivity : AppCompatActivity() {
         }
 
         /*event call camera*/
-        add_camera_device.setOnClickListener {
-            getImageFromCamera()
-        }
+//        add_camera_device.setOnClickListener {
+//            getImageFromCamera()
+//        }
         /*event call image*/
-        add_image_device.setOnClickListener {
-            getImageFromGallery()
-        }
+//        add_image_device.setOnClickListener {
+//            getImageFromGallery()
+//        }
 
         /*event cancel*/
         cancel_action_device.setOnClickListener {
@@ -183,11 +204,12 @@ class AddDeviceActivity : AppCompatActivity() {
     private fun addDeviceAndDeviceDetail() {
         database = Database(activity)
         var deviceName = device_name.text.toString().trim()
-        // var deviceCategoryName = selected.toString()
+
         var deviceCategoryId = device_category_id.toInt()
 
         var checkDeviceName = checkDeviceName(deviceName)
         var checkDeviceCategory = checkDeviceCategory(deviceCategoryId)
+
 
         /*format date*/
         val current = Calendar.getInstance().time
@@ -220,13 +242,13 @@ class AddDeviceActivity : AppCompatActivity() {
             }
             // have two case
             if (!exits) {
-                var temp_id = database.addDeviceImageDefault(device)
-                if (temp_id != null) {
+                var tempId = database.addDeviceImageDefault(device)
+                if (tempId != null) {
                     var deviceDetail = DeviceDetail(
                         null,
                         codeDeviceDetail,
                         image,
-                        temp_id.toInt(),
+                        tempId.toInt(),
                         "N",
                         "admin",
                         formatted
@@ -291,9 +313,9 @@ class AddDeviceActivity : AppCompatActivity() {
             Toast.makeText(this, R.string.image_no_select_vi, Toast.LENGTH_SHORT).show()
             return false
         }
-        Log.d("CAT", check.size.toString())
         return true
     }
+
 
     /**
      * This method is to get permissions
@@ -385,5 +407,6 @@ class AddDeviceActivity : AppCompatActivity() {
         }
         return categories
     }
+
 
 }

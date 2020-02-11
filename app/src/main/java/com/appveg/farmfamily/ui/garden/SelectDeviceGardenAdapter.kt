@@ -171,7 +171,7 @@ class SelectDeviceGardenAdapter(
             var pattern: Pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+")
             var gardenNameEn = pattern.matcher(temp).replaceAll("")
 
-            result = gardenNameEn.trim().replace(" ", "").toUpperCase()
+            result = gardenNameEn.trim().replace(" ", "").replace("đ", "d").toUpperCase()
         }
         return result
     }

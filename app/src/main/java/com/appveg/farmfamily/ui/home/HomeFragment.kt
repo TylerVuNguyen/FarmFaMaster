@@ -24,7 +24,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-
         //hien thi grid layout
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         var grid = root.findViewById<GridView>(R.id.fragment_khuvuon)
@@ -33,7 +32,7 @@ class HomeFragment : Fragment() {
         grid.adapter = this.activity?.let {KhuVuonAdapter (it, gardens) }
 
         grid.setOnItemClickListener { adapterView, view, i, l ->
-            var intent : Intent = Intent(activity, DetailGarden::class.java)
+            var intent : Intent = Intent(activity, DetailGardenActivity::class.java)
             var gardenCode = gardens[i].gardenCode
             var id = gardens[i].gardenId
             intent.putExtra("garden_code", gardenCode)

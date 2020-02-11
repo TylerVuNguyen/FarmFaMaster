@@ -28,6 +28,8 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.appveg.farmfamily.ui.share.SubstanceMassDetailActivity" />
+        <activity android:name="com.appveg.farmfamily.ui.share.SubstanceMassActivity" />
         <activity
             android:name="com.appveg.farmfamily.ui.param.ParamDetailActivity"
             android:label="Chi tiết tham số"
@@ -117,12 +119,12 @@
                 android:value="com.appveg.farmfamily.ui.chart.ChartActivity" />
         </activity>
         <activity
-            android:name="com.appveg.farmfamily.ui.home.DetailGarden"
+            android:name="com.appveg.farmfamily.ui.home.DetailGardenActivity"
             android:label="Thông tin khu vườn"
-            android:parentActivityName="com.appveg.farmfamily.ui.home.DetailGarden" >
+            android:parentActivityName="com.appveg.farmfamily.ui.home.DetailGardenActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.appveg.farmfamily.ui.home.DetailGarden" />
+                android:value="com.appveg.farmfamily.ui.home.DetailGardenActivity" />
         </activity>
         <activity
             android:name="com.appveg.farmfamily.ui.vegetable.EditVegetableActivity"

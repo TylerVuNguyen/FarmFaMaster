@@ -272,7 +272,7 @@ class ThemKhuVuonActivity : AppCompatActivity() {
             var pattern: Pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+")
             var garden_name_en = pattern.matcher(temp).replaceAll("")
 
-            result = garden_name_en.trim().replace(" ", "").toUpperCase()
+            result = garden_name_en.trim().replace(" ", "").replace("đ", "d").toUpperCase()
         }
         return result
     }

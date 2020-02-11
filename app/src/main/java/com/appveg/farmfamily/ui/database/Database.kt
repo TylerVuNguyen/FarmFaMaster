@@ -152,7 +152,7 @@ class Database(context: Context?) :
 
         val CREATE_DEVICE_DETAIL_TABLE =
             ("CREATE TABLE " + TABLE_DEVICE_DETAIL + "(device_detail_id INTEGER PRIMARY KEY AUTOINCREMENT,device_detail_code VARCHAR(100)," +
-                    "device_detail_code_ss VARCHAR(100),device_detail_image BLOB,device_detail_status VARCHAR(50),device_id INTEGER,garden_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+                    "device_detail_code_ss VARCHAR(100), device_detail_image BLOB,device_detail_status VARCHAR(50),device_id INTEGER,garden_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
                     "deleted_date VARCHAR(50),deleted_flag INTEGER)")
 
         val CREATE_DEVICE_CATEGORY_TABLE  =
@@ -1261,6 +1261,7 @@ class Database(context: Context?) :
                 device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
                 garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
+
                 val device = DeviceDetail(device_detail_id,device_detail_code,device_detail_image,device_detail_status,device_id,garden_id)
                 deviceDetailList.add(device)
             } while (cursor.moveToNext())
@@ -1480,6 +1481,7 @@ class Database(context: Context?) :
         var device_detail_status : String
         var device_id : Int
         var garden_id : Int
+        var device_using:String
         if (cursor.moveToFirst()) {
             do {
                 device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
@@ -1491,7 +1493,55 @@ class Database(context: Context?) :
                 device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
                 garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
+
                 val device = DeviceDetail(device_detail_id,device_detail_code,device_detail_image,device_detail_status,device_id,garden_id)
+                deviceDetailList.add(device)
+            } while (cursor.moveToNext())
+        }
+        cursor?.close()
+        return deviceDetailList
+    }
+
+    /**
+     * This method to find all device detail for garden
+     *
+     * @param no data
+     * @return ArrayList
+     */
+    fun findAllDeviceByGardenIdForInfo(gardenId: Int):ArrayList<DeviceDetail>{
+        val deviceDetailList:ArrayList<DeviceDetail> = ArrayList()
+        val selectQuery = "SELECT  * FROM $TABLE_DEVICE_DETAIL WHERE $COLUMN_GARDEN_ID = $gardenId"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            db.execSQL(selectQuery)
+            return ArrayList()
+        }
+        var device_detail_id: Int
+        var device_detail_code: String
+        var device_detail_image : ByteArray
+        var device_detail_status : String
+        var device_id : Int
+        var garden_id : Int
+        var device_using:String
+        var device_detail_code_ss: String
+        if (cursor.moveToFirst()) {
+            do {
+                device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
+                device_detail_code = cursor.getString(cursor.getColumnIndex(
+                    COLUMN_DEVICE_DETAIL_CODE))
+                device_detail_image= cursor.getBlob(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
+                device_detail_status= cursor.getString(cursor.getColumnIndex(
+                    COLUMN_DEVICE_DETAIL_STATUS))
+                device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
+                garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
+
+                device_detail_code_ss = cursor.getString(cursor.getColumnIndex(
+                    COLUMN_DEVICE_DETAIL_CODE_SS))
+
+                val device = DeviceDetail(device_detail_id,device_detail_code,device_detail_code_ss,device_detail_image,device_detail_status,device_id,garden_id)
                 deviceDetailList.add(device)
             } while (cursor.moveToNext())
         }

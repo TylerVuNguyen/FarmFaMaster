@@ -16,11 +16,12 @@ import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device_catogory.DeviceCategory
-import com.appveg.farmfamily.ui.vegetable.Vegetable
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_add_device.*
 import kotlinx.android.synthetic.main.activity_edit_device.*
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_1
+import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_10
+import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_11
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_2
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_3
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_4
@@ -28,11 +29,13 @@ import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_5
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_6
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_7
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_8
+import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_9
 import kotlinx.android.synthetic.main.activity_edit_vegetable.*
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class EditDeviceActivity : AppCompatActivity() {
     var activity = this@EditDeviceActivity
@@ -44,8 +47,6 @@ class EditDeviceActivity : AppCompatActivity() {
     private var REQUEST_CODE_FOLDER: Int = 124
 
     private lateinit var database: Database
-
-    var devices: ArrayList<Device> = ArrayList()
 
     private var deviceCategories: ArrayList<DeviceCategory> = ArrayList()
 
@@ -82,6 +83,8 @@ class EditDeviceActivity : AppCompatActivity() {
 
             }
         }
+
+
         // function init data for edit
         initDataEdit()
     }
@@ -113,7 +116,7 @@ class EditDeviceActivity : AppCompatActivity() {
         }
 
         add_image_device_4.setOnClickListener {
-            var device_name_4 = "Máy bơm"
+            var device_name_4 = "Máy bơm dung dịch"
             var device_img = R.drawable.maybo2
             this.selected_image_device_edit.setImageResource(device_img)
             this.device_name_edit.setText(device_name_4)
@@ -149,6 +152,27 @@ class EditDeviceActivity : AppCompatActivity() {
             this.device_name_edit.setText(device_name_8)
             this.device_name_edit.setSelection(device_name_edit.text.length)
         }
+        add_image_device_9.setOnClickListener {
+            var device_name_9 = "Cảm biến độ ẩm"
+            var device_img = R.drawable.doamoo
+            this.selected_image_device_edit.setImageResource(device_img)
+            this.device_name_edit.setText(device_name_9)
+            this.device_name_edit.setSelection(device_name.text.length)
+        }
+        add_image_device_10.setOnClickListener {
+            var device_name_10 = "Máy bơm phun sương"
+            var device_img = R.drawable.maybomphunsuong
+            this.selected_image_device_edit.setImageResource(device_img)
+            this.device_name_edit.setText(device_name_10)
+            this.device_name_edit.setSelection(device_name.text.length)
+        }
+        add_image_device_11.setOnClickListener {
+            var device_name_11 = "Cảm biến siêu âm"
+            var device_img = R.drawable.sieuam
+            this.selected_image_device_edit.setImageResource(device_img)
+            this.device_name_edit.setText(device_name_11)
+            this.device_name_edit.setSelection(device_name.text.length)
+        }
     }
 
     private fun actionButton() {
@@ -157,14 +181,14 @@ class EditDeviceActivity : AppCompatActivity() {
             updateDeviceAndDeviceDetail()
         }
 
-        /*event call camera*/
-        add_camera_device_edit.setOnClickListener {
-            getImageFromCamera()
-        }
-        /*event call image*/
-        add_image_device_edit.setOnClickListener {
-            getImageFromGallery()
-        }
+//        /*event call camera*/
+//        add_camera_device_edit.setOnClickListener {
+//            getImageFromCamera()
+//        }
+//        /*event call image*/
+//        add_image_device_edit.setOnClickListener {
+//            getImageFromGallery()
+//        }
 
         /*event cancel*/
         cancel_action_device_edit.setOnClickListener {
@@ -319,10 +343,9 @@ class EditDeviceActivity : AppCompatActivity() {
      */
     private fun getDataFromItent(): Int {
         val bundle: Bundle = intent.extras
-        val id: Int =
-            bundle.get("device_id") as Int
-        return id
+        return bundle.get("device_id") as Int
     }
+
 
     /**
      * This method is to remove data
@@ -332,7 +355,6 @@ class EditDeviceActivity : AppCompatActivity() {
 
         // gán lại id để tý update data
         var device: Device = getDeviceById(device_id)
-
 
         var imageBitmap: ByteArray? = device.deviceImg
         var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap, 0, imageBitmap!!.size)
@@ -347,7 +369,7 @@ class EditDeviceActivity : AppCompatActivity() {
     /**
      * the method to get batch by id
      */
-    fun getDeviceById(device_id: Int): Device {
+    private fun getDeviceById(device_id: Int): Device {
         database = Database(activity)
         var device: Device = Device()
         if (device_id != null) {
@@ -369,5 +391,16 @@ class EditDeviceActivity : AppCompatActivity() {
             }
         }
         return categories
+    }
+
+
+    /**
+     * This method is to get list category
+     */
+    private fun getListUsing(): ArrayList<String> {
+        var uses: ArrayList<String> = ArrayList()
+        uses.add("Hiển thị thông tin")
+        uses.add("Điều khiển")
+        return uses
     }
 }

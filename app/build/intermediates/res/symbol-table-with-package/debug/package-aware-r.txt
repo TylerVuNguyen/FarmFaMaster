@@ -1220,6 +1220,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable dinhduong
 drawable doam
+drawable doamoo
 drawable doph
 drawable dualeo
 drawable googleg_disabled_color_18
@@ -1242,8 +1243,11 @@ drawable ic_email
 drawable ic_getin
 drawable ic_gioitinh
 drawable ic_image_black_24dp
+drawable ic_k_mua
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_level_loading
+drawable ic_level_warter
 drawable ic_lock_white_24dp
 drawable ic_may_bom
 drawable ic_may_bom_0
@@ -1268,6 +1272,7 @@ drawable ic_menu_veg
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_mua
 drawable ic_nhietdo_sun
 drawable ic_person_white_24dp
 drawable ic_ph
@@ -1287,6 +1292,7 @@ drawable logo6
 drawable logo7border
 drawable mau_menu
 drawable maybo2
+drawable maybomphunsuong
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable mua
@@ -1316,6 +1322,7 @@ drawable raucai
 drawable raumuong
 drawable scroll_vertical_thumnb
 drawable side_nav_bar
+drawable sieuam
 drawable tds
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1390,11 +1397,8 @@ id addQty_edit
 id addSoSL
 id addSoSL_edit
 id add_camera
-id add_camera_device
-id add_camera_device_edit
 id add_camera_edit
 id add_device_category_edit
-id add_device_category_progressbar_edit
 id add_device_grid
 id add_garden_camera
 id add_garden_image
@@ -1415,8 +1419,9 @@ id add_image7
 id add_image7_edit
 id add_image8
 id add_image8_edit
-id add_image_device
 id add_image_device_1
+id add_image_device_10
+id add_image_device_11
 id add_image_device_2
 id add_image_device_3
 id add_image_device_4
@@ -1424,7 +1429,7 @@ id add_image_device_5
 id add_image_device_6
 id add_image_device_7
 id add_image_device_8
-id add_image_device_edit
+id add_image_device_9
 id add_image_edit
 id add_image_garden_1
 id add_image_garden_2
@@ -1485,9 +1490,6 @@ id cancel_action_garden_edit
 id cancel_action_param
 id cancel_action_veg
 id cancel_action_veg_edit
-id category_image4
-id category_image5
-id category_image6
 id center
 id center_horizontal
 id center_vertical
@@ -1528,9 +1530,6 @@ id device_category_image2
 id device_category_image2_edit
 id device_category_image3
 id device_category_image3_edit
-id device_category_image4_edit
-id device_category_image5_edit
-id device_category_image6_edit
 id device_category_name
 id device_category_name_edit
 id device_checked
@@ -1566,6 +1565,7 @@ id forever
 id forgot_button
 id fragment_khuvuon
 id fragment_qlkv
+id fragment_substance_mass
 id fullName
 id garden_btn_add
 id garden_btn_print
@@ -1581,6 +1581,13 @@ id group_divider
 id groups
 id home
 id homeAsUp
+id home_info_icon
+id home_info_icon_rain
+id home_info_status
+id home_info_status_rain
+id home_info_title
+id home_info_title_image
+id home_info_value
 id humidity
 id icon
 id icon_action
@@ -1590,7 +1597,6 @@ id icon_only
 id ifRoom
 id image
 id imageView
-id imageView1
 id image_view_garden
 id img_device_category
 id img_device_for_garden
@@ -1613,6 +1619,7 @@ id layout_no_data_device
 id layout_no_data_veg
 id layoutroom_screenshot
 id left
+id level_tds
 id light
 id line1
 id line3
@@ -1719,6 +1726,7 @@ id radio
 id radioGenderGroup
 id radioNam
 id radioNu
+id rain_status
 id rain_text
 id rain_text1
 id recycler_view
@@ -1834,7 +1842,6 @@ id textViewPickKT_edit
 id textViewPickStart
 id textViewPickStart_edit
 id text_input_password_toggle
-id text_share
 id text_view_garden
 id textinput_counter
 id textinput_error
@@ -1890,6 +1897,9 @@ id view_device_num
 id view_error
 id view_offset_helper
 id view_param_btn_print
+id view_substance_image
+id view_substance_name
+id view_substance_num
 id view_user_full_name
 id view_users_email
 id view_veg_param_image
@@ -1986,6 +1996,8 @@ layout activity_select_device_garden
 layout activity_select_veg_garden
 layout activity_sua_dot_san_luong
 layout activity_sua_khu_vuon
+layout activity_substance_mass
+layout activity_substance_mass_detail
 layout activity_them_dot_san_luong
 layout activity_them_khu_vuon
 layout app_bar_main
@@ -2023,6 +2035,9 @@ layout layout_device
 layout layout_device_detail
 layout layout_device_for_garden
 layout layout_device_for_garden_1
+layout layout_device_home_control
+layout layout_device_home_info
+layout layout_device_home_info_1
 layout layout_khuvuon
 layout layout_khuvuon_cua_sanluong
 layout layout_list_device_category
@@ -2030,6 +2045,8 @@ layout layout_listview_garden
 layout layout_listview_garden_area
 layout layout_param
 layout layout_ql_khuvuon
+layout layout_substance_mass
+layout layout_substance_mass_detail
 layout layout_users
 layout layout_veg_for_garden
 layout layout_veg_for_garden_1
@@ -2089,6 +2106,11 @@ mipmap ic_nhietdo
 mipmap ic_nhietdo_foreground
 mipmap ic_nhietdo_round
 navigation mobile_navigation
+string Do_ph_vi
+string Hum_vi
+string OFF_vi
+string ON_vi
+string TDS_vi
 string Veg_Empty_Message_vi
 string Veg_title_vi
 string abc_action_bar_home_description
@@ -2182,6 +2204,9 @@ string error_device_exist
 string error_email_exists
 string error_empty_common
 string error_empty_device_category_common
+string error_empty_device_home_control
+string error_empty_device_home_info
+string error_empty_device_using_common
 string error_empty_veg_category_common
 string error_end_date_batch
 string error_garden_exist
@@ -2228,7 +2253,9 @@ string hint_password
 string image_no_select_vi
 string insert_data_fail_vi
 string insert_data_success_vi
+string lamp_mode_vi
 string language_vi_en
+string level_TDS_vi
 string location
 string log_out_system_vi
 string login
@@ -2244,10 +2271,13 @@ string menu_users
 string menu_vegetable
 string message_Setting_vi
 string message_no_setting_param
+string message_rain_vi
 string message_setting_param
 string message_unSetting_vi
 string messages_header
 string mobileNumber
+string motor_phun_suong_mode_vi
+string motor_tds_mode_vi
 string mtrl_chip_close_icon_content_description
 string name_device_vi
 string name_kv_vi
@@ -2275,6 +2305,7 @@ string path_password_strike_through
 string preference_copied
 string print_vi
 string project_id
+string rain_mode_vi
 string registered_emailid
 string reply_title
 string search_menu_title
@@ -2298,15 +2329,18 @@ string summary_collapsed_preference_list
 string sync_header
 string sync_title
 string temp_param_vi
+string temp_vi
 string terms_conditions
 string text_accounts
 string text_already_member
 string text_login
 string text_not_member
 string text_register
+string thong_ke_vi
 string title_activity_settings
 string title_context_menu
 string to_vi
+string unknown_vi
 string update_data_fail_vi
 string update_data_success_vi
 string update_vi

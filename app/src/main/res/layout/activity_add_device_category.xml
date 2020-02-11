@@ -76,41 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:visibility="gone"
-
                 />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <ImageView
-                    android:id="@+id/category_image4"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:padding="7dp"
-                    />
-
-                <!--    button to show picker diaglog-->
-
-                <ImageView
-                    android:id="@+id/category_image5"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:padding="7dp"
-                    android:scaleType="centerInside"
-                    />
-
-
-                <ImageView
-                    android:id="@+id/category_image6"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:padding="7dp"
-                    android:scaleType="centerInside"
-                    />
-
-            </TableRow>
 
         </TableLayout>
 

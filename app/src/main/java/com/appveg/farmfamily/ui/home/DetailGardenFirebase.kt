@@ -2,17 +2,14 @@ package com.appveg.farmfamily.ui.home
 
 class DetailGardenFirebase {
     var timestamp : Long? = null
-    var Rain : String? = null
-    var Temperature : String? = ""
-    var Humidity : String? =""
+    var value : String? = null
 
     constructor()
 
-    constructor(timestamp: Long?,Rain: String?, Temperature: String?, humidity: String?) {
+    constructor(timestamp: Long?, value: String?) {
         this.timestamp = timestamp
-        this.Rain = Rain
-        this.Temperature = Temperature
-        this.Humidity = Humidity
+        this.value = value
     }
+
 
 }

@@ -99,7 +99,7 @@ class DeviceFragment : Fragment() {
     /**
      * the method to display device
      */
-    fun getListDevice() : ArrayList<Device>{
+    private fun getListDevice() : ArrayList<Device>{
         database = Database(activity)
         devices = database.findAllDevice()
         if (devices.isNullOrEmpty()) {

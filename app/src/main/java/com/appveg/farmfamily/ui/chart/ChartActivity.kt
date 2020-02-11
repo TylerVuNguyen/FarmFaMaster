@@ -43,7 +43,7 @@ class ChartActivity : AppCompatActivity(), OnChartValueSelectedListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chart)
         // take info temp
-        gardenInfo()
+        //gardenInfo()
         btn_chart_print.setOnClickListener {
             takeScreenshot()
         }
@@ -206,51 +206,51 @@ class ChartActivity : AppCompatActivity(), OnChartValueSelectedListener {
         return set
     }
 
-    /**
-     * the method to get data from intent
-     */
-    private fun gardenInfo() {
-        database = FirebaseDatabase.getInstance().reference
-        // My top posts by number of stars
-        var garden = getDataFromItent()
-        var gardenChild = getDataFromItent() + "D1"
-        // My top posts by number of stars
-        database.child(garden).child(gardenChild).addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                var arrayListOf = ArrayList<Float>()
-                var arrayListTemp = ArrayList<String>()
-
-                var arrayListOf1 = ArrayList<Float>()
-                var arrayListTemp1 = ArrayList<String>()
-
-                for (postSnapshot in dataSnapshot.children) {
-                    var chartGarden: DetailGardenFirebase? =
-                        postSnapshot.getValue(DetailGardenFirebase::class.java)
-                    arrayListOf.add(chartGarden?.Humidity?.split(" ")!![0].toFloat())
-                    arrayListOf1.add(chartGarden?.Temperature?.split(" ")!![0].toFloat())
-
-                    val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
-                    val formatted: String = formatter.format(Date(chartGarden.timestamp!!))
-
-                    val formatter1: SimpleDateFormat = SimpleDateFormat("HH:mm")
-                    val dayOnly: String = formatter1.format(Date(chartGarden.timestamp!!))
-                    title_chart.text = "Biểu đồ độ ẩm, " + formatted
-                    title_chart_1.text = "Biểu đồ nhiệt độ, " + formatted
-
-                    arrayListTemp.add(dayOnly)
-                    arrayListTemp1.add(dayOnly)
-                }
-                buildChart(arrayListOf, arrayListTemp)
-                buildChart1(arrayListOf1, arrayListTemp1)
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                // Getting Post failed, log a message
-                Log.w("AAA", "loadPost:onCancelled", databaseError.toException())
-                // ...
-            }
-        })
-    }
+//    /**
+//     * the method to get data from intent
+//     */
+//    private fun gardenInfo() {
+//        database = FirebaseDatabase.getInstance().reference
+//        // My top posts by number of stars
+//        var garden = getDataFromItent()
+//        var gardenChild = getDataFromItent() + "D1"
+//        // My top posts by number of stars
+//        database.child(garden).child(gardenChild).addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(dataSnapshot: DataSnapshot) {
+//                var arrayListOf = ArrayList<Float>()
+//                var arrayListTemp = ArrayList<String>()
+//
+//                var arrayListOf1 = ArrayList<Float>()
+//                var arrayListTemp1 = ArrayList<String>()
+//
+//                for (postSnapshot in dataSnapshot.children) {
+//                    var chartGarden: DetailGardenFirebase? =
+//                        postSnapshot.getValue(DetailGardenFirebase::class.java)
+//                    arrayListOf.add(chartGarden?.Humidity?.split(" ")!![0].toFloat())
+//                    arrayListOf1.add(chartGarden?.Temperature?.split(" ")!![0].toFloat())
+//
+//                    val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
+//                    val formatted: String = formatter.format(Date(chartGarden.timestamp!!))
+//
+//                    val formatter1: SimpleDateFormat = SimpleDateFormat("HH:mm")
+//                    val dayOnly: String = formatter1.format(Date(chartGarden.timestamp!!))
+//                    title_chart.text = "Biểu đồ độ ẩm, " + formatted
+//                    title_chart_1.text = "Biểu đồ nhiệt độ, " + formatted
+//
+//                    arrayListTemp.add(dayOnly)
+//                    arrayListTemp1.add(dayOnly)
+//                }
+//                buildChart(arrayListOf, arrayListTemp)
+//                buildChart1(arrayListOf1, arrayListTemp1)
+//            }
+//
+//            override fun onCancelled(databaseError: DatabaseError) {
+//                // Getting Post failed, log a message
+//                Log.w("AAA", "loadPost:onCancelled", databaseError.toException())
+//                // ...
+//            }
+//        })
+//    }
 
     /**
      * the method to get data from intent

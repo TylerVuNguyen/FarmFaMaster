@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+
     <item android:title="Thông tin &amp; điều khiển">
         <menu>
             <item

@@ -20,7 +20,6 @@
             android:id="@+id/device_name"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-
             android:background="@android:color/transparent"
             android:drawablePadding="8dp"
             android:gravity="center_vertical"
@@ -28,6 +27,7 @@
             android:inputType="textCapWords"
             android:padding="10dp"
             android:singleLine="true"
+            android:enabled="false"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
@@ -51,7 +51,6 @@
             android:textColor="@color/black"
             android:textSize="16sp"
             android:spinnerMode="dialog" />
-
 
         <View
             android:layout_width="fill_parent"
@@ -187,36 +186,41 @@
                     android:src="@drawable/anhsangss" />
             </TableRow>
 
-        </TableLayout>
-
-        <TableLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            >
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/add_camera_device"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_menu_camera" />
+                    android:id="@+id/add_image_device_9"
+                    android:layout_width="64dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:src="@drawable/doamoo" />
+
+                <!--    button to show picker diaglog-->
 
                 <ImageView
-                    android:id="@+id/add_image_device"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
+                    android:id="@+id/add_image_device_10"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/ic_menu_gallery" />
+                    android:src="@drawable/maybomphunsuong" />
+
+
+                <ImageView
+                    android:id="@+id/add_image_device_11"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/sieuam" />
+
             </TableRow>
+
         </TableLayout>
 
         <TableLayout
@@ -242,8 +246,8 @@
 
                 <ImageView
                     android:id="@+id/selected_image_device"
-                    android:layout_width="150dp"
-                    android:layout_height="130dp"
+                    android:layout_width="140dp"
+                    android:layout_height="120dp"
                     android:background="@null"
                     android:padding="10dp"
                     android:scaleType="centerInside"

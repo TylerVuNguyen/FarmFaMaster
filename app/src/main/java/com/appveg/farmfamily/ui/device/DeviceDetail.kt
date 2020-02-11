@@ -53,6 +53,24 @@ class DeviceDetail {
     constructor(
         deviceDetailID: Int?,
         deviceDetailCode: String?,
+        deviceDetailCodeSS: String?,
+        deviceDetailImg: ByteArray?,
+        deviceDetailStatus: String?,
+        deviceID: Int?,
+        gardenDetailId: Int?
+    ) {
+        this.deviceDetailID = deviceDetailID
+        this.deviceDetailCode = deviceDetailCode
+        this.deviceDetailCodeSS = deviceDetailCodeSS
+        this.deviceDetailImg = deviceDetailImg
+        this.deviceDetailStatus = deviceDetailStatus
+        this.deviceID = deviceID
+        this.gardenDetailId = gardenDetailId
+    }
+
+    constructor(
+        deviceDetailID: Int?,
+        deviceDetailCode: String?,
         deviceDetailImg: ByteArray?,
         deviceDetailStatus: String?,
         deviceID: Int?,
@@ -65,6 +83,7 @@ class DeviceDetail {
         this.deviceID = deviceID
         this.gardenDetailId = gardenDetailId
     }
+
     constructor(
         deviceDetailID: Int?,
         deviceDetailCode: String?,
