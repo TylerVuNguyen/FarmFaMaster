@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#FFFFFF"
+    android:orientation="vertical"
     tools:context=".ui.device.AddDeviceActivity">
 
 
@@ -12,8 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp"
-        >
+        android:padding="10dp">
 
 
         <EditText
@@ -22,11 +21,11 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:drawablePadding="8dp"
+            android:enabled="false"
             android:gravity="center_vertical"
             android:hint="@string/name_device_vi"
             android:inputType="textCapWords"
             android:padding="10dp"
-            android:enabled="false"
             android:singleLine="true"
             android:textColor="@color/black"
             android:textSize="16sp" />
@@ -48,9 +47,9 @@
             android:inputType="textCapWords"
             android:padding="3dp"
             android:singleLine="true"
+            android:spinnerMode="dialog"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            android:spinnerMode="dialog" />
+            android:textSize="16sp" />
 
 
         <View
@@ -66,9 +65,9 @@
             android:background="@android:color/transparent"
             android:drawablePadding="8dp"
             android:gravity="center_vertical"
-            android:text="@string/choose_img_vi"
             android:padding="10dp"
             android:singleLine="true"
+            android:text="@string/choose_img_vi"
             android:textColorHint="@color/white"
             android:textSize="16sp" />
 
@@ -76,8 +75,6 @@
             android:layout_width="fill_parent"
             android:layout_height="1px"
             android:background="@color/colorPrimary" />
-
-
 
 
         <ProgressBar
@@ -175,7 +172,8 @@
                     android:layout_height="70dp"
                     android:padding="7dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/phunsuong2" />
+                    android:src="@drawable/bacchemua" />
+
                 <ImageView
                     android:id="@+id/add_image_device_8"
                     android:layout_width="80dp"
@@ -216,6 +214,14 @@
                     android:scaleType="centerInside"
                     android:src="@drawable/sieuam" />
 
+                <ImageView
+                    android:id="@+id/add_image_device_12"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/bongden" />
+
             </TableRow>
 
         </TableLayout>
@@ -224,8 +230,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
-            >
+            android:gravity="center">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -245,7 +250,6 @@
         </TableLayout>
 
     </LinearLayout>
-
 
 
     <LinearLayout

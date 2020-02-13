@@ -36,9 +36,10 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/setting_temp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#00c5cd"
+                    android:background="#C7C5C5"
                     android:gravity="center"
                     android:padding="2dp"
                     android:text="@string/temp_vi"
@@ -55,7 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="3dp"
-                    android:text="29°C"
+                    android:text="@string/unknown_vi"
                     android:textSize="25dp" />
 
                 <TextView
@@ -77,9 +78,10 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/setting_ph"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#00c5cd"
+                    android:background="#C7C5C5"
                     android:gravity="center"
                     android:padding="2dp"
                     android:text="@string/Do_ph_vi"
@@ -94,7 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="3dp"
-                    android:text="6.5"
+                    android:text="@string/unknown_vi"
                     android:textSize="25dp" />
 
                 <TextView
@@ -116,9 +118,10 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/setting_hum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#00c5cd"
+                    android:background="#C7C5C5"
                     android:gravity="center"
                     android:padding="2dp"
                     android:text="@string/Hum_vi"
@@ -134,7 +137,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="3dp"
-                    android:text="30%"
+                    android:text="@string/unknown_vi"
                     android:textSize="25dp" />
 
                 <TextView
@@ -163,10 +166,12 @@
                 android:gravity="center"
                 android:background="@drawable/ic_ppm"
                 android:orientation="vertical">
+
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/setting_tds"
+                    android:layout_width="109dp"
                     android:layout_height="wrap_content"
-                    android:background="#00c5cd"
+                    android:background="#C7C5C5"
                     android:gravity="center"
                     android:padding="2dp"
                     android:text="@string/TDS_vi"
@@ -182,7 +187,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="3dp"
-                    android:text="30%"
+                    android:text="@string/unknown_vi"
                     android:textSize="25dp" />
 
                 <TextView
@@ -203,9 +208,10 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/setting_rain"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#00c5cd"
+                    android:background="#C7C5C5"
                     android:gravity="center"
                     android:padding="2dp"
                     android:text="Cảnh báo mưa"
@@ -245,9 +251,10 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/setting_level_tds"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#00c5cd"
+                    android:background="#C7C5C5"
                     android:gravity="center"
                     android:padding="2dp"
                     android:text="@string/level_TDS_vi"
@@ -264,7 +271,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="3dp"
-                    android:text="8 cm"
+                    android:text="@string/unknown_vi"
                     android:textSize="25dp" />
 
                 <TextView
@@ -353,7 +360,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="125dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
@@ -362,7 +369,7 @@
 
             <LinearLayout
                 android:layout_width="0px"
-                android:layout_height="100dp"
+                android:layout_height="125dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -375,21 +382,30 @@
                     android:textSize="14dp" />
 
                 <Button
+                    android:id="@+id/button_bat_che_mua"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:background="@drawable/back"
+                    android:drawableTop="@drawable/ic_cai_o_0_mua"
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="@string/OFF_vi"
-                    android:drawableTop="@drawable/ic_cai_o_mua"
                     android:textColor="@color/gray_background"
                     android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/setting_button_bat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:text="@string/chua_cai_dat_vi"
+                    android:textSize="14dp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0px"
-                android:layout_height="100dp"
+                android:layout_height="125dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -402,21 +418,29 @@
                     android:textSize="14dp" />
 
                 <Button
+                    android:id="@+id/button_bom_dung_dich"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:background="@drawable/back"
-                    android:drawableTop="@drawable/ic_may_bom"
+                    android:drawableTop="@drawable/ic_may_bom_0"
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="@string/OFF_vi"
                     android:textColor="@color/gray_background"
                     android:textSize="14sp" />
 
+                <TextView
+                    android:id="@+id/setting_button_dd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:text="@string/chua_cai_dat_vi"
+                    android:textSize="14dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0px"
-                android:layout_height="100dp"
+                android:layout_height="125dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -427,21 +451,29 @@
                     android:text="@string/lamp_mode_vi"
                     android:textSize="14dp" />
                 <Button
+                    android:id="@+id/button_bong_den"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:background="@drawable/back"
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="@string/OFF_vi"
-                    android:drawableTop="@drawable/ic_bong_den_sang"
+                    android:drawableTop="@drawable/ic_bong_den"
                     android:textColor="@color/gray_background"
                     android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/setting_button_lamp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:text="@string/chua_cai_dat_vi"
+                    android:textSize="14dp" />
 
             </LinearLayout>
         </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="125dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
@@ -449,7 +481,7 @@
         android:weightSum="3">
         <LinearLayout
             android:layout_width="0px"
-            android:layout_height="100dp"
+            android:layout_height="125dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -462,15 +494,24 @@
                 android:textSize="14dp" />
 
             <Button
+                android:id="@+id/button_bom_phun_suong"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:background="@drawable/back"
-                android:drawableTop="@drawable/ic_may_bom"
+                android:drawableTop="@drawable/ic_may_bom_0"
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="@string/OFF_vi"
                 android:textColor="@color/gray_background"
                 android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/setting_button_phun_suong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:text="@string/chua_cai_dat_vi"
+                android:textSize="14dp" />
 
         </LinearLayout>
     </LinearLayout>
@@ -497,6 +538,8 @@
             android:drawableTop="@drawable/ic_menu_thongke"
             android:text="Thống kê"
             android:textColor="@android:color/white" />
+
+
 
     </LinearLayout>
 

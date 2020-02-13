@@ -205,19 +205,22 @@
 
 
     <!-- Home -->
-    <string name="rain_mode_vi">Bạc che mưa</string>
+    <string name="rain_mode_vi">Bạt che mưa</string>
     <string name="lamp_mode_vi">Đèn sưởi ấm</string>
-    <string name="motor_tds_mode_vi">MB dung dịch</string>
-    <string name="motor_phun_suong_mode_vi">MB phun sương</string>
-    <string name="level_TDS_vi">Mực dung dịch</string>
+    <string name="motor_tds_mode_vi">Dung dịch</string>
+    <string name="motor_tds_full_mode_vi">Dung dịch dinh dưỡng(ppm)</string>
+    <string name="motor_phun_suong_mode_vi">Phun sương</string>
+    <string name="level_TDS_vi">Mực dung dịch(cm)</string>
     <string name="message_rain_vi">Cảnh báo mưa</string>
     <string name="temp_vi">Nhiệt độ</string>
     <string name="Do_ph_vi">Độ PH</string>
     <string name="Hum_vi">Độ ẩm</string>
     <string name="TDS_vi">Dinh dưỡng</string>
     <string name="thong_ke_vi">Thống kê</string>
-    <string name="unknown_vi">Unknown</string>
+    <string name="unknown_vi">unknown</string>
     <string name="ON_vi">Bật</string>
     <string name="OFF_vi">Tắt</string>
+    <string name="da_cai_dat_vi">Đã cài đặt</string>
+    <string name="chua_cai_dat_vi">Chưa cài đặt</string>
 
 </resources>

@@ -11,6 +11,8 @@ import android.widget.*
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device.DeviceDetail
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import java.text.Normalizer
 import java.util.regex.Pattern
 
@@ -19,9 +21,11 @@ class SelectDeviceGardenAdapter(
     private var activity: Activity,
     private var items: ArrayList<DeviceDetail>,
     private var gardenId: Int,
-    private var countDefault: Int
+    private var countDefault: Int,
+    private var gardenCode: String
 ) : BaseAdapter() {
     private lateinit var database: Database
+    private lateinit var database1: DatabaseReference
     private var deviceStatus: Boolean = false
     private var count: Int = 0
 
@@ -72,13 +76,14 @@ class SelectDeviceGardenAdapter(
                 gardenId,
                 deviceDetailForGarden.deviceDetailID!!,
                 deviceStatus,
-                deviceDetailForGarden.deviceID!!
+                deviceDetailForGarden.deviceID!!,
+                gardenCode
             )
             if (temp != null && temp != 0) {
                 notice(temp, deviceStatus)
                 viewHolder.deviceForGardenChecked.isChecked = deviceStatus
                 deviceCountSelect.text = countSelected(deviceStatus)
-            }else if(temp == 0){
+            } else if (temp == 0) {
                 viewHolder.deviceForGardenChecked.isChecked = false
             }
         }
@@ -131,10 +136,17 @@ class SelectDeviceGardenAdapter(
     }
 
     // update device for garden
-    private fun updateStatus(gardenId: Int, id: Int, checked: Boolean, deviceId: Int): Int {
+    private fun updateStatus(
+        gardenId: Int,
+        id: Int,
+        checked: Boolean,
+        deviceId: Int,
+        gardenCode: String
+    ): Int {
         database = Database(activity)
-        var deviceDetail1: DeviceDetail = DeviceDetail()
-        var temps = database.findAllDeviceDetail(deviceId,gardenId)
+        database1 = FirebaseDatabase.getInstance().reference
+        var deviceDetail1 = DeviceDetail()
+        var temps = database.findAllDeviceDetail(deviceId, gardenId)
         var device = database.findDeviceById(deviceId)
         var codeSS = generateAssetTypeCode(device.deviceName!!) + gardenId.toString()
 
@@ -149,15 +161,35 @@ class SelectDeviceGardenAdapter(
             deviceDetail1.gardenDetailId = gardenId
             deviceDetail1.deviceDetailStatus = "Y"
             deviceDetail1.deviceDetailCodeSS = codeSS
+            if (codeSS.contains("MAYBOMDUNGDICH", false) || codeSS.contains(
+                    "BATCHEMUA",
+                    false
+                ) || codeSS.contains("BONGDEN", false) || codeSS.contains(
+                    "MAYBOMPHUNSUONG",
+                    false
+                )
+            ) {
+                database1.child(gardenCode).child(codeSS).child("value").setValue("OFF")
+            }
 
-            Toast.makeText(activity,codeSS, Toast.LENGTH_SHORT).show()
-        } else if(checked && result) {
+            Toast.makeText(activity, codeSS, Toast.LENGTH_SHORT).show()
+        } else if (checked && result) {
             Toast.makeText(activity, "Thiết bị đã tồn tại", Toast.LENGTH_SHORT).show()
-        }else{
+        } else {
             deviceDetail1.deviceDetailID = id
             deviceDetail1.gardenDetailId = -1
             deviceDetail1.deviceDetailStatus = "N"
             deviceDetail1.deviceDetailCodeSS = ""
+            if (codeSS.contains("MAYBOMDUNGDICH", false) || codeSS.contains(
+                    "BATCHEMUA",
+                    false
+                ) || codeSS.contains("BONGDEN", false) || codeSS.contains(
+                    "MAYBOMPHUNSUONG",
+                    false
+                )
+            ) {
+                database1.child(gardenCode).child(codeSS).removeValue()
+            }
         }
 
         return database.updateDeviceForGarden(deviceDetail1)

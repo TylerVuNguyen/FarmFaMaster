@@ -25,8 +25,9 @@ class SelectDeviceGardenActivity : AppCompatActivity() {
         deviceCountSelect = activity.findViewById(R.id.count_select_device)
         grid = activity.findViewById(R.id.gird_device_for_garden_select)
         deviceForGardens = getListDeviceForGarden()
-        var gardenId: Int = getDataFromItent()
-        grid.adapter = this.activity?.let { SelectDeviceGardenAdapter (it, deviceForGardens,gardenId,count) }
+        var gardenId = getDataFromItent()
+        var gardenCode = getGardenCode()
+        grid.adapter = this.activity?.let { SelectDeviceGardenAdapter (it, deviceForGardens,gardenId,count,gardenCode) }
 
         /*action button*/
         actionButton()
@@ -64,9 +65,15 @@ class SelectDeviceGardenActivity : AppCompatActivity() {
      */
     private fun getDataFromItent(): Int {
         val bundle: Bundle = intent.extras
-        val id: Int =
-            bundle.get("garden_id") as Int
-        return id
+        return bundle.get("garden_id") as Int
+    }
+
+    /**
+     * the method to get data from intent
+     */
+    private fun getGardenCode(): String {
+        val bundle: Bundle = intent.extras
+        return bundle.get("garden_code") as String
     }
 
 }

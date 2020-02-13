@@ -31,4 +31,5 @@
 
     //drop down
     <color name="dropdown">#ccc</color>
+    <color name="background_home">#00c5cd</color>
 </resources>

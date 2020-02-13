@@ -712,6 +712,7 @@ color accent_material_light
 color background_color
 color background_floating_material_dark
 color background_floating_material_light
+color background_home
 color background_material_dark
 color background_material_light
 color black
@@ -1162,7 +1163,9 @@ drawable anhsangss
 drawable avatar
 drawable avd_hide_password
 drawable avd_show_password
+drawable bacchemua
 drawable back
+drawable back_on
 drawable background2
 drawable background_button_signup
 drawable background_line_dashed
@@ -1172,6 +1175,7 @@ drawable backgroundmenu
 drawable bido
 drawable boder_button
 drawable boder_chitiettungsl
+drawable bongden
 drawable border_backgroud_logo
 drawable border_huy
 drawable border_img
@@ -1422,6 +1426,7 @@ id add_image8_edit
 id add_image_device_1
 id add_image_device_10
 id add_image_device_11
+id add_image_device_12
 id add_image_device_2
 id add_image_device_3
 id add_image_device_4
@@ -1479,6 +1484,10 @@ id btn_print_device_garden
 id btn_print_veg_garden
 id btn_veg_cancel
 id buttonPanel
+id button_bat_che_mua
+id button_bom_dung_dich
+id button_bom_phun_suong
+id button_bong_den
 id cai_dat
 id cancel_action
 id cancel_action_device
@@ -1630,6 +1639,9 @@ id linear_nhiet_do_ban_dem
 id linear_nhietdo
 id linear_ph
 id linear_ppm
+id linear_tds
+id linear_tds_detail
+id linear_tds_edit
 id linear_temperature_day
 id listDevice_devicefunction
 id listMode
@@ -1774,6 +1786,16 @@ id selected_image
 id selected_image_device
 id selected_image_device_edit
 id selected_image_edit
+id setting_button_bat
+id setting_button_dd
+id setting_button_lamp
+id setting_button_phun_suong
+id setting_hum
+id setting_level_tds
+id setting_ph
+id setting_rain
+id setting_tds
+id setting_temp
 id settings
 id shortcut
 id showCustom
@@ -1807,6 +1829,7 @@ id table_layout_ban_dem
 id table_layout_day
 id table_layout_pH
 id table_layout_ppm
+id table_layout_tds_level
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -1815,6 +1838,12 @@ id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id tds_level_from
+id tds_level_from_detail
+id tds_level_from_edit
+id tds_level_to
+id tds_level_to_detail
+id tds_level_to_edit
 id temp_day_from
 id temp_day_from_detail
 id temp_day_from_edit
@@ -2164,6 +2193,7 @@ string change_pass_vi
 string character_counter_content_description
 string character_counter_pattern
 string choose_img_vi
+string chua_cai_dat_vi
 string closebutton
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
@@ -2189,6 +2219,7 @@ string confirm_passoword_vi
 string control_device_setting_vi
 string control_device_vi
 string copy
+string da_cai_dat_vi
 string day_vi
 string decription_Humidity_vi
 string decription_Temperature_vi
@@ -2277,6 +2308,7 @@ string message_unSetting_vi
 string messages_header
 string mobileNumber
 string motor_phun_suong_mode_vi
+string motor_tds_full_mode_vi
 string motor_tds_mode_vi
 string mtrl_chip_close_icon_content_description
 string name_device_vi

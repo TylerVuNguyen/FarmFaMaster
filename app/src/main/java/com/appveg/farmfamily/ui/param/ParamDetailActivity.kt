@@ -54,6 +54,12 @@ class ParamDetailActivity : AppCompatActivity() {
         this.ppm_to_detail.setText(param.ppmTo)
         this.ppm_to_detail.isEnabled = false
 
+        this.tds_level_from_detail.setText(param.tdsLevelFrom)
+        this.tds_level_from_detail.isEnabled = false
+
+        this.tds_level_to_detail.setText(param.tdsLevelTo)
+        this.tds_level_to_detail.isEnabled = false
+
     }
 
     /**

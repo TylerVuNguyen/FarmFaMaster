@@ -126,8 +126,8 @@ class AddDeviceActivity : AppCompatActivity() {
             this.device_name.setSelection(device_name.text.length)
         }
         add_image_device_7.setOnClickListener {
-            var device_name_7 = "Động cơ servo"
-            var device_img = R.drawable.phunsuong2
+            var device_name_7 = "Bạt che mưa"
+            var device_img = R.drawable.bacchemua
             this.selected_image_device.setImageResource(device_img)
             this.device_name.setText(device_name_7)
             this.device_name.setSelection(device_name.text.length)
@@ -158,6 +158,13 @@ class AddDeviceActivity : AppCompatActivity() {
             var device_img = R.drawable.sieuam
             this.selected_image_device.setImageResource(device_img)
             this.device_name.setText(device_name_11)
+            this.device_name.setSelection(device_name.text.length)
+        }
+        add_image_device_12.setOnClickListener {
+            var device_name_12 = "Bóng đèn sưởi ấm"
+            var device_img = R.drawable.bongden
+            this.selected_image_device.setImageResource(device_img)
+            this.device_name.setText(device_name_12)
             this.device_name.setSelection(device_name.text.length)
         }
     }

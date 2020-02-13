@@ -103,8 +103,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
-                    android:inputType="number"
-                    android:ems="10" />
+                    android:ems="10"
+                    android:inputType="number" />
             </TableRow>
         </TableLayout>
         <!--    end nhiet do ban ngayf-->
@@ -161,8 +161,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
-                    android:textStyle="bold"
-                    android:text="@string/from_vi" />
+                    android:text="@string/from_vi"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/temp_night_from_detail"
@@ -176,16 +176,16 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
-                    android:textStyle="bold"
-                    android:text="@string/to_vi" />
+                    android:text="@string/to_vi"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/temp_night_to_detail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
-                    android:inputType="number"
-                    android:ems="10" />
+                    android:ems="10"
+                    android:inputType="number" />
             </TableRow>
         </TableLayout>
         <!--    end nhiet do ban ddem-->
@@ -202,7 +202,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="5dp"
-                android:text="PPM"
+                android:text="@string/motor_tds_full_mode_vi"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -226,8 +226,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
-                    android:textStyle="bold"
-                    android:text="@string/from_vi" />
+                    android:text="@string/from_vi"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/ppm_from_detail"
@@ -241,16 +241,16 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
-                    android:textStyle="bold"
-                    android:text="@string/to_vi" />
+                    android:text="@string/to_vi"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/ppm_to_detail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
-                    android:inputType="number"
-                    android:ems="10" />
+                    android:ems="10"
+                    android:inputType="number" />
             </TableRow>
         </TableLayout>
 
@@ -290,8 +290,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
-                    android:textStyle="bold"
-                    android:text="@string/from_vi" />
+                    android:text="@string/from_vi"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/ph_from_detail"
@@ -305,16 +305,80 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
-                    android:textStyle="bold"
-                    android:text="@string/to_vi" />
+                    android:text="@string/to_vi"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/ph_to_detail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
-                    android:inputType="number"
-                    android:ems="10" />
+                    android:ems="10"
+                    android:inputType="number" />
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_tds_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/table_layout_ppm"
+            android:background="#00c5cd"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:text="@string/level_TDS_vi"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <TableLayout
+            android:id="@+id/table_layout_tds_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear_ph"
+            android:padding="5dp">
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.25"
+                    android:text="@string/from_vi"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/tds_level_from_detail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.75"
+                    android:ems="10"
+                    android:inputType="number|numberDecimal" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.25"
+                    android:text="@string/to_vi"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/tds_level_to_detail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.75"
+                    android:ems="10"
+                    android:inputType="number|numberDecimal" />
             </TableRow>
         </TableLayout>
     </LinearLayout>

@@ -120,8 +120,10 @@ class GalleryFragment : Fragment() {
 
         listViewGarden.setOnItemClickListener { adapterView, view, i, l ->
             var gardenId = gardens[i].gardenId!!
+            var gardenCode = gardens[i].gardenCode
             var intent: Intent = Intent(requireContext(), AddDeviceForGardenActivity::class.java)
             intent.putExtra("garden_id",gardenId)
+            intent.putExtra("garden_code",gardenCode)
             startActivity(intent)
         }
 

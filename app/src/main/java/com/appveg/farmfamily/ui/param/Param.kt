@@ -16,6 +16,9 @@ class Param {
     var ppmTo :String? = null
     var ppmFrom :String? = null
 
+    var tdsLevelTo :String? = null
+    var tdsLevelFrom :String? = null
+
     var createdBy: String? = "admin"
     var createdDate: String? = null
     var updatedBy: String? = ""
@@ -35,6 +38,8 @@ class Param {
         phFrom : String?,
         ppmTo :String?,
         ppmFrom :String?,
+        tdsLevelTo: String?,
+        tdsLevelFrom: String?,
         createdBy: String?,
         createdDate: String?,
         updatedBy: String?,
@@ -53,6 +58,8 @@ class Param {
         this.phFrom = phFrom
         this.ppmTo = ppmTo
         this.ppmFrom = ppmFrom
+        this.tdsLevelTo = tdsLevelTo
+        this.tdsLevelFrom = tdsLevelFrom
         this.createdBy = createdBy
         this.createdDate = createdDate
         this.updatedBy = updatedBy
@@ -62,6 +69,9 @@ class Param {
         this.deletedFlag = deletedFlag
     }
 
+
+
+    //update
     constructor(
         paramId : Int?,
         tempToNight : String?,
@@ -72,33 +82,8 @@ class Param {
         phFrom : String?,
         ppmTo :String?,
         ppmFrom :String?,
-        createdBy: String?,
-        createdDate: String?
-
-    ){
-        this.paramId = paramId
-        this.tempToNight = tempToNight
-        this.tempFromNight = tempFromNight
-        this.tempToDay = tempToDay
-        this.tempFromDay = tempFromDay
-        this.phTo = phTo
-        this.phFrom = phFrom
-        this.ppmTo = ppmTo
-        this.ppmFrom = ppmFrom
-        this.createdBy = createdBy
-        this.createdDate = createdDate
-    }
-
-    constructor(
-        paramId : Int?,
-        tempToNight : String?,
-        tempFromNight : String?,
-        tempToDay: String?,
-        tempFromDay : String?,
-        phTo : String?,
-        phFrom : String?,
-        ppmTo :String?,
-        ppmFrom :String?,
+        tdsLevelTo: String?,
+        tdsLevelFrom: String?,
         updatedDate: String?
 
     ){
@@ -111,53 +96,12 @@ class Param {
         this.phFrom = phFrom
         this.ppmTo = ppmTo
         this.ppmFrom = ppmFrom
+        this.tdsLevelTo = tdsLevelTo
+        this.tdsLevelFrom = tdsLevelFrom
         this.updatedDate = updatedDate
     }
 
-    constructor(
-        tempToNight : String?,
-        tempFromNight : String?,
-        tempToDay: String?,
-        tempFromDay : String?,
-        phTo : String?,
-        phFrom : String?,
-        ppmTo :String?,
-        ppmFrom :String?,
-        createdBy: String?,
-        createdDate: String?
-
-    ){
-        this.tempToNight = tempToNight
-        this.tempFromNight = tempFromNight
-        this.tempToDay = tempToDay
-        this.tempFromDay = tempFromDay
-        this.phTo = phTo
-        this.phFrom = phFrom
-        this.ppmTo = ppmTo
-        this.ppmFrom = ppmFrom
-        this.createdBy = createdBy
-        this.createdDate = createdDate
-    }
-
-    constructor(
-        paramId : Int?,
-        tempToNight : String?,
-        tempFromNight : String?,
-        tempToDay: String?,
-        tempFromDay : String?,
-        createdBy: String?,
-        createdDate: String?
-
-    ){
-        this.paramId = paramId
-        this.tempToNight = tempToNight
-        this.tempFromNight = tempFromNight
-        this.tempToDay = tempToDay
-        this.tempFromDay = tempFromDay
-        this.createdBy = createdBy
-        this.createdDate = createdDate
-    }
-
+    //add
     constructor(
         paramId: Int?,
         tempToNight : String?,
@@ -167,7 +111,11 @@ class Param {
         phTo : String?,
         phFrom : String?,
         ppmTo :String?,
-        ppmFrom :String?
+        ppmFrom :String?,
+        tdsLevelTo: String?,
+        tdsLevelFrom: String?,
+        createdBy: String?,
+        createdDate: String?
 
     ){
         this.paramId = paramId
@@ -179,6 +127,37 @@ class Param {
         this.phFrom = phFrom
         this.ppmTo = ppmTo
         this.ppmFrom = ppmFrom
+        this.tdsLevelTo = tdsLevelTo
+        this.tdsLevelFrom = tdsLevelFrom
+        this.createdBy = createdBy
+        this.createdDate = createdDate
+    }
+
+    //find by id
+    constructor(
+        paramId: Int?,
+        tempToNight : String?,
+        tempFromNight : String?,
+        tempToDay: String?,
+        tempFromDay : String?,
+        phTo : String?,
+        phFrom : String?,
+        ppmTo :String?,
+        ppmFrom :String?,
+        tdsLevelTo: String?,
+        tdsLevelFrom: String?
+    ){
+        this.paramId = paramId
+        this.tempToNight = tempToNight
+        this.tempFromNight = tempFromNight
+        this.tempToDay = tempToDay
+        this.tempFromDay = tempFromDay
+        this.phTo = phTo
+        this.phFrom = phFrom
+        this.ppmTo = ppmTo
+        this.ppmFrom = ppmFrom
+        this.tdsLevelTo = tdsLevelTo
+        this.tdsLevelFrom = tdsLevelFrom
     }
 
     constructor()

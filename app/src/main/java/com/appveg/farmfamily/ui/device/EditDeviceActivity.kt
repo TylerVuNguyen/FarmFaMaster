@@ -17,7 +17,6 @@ import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device_catogory.DeviceCategory
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_add_device.*
 import kotlinx.android.synthetic.main.activity_edit_device.*
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_1
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_10
@@ -139,8 +138,8 @@ class EditDeviceActivity : AppCompatActivity() {
             this.device_name_edit.setSelection(device_name_edit.text.length)
         }
         add_image_device_7.setOnClickListener {
-            var device_name_7 = "Động cơ servo"
-            var device_img = R.drawable.phunsuong2
+            var device_name_7 = "Bạt che mưa"
+            var device_img = R.drawable.bacchemua
             this.selected_image_device_edit.setImageResource(device_img)
             this.device_name_edit.setText(device_name_7)
             this.device_name_edit.setSelection(device_name_edit.text.length)
@@ -157,21 +156,28 @@ class EditDeviceActivity : AppCompatActivity() {
             var device_img = R.drawable.doamoo
             this.selected_image_device_edit.setImageResource(device_img)
             this.device_name_edit.setText(device_name_9)
-            this.device_name_edit.setSelection(device_name.text.length)
+            this.device_name_edit.setSelection(device_name_edit.text.length)
         }
         add_image_device_10.setOnClickListener {
             var device_name_10 = "Máy bơm phun sương"
             var device_img = R.drawable.maybomphunsuong
             this.selected_image_device_edit.setImageResource(device_img)
             this.device_name_edit.setText(device_name_10)
-            this.device_name_edit.setSelection(device_name.text.length)
+            this.device_name_edit.setSelection(device_name_edit.text.length)
         }
         add_image_device_11.setOnClickListener {
             var device_name_11 = "Cảm biến siêu âm"
             var device_img = R.drawable.sieuam
             this.selected_image_device_edit.setImageResource(device_img)
             this.device_name_edit.setText(device_name_11)
-            this.device_name_edit.setSelection(device_name.text.length)
+            this.device_name_edit.setSelection(device_name_edit.text.length)
+        }
+        add_image_device_12.setOnClickListener {
+            var device_name_12 = "Bóng đèn sưởi ấm"
+            var device_img = R.drawable.bongden
+            this.selected_image_device_edit.setImageResource(device_img)
+            this.device_name_edit.setText(device_name_12)
+            this.device_name_edit.setSelection(device_name_edit.text.length)
         }
     }
 

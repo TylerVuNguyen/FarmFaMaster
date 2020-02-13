@@ -176,7 +176,8 @@
                     android:layout_height="70dp"
                     android:padding="7dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/phunsuong2" />
+                    android:src="@drawable/bacchemua" />
+
                 <ImageView
                     android:id="@+id/add_image_device_8"
                     android:layout_width="80dp"
@@ -218,6 +219,13 @@
                     android:padding="7dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/sieuam" />
+                <ImageView
+                    android:id="@+id/add_image_device_12"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/bongden" />
 
             </TableRow>
 

@@ -11,5 +11,9 @@ class DetailGardenFirebase {
         this.value = value
     }
 
+    constructor(value: String?) {
+        this.value = value
+    }
+
 
 }

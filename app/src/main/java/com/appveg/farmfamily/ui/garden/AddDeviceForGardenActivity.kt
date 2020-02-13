@@ -7,12 +7,10 @@ import android.view.View
 
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
-import com.appveg.farmfamily.ui.device.DeviceAdapter
 import com.appveg.farmfamily.ui.device.DeviceDetail
 import com.appveg.farmfamily.ui.vegetable.Vegetable
 
 import kotlinx.android.synthetic.main.activity_add_device_for_garden.*
-import kotlinx.android.synthetic.main.fragment_device.*
 
 class AddDeviceForGardenActivity : AppCompatActivity() {
     private val activity = this@AddDeviceForGardenActivity
@@ -45,8 +43,10 @@ class AddDeviceForGardenActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btn_add_device_garden_forward.setOnClickListener {
+            var gardenCode = getGardenCode()
             var intent: Intent = Intent(activity,SelectDeviceGardenActivity::class.java)
             intent.putExtra("garden_id",gardenId)
+            intent.putExtra("garden_code",gardenCode)
             startActivity(intent)
         }
 
@@ -56,12 +56,16 @@ class AddDeviceForGardenActivity : AppCompatActivity() {
      */
     private fun getDataFromItent(): Int {
         val bundle: Bundle = intent.extras
-        val id: Int =
-            bundle.get("garden_id") as Int
-        return id
+        return bundle.get("garden_id") as Int
     }
 
-
+    /**
+     * the method to get data from intent
+     */
+    private fun getGardenCode(): String {
+        val bundle: Bundle = intent.extras
+        return bundle.get("garden_code") as String
+    }
     /**
      * the method to display vegetable for gaden
      */

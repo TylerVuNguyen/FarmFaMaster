@@ -108,6 +108,8 @@ class Database(context: Context?) :
         private val COLUMN_PH_FROM= "ph_from"
         private val COLUMN_PPM_TO= "ppm_to"
         private val COLUMN_PPM_FROM = "ppm_from"
+        private val COLUMN_TDS_LEVEL_TO= "tds_level_to"
+        private val COLUMN_TDS_LEVEL_FROM = "tds_level_from"
 
 
     }
@@ -162,7 +164,7 @@ class Database(context: Context?) :
 
         val CREATE_PARAM_TABLE =
             ("CREATE TABLE " + TABLE_PARAM + "(param_id INTEGER PRIMARY KEY AUTOINCREMENT,veg_id INTEGER,temp_to_night VARCHAR(100),temp_from_night VARCHAR(100)," +
-                    "temp_to_day VARCHAR(100), temp_from_day VARCHAR(100),  ph_to VARCHAR(100), ph_from VARCHAR(100),ppm_to VARCHAR(100),ppm_from VARCHAR(100), created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+                    "temp_to_day VARCHAR(100), temp_from_day VARCHAR(100),  ph_to VARCHAR(100), ph_from VARCHAR(100),ppm_to VARCHAR(100),ppm_from VARCHAR(100),tds_level_to VARCHAR(100),tds_level_from VARCHAR(100), created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
                     "deleted_date VARCHAR(50),deleted_flag INTEGER)")
 
 
@@ -1756,6 +1758,8 @@ class Database(context: Context?) :
         contentValues.put(COLUMN_PPM_TO,param.ppmTo)
         contentValues.put(COLUMN_TEMP_TO_NIGHT,param.tempToNight)
         contentValues.put(COLUMN_TEMP_FROM_NIGHT,param.tempFromNight)
+        contentValues.put(COLUMN_TDS_LEVEL_TO,param.tdsLevelTo)
+        contentValues.put(COLUMN_TDS_LEVEL_FROM,param.tdsLevelFrom)
 
         // Inserting Row
         val success = db.insert(TABLE_PARAM, null, contentValues)
@@ -1781,6 +1785,8 @@ class Database(context: Context?) :
         contentValues.put(COLUMN_PPM_TO,param.ppmTo)
         contentValues.put(COLUMN_TEMP_TO_NIGHT,param.tempToNight)
         contentValues.put(COLUMN_TEMP_FROM_NIGHT,param.tempFromNight)
+        contentValues.put(COLUMN_TDS_LEVEL_TO,param.tdsLevelTo)
+        contentValues.put(COLUMN_TDS_LEVEL_FROM,param.tdsLevelFrom)
 
         // Inserting Row
         val success = db.update(TABLE_PARAM, contentValues, "param_id="+param.paramId, null)
@@ -1854,8 +1860,10 @@ class Database(context: Context?) :
                     var ppmTo = cursor.getString(cursor.getColumnIndex(COLUMN_PPM_TO))
                     var phFrom = cursor.getString(cursor.getColumnIndex(COLUMN_PH_FROM))
                     var phTo = cursor.getString(cursor.getColumnIndex(COLUMN_PH_TO))
+                    var tdsLevelFrom = cursor.getString(cursor.getColumnIndex(COLUMN_TDS_LEVEL_FROM))
+                    var tdsLevelTo = cursor.getString(cursor.getColumnIndex(COLUMN_TDS_LEVEL_TO))
 
-                    param = Param(param_id,tempNightTo,tempNightFrom,tempDayTo,tempDayFrom,phTo,phFrom,ppmTo,ppmFrom)
+                    param = Param(param_id,tempNightTo,tempNightFrom,tempDayTo,tempDayFrom,phTo,phFrom,ppmTo,ppmFrom,tdsLevelTo,tdsLevelFrom)
                 } while (cursor.moveToNext())
             }
         }

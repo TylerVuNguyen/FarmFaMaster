@@ -83,6 +83,12 @@ class EditParamActivity : AppCompatActivity() {
         this.ppm_to_edit.setText(param.ppmTo)
         this.ppm_to_edit.setSelection(ppm_to_edit.text.length)
 
+        this.tds_level_to_edit.setText(param.tdsLevelTo)
+        this.tds_level_to_edit.setSelection(tds_level_to_edit.text.length)
+
+        this.tds_level_from_edit.setText(param.tdsLevelFrom)
+        this.tds_level_from_edit.setSelection(tds_level_from_edit.text.length)
+
     }
 
     /**
@@ -107,6 +113,8 @@ class EditParamActivity : AppCompatActivity() {
         var phTo = ph_to_edit.text.toString().trim()
         var ppmFrom = ppm_from_edit.text.toString().trim()
         var ppmTo = ppm_to_edit.text.toString().trim()
+        var tdsLevelFrom = tds_level_from_edit.text.toString().trim()
+        var tdsLevelTo = tds_level_to_edit.text.toString().trim()
 
         val paramId = getDataFromItent()
 
@@ -118,21 +126,23 @@ class EditParamActivity : AppCompatActivity() {
         var checkParamName5 = checkParamName5(phTo)
         var checkParamName6 = checkParamName6(ppmFrom)
         var checkParamName7 = checkParamName7(ppmTo)
+        var checkParamName8 = checkParamName8(tdsLevelFrom)
+        var checkParamName9 = checkParamName9(tdsLevelTo)
 
         var checkParam = checkFromSmallerTo(tempDayFrom,tempDayTo)
         var checkParam1 = checkFromSmallerTo1(tempNightFrom,tempNightTo)
         var checkParam2 = checkFromSmallerTo2(phFrom,phTo)
         var checkParam3 = checkFromSmallerTo3(ppmFrom,ppmTo)
-
+        var checkParam4 = checkFromSmallerTo4(tdsLevelFrom,tdsLevelTo)
 
         /*format date*/
         val current = Calendar.getInstance().time
         val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
         val formatted: String = formatter.format(current)
 
-        if (checkParamName && checkParamName1 && checkParamName2 && checkParamName3 && checkParamName4 && checkParamName5 && checkParamName6 && checkParamName7) {
-            var param = Param(paramId,tempNightTo,tempNightFrom,tempDayTo,tempDayFrom,phTo,phFrom,ppmTo,ppmFrom,formatted)
-            if(checkParam && checkParam1 && checkParam2 && checkParam3) {
+        if (checkParamName && checkParamName1 && checkParamName2 && checkParamName3 && checkParamName4 && checkParamName5 && checkParamName6 && checkParamName7 && checkParamName8 && checkParamName9) {
+            var param = Param(paramId,tempNightTo,tempNightFrom,tempDayTo,tempDayFrom,phTo,phFrom,ppmTo,ppmFrom,tdsLevelTo,tdsLevelFrom,formatted)
+            if(checkParam && checkParam1 && checkParam2 && checkParam3 && checkParam4) {
                 var id = database.updateParam(param)
                 if (id != null) {
                     Toast.makeText(
@@ -212,6 +222,21 @@ class EditParamActivity : AppCompatActivity() {
         return true
     }
 
+    private fun checkParamName8(value: String): Boolean {
+        if (value.isEmpty()) {
+            tds_level_from_edit.error = getString(R.string.error_empty_common)
+            return false
+        }
+        return true
+    }
+    private fun checkParamName9(value: String): Boolean {
+        if (value.isEmpty()) {
+            tds_level_to_edit.error = getString(R.string.error_empty_common)
+            return false
+        }
+        return true
+    }
+
     private fun checkFromSmallerTo(value1: String,value2: String): Boolean {
         if (value1.isNotBlank() && value2.isNotBlank()) {
             if(value2.toDouble() < value1.toDouble()){
@@ -247,6 +272,17 @@ class EditParamActivity : AppCompatActivity() {
             if(value2.toDouble() < value1.toDouble()){
                 ppm_from_edit.error = getString(R.string.error_to_smaller_from)
                 ppm_to_edit.error = getString(R.string.error_to_smaller_from)
+                return false
+            }
+        }
+        return true
+    }
+
+    private fun checkFromSmallerTo4(value1: String,value2: String): Boolean {
+        if (value1.isNotBlank() && value2.isNotBlank()) {
+            if(value2.toDouble() < value1.toDouble()){
+                tds_level_from_edit.error = getString(R.string.error_to_smaller_from)
+                tds_level_to_edit.error = getString(R.string.error_to_smaller_from)
                 return false
             }
         }
