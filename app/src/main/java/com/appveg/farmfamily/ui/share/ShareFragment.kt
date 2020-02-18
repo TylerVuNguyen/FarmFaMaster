@@ -42,7 +42,7 @@ class ShareFragment : Fragment() {
 
 
         grid.setOnItemClickListener { adapterView, view, i, l ->
-            var intent: Intent = Intent(this.context, ChiTietDotSanLuongActivity::class.java)
+            var intent: Intent = Intent(this.context, SubstanceMassActivity::class.java)
             var id: Int? = gardenList[i].gardenId
             intent.putExtra("garden_id", id)
             startActivity(intent)

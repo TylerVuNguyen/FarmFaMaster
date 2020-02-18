@@ -4,7 +4,7 @@ class DeviceDetail {
     var deviceDetailID : Int? = 0
     var deviceDetailCode : String? =""
     var deviceDetailCodeSS : String? =""
-    var deviceDetailImg : ByteArray? = null
+    var deviceDetailImg : String? = ""
     var deviceID : Int? = 0
     var deviceDetailStatus :String?=""
     var gardenDetailId: Int? = -1
@@ -23,7 +23,7 @@ class DeviceDetail {
         deviceDetailID: Int?,
         deviceDetailCode: String?,
         deviceDetailCodeSS: String?,
-        deviceDetailImg: ByteArray?,
+        deviceDetailImg: String?,
         deviceID: Int?,
         deviceDetailStatus: String?,
         gardenDetailId : Int,
@@ -54,7 +54,7 @@ class DeviceDetail {
         deviceDetailID: Int?,
         deviceDetailCode: String?,
         deviceDetailCodeSS: String?,
-        deviceDetailImg: ByteArray?,
+        deviceDetailImg: String?,
         deviceDetailStatus: String?,
         deviceID: Int?,
         gardenDetailId: Int?
@@ -71,7 +71,7 @@ class DeviceDetail {
     constructor(
         deviceDetailID: Int?,
         deviceDetailCode: String?,
-        deviceDetailImg: ByteArray?,
+        deviceDetailImg: String?,
         deviceDetailStatus: String?,
         deviceID: Int?,
         gardenDetailId: Int?
@@ -87,7 +87,7 @@ class DeviceDetail {
     constructor(
         deviceDetailID: Int?,
         deviceDetailCode: String?,
-        deviceDetailImg: ByteArray?,
+        deviceDetailImg: String?,
         deviceDetailStatus: String?
     ) {
         this.deviceDetailID = deviceDetailID
@@ -99,7 +99,7 @@ class DeviceDetail {
     constructor(
         deviceDetailID: Int?,
         deviceDetailCode: String?,
-        deviceDetailImg: ByteArray?,
+        deviceDetailImg: String?,
         deviceID: Int?,
         deviceDetailStatus: String?,
         createdBy: String?,
@@ -116,7 +116,7 @@ class DeviceDetail {
 
     constructor(
         deviceDetailID: Int?,
-        deviceDetailImg: ByteArray?,
+        deviceDetailImg: String?,
         updatedDate: String?
     ) {
         this.deviceDetailID = deviceDetailID

@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,8 +12,11 @@ import android.view.ViewGroup
 import android.widget.*
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_device_detail_status.*
 import kotlinx.android.synthetic.main.layout_device_detail.*
+import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -21,7 +25,7 @@ class DeviceDetailAdapter (private var activity: Activity, private var items: Ar
     private lateinit var database: Database
 
     private class ViewHolder(row: View?) {
-        var deviceDetailImage: ImageView? = null
+        var deviceDetailImage: ImageView
         var deviceDetailStatus: TextView
         var deviceDetailCode: TextView
         var deviceDetailStatusChecked: CheckBox
@@ -59,9 +63,13 @@ class DeviceDetailAdapter (private var activity: Activity, private var items: Ar
 
 
         // chuyển bytearray về bitmap để hiển thị
-        var imageBitmap : ByteArray? = deviceDetail.deviceDetailImg
-        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
-        viewHolder.deviceDetailImage!!.setImageBitmap(bitmap)
+//        var imageBitmap : ByteArray? = deviceDetail.deviceDetailImg
+//        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
+//        viewHolder.deviceDetailImage!!.setImageBitmap(bitmap)
+        Glide.with(activity)
+            .load(Uri.fromFile(File(deviceDetail.deviceDetailImg)))
+            .apply(RequestOptions().override(100, 100))
+            .into(viewHolder.deviceDetailImage)
 
         return view
     }

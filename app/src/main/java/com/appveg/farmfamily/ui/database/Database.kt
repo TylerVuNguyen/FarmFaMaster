@@ -17,6 +17,8 @@ import com.appveg.farmfamily.ui.param.Param
 import com.appveg.farmfamily.ui.send.Batch
 import com.appveg.farmfamily.ui.send.BatchCustom
 import com.appveg.farmfamily.ui.send.BatchQtyDetail
+import com.appveg.farmfamily.ui.share.Substance
+import com.appveg.farmfamily.ui.share.SubstanceDetail
 import com.appveg.farmfamily.ui.vegetable.Vegetable
 
 class Database(context: Context?) :
@@ -34,6 +36,8 @@ class Database(context: Context?) :
         private val TABLE_DEVICE = "device"
         private val TABLE_DEVICE_DETAIL = "device_detail"
         private val TABLE_DEVICE_CATEGORY = "device_category"
+        private val TABLE_SUBSTANCE_MASS = "substance_mass"
+        private val TABLE_SUBSTANCE_MASS_DETAIL = "substance_mass_detail"
         private val TABLE_PARAM = "param"
         /*users*/
         private val COLUMN_USER_ID = "user_id"
@@ -98,6 +102,20 @@ class Database(context: Context?) :
         private val COLUMN_DEVICE_DETAIL_CODE_SS = "device_detail_code_ss"
         private val COLUMN_DEVICE_DETAIL_STATUS = "device_detail_status"
 
+
+        /*substance mass*/
+        private val COLUMN_SUBSTANCE_ID = "substance_mass_id"
+        private val COLUMN_SUBSTANCE_NAME = "substance_mass_name"
+        private val COLUMN_SUBSTANCE_IMAGE = "substance_mass_image"
+        private val COLUMN_SUBSTANCE_TOTAL = "total_substance_mass"
+        private val COLUMN_SUBSTANCE_CATEGORY = "substance_category"
+
+        /*substance mass detail*/
+        private val COLUMN_SUBSTANCE_DETAIL_ID = "substance_mass_detail_id"
+        private val COLUMN_SUBSTANCE_DETAIL_NAME = "substance_mass_detail_name"
+        private val COLUMN_SUBSTANCE_DETAIL_IMAGE = "substance_mass_detail_image"
+        private val COLUMN_SUBSTANCE_DETAIL_NUM = "substance_mass_detail_num"
+
         /*param*/
         private val COLUMN_PARAM_ID = "param_id"
         private val COLUMN_TEMP_TO_NIGHT ="temp_to_night"
@@ -150,11 +168,20 @@ class Database(context: Context?) :
 
         val CREATE_DEVICE_TABLE =
             ("CREATE TABLE " + TABLE_DEVICE + "(device_id INTEGER PRIMARY KEY AUTOINCREMENT,device_name VARCHAR(100)," +
-                    "device_image BLOB, device_num VARCHAR(100),device_category_id INTEGER)")
+                    "device_image VARCHAR(300), device_num VARCHAR(100),device_category_id INTEGER)")
 
         val CREATE_DEVICE_DETAIL_TABLE =
             ("CREATE TABLE " + TABLE_DEVICE_DETAIL + "(device_detail_id INTEGER PRIMARY KEY AUTOINCREMENT,device_detail_code VARCHAR(100)," +
-                    "device_detail_code_ss VARCHAR(100), device_detail_image BLOB,device_detail_status VARCHAR(50),device_id INTEGER,garden_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+                    "device_detail_code_ss VARCHAR(100), device_detail_image VARCHAR(300),device_detail_status VARCHAR(50),device_id INTEGER,garden_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+                    "deleted_date VARCHAR(50),deleted_flag INTEGER)")
+
+        val CREATE_SUBSTANCE_TABLE =
+            ("CREATE TABLE " + TABLE_SUBSTANCE_MASS + "(substance_mass_id INTEGER PRIMARY KEY AUTOINCREMENT,substance_mass_name VARCHAR(100)," +
+                    "substance_mass_image VARCHAR(300), total_substance_mass VARCHAR(100),substance_category VARCHAR(100),garden_id INTEGER)")
+
+        val CREATE_SUBSTANCE_DETAIL_TABLE =
+            ("CREATE TABLE " + TABLE_SUBSTANCE_MASS_DETAIL + "(substance_mass_detail_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "substance_mass_detail_name VARCHAR(50),substance_mass_detail_image VARCHAR(300),substance_mass_detail_num VARCHAR(50),substance_mass_id INTEGER,garden_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
                     "deleted_date VARCHAR(50),deleted_flag INTEGER)")
 
         val CREATE_DEVICE_CATEGORY_TABLE  =
@@ -190,6 +217,8 @@ class Database(context: Context?) :
         db?.execSQL(CREATE_VEGETABLE_TABLE)
         db?.execSQL(CREATE_DEVICE_TABLE)
         db?.execSQL(CREATE_DEVICE_DETAIL_TABLE)
+        db?.execSQL(CREATE_SUBSTANCE_TABLE)
+        db?.execSQL(CREATE_SUBSTANCE_DETAIL_TABLE)
         db?.execSQL(CREATE_DEVICE_CATEGORY_TABLE)
         db?.execSQL(CREATE_PARAM_TABLE)
 
@@ -1098,13 +1127,13 @@ class Database(context: Context?) :
         }
         var device_id: Int
         var device_name: String
-        var device_image : ByteArray
+        var device_image : String
         var device_num : String
         if (cursor.moveToFirst()) {
             do {
                 device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
                 device_name = cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_NAME))
-                device_image= cursor.getBlob(cursor.getColumnIndex(COLUMN_DEVICE_IMAGE))
+                device_image= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_IMAGE))
                 device_num= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_NUM))
 
                 val device = Device(device_id,device_name,device_image,device_num)
@@ -1135,7 +1164,7 @@ class Database(context: Context?) :
                 do {
                     var device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
                     var device_name = cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_NAME))
-                    var device_image= cursor.getBlob(cursor.getColumnIndex(COLUMN_DEVICE_IMAGE))
+                    var device_image= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_IMAGE))
                     var device_num= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_NUM))
                     var device_category_id = cursor.getInt(cursor.getColumnIndex(
                         COLUMN_DEVICE_CATEGORY_ID))
@@ -1248,7 +1277,7 @@ class Database(context: Context?) :
         }
         var device_detail_id: Int
         var device_detail_code: String
-        var device_detail_image : ByteArray
+        var device_detail_image : String
         var device_detail_status : String
         var device_id : Int
         var garden_id : Int
@@ -1257,7 +1286,7 @@ class Database(context: Context?) :
                 device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
                 device_detail_code = cursor.getString(cursor.getColumnIndex(
                     COLUMN_DEVICE_DETAIL_CODE))
-                device_detail_image= cursor.getBlob(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
+                device_detail_image= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
                 device_detail_status= cursor.getString(cursor.getColumnIndex(
                     COLUMN_DEVICE_DETAIL_STATUS))
                 device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
@@ -1437,7 +1466,7 @@ class Database(context: Context?) :
         }
         var device_detail_id: Int
         var device_detail_code: String
-        var device_detail_image : ByteArray
+        var device_detail_image : String
         var device_detail_status : String
         var device_id : Int
         var garden_id : Int
@@ -1446,7 +1475,7 @@ class Database(context: Context?) :
                 device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
                 device_detail_code = cursor.getString(cursor.getColumnIndex(
                     COLUMN_DEVICE_DETAIL_CODE))
-                device_detail_image= cursor.getBlob(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
+                device_detail_image= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
                 device_detail_status= cursor.getString(cursor.getColumnIndex(
                     COLUMN_DEVICE_DETAIL_STATUS))
                 device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
@@ -1479,7 +1508,7 @@ class Database(context: Context?) :
         }
         var device_detail_id: Int
         var device_detail_code: String
-        var device_detail_image : ByteArray
+        var device_detail_image : String
         var device_detail_status : String
         var device_id : Int
         var garden_id : Int
@@ -1489,7 +1518,7 @@ class Database(context: Context?) :
                 device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
                 device_detail_code = cursor.getString(cursor.getColumnIndex(
                     COLUMN_DEVICE_DETAIL_CODE))
-                device_detail_image= cursor.getBlob(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
+                device_detail_image= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
                 device_detail_status= cursor.getString(cursor.getColumnIndex(
                     COLUMN_DEVICE_DETAIL_STATUS))
                 device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
@@ -1523,7 +1552,7 @@ class Database(context: Context?) :
         }
         var device_detail_id: Int
         var device_detail_code: String
-        var device_detail_image : ByteArray
+        var device_detail_image : String
         var device_detail_status : String
         var device_id : Int
         var garden_id : Int
@@ -1534,7 +1563,7 @@ class Database(context: Context?) :
                 device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
                 device_detail_code = cursor.getString(cursor.getColumnIndex(
                     COLUMN_DEVICE_DETAIL_CODE))
-                device_detail_image= cursor.getBlob(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
+                device_detail_image= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
                 device_detail_status= cursor.getString(cursor.getColumnIndex(
                     COLUMN_DEVICE_DETAIL_STATUS))
                 device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
@@ -1681,7 +1710,7 @@ class Database(context: Context?) :
         }
         var device_detail_id: Int
         var device_detail_code: String
-        var device_detail_image : ByteArray
+        var device_detail_image : String
         var device_detail_status : String
         var device_id : Int
         var garden_id : Int
@@ -1690,7 +1719,7 @@ class Database(context: Context?) :
                 device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
                 device_detail_code = cursor.getString(cursor.getColumnIndex(
                     COLUMN_DEVICE_DETAIL_CODE))
-                device_detail_image= cursor.getBlob(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
+                device_detail_image= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
                 device_detail_status= cursor.getString(cursor.getColumnIndex(
                     COLUMN_DEVICE_DETAIL_STATUS))
                 device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
@@ -1869,6 +1898,144 @@ class Database(context: Context?) :
         }
         cursor?.close()
         return param
+    }
+
+    /*---------------------------------------------- SUBSTANCE AND SUBSTANCE DETAIL -------------------------------------------------*/
+    /**
+     * This method to findAllSubstance
+     *
+     * @return ArrayList
+     */
+    fun findAllSubstanceByGardenId(garden_id: Int):ArrayList<Substance>{
+        val substanceList:ArrayList<Substance> = ArrayList()
+        val selectQuery = "SELECT  * FROM $TABLE_SUBSTANCE_MASS WHERE $COLUMN_GARDEN_ID = $garden_id"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            db.execSQL(selectQuery)
+            return ArrayList()
+        }
+        var substanceMassId: Int
+        var substanceMassName: String
+        var substanceMassImage: String
+        var totalSubstanceMass : String
+        var substanceMassCategory: String
+        var gardenId: Int
+        if (cursor.moveToFirst()) {
+            do {
+                substanceMassId = cursor.getInt(cursor.getColumnIndex(COLUMN_SUBSTANCE_ID))
+                substanceMassName = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_NAME))
+                substanceMassImage = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_IMAGE))
+                totalSubstanceMass= cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_TOTAL))
+                substanceMassCategory= cursor.getString(cursor.getColumnIndex(
+                    COLUMN_SUBSTANCE_CATEGORY))
+                gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
+
+                val substance = Substance(substanceMassId,substanceMassName,substanceMassImage,totalSubstanceMass,substanceMassCategory,gardenId)
+                substanceList.add(substance)
+            } while (cursor.moveToNext())
+        }
+        cursor?.close()
+        return substanceList
+    }
+
+    /**
+     * This method to addSubstance
+     *
+     * @param device
+     * @return Long
+     */
+    fun addSubstance(substance: Substance) : Long{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_SUBSTANCE_NAME, substance.substanceMassName)
+        contentValues.put(COLUMN_SUBSTANCE_IMAGE, substance.substanceMassImage)
+        contentValues.put(COLUMN_SUBSTANCE_TOTAL, substance.totalSubstanceMass)
+        contentValues.put(COLUMN_SUBSTANCE_CATEGORY, substance.substanceCategory)
+        contentValues.put(COLUMN_GARDEN_ID,substance.gardenId)
+
+
+        // Inserting Row
+        val success = db.insert(TABLE_SUBSTANCE_MASS, null, contentValues)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to updateSubstance
+     *
+     * @param veg
+     * @return true/false
+     */
+    fun updateSubstance(substance: Substance) : Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_DEVICE_ID,substance.substanceMassId)
+        contentValues.put(COLUMN_SUBSTANCE_NAME, substance.substanceMassName)
+        contentValues.put(COLUMN_SUBSTANCE_IMAGE, substance.substanceMassImage)
+        contentValues.put(COLUMN_SUBSTANCE_TOTAL, substance.totalSubstanceMass)
+        contentValues.put(COLUMN_SUBSTANCE_CATEGORY, substance.substanceCategory)
+        contentValues.put(COLUMN_GARDEN_ID,substance.gardenId)
+
+
+        // Inserting Row
+        val success = db.update(TABLE_SUBSTANCE_MASS, contentValues,"$COLUMN_SUBSTANCE_ID="+substance.substanceMassId,null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to insert data device detail
+     *
+     * @param deviceDetail
+     * @return Long
+     */
+    fun addSubstanceDetail(substanceDetail: SubstanceDetail) : Long{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_SUBSTANCE_DETAIL_NAME, substanceDetail.substanceMassDetailName)
+        contentValues.put(COLUMN_SUBSTANCE_DETAIL_IMAGE, substanceDetail.substanceMassDetailImage)
+        contentValues.put(COLUMN_SUBSTANCE_DETAIL_NUM,substanceDetail.substanceMassDetailNum)
+        contentValues.put(COLUMN_SUBSTANCE_ID,substanceDetail.substanceMassId)
+        contentValues.put(COLUMN_GARDEN_ID,substanceDetail.gardenId)
+        contentValues.put(COLUMN_CREATEDBY, substanceDetail.createdBy)
+        contentValues.put(COLUMN_CREATEDDATE, substanceDetail.createdDate)
+
+
+
+        // Inserting Row
+        val success = db.insert(TABLE_SUBSTANCE_MASS_DETAIL, null, contentValues)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to update data devicedetail
+     *
+     * @param veg
+     * @return true/false
+     */
+    fun updateSubstanceDetail(substanceDetail: SubstanceDetail) : Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_SUBSTANCE_DETAIL_ID, substanceDetail.substanceMassDetailId)
+        contentValues.put(COLUMN_SUBSTANCE_DETAIL_NAME, substanceDetail.substanceMassDetailName)
+        contentValues.put(COLUMN_SUBSTANCE_DETAIL_IMAGE, substanceDetail.substanceMassDetailImage)
+        contentValues.put(COLUMN_SUBSTANCE_DETAIL_NUM,substanceDetail.substanceMassDetailNum)
+        contentValues.put(COLUMN_GARDEN_ID,substanceDetail.gardenId)
+        contentValues.put(COLUMN_SUBSTANCE_ID,substanceDetail.substanceMassId)
+        contentValues.put(COLUMN_UPDATED_DATE, substanceDetail.updatedDate)
+
+        // Inserting Row
+        val success = db.update(TABLE_SUBSTANCE_MASS_DETAIL, contentValues,"$COLUMN_SUBSTANCE_DETAIL_ID="+substanceDetail.substanceMassDetailId,null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
     }
 
 }

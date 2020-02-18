@@ -3,7 +3,7 @@ package com.appveg.farmfamily.ui.device
 class Device {
     var deviceID : Int? = 0
     var deviceName : String? = ""
-    var deviceImg : ByteArray? = null
+    var deviceImg : String? = ""
     var deviceNum :  String? = ""
     var deviceCategoryId:  Int? = 0
 
@@ -11,7 +11,7 @@ class Device {
     constructor(
         deviceID: Int?,
         deviceName: String?,
-        deviceImg: ByteArray?,
+        deviceImg: String?,
         deviceNum: String?,
         deviceCategoryId: Int?
     ) {
@@ -25,7 +25,7 @@ class Device {
     constructor(
         deviceID: Int?,
         deviceName: String?,
-        deviceImg: ByteArray?,
+        deviceImg: String?,
         deviceCategoryId: Int?
     ) {
         this.deviceID = deviceID
@@ -37,7 +37,7 @@ class Device {
     constructor(
     deviceID: Int?,
     deviceName: String?,
-    deviceImg: ByteArray?,
+    deviceImg: String?,
     deviceNum: String?
     ) {
         this.deviceID = deviceID

@@ -10,11 +10,15 @@ import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
+import com.appveg.farmfamily.ui.common.SendMail
 import com.appveg.farmfamily.ui.database.Database
+import com.appveg.farmfamily.ui.login.User
 import com.bumptech.glide.Glide
+import com.creativityapps.gmailbackgroundlibrary.BackgroundMail
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.*
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_1
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_2
@@ -138,9 +142,17 @@ class ThemKhuVuonActivity : AppCompatActivity() {
 
     private fun addGarden() {
         database = Database(activity)
+
         var gardenName = garden_name.text.toString().trim()
 
         var gardenCode = generateAssetTypeCode(gardenName)
+
+
+        // handling send mail
+//        var sendMail = SendMail(this)
+//        var mailTo = getUser().email
+//        var subject = "Mã cài đặt arduino  của khu vườn"
+//        var body = "Mã khu vườn: " + gardenCode
 
         Toast.makeText(this, gardenCode, Toast.LENGTH_LONG).show()
 
@@ -159,12 +171,19 @@ class ThemKhuVuonActivity : AppCompatActivity() {
         var image: ByteArray = byteArray.toByteArray()
         var checkGardenImage = checkGardenImage(image)
 
-        var sizeImage = image.size
         if (checkGardenName && checkGardenImage) {
             var garden = Garden(null, gardenCode, gardenName, image, "admin", formatted)
             var id = database.addGardenImageDefault(garden)
             if (id != null) {
-                Toast.makeText(this, getString(R.string.insert_data_success_vi), Toast.LENGTH_LONG)
+//                BackgroundMail.newBuilder(this)
+//                    .withUsername("hotronguoidung2202@gmail.com")
+//                    .withPassword("hoangvutkasd123")
+//                    .withMailto(mailTo!!)
+//                    .withType(BackgroundMail.TYPE_HTML)
+//                    .withSubject(subject)
+//                    .withBody(body)
+//                    .send()
+                Toast.makeText(this, getString(R.string.insert_data_success_vi), Toast.LENGTH_SHORT)
                     .show()
                 activity.finish()
             }
@@ -180,13 +199,13 @@ class ThemKhuVuonActivity : AppCompatActivity() {
     private fun checkGardenName(check: String): Boolean {
         database = Database(activity)
         var gardens = database.findAllGarden()
-        var garden_temp = generateAssetTypeCode(check)
+        var gardenTemp = generateAssetTypeCode(check)
         if (check.isEmpty()) {
             garden_name.error = getString(R.string.error_empty_common)
             return false
         } else {
             for (i in 0 until gardens.size) {
-                if (garden_temp.equals(gardens[i].gardenCode, true)) {
+                if (gardenTemp.equals(gardens[i].gardenCode, true)) {
                     garden_name.error = getString(R.string.error_garden_exist)
                     return false
                 }
@@ -264,7 +283,7 @@ class ThemKhuVuonActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
     }
 
-    fun generateAssetTypeCode(garden_name: String): String {
+    private fun generateAssetTypeCode(garden_name: String): String {
         var result: String = ""
 
         if (garden_name.isNotBlank()) {
@@ -290,4 +309,9 @@ class ThemKhuVuonActivity : AppCompatActivity() {
         return gardens
     }
 
+    private fun getUser() : User{
+        database = Database(activity)
+        var users = database.getAllUser()
+        return users[0]
+    }
 }

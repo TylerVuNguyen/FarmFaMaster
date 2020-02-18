@@ -11,6 +11,7 @@ import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import kotlinx.android.synthetic.main.activity_add_device.*
 import kotlinx.android.synthetic.main.activity_add_device_category.*
+import kotlinx.android.synthetic.main.activity_edit_device_category.*
 import kotlinx.android.synthetic.main.fragment_device_category.*
 import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
@@ -51,21 +52,28 @@ class AddDeviceCategory : AppCompatActivity() {
         device_category_image1.setOnClickListener {
             var dcategory_img= R.drawable.cambienmua
             var dcatrgory_name1 = "Cảm biến "
-            this.selected_category_image.setImageResource(dcategory_img)
+            this.selected_device_category_image.setImageResource(dcategory_img)
             this.device_category_name.setText(dcatrgory_name1)
             this.device_category_name.setSelection(device_category_name.text.length)
         }
         device_category_image2.setOnClickListener {
             var dcategory_img= R.drawable.quat
             var dcatrgory_name2 = "Quạt"
-            this.selected_category_image.setImageResource(dcategory_img)
+            this.selected_device_category_image.setImageResource(dcategory_img)
             this.device_category_name.setText(dcatrgory_name2)
             this.device_category_name.setSelection(device_category_name.text.length)
         }
         device_category_image3.setOnClickListener {
             var dcategory_img = "Máy bơm"
             var dcatrgory_name3= R.drawable.maybo2
-            this.selected_category_image.setImageResource(dcatrgory_name3)
+            this.selected_device_category_image.setImageResource(dcatrgory_name3)
+            this.device_category_name.setText(dcategory_img)
+            this.device_category_name.setSelection(device_category_name.text.length)
+        }
+        device_category_image4.setOnClickListener {
+            var dcategory_img = "Bóng đèn"
+            var dcatrgory_name4= R.drawable.bongden
+            this.selected_device_category_image.setImageResource(dcatrgory_name4)
             this.device_category_name.setText(dcategory_img)
             this.device_category_name.setSelection(device_category_name.text.length)
         }
@@ -113,7 +121,7 @@ class AddDeviceCategory : AppCompatActivity() {
         val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
         val formatted: String = formatter.format(current)
 
-        var bitmapDrawable: BitmapDrawable = selected_category_image.drawable as BitmapDrawable
+        var bitmapDrawable: BitmapDrawable = selected_device_category_image.drawable as BitmapDrawable
         var bitmap: Bitmap = bitmapDrawable.bitmap
         var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.PNG,0,byteArray)

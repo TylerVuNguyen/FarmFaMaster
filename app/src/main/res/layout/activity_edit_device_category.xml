@@ -70,6 +70,21 @@
                     android:src="@drawable/maybo2" />
             </TableRow>
 
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/device_category_image4_edit"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:padding="7dp"
+                    android:src="@drawable/bongden" />
+
+                <!--    button to show picker diaglog-->
+            </TableRow>
+
         </TableLayout>
 
 

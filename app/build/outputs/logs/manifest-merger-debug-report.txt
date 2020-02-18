@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-230:12
-INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-230:12
-INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-230:12
-INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-230:12
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-249:12
+INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-249:12
+INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-249:12
+INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-249:12
 MERGED from [ir.farshid_roohi:linegraph:0.1.1] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\35849f6afa5c3d1459ad8c65bbcc366e\linegraph-0.1.1\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.navigation:navigation-ui-ktx:2.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\f1781561c1d454596a44c5638724cde1\navigation-ui-ktx-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-ui:2.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\cacbdd794a3c464e3557e02468a54ce3\jetified-navigation-ui-2.0.0\AndroidManifest.xml:17:1-22:12
@@ -19,10 +19,11 @@ MERGED from [androidx.navigation:navigation-fragment-ktx:2.0.0] C:\Users\NGUYEN 
 MERGED from [androidx.navigation:navigation-fragment:2.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\6856f8c9d427500be5dd4b78164e2cda\navigation-fragment-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\fbb19bc9142b540c740551291444a62d\lifecycle-extensions-2.1.0\AndroidManifest.xml:17:1-25:12
 MERGED from [com.hudomju:swipe-to-dismiss-undo:1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\d142a2977824ee590910d5742f95e426\jetified-swipe-to-dismiss-undo-1.0\AndroidManifest.xml:2:1-14:12
-MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\e1df0a38d3cc6bbe745144acb0c7188a\jetified-glide-4.9.0\AndroidManifest.xml:2:1-12:12
+MERGED from [com.github.bumptech.glide:glide:4.10.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\7b16797ff4884a1af3640f4aa525ff08\glide-4.10.0\AndroidManifest.xml:2:1-12:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\809133f126756b9a3cd54f5f7e3360e1\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-analytics:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\f4cc4a1b05a0be8c546b084e7a2c196b\firebase-analytics-17.2.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:15:1-38:12
+MERGED from [com.github.yesidlazaro:GmailBackground:1.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\39675672ce98e04a12ceb1e4172f7df9\jetified-GmailBackground-1.2.0\AndroidManifest.xml:2:1-20:12
 MERGED from [androidx.navigation:navigation-runtime-ktx:2.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\56a1af12fcd5a0b822a9f89f48087a4d\navigation-runtime-ktx-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\de9961c6358f181b119fd5c3c3ac9641\navigation-common-ktx-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\287e0d26b2188034b5d49526ee1e77be\firebase-auth-interop-18.0.0\AndroidManifest.xml:2:1-10:12
@@ -71,27 +72,27 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.1.0] C:\Users\NGUYEN H
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\d55f1a26aacc202140d07816f2270fb1\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\d33876e0bf19723dacbf9f2ed8bb5f2f\savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\eb1e384540ee142a42b85bf2dfa90729\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\643c65a692e6922aadd78fb79567e51f\jetified-gifdecoder-4.9.0\AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.10.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\b380b194b7f1955287fab6ba82a3fb8b\gifdecoder-4.10.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\4c73cef07b296f24b35560987f405627\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\9409fe5838ffdf555760fc3af49e884c\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\6960c8867e58216c259d43dbc9244464\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\a4efba1ac7f714b2298184d98d747521\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\fec5405cf7ccd3b4c8d626d6216b1e89\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-database-collection:17.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\bafcb63d6e133900c9df02cbe50cff04\firebase-database-collection-17.0.0\AndroidManifest.xml:2:1-7:12
-INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-230:12
-INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-230:12
-INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-230:12
+INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-249:12
+INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-249:12
+INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-249:12
 	package
 		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:3:5-36
 		INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml
 		INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-230:12
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-249:12
 		INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-230:12
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:1-249:12
 		INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:2:11-69
@@ -103,6 +104,8 @@ uses-permission#android.permission.INTERNET
 ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:6:5-67
 MERGED from [com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:26:5-67
 MERGED from [com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:26:5-67
+MERGED from [com.github.yesidlazaro:GmailBackground:1.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\39675672ce98e04a12ceb1e4172f7df9\jetified-GmailBackground-1.2.0\AndroidManifest.xml:12:5-67
+MERGED from [com.github.yesidlazaro:GmailBackground:1.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\39675672ce98e04a12ceb1e4172f7df9\jetified-GmailBackground-1.2.0\AndroidManifest.xml:12:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\b8b52c895fef82a07c222f81e6c5cb44\play-services-measurement-api-17.2.0\AndroidManifest.xml:22:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\b8b52c895fef82a07c222f81e6c5cb44\play-services-measurement-api-17.2.0\AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:23:5-67
@@ -127,6 +130,8 @@ uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:9:5-79
 MERGED from [com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:25:5-79
 MERGED from [com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:25:5-79
+MERGED from [com.github.yesidlazaro:GmailBackground:1.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\39675672ce98e04a12ceb1e4172f7df9\jetified-GmailBackground-1.2.0\AndroidManifest.xml:11:5-79
+MERGED from [com.github.yesidlazaro:GmailBackground:1.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\39675672ce98e04a12ceb1e4172f7df9\jetified-GmailBackground-1.2.0\AndroidManifest.xml:11:5-79
 MERGED from [com.google.android.gms:play-services-measurement-api:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\b8b52c895fef82a07c222f81e6c5cb44\play-services-measurement-api-17.2.0\AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-measurement-api:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\b8b52c895fef82a07c222f81e6c5cb44\play-services-measurement-api-17.2.0\AndroidManifest.xml:23:5-79
 MERGED from [com.google.firebase:firebase-iid:19.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\1061d095a9a6578670f2bd4eebc7d582\firebase-iid-19.0.0\AndroidManifest.xml:22:5-79
@@ -140,7 +145,7 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.0] C:
 	android:name
 		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:9:22-76
 application
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:11:5-228:19
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:12:5-247:19
 MERGED from [com.karumi:dexter:5.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\64f3c346ab16c3bdfb5112d4f9792b77\jetified-dexter-5.0.0\AndroidManifest.xml:26:5-30:19
 MERGED from [com.karumi:dexter:5.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\64f3c346ab16c3bdfb5112d4f9792b77\jetified-dexter-5.0.0\AndroidManifest.xml:26:5-30:19
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\c2ba22029843c0f2d33a93c9e5ecd889\material-1.0.0\AndroidManifest.xml:22:5-20
@@ -151,12 +156,14 @@ MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] C:\Users\NGUYEN HOAN
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\fbb19bc9142b540c740551291444a62d\lifecycle-extensions-2.1.0\AndroidManifest.xml:22:5-23:19
 MERGED from [com.hudomju:swipe-to-dismiss-undo:1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\d142a2977824ee590910d5742f95e426\jetified-swipe-to-dismiss-undo-1.0\AndroidManifest.xml:11:5-12:19
 MERGED from [com.hudomju:swipe-to-dismiss-undo:1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\d142a2977824ee590910d5742f95e426\jetified-swipe-to-dismiss-undo-1.0\AndroidManifest.xml:11:5-12:19
-MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\e1df0a38d3cc6bbe745144acb0c7188a\jetified-glide-4.9.0\AndroidManifest.xml:10:5-20
-MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\e1df0a38d3cc6bbe745144acb0c7188a\jetified-glide-4.9.0\AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.10.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\7b16797ff4884a1af3640f4aa525ff08\glide-4.10.0\AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.10.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\7b16797ff4884a1af3640f4aa525ff08\glide-4.10.0\AndroidManifest.xml:10:5-20
 MERGED from [com.google.firebase:firebase-analytics:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\f4cc4a1b05a0be8c546b084e7a2c196b\firebase-analytics-17.2.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-analytics:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\f4cc4a1b05a0be8c546b084e7a2c196b\firebase-analytics-17.2.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:28:5-36:19
 MERGED from [com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:28:5-36:19
+MERGED from [com.github.yesidlazaro:GmailBackground:1.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\39675672ce98e04a12ceb1e4172f7df9\jetified-GmailBackground-1.2.0\AndroidManifest.xml:14:5-18:19
+MERGED from [com.github.yesidlazaro:GmailBackground:1.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\39675672ce98e04a12ceb1e4172f7df9\jetified-GmailBackground-1.2.0\AndroidManifest.xml:14:5-18:19
 MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\287e0d26b2188034b5d49526ee1e77be\firebase-auth-interop-18.0.0\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\287e0d26b2188034b5d49526ee1e77be\firebase-auth-interop-18.0.0\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.android.gms:play-services-measurement-api:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\b8b52c895fef82a07c222f81e6c5cb44\play-services-measurement-api-17.2.0\AndroidManifest.xml:26:5-34:19
@@ -191,262 +198,278 @@ MERGED from [androidx.core:core:1.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\t
 MERGED from [androidx.core:core:1.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\dd19378f992efbd0ceb09b589d36b501\core-1.1.0\AndroidManifest.xml:24:5-89
 MERGED from [androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\9940d448ff0ec756c6afd6b4db3a61f4\lifecycle-process-2.1.0\AndroidManifest.xml:22:5-28:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\9940d448ff0ec756c6afd6b4db3a61f4\lifecycle-process-2.1.0\AndroidManifest.xml:22:5-28:19
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\643c65a692e6922aadd78fb79567e51f\jetified-gifdecoder-4.9.0\AndroidManifest.xml:9:5-20
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\643c65a692e6922aadd78fb79567e51f\jetified-gifdecoder-4.9.0\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.10.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\b380b194b7f1955287fab6ba82a3fb8b\gifdecoder-4.10.0\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.10.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\b380b194b7f1955287fab6ba82a3fb8b\gifdecoder-4.10.0\AndroidManifest.xml:9:5-20
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\4c73cef07b296f24b35560987f405627\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\4c73cef07b296f24b35560987f405627\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\dd19378f992efbd0ceb09b589d36b501\core-1.1.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:16:9-35
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:17:9-35
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:14:9-41
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:15:9-41
 	android:roundIcon
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:15:9-54
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:16:9-54
 	android:icon
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:13:9-43
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:14:9-43
 	android:allowBackup
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:12:9-35
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:13:9-35
 	android:theme
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:17:9-40
-activity#com.appveg.farmfamily.ui.share.SubstanceMassDetailActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:18:9-83
-	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:18:19-71
-activity#com.appveg.farmfamily.ui.share.SubstanceMassActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:19:9-68
-	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:19:19-65
-activity#com.appveg.farmfamily.ui.param.ParamDetailActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:20:9-27:20
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:18:9-40
+activity#com.appveg.farmfamily.ui.share.AddSubstanceMassActivity
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:19:9-24:102
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:13-71
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-76
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:13-45
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:20:13-48
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:21:13-57
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:19:19-68
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:24:13-26:86
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:22:13-24:91
 	android:value
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:26:17-83
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:24:17-88
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:25:17-63
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:23:17-63
+activity#com.appveg.farmfamily.ui.share.SubstanceMassDetailActivity
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:25:9-31:20
+	android:parentActivityName
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:27:13-79
+	android:label
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:26:13-62
+	android:name
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:25:19-71
+activity#com.appveg.farmfamily.ui.share.SubstanceMassActivity
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:32:9-38:20
+	android:parentActivityName
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:34:13-73
+	android:label
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:33:13-53
+	android:name
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:32:19-65
+activity#com.appveg.farmfamily.ui.param.ParamDetailActivity
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:39:9-46:20
+	android:parentActivityName
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:42:13-71
+	android:label
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:41:13-45
+	android:name
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:40:13-57
 activity#com.appveg.farmfamily.ui.param.EditParamActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:28:9-35:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:47:9-54:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:31:13-69
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:50:13-69
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:30:13-48
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:49:13-48
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:29:13-55
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:48:13-55
 activity#com.appveg.farmfamily.ui.param.AddParamActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:36:9-43:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:55:9-62:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:39:13-68
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:58:13-68
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:38:13-49
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:57:13-49
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:37:13-54
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:56:13-54
 activity#com.appveg.farmfamily.ui.garden.SelectVegGardenActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:44:9-51:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:63:9-70:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:47:13-76
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:66:13-76
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:46:13-55
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:65:13-55
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:45:13-62
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:64:13-62
 activity#com.appveg.farmfamily.ui.garden.SelectDeviceGardenActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:52:9-59:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:71:9-78:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:55:13-79
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:74:13-79
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:54:13-55
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:73:13-55
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:53:13-65
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:72:13-65
 activity#com.appveg.farmfamily.ui.garden.AddDeviceForGardenActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:60:9-67:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:79:9-86:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:63:13-79
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:82:13-79
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:62:13-46
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:81:13-46
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:61:13-65
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:80:13-65
 activity#com.appveg.farmfamily.ui.device_catogory.EditDeviceCategory
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:68:9-75:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:87:9-94:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:71:13-80
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:90:13-80
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:70:13-46
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:89:13-46
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:69:13-66
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:88:13-66
 activity#com.appveg.farmfamily.ui.device_catogory.AddDeviceCategory
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:76:9-83:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:95:9-102:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:79:13-79
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:98:13-79
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:78:13-47
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:97:13-47
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:77:13-65
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:96:13-65
 activity#com.appveg.farmfamily.ui.device.DeviceDetailActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:84:9-91:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:103:9-110:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:87:13-73
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:106:13-73
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:86:13-46
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:105:13-46
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:85:13-59
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:104:13-59
 activity#com.appveg.farmfamily.ui.settings.SettingsActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:92:9-99:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:111:9-118:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:95:13-71
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:114:13-71
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:94:13-36
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:113:13-36
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:93:13-57
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:112:13-57
 activity#com.appveg.farmfamily.ui.chart.ChartActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:100:9-107:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:119:9-126:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:103:13-65
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:122:13-65
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:102:13-36
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:121:13-36
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:101:13-51
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:120:13-51
 activity#com.appveg.farmfamily.ui.home.DetailGardenActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:108:9-115:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:127:9-134:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:111:13-71
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:130:13-71
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:110:13-47
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:129:13-47
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:109:13-57
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:128:13-57
 activity#com.appveg.farmfamily.ui.vegetable.EditVegetableActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:116:9-123:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:135:9-142:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:119:13-77
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:138:13-77
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:118:13-41
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:137:13-41
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:117:13-63
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:136:13-63
 activity#com.appveg.farmfamily.ui.vegetable.AddVegetableActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:124:9-131:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:143:9-150:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:127:13-76
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:146:13-76
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:126:13-42
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:145:13-42
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:125:13-62
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:144:13-62
 activity#com.appveg.farmfamily.ui.device.EditDeviceActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:132:9-139:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:151:9-158:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:135:13-71
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:154:13-71
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:134:13-41
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:153:13-41
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:133:13-57
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:152:13-57
 activity#com.appveg.farmfamily.ui.device.AddDeviceActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:140:9-147:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:159:9-166:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:143:13-70
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:162:13-70
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:142:13-42
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:161:13-42
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:141:13-56
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:160:13-56
 activity#com.appveg.farmfamily.ui.garden.ThemKhuVuonActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:155:9-162:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:174:9-181:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:158:13-72
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:177:13-72
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:157:13-42
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:176:13-42
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:156:13-58
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:175:13-58
 activity#com.appveg.farmfamily.ui.garden.SuaKhuVuonActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:163:9-170:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:182:9-189:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:166:13-72
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:185:13-72
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:165:13-41
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:184:13-41
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:164:13-57
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:183:13-57
 activity#com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:171:9-178:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:190:9-197:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:174:13-73
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:193:13-73
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:173:13-46
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:192:13-46
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:172:13-59
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:191:13-59
 activity#com.appveg.farmfamily.ui.send.ChiTietSanLuongRauActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:179:9-186:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:198:9-205:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:182:13-77
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:201:13-77
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:181:13-47
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:200:13-47
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:180:13-63
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:199:13-63
 activity#com.appveg.farmfamily.ui.send.ThemDotSanLuongActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:187:9-194:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:206:9-213:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:190:13-74
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:209:13-74
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:189:13-48
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:208:13-48
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:188:13-60
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:207:13-60
 activity#com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:195:9-202:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:214:9-221:20
 	android:parentActivityName
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:198:13-77
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:217:13-77
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:197:13-52
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:216:13-52
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:196:13-63
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:215:13-63
 activity#com.appveg.farmfamily.MainActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:203:9-206:59
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:222:9-225:59
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:205:13-45
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:224:13-45
 	android:theme
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:206:13-56
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:225:13-56
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:204:13-41
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:223:13-41
 activity#com.appveg.farmfamily.ui.login.LoginActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:207:9-216:20
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:226:9-235:20
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:209:13-45
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:228:13-45
 	android:theme
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:210:13-56
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:229:13-56
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:208:13-51
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:227:13-51
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:211:13-215:29
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:230:13-234:29
 action#android.intent.action.MAIN
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:212:17-69
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:231:17-69
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:212:25-66
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:231:25-66
 category#android.intent.category.LAUNCHER
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:214:17-77
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:233:17-77
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:214:27-74
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:233:27-74
 activity#com.appveg.farmfamily.ui.login.SignUpActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:217:9-220:59
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:236:9-239:59
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:219:13-45
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:238:13-45
 	android:theme
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:220:13-56
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:239:13-56
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:218:13-52
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:237:13-52
 activity#com.appveg.farmfamily.ui.login.ForgotPPass
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:221:9-224:59
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:240:9-243:59
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:223:13-45
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:242:13-45
 	android:theme
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:224:13-56
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:243:13-56
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:222:13-49
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:241:13-49
 activity#com.appveg.farmfamily.ui.login.ChangePasswordActivity
-ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:225:9-227:59
+ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:244:9-246:59
 	android:theme
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:227:13-56
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:246:13-56
 	android:name
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:226:13-60
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:245:13-60
 uses-sdk
 INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml
@@ -481,14 +504,16 @@ MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] C:\Users\NGUYEN HOAN
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\fbb19bc9142b540c740551291444a62d\lifecycle-extensions-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [com.hudomju:swipe-to-dismiss-undo:1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\d142a2977824ee590910d5742f95e426\jetified-swipe-to-dismiss-undo-1.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.hudomju:swipe-to-dismiss-undo:1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\d142a2977824ee590910d5742f95e426\jetified-swipe-to-dismiss-undo-1.0\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\e1df0a38d3cc6bbe745144acb0c7188a\jetified-glide-4.9.0\AndroidManifest.xml:6:5-8:41
-MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\e1df0a38d3cc6bbe745144acb0c7188a\jetified-glide-4.9.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.10.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\7b16797ff4884a1af3640f4aa525ff08\glide-4.10.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.10.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\7b16797ff4884a1af3640f4aa525ff08\glide-4.10.0\AndroidManifest.xml:6:5-8:41
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\809133f126756b9a3cd54f5f7e3360e1\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\809133f126756b9a3cd54f5f7e3360e1\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-analytics:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\f4cc4a1b05a0be8c546b084e7a2c196b\firebase-analytics-17.2.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics:17.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\f4cc4a1b05a0be8c546b084e7a2c196b\firebase-analytics-17.2.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-database:19.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\0f47b0707c60747f5560bd09fc3c7bfa\firebase-database-19.2.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.github.yesidlazaro:GmailBackground:1.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\39675672ce98e04a12ceb1e4172f7df9\jetified-GmailBackground-1.2.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.yesidlazaro:GmailBackground:1.2.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\39675672ce98e04a12ceb1e4172f7df9\jetified-GmailBackground-1.2.0\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.navigation:navigation-runtime-ktx:2.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\56a1af12fcd5a0b822a9f89f48087a4d\navigation-runtime-ktx-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.navigation:navigation-runtime-ktx:2.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\56a1af12fcd5a0b822a9f89f48087a4d\navigation-runtime-ktx-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.navigation:navigation-common-ktx:2.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\de9961c6358f181b119fd5c3c3ac9641\navigation-common-ktx-2.0.0\AndroidManifest.xml:20:5-44
@@ -585,8 +610,8 @@ MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\NGUYEN HOANG VU\.gra
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\d33876e0bf19723dacbf9f2ed8bb5f2f\savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\eb1e384540ee142a42b85bf2dfa90729\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\eb1e384540ee142a42b85bf2dfa90729\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\643c65a692e6922aadd78fb79567e51f\jetified-gifdecoder-4.9.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\643c65a692e6922aadd78fb79567e51f\jetified-gifdecoder-4.9.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.10.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\b380b194b7f1955287fab6ba82a3fb8b\gifdecoder-4.10.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.10.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\b380b194b7f1955287fab6ba82a3fb8b\gifdecoder-4.10.0\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\4c73cef07b296f24b35560987f405627\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\4c73cef07b296f24b35560987f405627\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\NGUYEN HOANG VU\.gradle\caches\transforms-2\files-2.1\9409fe5838ffdf555760fc3af49e884c\documentfile-1.0.0\AndroidManifest.xml:20:5-44

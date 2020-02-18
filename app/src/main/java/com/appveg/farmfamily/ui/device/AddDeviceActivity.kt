@@ -6,8 +6,10 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.view.View
 import android.widget.*
@@ -16,11 +18,13 @@ import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device_catogory.DeviceCategory
 import com.bumptech.glide.Glide
+import com.creativityapps.gmailbackgroundlibrary.BackgroundMail
 import kotlinx.android.synthetic.main.activity_add_device.*
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.positionSpinner
-import java.io.ByteArrayOutputStream
-import java.io.FileNotFoundException
+import kotlinx.android.synthetic.main.nav_header_main.*
+import java.io.*
 import java.lang.StringBuilder
+import java.net.URI
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.Random
@@ -75,6 +79,8 @@ class AddDeviceActivity : AppCompatActivity() {
         }
 
     }
+
+
 
     /**
      * This method to select image default
@@ -223,19 +229,20 @@ class AddDeviceActivity : AppCompatActivity() {
         val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
         val formatted: String = formatter.format(current)
 
-        var bitmapDrawable: BitmapDrawable = selected_image_device.drawable as BitmapDrawable
-        var bitmap: Bitmap = bitmapDrawable.bitmap
-        var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArray)
+//        var bitmapDrawable: BitmapDrawable = selected_image_device.drawable as BitmapDrawable
+//        var bitmap: Bitmap = bitmapDrawable.bitmap
+//        var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
+//        bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArray)
 
 
-        var image: ByteArray = byteArray.toByteArray()
-        var checkDeviceImage = checkDeviceImage(image)
+        var bitmap: Bitmap = (selected_image_device.drawable as BitmapDrawable).bitmap
+
+        var uri = saveImageSDcard(bitmap)
 
         var codeDeviceDetail = getRandomCodeDetail()
 
-        if (checkDeviceName && checkDeviceImage && checkDeviceCategory) {
-            var device = Device(null, deviceName, image, deviceCategoryId)
+        if (checkDeviceName && checkDeviceCategory) {
+            var device = Device(null, deviceName, uri.toString(), deviceCategoryId)
             var listDevice = getListDevice()
             var exits: Boolean = false
             var deviceTempId: Int = -1
@@ -254,7 +261,7 @@ class AddDeviceActivity : AppCompatActivity() {
                     var deviceDetail = DeviceDetail(
                         null,
                         codeDeviceDetail,
-                        image,
+                        uri.toString(),
                         tempId.toInt(),
                         "N",
                         "admin",
@@ -269,7 +276,7 @@ class AddDeviceActivity : AppCompatActivity() {
                 var deviceDetail = DeviceDetail(
                     null,
                     codeDeviceDetail,
-                    image,
+                    uri.toString(),
                     deviceTempId,
                     "N",
                     "admin",
@@ -277,13 +284,13 @@ class AddDeviceActivity : AppCompatActivity() {
                 )
                 database.addDeviceDetailImageDefault(deviceDetail)
 
-                Toast.makeText(this, getString(R.string.insert_data_success_vi), Toast.LENGTH_LONG)
+                Toast.makeText(this, getString(R.string.insert_data_success_vi), Toast.LENGTH_SHORT)
                     .show()
                 activity.finish()
             }
 
         } else {
-            Toast.makeText(this, getString(R.string.insert_data_fail_vi), Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.insert_data_fail_vi), Toast.LENGTH_SHORT).show()
         }
 
     }
@@ -382,16 +389,12 @@ class AddDeviceActivity : AppCompatActivity() {
     }
 
 
-    fun getListDevice(): ArrayList<Device> {
+    private fun getListDevice(): ArrayList<Device> {
         database = Database(activity)
-        devices = database.findAllDevice()
-        if (devices.isNullOrEmpty()) {
-            Toast.makeText(activity, "Dánh sách thiết bị đang trống !", Toast.LENGTH_LONG).show()
-        }
-        return devices
+        return database.findAllDevice()
     }
 
-    fun getRandomCodeDetail(): String {
+    private fun getRandomCodeDetail(): String {
         var builder: StringBuilder = StringBuilder()
         builder.append("SS")
         val random = Random()
@@ -415,5 +418,26 @@ class AddDeviceActivity : AppCompatActivity() {
         return categories
     }
 
+    private fun saveImageSDcard(bitmap: Bitmap) : Uri? {
+        // path to sd card
+        var file = File(filesDir, "Images" )
+        // create a folder
+        if(!file.exists()){
+            file.mkdir()
+        }
 
+        file = File(file, "${UUID.randomUUID()}.png")
+
+        var outputStream : OutputStream? = null
+
+        try {
+            outputStream = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream)
+            outputStream.flush()
+            outputStream.close()
+        }catch (e: IOException){
+            e.printStackTrace()
+        }
+        return Uri.parse(file.absoluteFile.toString())
+    }
 }

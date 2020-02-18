@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,9 @@ import android.widget.*
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device.DeviceDetail
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import java.io.File
 import java.text.Normalizer
 import java.util.regex.Pattern
 
@@ -50,9 +54,13 @@ class DeviceForGardenAdapter(
         var deviceDetailForGarden = getItem(position)
 
         // chuyển bytearray về bitmap để hiển thị
-        var imageBitmap: ByteArray? = deviceDetailForGarden.deviceDetailImg
-        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap, 0, imageBitmap!!.size)
-        viewHolder.imgDeviceForGarden!!.setImageBitmap(bitmap)
+//        var imageBitmap: ByteArray? = deviceDetailForGarden.deviceDetailImg
+//        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap, 0, imageBitmap!!.size)
+//        viewHolder.imgDeviceForGarden!!.setImageBitmap(bitmap)
+
+        Glide.with(activity)
+            .load(Uri.fromFile(File(deviceDetailForGarden.deviceDetailImg)))
+            .into(viewHolder.imgDeviceForGarden!!)
 
         viewHolder.deviceForGardenChecked.isChecked =
             checked(deviceDetailForGarden.deviceDetailStatus!!)

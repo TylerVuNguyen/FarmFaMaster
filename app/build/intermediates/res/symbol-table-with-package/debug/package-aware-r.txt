@@ -1227,12 +1227,17 @@ drawable doam
 drawable doamoo
 drawable doph
 drawable dualeo
+drawable dungichdd
+drawable giamph
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_add2
 drawable ic_add_param
+drawable ic_ahead
+drawable ic_ahead_on
 drawable ic_arrow_down_24dp
 drawable ic_back
+drawable ic_back_on
 drawable ic_bong_den
 drawable ic_bong_den_sang
 drawable ic_cai_o_0_mua
@@ -1278,9 +1283,14 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_mua
 drawable ic_nhietdo_sun
+drawable ic_not_stop
 drawable ic_person_white_24dp
 drawable ic_ph
+drawable ic_phun_suong
+drawable ic_phun_suong_off
 drawable ic_ppm
+drawable ic_stop
+drawable ic_stop_on
 drawable ic_users
 drawable imagecamera
 drawable imagegallery
@@ -1327,6 +1337,7 @@ drawable raumuong
 drawable scroll_vertical_thumnb
 drawable side_nav_bar
 drawable sieuam
+drawable tangph
 drawable tds
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1442,6 +1453,9 @@ id add_image_garden_3
 id add_image_garden_4
 id add_image_garden_5
 id add_image_garden_6
+id add_image_substance_1
+id add_image_substance_2
+id add_image_substance_3
 id add_veg
 id add_veg_edit
 id adddevice_progressbar
@@ -1482,12 +1496,15 @@ id btn_edit_param
 id btn_print_device_category
 id btn_print_device_garden
 id btn_print_veg_garden
+id btn_substance_add
 id btn_veg_cancel
 id buttonPanel
-id button_bat_che_mua
+id button_bat_che_mua_stop
 id button_bom_dung_dich
 id button_bom_phun_suong
 id button_bong_den
+id button_tarpaulin_ahead
+id button_tarpaulin_back
 id cai_dat
 id cancel_action
 id cancel_action_device
@@ -1497,6 +1514,7 @@ id cancel_action_edit
 id cancel_action_garden
 id cancel_action_garden_edit
 id cancel_action_param
+id cancel_action_substance
 id cancel_action_veg
 id cancel_action_veg_edit
 id center
@@ -1539,6 +1557,8 @@ id device_category_image2
 id device_category_image2_edit
 id device_category_image3
 id device_category_image3_edit
+id device_category_image4
+id device_category_image4_edit
 id device_category_name
 id device_category_name_edit
 id device_checked
@@ -1655,6 +1675,7 @@ id list_view_device_category
 id list_view_device_detail
 id list_view_garden
 id list_view_param
+id list_view_substance
 id list_view_users
 id list_view_vegetable
 id listview_Detail
@@ -1714,6 +1735,7 @@ id ph_from_edit
 id ph_param
 id ph_param_from
 id ph_param_to
+id ph_sensor
 id ph_to
 id ph_to_detail
 id ph_to_edit
@@ -1778,7 +1800,7 @@ id seekbar
 id seekbar_value
 id select_dialog_listview
 id selected
-id selected_category_image
+id selected_device_category_image
 id selected_device_category_image_edit
 id selected_garden_image
 id selected_garden_image_edit
@@ -1786,6 +1808,7 @@ id selected_image
 id selected_image_device
 id selected_image_device_edit
 id selected_image_edit
+id selected_image_substance
 id setting_button_bat
 id setting_button_dd
 id setting_button_lamp
@@ -1823,6 +1846,7 @@ id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
+id substance_num
 id switchWidget
 id tabMode
 id table_layout_ban_dem
@@ -1926,9 +1950,11 @@ id view_device_num
 id view_error
 id view_offset_helper
 id view_param_btn_print
+id view_substance_btn_add
+id view_substance_btn_print
 id view_substance_image
 id view_substance_name
-id view_substance_num
+id view_substance_total
 id view_user_full_name
 id view_users_email
 id view_veg_param_image
@@ -2008,6 +2034,7 @@ layout activity_add_device
 layout activity_add_device_category
 layout activity_add_device_for_garden
 layout activity_add_param
+layout activity_add_substance_mass
 layout activity_add_vegetable
 layout activity_change_password
 layout activity_chart
@@ -2023,6 +2050,7 @@ layout activity_main
 layout activity_param_detail
 layout activity_select_device_garden
 layout activity_select_veg_garden
+layout activity_send_mail
 layout activity_sua_dot_san_luong
 layout activity_sua_khu_vuon
 layout activity_substance_mass
@@ -2183,6 +2211,7 @@ string attachment_summary_on
 string attachment_title
 string back
 string back_home_vi
+string back_vi
 string batch_add_failed
 string batch_add_success
 string block_user_vi
@@ -2286,6 +2315,7 @@ string insert_data_fail_vi
 string insert_data_success_vi
 string lamp_mode_vi
 string language_vi_en
+string level_TDS_for_param_vi
 string level_TDS_vi
 string location
 string log_out_system_vi
@@ -2310,6 +2340,9 @@ string mobileNumber
 string motor_phun_suong_mode_vi
 string motor_tds_full_mode_vi
 string motor_tds_mode_vi
+string msg_email_sent_successfully
+string msg_error_sending_email
+string msg_sending_email
 string mtrl_chip_close_icon_content_description
 string name_device_vi
 string name_kv_vi
@@ -2321,9 +2354,11 @@ string nav_header_title
 string navigation_drawer_close
 string navigation_drawer_open
 string newUser
+string next_vi
 string night_vi
 string no_data_vi
 string not_set
+string num_dd_used_vi
 string old_passowrd_vi
 string passowrd
 string passowrd_new_vi
@@ -2355,7 +2390,9 @@ string signature_title
 string size_image_large
 string status_bar_notification_info_overflow
 string status_login_vi
+string stop_vi
 string submit
+string substance_empty_vi
 string success_message
 string summary_collapsed_preference_list
 string sync_header

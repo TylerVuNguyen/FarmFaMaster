@@ -7,8 +7,10 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.view.View
 import android.widget.*
@@ -17,6 +19,7 @@ import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device_catogory.DeviceCategory
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_edit_device.*
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_1
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_10
@@ -30,8 +33,7 @@ import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_7
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_8
 import kotlinx.android.synthetic.main.activity_edit_device.add_image_device_9
 import kotlinx.android.synthetic.main.activity_edit_vegetable.*
-import java.io.ByteArrayOutputStream
-import java.io.FileNotFoundException
+import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -236,22 +238,22 @@ class EditDeviceActivity : AppCompatActivity() {
 
         var bitmapDrawable: BitmapDrawable = selected_image_device_edit.drawable as BitmapDrawable
         var bitmap: Bitmap = bitmapDrawable.bitmap
-        var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArray)
+//        var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
+//        bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArray)
+        var uri = saveImageSDcard(bitmap)
 
+       // var image: ByteArray = byteArray.toByteArray()
+       // var checkDeviceImage = checkDeviceImage(image)
 
-        var image: ByteArray = byteArray.toByteArray()
-        var checkDeviceImage = checkDeviceImage(image)
-
-        if (checkDeviceName && checkDeviceImage) {
-            var device = Device(device_id, device_name, image, deviceCategoryId)
+        if (checkDeviceName) {
+            var device = Device(device_id, device_name, uri.toString(), deviceCategoryId)
 
             database.updateDeviceImageDefault(device)
 
             var deviceDetails = database.findAllDeviceDetail(device_id)
             if(!deviceDetails.isNullOrEmpty()){
                 for (i in 0 until deviceDetails.size){
-                    var deviceDetail = DeviceDetail(deviceDetails[i].deviceDetailID, image, formatted)
+                    var deviceDetail = DeviceDetail(deviceDetails[i].deviceDetailID, uri.toString(), formatted)
                     database.updateDeviceDetailImageDefault(deviceDetail)
                 }
                 Toast.makeText(this, getString(R.string.update_data_success_vi), Toast.LENGTH_LONG)
@@ -280,7 +282,7 @@ class EditDeviceActivity : AppCompatActivity() {
      */
     private fun checkDeviceImage(check: ByteArray): Boolean {
         if (check.isEmpty()) {
-            Toast.makeText(this, R.string.image_no_select_vi, Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.image_no_select_vi, Toast.LENGTH_SHORT).show()
             return false
         }
         return true
@@ -357,15 +359,18 @@ class EditDeviceActivity : AppCompatActivity() {
      * This method is to remove data
      */
     private fun initDataEdit() {
-        val device_id: Int = getDataFromItent()
+        val deviceId: Int = getDataFromItent()
 
         // gán lại id để tý update data
-        var device: Device = getDeviceById(device_id)
+        var device: Device = getDeviceById(deviceId)
 
-        var imageBitmap: ByteArray? = device.deviceImg
-        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap, 0, imageBitmap!!.size)
+//        var imageBitmap: ByteArray? = device.deviceImg
+////        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap, 0, imageBitmap!!.size)
 
-        this.selected_image_device_edit.setImageBitmap(bitmap)
+        Glide.with(activity)
+            .load(Uri.fromFile(File(device.deviceImg)))
+            .into(selected_image_device_edit)
+
         this.device_name_edit.setText(device.deviceName)
         this.device_name_edit.setSelection(device_name_edit.text.length)
         this.positionSpinner_edit.setSelection(device.deviceCategoryId!!)
@@ -399,14 +404,29 @@ class EditDeviceActivity : AppCompatActivity() {
         return categories
     }
 
+    private fun saveImageSDcard(bitmap: Bitmap) : Uri? {
+        // path to sd card
 
-    /**
-     * This method is to get list category
-     */
-    private fun getListUsing(): ArrayList<String> {
-        var uses: ArrayList<String> = ArrayList()
-        uses.add("Hiển thị thông tin")
-        uses.add("Điều khiển")
-        return uses
+        var file = File(filesDir, "Images" )
+        // create a folder
+        if(!file.exists()){
+            file.mkdir()
+        }
+
+
+        file = File(file, "${UUID.randomUUID()}.png")
+
+        var outputStream : OutputStream? = null
+
+        try {
+            outputStream = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream)
+            outputStream.flush()
+            outputStream.close()
+        }catch (e: IOException){
+            e.printStackTrace()
+        }
+        return Uri.parse(file.absoluteFile.toString())
     }
+
 }

@@ -116,7 +116,7 @@ class DeviceFragment : Fragment() {
     /**
      * the method to itent data for Veg
      */
-    fun getForwardData(position: Int){
+    private fun getForwardData(position: Int){
         var device_id = devices[position].deviceID!!.toInt()
         var intent: Intent = Intent(activity, EditDeviceActivity::class.java)
         intent.putExtra("device_id",device_id)
@@ -135,7 +135,7 @@ class DeviceFragment : Fragment() {
     /**
      * the method to itent device detail
      */
-    fun getForwardDataDetail(i: Int) {
+    private fun getForwardDataDetail(i: Int) {
         var device_id = devices[i].deviceID!!.toInt()
         var intent: Intent = Intent(activity, DeviceDetailActivity::class.java)
         intent.putExtra("device_id",device_id)

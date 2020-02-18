@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,19 +13,21 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.device.Device
+import com.bumptech.glide.Glide
+import java.io.File
 
 
-class SubstanceMassAdapter (private var activity: Activity, private var items: ArrayList<Device>) :  BaseAdapter(){
+class SubstanceMassAdapter (private var activity: Activity, private var items: ArrayList<Substance>) :  BaseAdapter(){
 
     private class ViewHolder(row: View?) {
         var substanceImage: ImageView
         var substanceName: TextView
-        var substanceNum: TextView
+        var substanceTotal: TextView
 
         init {
             this.substanceImage = row?.findViewById(R.id.view_substance_image) as ImageView
             this.substanceName = row?.findViewById(R.id.view_substance_name) as TextView
-            this.substanceNum = row?.findViewById(R.id.view_substance_num) as TextView
+            this.substanceTotal = row?.findViewById(R.id.view_substance_total) as TextView
         }
     }
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -39,19 +42,21 @@ class SubstanceMassAdapter (private var activity: Activity, private var items: A
             view = convertView
             viewHolder = view.tag as ViewHolder
         }
-        var device = items[position]
+        var substance = items[position]
 
-//        viewHolder.deviceName.text = device.deviceName
-//        viewHolder.deviceNum.text = device.deviceNum
-//
-//        // chuyển bytearray về bitmap để hiển thị
-//        var imageBitmap : ByteArray? = device.deviceImg
-//        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
-//        viewHolder.imgDevice.setImageBitmap(bitmap)
+        viewHolder.substanceName.text = substance.substanceMassName
+        viewHolder.substanceTotal.text = substance.totalSubstanceMass + "L"
 
+        // chuyển bytearray về bitmap để hiển thị
+        var imageBitmap : String? = substance.substanceMassImage
+        var uri = Uri.parse(imageBitmap)
+
+        Glide.with(activity)
+            .load(Uri.fromFile(File(substance.substanceMassImage)))
+            .into(viewHolder.substanceImage)
         return view
     }
-    override fun getItem(i: Int): Device {
+    override fun getItem(i: Int): Substance {
         return items[i]
     }
     override fun getItemId(i: Int): Long {

@@ -208,19 +208,28 @@
     <string name="rain_mode_vi">Bạt che mưa</string>
     <string name="lamp_mode_vi">Đèn sưởi ấm</string>
     <string name="motor_tds_mode_vi">Dung dịch</string>
-    <string name="motor_tds_full_mode_vi">Dung dịch dinh dưỡng(ppm)</string>
+    <string name="motor_tds_full_mode_vi">Dung dịch dinh dưỡng (ppm)</string>
     <string name="motor_phun_suong_mode_vi">Phun sương</string>
-    <string name="level_TDS_vi">Mực dung dịch(cm)</string>
+    <string name="level_TDS_vi">Mực dung dịch</string>
+    <string name="level_TDS_for_param_vi">Mực dung dịch (cm)</string>
     <string name="message_rain_vi">Cảnh báo mưa</string>
-    <string name="temp_vi">Nhiệt độ</string>
+    <string name="temp_vi">Nhiệt độ (°C)</string>
     <string name="Do_ph_vi">Độ PH</string>
-    <string name="Hum_vi">Độ ẩm</string>
+    <string name="Hum_vi">Độ ẩm (%)</string>
     <string name="TDS_vi">Dinh dưỡng</string>
     <string name="thong_ke_vi">Thống kê</string>
-    <string name="unknown_vi">unknown</string>
+    <string name="unknown_vi">Null</string>
     <string name="ON_vi">Bật</string>
     <string name="OFF_vi">Tắt</string>
+    <string name="next_vi">Tới</string>
+    <string name="back_vi">Lùi</string>
+    <string name="stop_vi">Dừng</string>
     <string name="da_cai_dat_vi">Đã cài đặt</string>
     <string name="chua_cai_dat_vi">Chưa cài đặt</string>
+
+    <!---substance mass-->
+    <string name="num_dd_used_vi">Số lượng dung dịch sử dụng</string>
+    <string name="substance_empty_vi">Dánh sách loại dung dịch đang trống !</string>
+
 
 </resources>

@@ -19,7 +19,10 @@ class DetailGardenActivity : AppCompatActivity() {
     private lateinit var database1: Database
 
     var devices: ArrayList<DeviceDetail> = ArrayList()
-    private lateinit var child : String
+    private var child: String = ""
+    private var child1: String = ""
+    private var child2: String = ""
+    private var child3: String = ""
     private val activity = this@DetailGardenActivity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,65 +42,181 @@ class DetailGardenActivity : AppCompatActivity() {
             intent.putExtra("garden_code", id)
             startActivity(intent)
         }
-        var check : Int = 1
         var gardenCode = getDataFromItent()
         var database = FirebaseDatabase.getInstance().reference
-        button_bat_che_mua.setOnClickListener {
-            if(check == 1){
-                button_bat_che_mua.background = getDrawable(R.drawable.back_on)
-                button_bat_che_mua.text = getString(R.string.ON_vi)
-                button_bat_che_mua.setCompoundDrawablesRelativeWithIntrinsicBounds(0,R.drawable.ic_cai_o_mua,0,0)
-                //database.child(gardenCode).child(child).child("value").setValue("ON")
-                check = 0
-            }else{
-                button_bat_che_mua.background = getDrawable(R.drawable.back)
-                button_bat_che_mua.text = getString(R.string.OFF_vi)
-                button_bat_che_mua.setCompoundDrawablesRelativeWithIntrinsicBounds(0,R.drawable.ic_cai_o_0_mua,0,0)
-                //database.child(gardenCode).child(child).child("value").setValue("OFF")
-                check = 1
+
+        // button tarpaulin next
+        button_tarpaulin_ahead.setOnClickListener {
+            button_tarpaulin_ahead.background = getDrawable(R.drawable.back_on)
+            button_tarpaulin_back.background = getDrawable(R.drawable.back)
+            button_bat_che_mua_stop.background = getDrawable(R.drawable.back)
+            button_tarpaulin_ahead.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0,
+                R.drawable.ic_ahead_on,
+                0,
+                0
+            )
+            button_tarpaulin_back.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0,
+                R.drawable.ic_back,
+                0,
+                0
+            )
+            button_bat_che_mua_stop.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0,
+                R.drawable.ic_stop,
+                0,
+                0
+            )
+            if (!child.isNullOrEmpty()) {
+                database.child(gardenCode).child(child).child("value").setValue("L")
             }
         }
-        var check1 : Int = 1
+        // button tarpaulin back
+        button_tarpaulin_back.setOnClickListener {
+            button_tarpaulin_ahead.background = getDrawable(R.drawable.back)
+            button_tarpaulin_back.background = getDrawable(R.drawable.back_on)
+            button_bat_che_mua_stop.background = getDrawable(R.drawable.back)
+            button_tarpaulin_ahead.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0,
+                R.drawable.ic_ahead,
+                0,
+                0
+            )
+            button_tarpaulin_back.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0,
+                R.drawable.ic_back_on,
+                0,
+                0
+            )
+            button_bat_che_mua_stop.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0,
+                R.drawable.ic_stop,
+                0,
+                0
+            )
+            if (!child.isNullOrEmpty()) {
+                database.child(gardenCode).child(child).child("value").setValue("R")
+            }
+        }
+        // button tarpaulin stop
+        button_bat_che_mua_stop.setOnClickListener {
+            button_tarpaulin_ahead.background = getDrawable(R.drawable.back)
+            button_tarpaulin_back.background = getDrawable(R.drawable.back)
+            button_bat_che_mua_stop.background = getDrawable(R.drawable.back_on)
+            button_tarpaulin_ahead.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0,
+                R.drawable.ic_ahead,
+                0,
+                0
+            )
+            button_tarpaulin_back.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0,
+                R.drawable.ic_back,
+                0,
+                0
+            )
+            button_bat_che_mua_stop.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0,
+                R.drawable.ic_not_stop,
+                0,
+                0
+            )
+            if (!child.isNullOrEmpty()) {
+                database.child(gardenCode).child(child).child("value").setValue("S")
+            }
+        }
+
+        // button bom dung dich
+        var check1: Int = 1
         button_bom_dung_dich.setOnClickListener {
-            if(check1 == 1){
+            if (check1 == 1) {
                 button_bom_dung_dich.background = getDrawable(R.drawable.back_on)
                 button_bom_dung_dich.text = getString(R.string.ON_vi)
-                button_bom_dung_dich.setCompoundDrawablesRelativeWithIntrinsicBounds(0,R.drawable.ic_may_bom,0,0)
-                database.child(gardenCode).child(child).child("value").setValue("ON")
+                button_bom_dung_dich.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    0,
+                    R.drawable.ic_may_bom,
+                    0,
+                    0
+                )
+                if (!child1.isNullOrEmpty()) {
+                    database.child(gardenCode).child(child1).child("value").setValue("ON")
+                }
                 check1 = 0
-            }else{
+            } else {
                 button_bom_dung_dich.background = getDrawable(R.drawable.back)
                 button_bom_dung_dich.text = getString(R.string.OFF_vi)
-                button_bom_dung_dich.setCompoundDrawablesRelativeWithIntrinsicBounds(0,R.drawable.ic_may_bom_0,0,0)
-                database.child(gardenCode).child(child).child("value").setValue("OFF")
+                button_bom_dung_dich.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    0,
+                    R.drawable.ic_may_bom_0,
+                    0,
+                    0
+                )
+                if (!child1.isNullOrEmpty()) {
+                    database.child(gardenCode).child(child1).child("value").setValue("OFF")
+                }
                 check1 = 1
             }
         }
-        var check2 : Int = 1
+        // button misting pumps
+        var check2: Int = 1
         button_bom_phun_suong.setOnClickListener {
-            if(check2 == 1){
+            if (check2 == 1) {
                 button_bom_phun_suong.background = getDrawable(R.drawable.back_on)
                 button_bom_phun_suong.text = getString(R.string.ON_vi)
-                button_bom_phun_suong.setCompoundDrawablesRelativeWithIntrinsicBounds(0,R.drawable.ic_may_bom,0,0)
+                button_bom_phun_suong.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    0,
+                    R.drawable.ic_phun_suong,
+                    0,
+                    0
+                )
+                if (!child2.isNullOrEmpty()) {
+                    database.child(gardenCode).child(child2).child("value").setValue("ON")
+                }
                 check2 = 0
-            }else{
+            } else {
                 button_bom_phun_suong.background = getDrawable(R.drawable.back)
                 button_bom_phun_suong.text = getString(R.string.OFF_vi)
-                button_bom_phun_suong.setCompoundDrawablesRelativeWithIntrinsicBounds(0,R.drawable.ic_may_bom_0,0,0)
+                button_bom_phun_suong.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    0,
+                    R.drawable.ic_phun_suong_off,
+                    0,
+                    0
+                )
+                if (!child2.isNullOrEmpty()) {
+                    database.child(gardenCode).child(child2).child("value").setValue("OFF")
+                }
                 check2 = 1
             }
         }
-        var check3 : Int = 1
+        // button lamp
+        var check3: Int = 1
         button_bong_den.setOnClickListener {
-            if(check3 == 1){
+            if (check3 == 1) {
                 button_bong_den.background = getDrawable(R.drawable.back_on)
                 button_bong_den.text = getString(R.string.ON_vi)
-                button_bong_den.setCompoundDrawablesRelativeWithIntrinsicBounds(0,R.drawable.ic_bong_den_sang,0,0)
+                button_bong_den.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    0,
+                    R.drawable.ic_bong_den_sang,
+                    0,
+                    0
+                )
+                if (!child3.isNullOrEmpty()) {
+                    database.child(gardenCode).child(child3).child("value").setValue("ON")
+                }
                 check3 = 0
-            }else{
+            } else {
                 button_bong_den.background = getDrawable(R.drawable.back)
                 button_bong_den.text = getString(R.string.OFF_vi)
-                button_bong_den.setCompoundDrawablesRelativeWithIntrinsicBounds(0,R.drawable.ic_bong_den,0,0)
+                button_bong_den.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    0,
+                    R.drawable.ic_bong_den,
+                    0,
+                    0
+                )
+                if (!child3.isNullOrEmpty()) {
+                    database.child(gardenCode).child(child3).child("value").setValue("OFF")
+                }
                 check3 = 1
             }
         }
@@ -121,51 +240,54 @@ class DetailGardenActivity : AppCompatActivity() {
     }
 
 
-    private fun handlingProcess(){
+    private fun handlingProcess() {
         devices = getListDeviceInfo()
-        if(!devices.isNullOrEmpty()){
-            for(item in 0 until devices.size){
+        if (!devices.isNullOrEmpty()) {
+            for (item in 0 until devices.size) {
                 when {
-                    devices[item].deviceDetailCodeSS!!.contains("CAMBIENNHIETDO",false) -> {
+                    devices[item].deviceDetailCodeSS!!.contains("CAMBIENNHIETDO", false) -> {
                         tempSenSor(devices[item].deviceDetailCodeSS!!)
                         setting_temp.background = getDrawable(R.color.background_home)
                     }
-                    devices[item].deviceDetailCodeSS!!.contains("CAMBIENDOAM",false) -> {
+                    devices[item].deviceDetailCodeSS!!.contains("CAMBIENDOAM", false) -> {
                         humSenSor(devices[item].deviceDetailCodeSS!!)
                         setting_hum.background = getDrawable(R.color.background_home)
                     }
-                    devices[item].deviceDetailCodeSS!!.contains("CAMBIENMUA",false) -> {
+                    devices[item].deviceDetailCodeSS!!.contains("CAMBIENMUA", false) -> {
                         gardenInfoRain(devices[item].deviceDetailCodeSS!!)
                         setting_rain.background = getDrawable(R.color.background_home)
                     }
-                    devices[item].deviceDetailCodeSS!!.contains("CAMBIENPH",false) -> {
-                        //gardenInfoRain(devices[item].deviceDetailCodeSS!!)
+                    devices[item].deviceDetailCodeSS!!.contains("CAMBIENPH", false) -> {
+                        pHSenSor(devices[item].deviceDetailCodeSS!!)
                         setting_ph.background = getDrawable(R.color.background_home)
                     }
-                    devices[item].deviceDetailCodeSS!!.contains("CAMBIENTDS",false) -> {
-                        //gardenInfoRain(devices[item].deviceDetailCodeSS!!)
+                    devices[item].deviceDetailCodeSS!!.contains("CAMBIENTDS", false) -> {
+                        tDSSensor(devices[item].deviceDetailCodeSS!!)
                         setting_tds.background = getDrawable(R.color.background_home)
                     }
-                    devices[item].deviceDetailCodeSS!!.contains("CAMBIENSIEUAM",false) -> {
+                    devices[item].deviceDetailCodeSS!!.contains("CAMBIENSIEUAM", false) -> {
                         //gardenInfoRain(devices[item].deviceDetailCodeSS!!)
                         setting_level_tds.background = getDrawable(R.color.background_home)
                     }
-                    devices[item].deviceDetailCodeSS!!.contains("BATCHEMUA",false) -> {
-                        //gardenInfoRain(devices[item].deviceDetailCodeSS!!)
+                    devices[item].deviceDetailCodeSS!!.contains("BATCHEMUA", false) -> {
+                        tarpaulinONOFFControl(devices[item].deviceDetailCodeSS!!)
                         setting_button_bat.text = getString(R.string.da_cai_dat_vi)
-                    }
-                    devices[item].deviceDetailCodeSS!!.contains("MAYBOMDUNGDICH",false) -> {
-                        pumpONOFFControl(devices[item].deviceDetailCodeSS!!)
-                        setting_button_dd.text = getString(R.string.da_cai_dat_vi)
                         child = devices[item].deviceDetailCodeSS!!
                     }
-                    devices[item].deviceDetailCodeSS!!.contains("BONGDEN",false) -> {
-                        //gardenInfoRain(devices[item].deviceDetailCodeSS!!)
-                        setting_button_lamp.text = getString(R.string.da_cai_dat_vi)
+                    devices[item].deviceDetailCodeSS!!.contains("MAYBOMDUNGDICH", false) -> {
+                        pumpONOFFControl(devices[item].deviceDetailCodeSS!!)
+                        setting_button_dd.text = getString(R.string.da_cai_dat_vi)
+                        child1 = devices[item].deviceDetailCodeSS!!
                     }
-                    devices[item].deviceDetailCodeSS!!.contains("MAYBOMPHUNSUONG",false) -> {
-                        //gardenInfoRain(devices[item].deviceDetailCodeSS!!)
+                    devices[item].deviceDetailCodeSS!!.contains("BONGDEN", false) -> {
+                        lampONOFFControl(devices[item].deviceDetailCodeSS!!)
+                        setting_button_lamp.text = getString(R.string.da_cai_dat_vi)
+                        child3 = devices[item].deviceDetailCodeSS!!
+                    }
+                    devices[item].deviceDetailCodeSS!!.contains("MAYBOMPHUNSUONG", false) -> {
+                        mistingPumpsONOFFControl(devices[item].deviceDetailCodeSS!!)
                         setting_button_phun_suong.text = getString(R.string.da_cai_dat_vi)
+                        child2 = devices[item].deviceDetailCodeSS!!
                     }
                 }
 
@@ -178,14 +300,15 @@ class DetailGardenActivity : AppCompatActivity() {
     /**
      * the method to gardenInfo
      */
-    private fun tempSenSor(deviceCode : String){
+    private fun tempSenSor(deviceCode: String) {
         database = FirebaseDatabase.getInstance().reference
         // My top posts by number of stars
         var garden = getDataFromItent()
 
         database.child(garden).child(deviceCode).addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
-                var temp : DetailGardenFirebase? = dataSnapshot.getValue(DetailGardenFirebase::class.java)
+                var temp: DetailGardenFirebase? =
+                    dataSnapshot.getValue(DetailGardenFirebase::class.java)
                 temperature.text = temp?.value
             }
 
@@ -210,15 +333,16 @@ class DetailGardenActivity : AppCompatActivity() {
     /**
      * the method to gardenInfo
      */
-    private fun humSenSor(deviceCode : String){
+    private fun humSenSor(deviceCode: String) {
         database = FirebaseDatabase.getInstance().reference
         // My top posts by number of stars
         var garden = getDataFromItent()
 
         database.child(garden).child(deviceCode).addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
-                var temp : DetailGardenFirebase? = dataSnapshot.getValue(DetailGardenFirebase::class.java)
-                    humidity.text = temp?.value
+                var temp: DetailGardenFirebase? =
+                    dataSnapshot.getValue(DetailGardenFirebase::class.java)
+                humidity.text = temp?.value
             }
 
             override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {
@@ -242,18 +366,19 @@ class DetailGardenActivity : AppCompatActivity() {
     /**
      * the method to gardenInfoRain
      */
-    private fun gardenInfoRain(deviceCode: String){
+    private fun gardenInfoRain(deviceCode: String) {
         database = FirebaseDatabase.getInstance().reference
         // My top posts by number of stars
         var garden = getDataFromItent()
 
         database.child(garden).child(deviceCode).addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
-                var rain : DetailGardenFirebase? = dataSnapshot.getValue(DetailGardenFirebase::class.java)
-                if(rain?.value!!.trim() == "1"){
+                var rain: DetailGardenFirebase? =
+                    dataSnapshot.getValue(DetailGardenFirebase::class.java)
+                if (rain?.value!!.trim() == "1") {
                     rain_status.setImageResource(R.drawable.mua)
                     rain_text.text = "Trời đang mưa"
-                }else{
+                } else {
                     rain_status.setImageResource(R.drawable.khongmua)
                     rain_text.text = "Trời Không mưa"
                 }
@@ -278,34 +403,288 @@ class DetailGardenActivity : AppCompatActivity() {
     }
 
     /**
-     * the method to gardenInfoRain
+     * the method to gardenInfo
      */
-    private fun pumpONOFFControl(deviceCode : String){
+    private fun pHSenSor(deviceCode: String) {
         database = FirebaseDatabase.getInstance().reference
-        var gardenCode = getDataFromItent()
-        var childValue = "value"
-        database.child(gardenCode).child(deviceCode).child(childValue).addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val value = dataSnapshot.value.toString()
-                if(value.trim() == "ON"){
-                    button_bom_dung_dich.background = getDrawable(R.drawable.back_on)
-                    button_bom_dung_dich.text = getString(R.string.ON_vi)
-                    button_bom_dung_dich.setCompoundDrawablesRelativeWithIntrinsicBounds(0,R.drawable.ic_may_bom,0,0)
-                }else{
-                    button_bom_dung_dich.background = getDrawable(R.drawable.back)
-                    button_bom_dung_dich.text = getString(R.string.OFF_vi)
-                    button_bom_dung_dich.setCompoundDrawablesRelativeWithIntrinsicBounds(0,R.drawable.ic_may_bom_0,0,0)
-                }
+        // My top posts by number of stars
+        var garden = getDataFromItent()
+
+        database.child(garden).child(deviceCode).addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
+                var temp: DetailGardenFirebase? =
+                    dataSnapshot.getValue(DetailGardenFirebase::class.java)
+                ph_sensor.text = temp?.value
+            }
+
+            override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {
+
+            }
+
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {
+
+            }
+
+            override fun onChildMoved(dataSnapshot: DataSnapshot, previousChildName: String?) {
+
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
-                // Getting Post failed, log a message
-                Log.w("AAA", "loadPost:onCancelled", databaseError.toException())
-                // ...
+
             }
         })
+    }
 
-   }
+    /**
+     * the method to gardenInfo
+     */
+    private fun tDSSensor(deviceCode: String) {
+        database = FirebaseDatabase.getInstance().reference
+        // My top posts by number of stars
+        var garden = getDataFromItent()
+
+        database.child(garden).child(deviceCode).addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
+                var temp: DetailGardenFirebase? =
+                    dataSnapshot.getValue(DetailGardenFirebase::class.java)
+                ppm.text = temp?.value
+            }
+
+            override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {
+
+            }
+
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {
+
+            }
+
+            override fun onChildMoved(dataSnapshot: DataSnapshot, previousChildName: String?) {
+
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+
+            }
+        })
+    }
+
+    /**
+     * the method to pumpONOFFControl
+     */
+    private fun pumpONOFFControl(deviceCode: String) {
+        database = FirebaseDatabase.getInstance().reference
+        var gardenCode = getDataFromItent()
+        var childValue = "value"
+        database.child(gardenCode).child(deviceCode).child(childValue)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val value = dataSnapshot.value.toString()
+                    if (value.trim() == "ON") {
+                        button_bom_dung_dich.background = getDrawable(R.drawable.back_on)
+                        button_bom_dung_dich.text = getString(R.string.ON_vi)
+                        button_bom_dung_dich.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_may_bom,
+                            0,
+                            0
+                        )
+                    } else {
+                        button_bom_dung_dich.background = getDrawable(R.drawable.back)
+                        button_bom_dung_dich.text = getString(R.string.OFF_vi)
+                        button_bom_dung_dich.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_may_bom_0,
+                            0,
+                            0
+                        )
+                    }
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    // Getting Post failed, log a message
+                    Log.w("AAA", "loadPost:onCancelled", databaseError.toException())
+                    // ...
+                }
+            })
+
+    }
+
+
+    /**
+     * the method to tarpaulinONOFFControl
+     */
+    private fun tarpaulinONOFFControl(deviceCode: String) {
+        database = FirebaseDatabase.getInstance().reference
+        var gardenCode = getDataFromItent()
+        var childValue = "value"
+        database.child(gardenCode).child(deviceCode).child(childValue)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val value = dataSnapshot.value.toString()
+                    when {
+                        value.trim() == "L" -> {
+                            button_tarpaulin_ahead.background = getDrawable(R.drawable.back_on)
+                            button_tarpaulin_back.background = getDrawable(R.drawable.back)
+                            button_bat_che_mua_stop.background = getDrawable(R.drawable.back)
+
+                            button_tarpaulin_ahead.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                0,
+                                R.drawable.ic_ahead_on,
+                                0,
+                                0
+                            )
+                            button_tarpaulin_back.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                0,
+                                R.drawable.ic_back,
+                                0,
+                                0
+                            )
+                            button_bat_che_mua_stop.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                0,
+                                R.drawable.ic_stop,
+                                0,
+                                0
+                            )
+                        }
+                        value.trim() == "R" -> {
+                            button_tarpaulin_ahead.background = getDrawable(R.drawable.back)
+                            button_tarpaulin_back.background = getDrawable(R.drawable.back_on)
+                            button_bat_che_mua_stop.background = getDrawable(R.drawable.back)
+                            button_tarpaulin_ahead.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                0,
+                                R.drawable.ic_ahead,
+                                0,
+                                0
+                            )
+                            button_tarpaulin_back.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                0,
+                                R.drawable.ic_back_on,
+                                0,
+                                0
+                            )
+                            button_bat_che_mua_stop.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                0,
+                                R.drawable.ic_stop,
+                                0,
+                                0
+                            )
+                        }
+                        else -> {
+                            button_tarpaulin_ahead.background = getDrawable(R.drawable.back)
+                            button_tarpaulin_back.background = getDrawable(R.drawable.back)
+                            button_bat_che_mua_stop.background = getDrawable(R.drawable.back_on)
+                            button_tarpaulin_ahead.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                0,
+                                R.drawable.ic_ahead,
+                                0,
+                                0
+                            )
+                            button_tarpaulin_back.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                0,
+                                R.drawable.ic_back,
+                                0,
+                                0
+                            )
+                            button_bat_che_mua_stop.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                0,
+                                R.drawable.ic_not_stop,
+                                0,
+                                0
+                            )
+                        }
+                    }
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    // Getting Post failed, log a message
+                    Log.w("AAA", "loadPost:onCancelled", databaseError.toException())
+                    // ...
+                }
+            })
+
+    }
+
+    /**
+     * the method to lampONOFFControl
+     */
+    private fun lampONOFFControl(deviceCode: String) {
+        database = FirebaseDatabase.getInstance().reference
+        var gardenCode = getDataFromItent()
+        var childValue = "value"
+        database.child(gardenCode).child(deviceCode).child(childValue)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val value = dataSnapshot.value.toString()
+                    if (value.trim() == "ON") {
+                        button_bong_den.background = getDrawable(R.drawable.back_on)
+                        button_bong_den.text = getString(R.string.ON_vi)
+                        button_bong_den.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_bong_den_sang,
+                            0,
+                            0
+                        )
+                    } else {
+                        button_bong_den.background = getDrawable(R.drawable.back)
+                        button_bong_den.text = getString(R.string.OFF_vi)
+                        button_bong_den.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_bong_den,
+                            0,
+                            0
+                        )
+                    }
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    // Getting Post failed, log a message
+                    Log.w("AAA", "loadPost:onCancelled", databaseError.toException())
+                    // ...
+                }
+            })
+
+    }
+
+    /**
+     * the method to mistingPumpsONOFFControl
+     */
+    private fun mistingPumpsONOFFControl(deviceCode: String) {
+        database = FirebaseDatabase.getInstance().reference
+        var gardenCode = getDataFromItent()
+        var childValue = "value"
+        database.child(gardenCode).child(deviceCode).child(childValue)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val value = dataSnapshot.value.toString()
+                    if (value.trim() == "ON") {
+                        button_bom_phun_suong.background = getDrawable(R.drawable.back_on)
+                        button_bom_phun_suong.text = getString(R.string.ON_vi)
+                        button_bom_phun_suong.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_phun_suong,
+                            0,
+                            0
+                        )
+                    } else {
+                        button_bom_phun_suong.background = getDrawable(R.drawable.back)
+                        button_bom_phun_suong.text = getString(R.string.OFF_vi)
+                        button_bom_phun_suong.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_phun_suong_off,
+                            0,
+                            0
+                        )
+                    }
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    // Getting Post failed, log a message
+                    Log.w("AAA", "loadPost:onCancelled", databaseError.toException())
+                    // ...
+                }
+            })
+
+    }
 
 
     /**
@@ -328,7 +707,7 @@ class DetailGardenActivity : AppCompatActivity() {
     }
 
 
-    private fun rainAlert(){
+    private fun rainAlert() {
         this.rain_status.setImageResource(R.drawable.khongmua)
         this.rain_text.text = "Trời không mưa"
     }

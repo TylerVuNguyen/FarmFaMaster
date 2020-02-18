@@ -44,7 +44,7 @@
 
 
             <TextView
-                android:id="@+id/view_substance_num"
+                android:id="@+id/view_substance_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"

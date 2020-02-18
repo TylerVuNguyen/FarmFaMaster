@@ -57,6 +57,13 @@ class EditDeviceCategory : AppCompatActivity() {
             this.device_category_name_edit.setText(dcategory_img)
             this.device_category_name_edit.setSelection(device_category_name_edit.text.length)
         }
+        device_category_image4_edit.setOnClickListener {
+            var dcategory_img = "Bóng đèn"
+            var dcatrgory_name4= R.drawable.bongden
+            this.selected_device_category_image_edit.setImageResource(dcatrgory_name4)
+            this.device_category_name_edit.setText(dcategory_img)
+            this.device_category_name_edit.setSelection(device_category_name_edit.text.length)
+        }
     }
 
     private fun actionButton() {
