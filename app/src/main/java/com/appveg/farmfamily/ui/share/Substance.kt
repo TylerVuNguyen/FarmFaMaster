@@ -27,4 +27,14 @@ class Substance {
     }
 
 
+    constructor(
+        substanceMassId: Int?,
+        totalSubstanceMass: String
+    ) {
+        this.substanceMassId = substanceMassId
+        this.totalSubstanceMass = totalSubstanceMass
+
+    }
+
+
 }

@@ -1497,6 +1497,7 @@ id btn_print_device_category
 id btn_print_device_garden
 id btn_print_veg_garden
 id btn_substance_add
+id btn_substance_edit
 id btn_veg_cancel
 id buttonPanel
 id button_bat_che_mua_stop
@@ -1515,6 +1516,7 @@ id cancel_action_garden
 id cancel_action_garden_edit
 id cancel_action_param
 id cancel_action_substance
+id cancel_action_substance_edit
 id cancel_action_veg
 id cancel_action_veg_edit
 id center
@@ -1676,6 +1678,7 @@ id list_view_device_detail
 id list_view_garden
 id list_view_param
 id list_view_substance
+id list_view_substance_detail
 id list_view_users
 id list_view_vegetable
 id listview_Detail
@@ -1746,6 +1749,7 @@ id pickDateKT_edit
 id pin
 id positionSpinner
 id positionSpinner_edit
+id positionSpinner_substance_edit
 id ppm
 id ppm_from
 id ppm_from_detail
@@ -1809,6 +1813,7 @@ id selected_image_device
 id selected_image_device_edit
 id selected_image_edit
 id selected_image_substance
+id selected_image_substance_edit
 id setting_button_bat
 id setting_button_dd
 id setting_button_lamp
@@ -1846,6 +1851,7 @@ id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
+id substance_detail_num_edit
 id substance_num
 id switchWidget
 id tabMode
@@ -1938,6 +1944,7 @@ id veg_for_garden_checked
 id veg_name
 id veg_name_edit
 id veg_no_data
+id view_batch_btn_print
 id view_device_btn_add
 id view_device_btn_print
 id view_device_category_edit
@@ -1952,6 +1959,11 @@ id view_offset_helper
 id view_param_btn_print
 id view_substance_btn_add
 id view_substance_btn_print
+id view_substance_detail_btn_print
+id view_substance_detail_date
+id view_substance_detail_image
+id view_substance_detail_name
+id view_substance_detail_num
 id view_substance_image
 id view_substance_name
 id view_substance_total
@@ -2045,6 +2057,7 @@ layout activity_device_detail_status
 layout activity_edit_device
 layout activity_edit_device_category
 layout activity_edit_param
+layout activity_edit_substance_mass
 layout activity_edit_vegetable
 layout activity_main
 layout activity_param_detail
@@ -2255,6 +2268,7 @@ string decription_Temperature_vi
 string decription_device_vi
 string default_web_client_id
 string delete
+string delete_title_all_vi
 string deleted_data_success_vi
 string edit
 string email
@@ -2392,6 +2406,7 @@ string status_bar_notification_info_overflow
 string status_login_vi
 string stop_vi
 string submit
+string substance_delete_title_vi
 string substance_empty_vi
 string success_message
 string summary_collapsed_preference_list

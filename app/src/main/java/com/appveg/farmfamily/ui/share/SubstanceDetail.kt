@@ -5,6 +5,7 @@ class SubstanceDetail {
     var substanceMassDetailName: String = ""
     var substanceMassDetailImage: String = ""
     var substanceMassDetailNum: String = ""
+    var substanceMassDetailCategory: String = ""
     var substanceMassId: Int = 0
     var gardenId: Int = 0
     var createdBy: String? = ""
@@ -20,6 +21,7 @@ class SubstanceDetail {
         substanceMassDetailName: String,
         substanceMassDetailImage: String,
         substanceMassDetailNum: String,
+        substanceMassDetailCategory: String,
         substanceMassId: Int,
         gardenId: Int,
         createdBy: String?,
@@ -34,6 +36,7 @@ class SubstanceDetail {
         this.substanceMassDetailName = substanceMassDetailName
         this.substanceMassDetailImage = substanceMassDetailImage
         this.substanceMassDetailNum = substanceMassDetailNum
+        this.substanceMassDetailCategory = substanceMassDetailCategory
         this.substanceMassId = substanceMassId
         this.gardenId = gardenId
         this.createdBy = createdBy
@@ -49,6 +52,7 @@ class SubstanceDetail {
         substanceMassDetailName: String,
         substanceMassDetailImage: String,
         substanceMassDetailNum: String,
+        substanceMassDetailCategory: String,
         substanceMassId: Int,
         gardenId: Int,
         createdBy: String?,
@@ -57,12 +61,44 @@ class SubstanceDetail {
         this.substanceMassDetailId = substanceMassDetailId
         this.substanceMassDetailName = substanceMassDetailName
         this.substanceMassDetailImage = substanceMassDetailImage
+        this.substanceMassDetailCategory = substanceMassDetailCategory
         this.substanceMassDetailNum = substanceMassDetailNum
         this.substanceMassId = substanceMassId
         this.gardenId = gardenId
         this.createdBy = createdBy
         this.createdDate = createdDate
 
+    }
+
+    constructor(
+        substanceMassDetailId: Int?,
+        substanceMassDetailNum: String,
+        createdDate: String?
+    ) {
+        this.substanceMassDetailId = substanceMassDetailId
+        this.substanceMassDetailNum = substanceMassDetailNum
+        this.createdDate = createdDate
+
+    }
+
+    constructor(
+        substanceMassDetailId: Int?,
+        substanceMassDetailName: String,
+        substanceMassDetailImage: String,
+        substanceMassDetailNum: String,
+        substanceMassDetailCategory: String,
+        substanceMassId: Int,
+        gardenId: Int,
+        updatedDate: String?
+    ) {
+        this.substanceMassDetailId = substanceMassDetailId
+        this.substanceMassDetailName = substanceMassDetailName
+        this.substanceMassDetailImage = substanceMassDetailImage
+        this.substanceMassDetailNum = substanceMassDetailNum
+        this.substanceMassDetailCategory = substanceMassDetailCategory
+        this.substanceMassId = substanceMassId
+        this.gardenId = gardenId
+        this.updatedDate = updatedDate
     }
     constructor()
 }

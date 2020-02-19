@@ -33,7 +33,6 @@ class AddVegetableActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTitle("Thêm rau")
         setContentView(R.layout.activity_add_vegetable)
 
 

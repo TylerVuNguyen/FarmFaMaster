@@ -89,11 +89,11 @@
     <string name="gender_vi">Giới tính</string>
     <string name="user_name_vi">Tên Đăng nhập</string>
     <string name="full_name_vi">Tên đầy đủ</string>
-    <string name="passowrd_vi">nhập mật khẩu</string>
-    <string name="old_passowrd_vi">nhập mật khẩu cũ</string>
-    <string name="passowrd_new_vi">nhập mật khẩu mới</string>
-    <string name="confirm_passoword_vi">nhập lại mật khẩu</string>
-    <string name="confirm_passoword_new_vi">nhập lại mật khẩu</string>
+    <string name="passowrd_vi">Nhập mật khẩu</string>
+    <string name="old_passowrd_vi">Nhập mật khẩu cũ</string>
+    <string name="passowrd_new_vi">Nhập mật khẩu mới</string>
+    <string name="confirm_passoword_vi">Nhập lại mật khẩu</string>
+    <string name="confirm_passoword_new_vi">Nhập lại mật khẩu</string>
     <string name="already_user_vi">Bạn đã có tài khoản? đăng nhập ngay.</string>
     <string name="back_home_vi">Quay lại trang chủ</string>
     <!--the end sign up-->
@@ -124,9 +124,9 @@
     <!--common-->
     <string name="choose_img_vi">Chọn hình ảnh</string>
     <string name="insert_data_success_vi">Thêm thành công !</string>
-    <string name="update_data_success_vi">cập nhật thành công !</string>
+    <string name="update_data_success_vi">Cập nhật thành công !</string>
     <string name="insert_data_fail_vi">Thêm không thành công !</string>
-    <string name="update_data_fail_vi">cập nhật không thành công !</string>
+    <string name="update_data_fail_vi">Cập nhật không thành công !</string>
     <string name="deleted_data_success_vi">Xóa thành công !</string>
     <string name="size_image_large">Kích thước ảnh quả lớn !</string>
     <string name="image_no_select_vi">Bạn chưa chọn ảnh !</string>
@@ -135,6 +135,7 @@
     <string name="cancel_vi">Hủy</string>
     <string name="print_vi">In</string>
     <string name="no_data_vi">Không có dữ liệu</string>
+    <string name="delete_title_all_vi">Bạn có chắc chắn muốn xóa không ?</string>
     <!--end common-->
 
     <!--garden VI-->
@@ -228,8 +229,9 @@
     <string name="chua_cai_dat_vi">Chưa cài đặt</string>
 
     <!---substance mass-->
-    <string name="num_dd_used_vi">Số lượng dung dịch sử dụng</string>
+    <string name="num_dd_used_vi">Số lượng dung dịch sử dụng (L)</string>
     <string name="substance_empty_vi">Dánh sách loại dung dịch đang trống !</string>
+    <string name="substance_delete_title_vi">Xóa chi tiết loại dung dịch</string>
 
 
 </resources>

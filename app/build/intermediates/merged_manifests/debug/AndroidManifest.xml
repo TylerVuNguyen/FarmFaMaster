@@ -29,6 +29,14 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
+            android:name="com.appveg.farmfamily.ui.share.EditSubstanceMassDetailActivity"
+            android:label="Sửa loại dung dịch"
+            android:parentActivityName="com.appveg.farmfamily.ui.share.EditSubstanceMassDetailActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.share.EditSubstanceMassDetailActivity" />
+        </activity>
+        <activity
             android:name="com.appveg.farmfamily.ui.share.AddSubstanceMassActivity"
             android:label="Thêm loại dung dịch"
             android:parentActivityName="com.appveg.farmfamily.ui.share.AddSubstanceMassActivity" >

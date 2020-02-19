@@ -6,12 +6,9 @@ import android.os.Bundle
 import android.widget.Toast
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
-import com.appveg.farmfamily.ui.device.AddDeviceActivity
-import com.appveg.farmfamily.ui.device.DeviceAdapter
 import com.baoyz.swipemenulistview.SwipeMenuCreator
 import com.baoyz.swipemenulistview.SwipeMenuItem
 import kotlinx.android.synthetic.main.activity_substance_mass.*
-import kotlinx.android.synthetic.main.fragment_device.*
 
 class SubstanceMassActivity : AppCompatActivity() {
     var activity = this@SubstanceMassActivity
@@ -25,47 +22,16 @@ class SubstanceMassActivity : AppCompatActivity() {
         substances = getListSubstance()
         list_view_substance.adapter = SubstanceMassAdapter(activity, substances)
 
-        val creator = SwipeMenuCreator { menu ->
-            // create "open" item
-            val editItem = SwipeMenuItem(
-                this.activity
-            )
-//
-            // set item width
-            editItem.width = 100
 
-//            editItem.titleColor = Color.WHITE
-
-            //set icon
-            editItem.setIcon(R.drawable.ic_edit)
-            // add to menu
-            menu.addMenuItem(editItem)
-
-            // create "delete" item
-//            val deleteItem = SwipeMenuItem(
-//                this.context
-//            )
-
-//            // set item width
-//            deleteItem.width = 100
-//            // set a icon
-//            deleteItem.setIcon(R.drawable.ic_delete)
-//            // add to menu
-//            menu.addMenuItem(deleteItem)
+        list_view_substance.setOnItemClickListener { adapterView, view, i, l ->
+            var gardenId = substances[i].gardenId!!
+            var substanceMassId = substances[i].substanceMassId
+            var intent: Intent = Intent(activity, SubstanceMassDetailActivity::class.java)
+            intent.putExtra("garden_id",gardenId)
+            intent.putExtra("substance_mass_id",substanceMassId)
+            startActivity(intent)
         }
 
-        // set swipe
-        list_view_substance.setMenuCreator(creator)
-        list_view_substance.setOnMenuItemClickListener { position, menu, index ->
-            when (index) {
-                0 -> {
-                   // getForwardData(position)
-                }
-            }// open
-            // delete
-            // false : close the menu; true : not close the menu
-            false
-        }
         view_substance_btn_add.setOnClickListener {
             var gardenId = getDataFromItent()
             var intent: Intent = Intent(activity, AddSubstanceMassActivity::class.java)
@@ -104,6 +70,7 @@ class SubstanceMassActivity : AppCompatActivity() {
         substances = getListSubstance()
         list_view_substance.adapter = SubstanceMassAdapter(activity, substances)
     }
+
 
 
 

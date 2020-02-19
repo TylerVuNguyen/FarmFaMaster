@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.appveg.farmfamily.R
+import kotlin.math.ceil
 
 class ChiTietAdapter(private val context: ChiTietDotSanLuongActivity, private val dotRau: ArrayList<BatchCustom>) : BaseAdapter() {
 
@@ -65,7 +66,7 @@ class ChiTietAdapter(private val context: ChiTietDotSanLuongActivity, private va
         var dotRau : BatchCustom = getItem(position) as BatchCustom
         viewHolder.dotRau_name.text = dotRau.batchName
         viewHolder.img_dotRau.setImageResource(dotRau.batchImage!!)
-        viewHolder.tongSanLuong.text = "Tổng sản lượng: " + dotRau.totalQuantity + "/kg"
+        viewHolder.tongSanLuong.text = "Tổng sản lượng: " + (ceil(dotRau.totalQuantity!!.toDouble()*10) /10).toString() + "/kg"
 
         return view as View
 

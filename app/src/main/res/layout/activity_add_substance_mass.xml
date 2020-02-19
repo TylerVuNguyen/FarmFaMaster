@@ -12,8 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp"
-        >
+        android:padding="10dp">
 
 
         <EditText
@@ -47,9 +46,10 @@
             android:inputType="textCapWords"
             android:padding="3dp"
             android:singleLine="true"
+            android:spinnerMode="dialog"
+            android:clickable="false"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            android:spinnerMode="dialog" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="fill_parent"
@@ -64,9 +64,9 @@
             android:background="@android:color/transparent"
             android:drawablePadding="8dp"
             android:gravity="center_vertical"
-            android:text="@string/choose_img_vi"
             android:padding="10dp"
             android:singleLine="true"
+            android:text="@string/choose_img_vi"
             android:textColorHint="@color/white"
             android:textSize="16sp" />
 
@@ -74,8 +74,6 @@
             android:layout_width="fill_parent"
             android:layout_height="1px"
             android:background="@color/colorPrimary" />
-
-
 
 
         <ProgressBar
@@ -145,8 +143,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
-            >
+            android:gravity="center">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -175,8 +172,6 @@
 
     </LinearLayout>
 
-
-
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -196,7 +191,7 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/ic_add2"
-            android:text="Thêm"
+            android:text="@string/add_vi"
             android:textColor="@android:color/white" />
 
         <Button
@@ -208,7 +203,7 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/ic_cancel"
-            android:text="Huỷ"
+            android:text="@string/cancel_vi"
             android:textColor="@android:color/white" />
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

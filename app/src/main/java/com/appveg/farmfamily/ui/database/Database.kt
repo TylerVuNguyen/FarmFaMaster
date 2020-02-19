@@ -115,6 +115,7 @@ class Database(context: Context?) :
         private val COLUMN_SUBSTANCE_DETAIL_NAME = "substance_mass_detail_name"
         private val COLUMN_SUBSTANCE_DETAIL_IMAGE = "substance_mass_detail_image"
         private val COLUMN_SUBSTANCE_DETAIL_NUM = "substance_mass_detail_num"
+        private val COLUMN_SUBSTANCE_DETAIL_CATEGORY = "substance_mass_detail_category"
 
         /*param*/
         private val COLUMN_PARAM_ID = "param_id"
@@ -181,7 +182,7 @@ class Database(context: Context?) :
 
         val CREATE_SUBSTANCE_DETAIL_TABLE =
             ("CREATE TABLE " + TABLE_SUBSTANCE_MASS_DETAIL + "(substance_mass_detail_id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    "substance_mass_detail_name VARCHAR(50),substance_mass_detail_image VARCHAR(300),substance_mass_detail_num VARCHAR(50),substance_mass_id INTEGER,garden_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+                    "substance_mass_detail_name VARCHAR(50),substance_mass_detail_image VARCHAR(300),substance_mass_detail_num VARCHAR(50),substance_mass_detail_category VARCHAR(50),substance_mass_id INTEGER,garden_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
                     "deleted_date VARCHAR(50),deleted_flag INTEGER)")
 
         val CREATE_DEVICE_CATEGORY_TABLE  =
@@ -1942,6 +1943,145 @@ class Database(context: Context?) :
     }
 
     /**
+     * This method to findAllSubstance
+     *
+     * @return ArrayList
+     */
+    fun findAllSubstanceBySubstanceId(substanceId: Int) : Substance{
+        var substance = Substance()
+        val selectQuery = "SELECT  * FROM $TABLE_SUBSTANCE_MASS WHERE $COLUMN_SUBSTANCE_ID = $substanceId"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            db.execSQL(selectQuery)
+            return substance
+        }
+        var substanceMassId: Int
+        var substanceMassName: String
+        var substanceMassImage: String
+        var totalSubstanceMass : String
+        var substanceMassCategory: String
+        var gardenId: Int
+        if (cursor.moveToFirst()) {
+            do {
+                substanceMassId = cursor.getInt(cursor.getColumnIndex(COLUMN_SUBSTANCE_ID))
+                substanceMassName = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_NAME))
+                substanceMassImage = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_IMAGE))
+                totalSubstanceMass= cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_TOTAL))
+                substanceMassCategory= cursor.getString(cursor.getColumnIndex(
+                    COLUMN_SUBSTANCE_CATEGORY))
+                gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
+
+                substance = Substance(substanceMassId,substanceMassName,substanceMassImage,totalSubstanceMass,substanceMassCategory,gardenId)
+            } while (cursor.moveToNext())
+        }
+        cursor?.close()
+        return substance
+    }
+
+
+
+    /**
+     * This method to findAllSubstanceDetail
+     *
+     * @return ArrayList
+     */
+    fun findAllSubstanceDetailByGardenIdAndSubstance(garden_id: Int,substanceId: Int):ArrayList<SubstanceDetail>{
+        val substanceDetailList:ArrayList<SubstanceDetail> = ArrayList()
+        val selectQuery = "SELECT  * FROM $TABLE_SUBSTANCE_MASS_DETAIL WHERE $COLUMN_GARDEN_ID = $garden_id AND $COLUMN_SUBSTANCE_ID = $substanceId"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            db.execSQL(selectQuery)
+            return ArrayList()
+        }
+        var substanceMassDetailId: Int
+        var substanceMassDetailName: String
+        var substanceMassDetailImage: String
+        var substanceMassDetailNum : String
+        var substanceMassDetailCategory:String
+        var substanceId: Int
+        var gardenId: Int
+        var createBy: String
+        var createDate: String
+        if (cursor.moveToFirst()) {
+            do {
+                substanceMassDetailId = cursor.getInt(cursor.getColumnIndex(
+                    COLUMN_SUBSTANCE_DETAIL_ID))
+                substanceMassDetailName = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_DETAIL_NAME))
+                substanceMassDetailImage = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_DETAIL_IMAGE))
+                substanceMassDetailNum= cursor.getString(cursor.getColumnIndex(
+                    COLUMN_SUBSTANCE_DETAIL_NUM))
+                substanceMassDetailCategory = cursor.getString(cursor.getColumnIndex(
+                    COLUMN_SUBSTANCE_DETAIL_CATEGORY))
+                substanceId= cursor.getInt(cursor.getColumnIndex(
+                    COLUMN_SUBSTANCE_ID))
+                gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
+                createBy = cursor.getString(cursor.getColumnIndex(COLUMN_CREATEDBY))
+                createDate = cursor.getString(cursor.getColumnIndex(COLUMN_CREATEDDATE))
+
+                val substanceDetail = SubstanceDetail(substanceMassDetailId,substanceMassDetailName,substanceMassDetailImage,substanceMassDetailNum,substanceMassDetailCategory,substanceId,gardenId,createBy,createDate)
+                substanceDetailList.add(substanceDetail)
+            } while (cursor.moveToNext())
+        }
+        cursor?.close()
+        return substanceDetailList
+    }
+
+    /**
+     * This method to findAllSubstanceDetail
+     *
+     * @return ArrayList
+     */
+    fun findAllSubstanceDetailBySubstanceId(substanceDetailId: Int): SubstanceDetail{
+        var substanceDetail  = SubstanceDetail()
+        val selectQuery = "SELECT  * FROM $TABLE_SUBSTANCE_MASS_DETAIL WHERE $COLUMN_SUBSTANCE_DETAIL_ID = $substanceDetailId"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        }catch (e: SQLiteException) {
+            db.execSQL(selectQuery)
+            return substanceDetail
+        }
+        var substanceMassDetailId: Int
+        var substanceMassDetailName: String
+        var substanceMassDetailImage: String
+        var substanceMassDetailNum : String
+        var substanceMassDetailCategory: String
+        var substanceId: Int
+        var gardenId: Int
+        var createBy: String
+        var createDate: String
+        if (cursor.moveToFirst()) {
+            do {
+                substanceMassDetailId = cursor.getInt(cursor.getColumnIndex(
+                    COLUMN_SUBSTANCE_DETAIL_ID))
+                substanceMassDetailName = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_DETAIL_NAME))
+                substanceMassDetailImage = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_DETAIL_IMAGE))
+                substanceMassDetailNum= cursor.getString(cursor.getColumnIndex(
+                    COLUMN_SUBSTANCE_DETAIL_NUM))
+                substanceMassDetailCategory = cursor.getString(cursor.getColumnIndex(
+                    COLUMN_SUBSTANCE_DETAIL_CATEGORY))
+                substanceId= cursor.getInt(cursor.getColumnIndex(
+                    COLUMN_SUBSTANCE_ID))
+                gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
+                createBy = cursor.getString(cursor.getColumnIndex(COLUMN_CREATEDBY))
+                createDate = cursor.getString(cursor.getColumnIndex(COLUMN_CREATEDDATE))
+
+                substanceDetail = SubstanceDetail(substanceMassDetailId,substanceMassDetailName,substanceMassDetailImage,substanceMassDetailNum,substanceMassDetailCategory,substanceId,gardenId,createBy,createDate)
+
+            } while (cursor.moveToNext())
+        }
+        cursor?.close()
+        return substanceDetail
+    }
+
+    /**
      * This method to addSubstance
      *
      * @param device
@@ -1973,12 +2113,8 @@ class Database(context: Context?) :
     fun updateSubstance(substance: Substance) : Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(COLUMN_DEVICE_ID,substance.substanceMassId)
-        contentValues.put(COLUMN_SUBSTANCE_NAME, substance.substanceMassName)
-        contentValues.put(COLUMN_SUBSTANCE_IMAGE, substance.substanceMassImage)
+        contentValues.put(COLUMN_SUBSTANCE_ID,substance.substanceMassId)
         contentValues.put(COLUMN_SUBSTANCE_TOTAL, substance.totalSubstanceMass)
-        contentValues.put(COLUMN_SUBSTANCE_CATEGORY, substance.substanceCategory)
-        contentValues.put(COLUMN_GARDEN_ID,substance.gardenId)
 
 
         // Inserting Row
@@ -1988,6 +2124,26 @@ class Database(context: Context?) :
         return success
     }
 
+    /**
+     * This method to updateSubstance
+     *
+     * @param veg
+     * @return true/false
+     */
+    fun updateSubstance1(substance: Substance) : Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_SUBSTANCE_ID,substance.substanceMassId)
+        contentValues.put(COLUMN_SUBSTANCE_TOTAL, substance.totalSubstanceMass)
+
+
+
+        // Inserting Row
+        val success = db.update(TABLE_SUBSTANCE_MASS, contentValues,"$COLUMN_SUBSTANCE_ID="+substance.substanceMassId,null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
     /**
      * This method to insert data device detail
      *
@@ -2000,6 +2156,7 @@ class Database(context: Context?) :
         contentValues.put(COLUMN_SUBSTANCE_DETAIL_NAME, substanceDetail.substanceMassDetailName)
         contentValues.put(COLUMN_SUBSTANCE_DETAIL_IMAGE, substanceDetail.substanceMassDetailImage)
         contentValues.put(COLUMN_SUBSTANCE_DETAIL_NUM,substanceDetail.substanceMassDetailNum)
+        contentValues.put(COLUMN_SUBSTANCE_DETAIL_CATEGORY,substanceDetail.substanceMassDetailCategory)
         contentValues.put(COLUMN_SUBSTANCE_ID,substanceDetail.substanceMassId)
         contentValues.put(COLUMN_GARDEN_ID,substanceDetail.gardenId)
         contentValues.put(COLUMN_CREATEDBY, substanceDetail.createdBy)
@@ -2024,15 +2181,45 @@ class Database(context: Context?) :
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_SUBSTANCE_DETAIL_ID, substanceDetail.substanceMassDetailId)
-        contentValues.put(COLUMN_SUBSTANCE_DETAIL_NAME, substanceDetail.substanceMassDetailName)
-        contentValues.put(COLUMN_SUBSTANCE_DETAIL_IMAGE, substanceDetail.substanceMassDetailImage)
         contentValues.put(COLUMN_SUBSTANCE_DETAIL_NUM,substanceDetail.substanceMassDetailNum)
-        contentValues.put(COLUMN_GARDEN_ID,substanceDetail.gardenId)
-        contentValues.put(COLUMN_SUBSTANCE_ID,substanceDetail.substanceMassId)
-        contentValues.put(COLUMN_UPDATED_DATE, substanceDetail.updatedDate)
+        contentValues.put(COLUMN_CREATEDDATE, substanceDetail.createdDate)
 
         // Inserting Row
         val success = db.update(TABLE_SUBSTANCE_MASS_DETAIL, contentValues,"$COLUMN_SUBSTANCE_DETAIL_ID="+substanceDetail.substanceMassDetailId,null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to delete data
+     *
+     * @param batch_id
+     * @return Int
+     */
+    fun deleteSubstanceDetail(substanceDetailId: Int):Int{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_SUBSTANCE_DETAIL_ID, substanceDetailId) // EmpModelClass UserId
+        // Deleting Row
+        val success = db.delete(TABLE_SUBSTANCE_MASS_DETAIL, "$COLUMN_SUBSTANCE_DETAIL_ID=$substanceDetailId",null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to delete data
+     *
+     * @param batch_id
+     * @return Int
+     */
+    fun deleteSubstance(substanceId: Int):Int{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_SUBSTANCE_ID, substanceId) // EmpModelClass UserId
+        // Deleting Row
+        val success = db.delete(TABLE_SUBSTANCE_MASS, "$COLUMN_SUBSTANCE_ID=$substanceId",null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success

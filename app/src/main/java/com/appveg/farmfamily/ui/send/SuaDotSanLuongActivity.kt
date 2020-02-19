@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_them_dot_san_luong.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.math.ceil
 
 class SuaDotSanLuongActivity : AppCompatActivity() {
     private val activity = this@SuaDotSanLuongActivity
@@ -168,7 +169,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
             if (quantityVegetable.isNotBlank()) {
                 if (listVeg.isNullOrEmpty()) {
                     vegetableTemp.vegName = selected.toString()
-                    vegetableTemp.vegQty = quantityVegetable.toDouble()
+                    vegetableTemp.vegQty = (ceil(quantityVegetable.toDouble()*10) /10)
                     listVeg.add(vegetableTemp)
                 } else {
                     for (i in 0 until listVeg.size) {
@@ -176,12 +177,12 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
                             var x: Double = listVeg[i].vegQty!!.toDouble()
                             x += quantityVegetable.toDouble()
                             vegetableTemp.vegName = listVeg[i].vegName
-                            vegetableTemp.vegQty = x
+                            vegetableTemp.vegQty = (ceil(x*10) /10)
                             listVeg[i] = vegetableTemp
                             break
                         } else if (i == listVeg.size - 1) {
                             vegetableTemp.vegName = selected.toString()
-                            vegetableTemp.vegQty = quantityVegetable.toDouble()
+                            vegetableTemp.vegQty = (ceil(quantityVegetable.toDouble()*10) /10)
                             listVeg.add(vegetableTemp)
                         }
                     }
@@ -190,7 +191,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
                 var vegNumber = 0.0
                 if (listVeg.isNullOrEmpty()) {
                     vegetableTemp.vegName = selected.toString()
-                    vegetableTemp.vegQty = vegNumber
+                    vegetableTemp.vegQty = (ceil(vegNumber*10) /10)
                     listVeg.add(vegetableTemp)
                 } else {
                     for (i in 0 until listVeg.size) {
@@ -198,12 +199,12 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
                             var x: Double = listVeg[i].vegQty!!.toDouble()
                             x += vegNumber
                             vegetableTemp.vegName = listVeg[i].vegName
-                            vegetableTemp.vegQty = x
+                            vegetableTemp.vegQty = (ceil(x*10) /10)
                             listVeg[i] = vegetableTemp
                             break
                         } else if (i == listVeg.size - 1) {
                             vegetableTemp.vegName = selected.toString()
-                            vegetableTemp.vegQty = vegNumber
+                            vegetableTemp.vegQty = (ceil(vegNumber*10) /10)
                             listVeg.add(vegetableTemp)
                         }
                     }
@@ -234,7 +235,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
         var selectedStartDate = textViewPickStart_edit.text.toString().trim()
         var selectedEndDate = textViewPickKT_edit.text.toString().trim()
         var selectedBatchName = batchName_edit.text.toString()
-        var totalQty = sumQty.toString().trim()
+        var totalQty = (ceil(sumQty *10) /10).toString().trim()
 
         /*id intent from batch*/
         var garden_id = getDataFromItent()
@@ -260,7 +261,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
                                 null,
                                 batch_id,
                                 item.vegName,
-                                item.vegQty.toString(),
+                                (ceil(item.vegQty!! *10) /10).toString(),
                                 "admin",
                                 formatted
                             )

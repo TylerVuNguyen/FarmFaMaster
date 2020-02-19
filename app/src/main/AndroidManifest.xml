@@ -16,20 +16,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.share.AddSubstanceMassActivity"
+        <activity android:name=".ui.share.EditSubstanceMassDetailActivity"
+            android:label="Sửa loại dung dịch"
+            android:parentActivityName=".ui.share.EditSubstanceMassDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.share.EditSubstanceMassDetailActivity" /></activity>
+        <activity
+            android:name=".ui.share.AddSubstanceMassActivity"
             android:label="Thêm loại dung dịch"
             android:parentActivityName=".ui.share.AddSubstanceMassActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.appveg.farmfamily.ui.share.AddSubstanceMassActivity" /></activity>
-        <activity android:name=".ui.share.SubstanceMassDetailActivity"
+                android:value="com.appveg.farmfamily.ui.share.AddSubstanceMassActivity" />
+        </activity>
+        <activity
+            android:name=".ui.share.SubstanceMassDetailActivity"
             android:label="Danh sách chi tiết loại dung dịch"
             android:parentActivityName=".ui.share.SubstanceMassDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.appveg.farmfamily.ui.share.SubstanceMassDetailActivity" />
         </activity>
-        <activity android:name=".ui.share.SubstanceMassActivity"
+        <activity
+            android:name=".ui.share.SubstanceMassActivity"
             android:label="Danh sách loại dung dịch"
             android:parentActivityName=".ui.share.SubstanceMassActivity">
             <meta-data

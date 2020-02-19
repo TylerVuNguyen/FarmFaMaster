@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
+import com.google.android.material.math.MathUtils
 import kotlinx.android.synthetic.main.activity_add_substance_mass.*
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.positionSpinner
 import java.io.File
@@ -20,6 +21,7 @@ import java.io.OutputStream
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.math.ceil
 
 class AddSubstanceMassActivity : AppCompatActivity() {
 
@@ -29,7 +31,6 @@ class AddSubstanceMassActivity : AppCompatActivity() {
 
     private lateinit var database: Database
 
-    var substances: ArrayList<Substance> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -113,7 +114,7 @@ class AddSubstanceMassActivity : AppCompatActivity() {
         var gardenId = getDataFromItent()
         /*format date*/
         val current = Calendar.getInstance().time
-        val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
+        val formatter: SimpleDateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss")
         val formatted: String = formatter.format(current)
 
         var bitmap: Bitmap = (selected_image_substance.drawable as BitmapDrawable).bitmap
@@ -138,14 +139,15 @@ class AddSubstanceMassActivity : AppCompatActivity() {
             // have two case
             if (!exits) {
                 totalTempSubstance += substanceNum.toDouble()
-                substance = Substance(null,substanceName,uri.toString(),totalTempSubstance.toString(),substanceCategoryId.toString(),gardenId)
+                substance = Substance(null,substanceName,uri.toString(),(ceil(totalTempSubstance*10) /10).toString(),substanceCategoryId.toString(),gardenId)
                 var tempId = database.addSubstance(substance)
                 if (tempId != null) {
                     var substanceDetail = SubstanceDetail(
                         null,
                         substanceName,
                         uri.toString(),
-                        substanceNum,
+                        (ceil(substanceNum.toDouble()*10) /10).toString(),
+                        substanceCategoryId.toString(),
                         tempId.toInt(),
                         gardenId,
                         "admin",
@@ -157,11 +159,15 @@ class AddSubstanceMassActivity : AppCompatActivity() {
                     .show()
                 activity.finish()
             } else {
+                totalTempSubstance += substanceNum.toDouble()
+                substance = Substance(substanceTempId,(ceil(totalTempSubstance*10) /10).toString())
+                database.updateSubstance1(substance)
                 var substanceDetail = SubstanceDetail(
                     null,
                     substanceName,
                     uri.toString(),
-                    substanceNum,
+                    (ceil(substanceNum.toDouble()*10) /10).toString(),
+                    substanceCategoryId.toString(),
                     substanceTempId,
                     gardenId,
                     "admin",

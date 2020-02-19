@@ -15,6 +15,7 @@ import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.device.Device
 import com.bumptech.glide.Glide
 import java.io.File
+import kotlin.math.ceil
 
 
 class SubstanceMassAdapter (private var activity: Activity, private var items: ArrayList<Substance>) :  BaseAdapter(){
@@ -45,7 +46,7 @@ class SubstanceMassAdapter (private var activity: Activity, private var items: A
         var substance = items[position]
 
         viewHolder.substanceName.text = substance.substanceMassName
-        viewHolder.substanceTotal.text = substance.totalSubstanceMass + "L"
+        viewHolder.substanceTotal.text =  (ceil(substance.totalSubstanceMass.toDouble()*10) /10).toString() + " L"
 
         // chuyển bytearray về bitmap để hiển thị
         var imageBitmap : String? = substance.substanceMassImage
