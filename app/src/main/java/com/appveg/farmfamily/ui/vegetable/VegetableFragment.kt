@@ -155,7 +155,7 @@ class VegetableFragment  : Fragment() {
                 Toast.LENGTH_LONG
             ).show()
         }
-        list_view_vegetable.adapter = VegetableFragmentAdapter(activity, vegetables)
+        list_view_vegetable.adapter = this.activity?.let { VegetableFragmentAdapter(it, vegetables) }
     }
 
     /**

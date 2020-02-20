@@ -195,6 +195,9 @@
     <string name="temp_param_vi">Nhiệt độ (°C)</string>
     <string name="message_setting_param">Tham số đã được cài đặt cho loại rau này !</string>
     <string name="message_no_setting_param">Chưa cài đặt tham số cho loại rau này !</string>
+    <string name="no_setting_param_vi">Chưa cài đặt tham số</string>
+    <string name="setting_param_vi">Đã cài đặt tham số</string>
+
 
 
     <string name="select_language_vi">Chọn ngôn ngữ</string>
@@ -226,6 +229,7 @@
     <string name="back_vi">Lùi</string>
     <string name="stop_vi">Dừng</string>
     <string name="da_cai_dat_vi">Đã cài đặt</string>
+    <string name="device_status_vi">thiết bị</string>
     <string name="chua_cai_dat_vi">Chưa cài đặt</string>
 
     <!---substance mass-->

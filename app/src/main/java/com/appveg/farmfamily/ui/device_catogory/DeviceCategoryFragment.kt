@@ -144,7 +144,8 @@ class DeviceCategoryFragment : Fragment() {
                 Toast.LENGTH_LONG
             ).show()
         }
-        list_view_device_category.adapter = DeviceCategoryFragmentAdapter(activity, deviceCategories)
+        list_view_device_category.adapter =
+            activity?.let { DeviceCategoryFragmentAdapter(it, deviceCategories) }
     }
 
     /**

@@ -4,13 +4,11 @@ package com.appveg.farmfamily.ui.send
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.DialogInterface
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
-import androidx.annotation.RequiresApi
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.vegetable.Vegetable
@@ -21,10 +19,7 @@ import kotlinx.android.synthetic.main.activity_them_dot_san_luong.pickDateKT
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.positionSpinner
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.textViewPickKT
 import kotlinx.android.synthetic.main.activity_them_dot_san_luong.textViewPickStart
-import kotlinx.android.synthetic.main.activity_them_khu_vuon.*
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.ceil
@@ -243,13 +238,15 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
 
         var gardenId = getDataFromItent()
 
+        var garden = database.findGardenById(gardenId)
+
         var checkBatchName = checkBatchName(selectedBatchName)
         var checkDate = checkDate(selectedStartDate,selectedEndDate)
 
 
         var batch: Batch = Batch(
             null,
-            "R.drawable.kv2",
+            garden.gardenImage,
             selectedBatchName,
             selectedEndDate,
             totalQty,
@@ -286,10 +283,6 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
                         Toast.LENGTH_LONG
                     ).show()
                 }
-                // reset list data for batch
-//                var  intent: Intent  = Intent(activity, ChiTietDotSanLuongActivity::class.java)
-//                intent.putExtra("garden_id",garden_id)
-//                startActivity(intent)
                 activity.finish()
             } catch (e: Exception) {
                 Log.d("AAA", e.message)
@@ -309,9 +302,7 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
      */
     private fun getDataFromItent() : Int {
         val bundle:Bundle = intent.extras
-        val id: Int =
-            bundle.get("garden_id") as Int
-        return id
+        return bundle.get("garden_id") as Int
     }
 
     /**
@@ -319,7 +310,8 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
      */
     private fun checkBatchName(check: String): Boolean {
         database = Database(activity)
-        var batchs = database.findAllBatch()
+        var gardenId = getDataFromItent()
+        var batchs = database.viewBatchByGardenId(gardenId)
         if (check.isEmpty()) {
             batchName.error = getString(R.string.error_empty_common)
             return false

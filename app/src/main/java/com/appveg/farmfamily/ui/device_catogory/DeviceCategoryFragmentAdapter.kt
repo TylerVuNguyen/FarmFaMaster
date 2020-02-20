@@ -1,7 +1,10 @@
 package com.appveg.farmfamily.ui.device_catogory
 
+import android.app.Activity
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +13,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import com.appveg.farmfamily.R
+import com.bumptech.glide.Glide
+import java.io.File
 
 
-class DeviceCategoryFragmentAdapter (private val context: FragmentActivity?, private val veg: ArrayList<DeviceCategory>) : BaseAdapter() {
+class DeviceCategoryFragmentAdapter (private val activity: Activity, private val veg: ArrayList<DeviceCategory>) : BaseAdapter() {
 
     //1
     override fun getCount(): Int {
@@ -50,8 +55,8 @@ class DeviceCategoryFragmentAdapter (private val context: FragmentActivity?, pri
         var viewHolder : ViewHolder
         if( convertView == null){
 
-            var layout = LayoutInflater.from(context)
-            view = layout.inflate(R.layout.layout_list_device_category,parent,false)
+            val inflater = activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            view = inflater.inflate(R.layout.layout_list_device_category,null)
             viewHolder = ViewHolder(view)
             view.tag = viewHolder
 
@@ -64,9 +69,14 @@ class DeviceCategoryFragmentAdapter (private val context: FragmentActivity?, pri
         viewHolder.dcategory_name.text = dcategory.dcategoryName
 
         // chuyển bytearray về bitmap để hiển thị
-        var imageBitmap : ByteArray? = dcategory.dcategoryImg
-        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
-        viewHolder.dcategory_img.setImageBitmap(bitmap)
+//        var imageBitmap : ByteArray? = dcategory.dcategoryImg
+//        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
+//        viewHolder.dcategory_img.setImageBitmap(bitmap)
+
+        // chuyển bytearray về bitmap để hiển thị
+        Glide.with(activity)
+            .load(Uri.fromFile(File(dcategory.dcategoryImg)))
+            .into(viewHolder.dcategory_img)
         return view as View
 
     }

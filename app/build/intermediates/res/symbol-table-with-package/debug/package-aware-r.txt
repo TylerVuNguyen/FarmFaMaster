@@ -1297,6 +1297,11 @@ drawable imagegallery
 drawable img_border_room
 drawable khongmua
 drawable kv2
+drawable kv3
+drawable kv4
+drawable kv5
+drawable kv6
+drawable kv7
 drawable logo
 drawable logo2
 drawable logo3
@@ -1552,6 +1557,7 @@ id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
 id detailsContainer
+id deviceSettingNum
 id device_btn_print
 id device_category_image1
 id device_category_image1_edit
@@ -2270,6 +2276,7 @@ string default_web_client_id
 string delete
 string delete_title_all_vi
 string deleted_data_success_vi
+string device_status_vi
 string edit
 string email
 string error_batch_exist
@@ -2371,6 +2378,7 @@ string newUser
 string next_vi
 string night_vi
 string no_data_vi
+string no_setting_param_vi
 string not_set
 string num_dd_used_vi
 string old_passowrd_vi
@@ -2394,6 +2402,7 @@ string select_device_and_veg_vi
 string select_language_vi
 string select_veg_vi
 string selected_item
+string setting_param_vi
 string show_pwd
 string signUp
 string sign_blocked

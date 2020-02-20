@@ -68,7 +68,6 @@ class DeviceDetailAdapter (private var activity: Activity, private var items: Ar
 //        viewHolder.deviceDetailImage!!.setImageBitmap(bitmap)
         Glide.with(activity)
             .load(Uri.fromFile(File(deviceDetail.deviceDetailImg)))
-            .apply(RequestOptions().override(100, 100))
             .into(viewHolder.deviceDetailImage)
 
         return view

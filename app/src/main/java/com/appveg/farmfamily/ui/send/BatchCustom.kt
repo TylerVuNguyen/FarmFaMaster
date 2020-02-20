@@ -4,14 +4,14 @@ import java.io.Serializable
 
 class BatchCustom : Serializable{
     var batchId: Int? = null
-    var batchImage: Int? = 0
+    var batchImage: String? = ""
     var batchName: String? = ""
     var totalQuantity: String? = ""
     var gardenId: Int? = null
 
     constructor(
         batchId: Int?,
-        batchImage: Int?,
+        batchImage: String?,
         batchName: String?,
         totalQuantity: String?,
         gardenId: Int?

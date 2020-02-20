@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.vegetable.Vegetable
+import com.bumptech.glide.Glide
+import java.io.File
 
 class QLKVAdapter (private var activity: Activity, private var items: ArrayList<Garden>) :  BaseAdapter(){
 
@@ -40,9 +43,12 @@ class QLKVAdapter (private var activity: Activity, private var items: ArrayList<
         viewHolder.qlkhuvuon_name!!.text = garden.gardenName
 
         // chuyển bytearray về bitmap để hiển thị
-        var imageBitmap : ByteArray? = garden.gardenImage
-        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
-        viewHolder.qlkhuvuon_photo!!.setImageBitmap(bitmap)
+//        var imageBitmap : ByteArray? = garden.gardenImage
+//        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
+//        viewHolder.qlkhuvuon_photo!!.setImageBitmap(bitmap)
+        Glide.with(activity)
+            .load(Uri.fromFile(File(garden.gardenImage)))
+            .into(viewHolder.qlkhuvuon_photo!!)
 
         return view as View
     }

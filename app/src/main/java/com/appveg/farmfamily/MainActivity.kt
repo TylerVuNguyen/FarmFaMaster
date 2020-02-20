@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         /*by vu*/
         var database : Database = Database(this)
 //        var data : SQLiteDatabase = database.readableDatabase
-//        deleteDatabase("smartfarm")
+ //       deleteDatabase("smartfarm")
 //          database.QueryData("CREATE TABLE batch (batch_id INTEGER PRIMARY KEY AUTOINCREMENT,batch_image VARCHAR(100),batch_name VARCHAR(100),the_end_date VARCHAR(15)," +
 //              "total_quantity VARCHAR(100),garden_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
 //                      "deleted_date VARCHAR(50),deleted_flag INTEGER)")

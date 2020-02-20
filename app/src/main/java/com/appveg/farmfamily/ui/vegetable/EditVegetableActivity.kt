@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -15,10 +16,11 @@ import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_add_device.*
 import kotlinx.android.synthetic.main.activity_add_vegetable.*
+import kotlinx.android.synthetic.main.activity_edit_device.*
 import kotlinx.android.synthetic.main.activity_edit_vegetable.*
-import java.io.ByteArrayOutputStream
-import java.io.FileNotFoundException
+import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -148,18 +150,24 @@ class EditVegetableActivity : AppCompatActivity() {
 
         val vegId = getDataFromItent()
 
-        // covert image to ByteArray
-        var bitmapDrawable: BitmapDrawable = selected_image_edit.drawable as BitmapDrawable
-        var bitmap: Bitmap = bitmapDrawable.bitmap
-        var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
+//        // covert image to ByteArray
+//        var bitmapDrawable: BitmapDrawable = selected_image_edit.drawable as BitmapDrawable
+//        var bitmap: Bitmap = bitmapDrawable.bitmap
+//        var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
+//        bitmap.compress(Bitmap.CompressFormat.PNG,0,byteArray)
+//
+//        var image: ByteArray = byteArray.toByteArray()
+//        var checkVegImage = checkVegImage(image)
+        var bitmap: Bitmap = (selected_image_edit.drawable as BitmapDrawable).bitmap
 
-        bitmap.compress(Bitmap.CompressFormat.PNG,0,byteArray)
+        var uri = saveImageSDcard(bitmap)
 
-        var image: ByteArray = byteArray.toByteArray()
-        var checkVegImage = checkVegImage(image)
-
-        if(checkVegName && checkVegImage){
-            var vegetable = Vegetable(vegId, veg_name,image,formatted)
+        if(checkVegName){
+            var vegetable = Vegetable()
+            vegetable.vegID = vegId
+            vegetable.vegName = veg_name
+            vegetable.vegImgBlob = uri.toString()
+            vegetable.updatedDate = formatted
             database.updateVegImageDefault(vegetable)
 
             Toast.makeText(this,getString(R.string.update_data_success_vi),Toast.LENGTH_LONG).show()
@@ -272,10 +280,12 @@ class EditVegetableActivity : AppCompatActivity() {
         var vegetable: Vegetable = getVegById(vegId)
 
 
-        var imageBitmap : ByteArray? = vegetable.vegImgBlob
-        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
+//        var imageBitmap : String? = vegetable.vegImgBlob
+//        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
+        Glide.with(activity)
+            .load(Uri.fromFile(File(vegetable.vegImgBlob)))
+            .into(selected_image_edit)
 
-        this.selected_image_edit.setImageBitmap(bitmap)
         this.veg_name_edit.setText(vegetable.vegName)
         this.veg_name_edit.setSelection(veg_name_edit.text.length)
     }
@@ -290,5 +300,28 @@ class EditVegetableActivity : AppCompatActivity() {
             vegetable = database.findVegetableById(veg_id)
         }
         return vegetable
+    }
+
+    private fun saveImageSDcard(bitmap: Bitmap) : Uri? {
+        // path to sd card
+        var file = File(filesDir, "Images" )
+        // create a folder
+        if(!file.exists()){
+            file.mkdir()
+        }
+
+        file = File(file, "${UUID.randomUUID()}.png")
+
+        var outputStream : OutputStream? = null
+
+        try {
+            outputStream = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream)
+            outputStream.flush()
+            outputStream.close()
+        }catch (e: IOException){
+            e.printStackTrace()
+        }
+        return Uri.parse(file.absoluteFile.toString())
     }
 }

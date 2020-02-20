@@ -1,15 +1,12 @@
 package com.appveg.farmfamily.ui.send
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.vegetable.VegetableTemp
 import kotlinx.android.synthetic.main.activity_chi_tiet_tung_san_luong.*
-import kotlinx.android.synthetic.main.activity_sua_dot_san_luong.*
 
 class ChiTietSanLuongRauActivity : AppCompatActivity() {
 
@@ -71,14 +68,14 @@ class ChiTietSanLuongRauActivity : AppCompatActivity() {
      * This method is to remove data
      */
     private fun initBatchEdit() {
-        val batch_id: Int = getDataFromItentBatchId()
+        val batchId: Int = getDataFromItentBatchId()
         // gán lại id để tý update data
-        var listBatchDetail: ArrayList<BatchQtyDetail> = getListBatchDetailById(batch_id)
-        var batch: Batch = getBatchById(batch_id)
+        var listBatchDetail: ArrayList<BatchQtyDetail> = getListBatchDetailById(batchId)
+        var batch: Batch = getBatchById(batchId)
 
-        txt_ngayBD.setText(batch.createdDate)
-        txt_ngayKT.setText(batch.theEndDate)
-        batchName_detail.setText(batch.batchName)
+        txt_ngayBD.text = batch.createdDate
+        txt_ngayKT.text = batch.theEndDate
+        batchName_detail.text = batch.batchName
         totalQty_detail.text = batch.totalQuantity + "/kg"
 
         if(!listBatchDetail.isNullOrEmpty()){
@@ -100,9 +97,7 @@ class ChiTietSanLuongRauActivity : AppCompatActivity() {
      */
     private fun getDataFromItent(): Int {
         val bundle: Bundle = intent.extras
-        val id: Int =
-            bundle.get("garden_id") as Int
-        return id
+        return bundle.get("garden_id") as Int
     }
 
     /**
@@ -110,9 +105,7 @@ class ChiTietSanLuongRauActivity : AppCompatActivity() {
      */
     private fun getDataFromItentBatchId(): Int {
         val bundle: Bundle = intent.extras
-        val id: Int =
-            bundle.get("batch_id") as Int
-        return id
+        return bundle.get("batch_id") as Int
     }
 
 }

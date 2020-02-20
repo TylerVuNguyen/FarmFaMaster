@@ -1,17 +1,17 @@
 package com.appveg.farmfamily.ui.device_catogory
 
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
-import kotlinx.android.synthetic.main.activity_add_device_category.*
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_edit_device_category.*
-import java.io.ByteArrayOutputStream
+import kotlinx.android.synthetic.main.activity_edit_device_category.cancel_action_device_edit
+import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -90,17 +90,19 @@ class EditDeviceCategory : AppCompatActivity() {
 
         val dcategory_id = getDataFromItent()
 
-        var bitmapDrawable: BitmapDrawable = selected_device_category_image_edit.drawable as BitmapDrawable
-        var bitmap: Bitmap = bitmapDrawable.bitmap
-        var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
+//        var bitmapDrawable: BitmapDrawable = selected_device_category_image_edit.drawable as BitmapDrawable
+//        var bitmap: Bitmap = bitmapDrawable.bitmap
+//        var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
+//        bitmap.compress(Bitmap.CompressFormat.PNG,0,byteArray)
+        var bitmap: Bitmap = (selected_device_category_image_edit.drawable as BitmapDrawable).bitmap
 
-        bitmap.compress(Bitmap.CompressFormat.PNG,0,byteArray)
+        var uri = saveImageSDcard(bitmap)
 
-        var image: ByteArray = byteArray.toByteArray()
-        var checkDCategoryImg = checkDCategoryImage(image)
+//        var image: ByteArray = byteArray.toByteArray()
+//        var checkDCategoryImg = checkDCategoryImage(image)
 
-        if(checkDCategoryName && checkDCategoryImg){
-            var dcategory = DeviceCategory(dcategory_id, dcategory_name,image,formatted)
+        if(checkDCategoryName){
+            var dcategory = DeviceCategory(dcategory_id, dcategory_name,uri.toString(),formatted)
             database.updateDeviceCategoryImageDefault(dcategory)
             Toast.makeText(this,getString(R.string.update_data_success_vi),Toast.LENGTH_LONG).show()
             activity.finish()
@@ -114,18 +116,9 @@ class EditDeviceCategory : AppCompatActivity() {
      * This method is to batch name
      */
     private fun checkDCategoryName(check: String): Boolean {
-        database = Database(activity)
-        var deviceCategorys = database.findAllDeviceCategory()
         if (check.isEmpty()) {
             device_category_name_edit.error = getString(R.string.error_empty_common)
             return false
-        }else{
-            for (i in 0 until deviceCategorys.size){
-                if(check.equals(deviceCategorys[i].dcategoryName,true)){
-                    device_category_name_edit.error = getString(R.string.error_device_exist)
-                    return false
-                }
-            }
         }
         return true
     }
@@ -135,35 +128,23 @@ class EditDeviceCategory : AppCompatActivity() {
      */
     private fun getDataFromItent(): Int {
         val bundle: Bundle = intent.extras
-        val id: Int =
-            bundle.get("device_category_id") as Int
-        return id
+        return bundle.get("device_category_id") as Int
     }
 
-    /**
-     * This method is to batch name
-     */
-    private fun checkDCategoryImage(check: ByteArray): Boolean {
-        if (check.isEmpty()) {
-            Toast.makeText(this,R.string.image_no_select_vi, Toast.LENGTH_LONG).show()
-            return false
-        }
-        return true
-    }
 
     /**
      * This method is to remove data
      */
     private fun initDataEdit() {
-        val dcategory_id: Int = getDataFromItent()
+        val dcategoryId: Int = getDataFromItent()
 
         // gán lại id để tý update data
-        var dcategory: DeviceCategory = getDCategoryById(dcategory_id)
+        var dcategory: DeviceCategory = getDCategoryById(dcategoryId)
 
-        var imageBitmap : ByteArray? = dcategory.dcategoryImg
-        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
+        Glide.with(activity)
+            .load(Uri.fromFile(File(dcategory.dcategoryImg)))
+            .into(selected_device_category_image_edit)
 
-        this.selected_device_category_image_edit.setImageBitmap(bitmap)
         this.device_category_name_edit.setText(dcategory.dcategoryName)
         this.device_category_name_edit.setSelection(device_category_name_edit.text.length)
     }
@@ -178,6 +159,29 @@ class EditDeviceCategory : AppCompatActivity() {
             dcategory = database.findDeviceCategoryId(dcategory_id)
         }
         return dcategory
+    }
+
+    private fun saveImageSDcard(bitmap: Bitmap): Uri? {
+        // path to sd card
+        var file = File(filesDir, "Images")
+        // create a folder
+        if (!file.exists()) {
+            file.mkdir()
+        }
+
+        file = File(file, "${UUID.randomUUID()}.png")
+
+        var outputStream: OutputStream? = null
+
+        try {
+            outputStream = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream)
+            outputStream.flush()
+            outputStream.close()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        return Uri.parse(file.absoluteFile.toString())
     }
 
 }

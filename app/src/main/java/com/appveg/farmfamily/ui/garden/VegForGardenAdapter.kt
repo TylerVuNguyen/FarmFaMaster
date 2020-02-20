@@ -2,6 +2,7 @@ package com.appveg.farmfamily.ui.garden
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,8 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.vegetable.Vegetable
+import com.bumptech.glide.Glide
+import java.io.File
 
 class VegForGardenAdapter (private val activity: FragmentActivity?, private var items: ArrayList<Vegetable>) :  BaseAdapter(){
 
@@ -66,9 +69,11 @@ class VegForGardenAdapter (private val activity: FragmentActivity?, private var 
         viewHolder.status!!.text = getStatus(veg.paramId)
 
         // chuyển bytearray về bitmap để hiển thị
-        var imageBitmap : ByteArray? = veg.vegImgBlob
-        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
-        viewHolder.vegImg.setImageBitmap(bitmap)
+//        var imageBitmap : ByteArray? = veg.vegImgBlob
+//        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
+//        viewHolder.vegImg.setImageBitmap(bitmap)
+        // load photo
+        this!!.activity?.let { Glide.with(it).load(Uri.fromFile(File(veg.vegImgBlob))).into(viewHolder.vegImg) }
         return view as View
 
     }

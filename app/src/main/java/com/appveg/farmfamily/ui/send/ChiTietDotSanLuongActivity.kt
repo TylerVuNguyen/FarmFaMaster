@@ -161,7 +161,7 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
     /**
      * the method to display batch
      */
-    fun getListBatch() {
+    private fun getListBatch() {
         var id = getDataFromItent()
         database = Database(activity)
         bactchList = database.viewBatchByGardenId(id)

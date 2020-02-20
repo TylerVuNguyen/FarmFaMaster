@@ -3,7 +3,7 @@ package com.appveg.farmfamily.ui.device_catogory
 class DeviceCategory {
     var dcategoryID: Int? = 0
     var dcategoryName: String? = ""
-    var dcategoryImg: ByteArray? = null
+    var dcategoryImg: String? = null
     var createdBy: String? = "admin"
     var createdDate: String? = null
     var updatedBy: String? = ""
@@ -14,7 +14,7 @@ class DeviceCategory {
     constructor(
         dcategoryID: Int?,
         dcategoryName: String?,
-        dcategoryImg: ByteArray,
+        dcategoryImg: String,
         createdBy: String?,
         createdDate: String?
     ) {
@@ -28,7 +28,7 @@ class DeviceCategory {
     constructor(
         dcategoryID: Int?,
         dcategoryName: String?,
-        dcategoryImg: ByteArray,
+        dcategoryImg: String,
         updatedDate: String?
     ) {
         this.dcategoryID = dcategoryID
@@ -40,7 +40,7 @@ class DeviceCategory {
     constructor(
         dcategoryID: Int?,
         dcategoryName: String?,
-        dcategoryImg: ByteArray
+        dcategoryImg: String
 
     ) {
         this.dcategoryID = dcategoryID

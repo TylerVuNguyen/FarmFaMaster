@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
-import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.device.Device
 import com.appveg.farmfamily.ui.device.DeviceDetail
 import com.appveg.farmfamily.ui.device_catogory.DeviceCategory
@@ -159,7 +158,7 @@ class Database(context: Context?) :
 
         val CREATE_VEGETABLE_TABLE =
             ("CREATE TABLE " + TABLE_VEGETABLE + "(veg_id INTEGER PRIMARY KEY AUTOINCREMENT,veg_name VARCHAR(100)," +
-                    "veg_image_blob BLOB,garden_id INTEGER,param_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+                    "veg_image_blob VARCHAR(300),garden_id INTEGER,param_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
                     "deleted_date VARCHAR(50),deleted_flag INTEGER)")
 
         val CREATE_GARDEN_TABLE =
@@ -187,7 +186,7 @@ class Database(context: Context?) :
 
         val CREATE_DEVICE_CATEGORY_TABLE  =
             ("CREATE TABLE " + TABLE_DEVICE_CATEGORY + "(device_category_id INTEGER PRIMARY KEY AUTOINCREMENT,device_category_code VARCHAR(100),device_category_name VARCHAR(100)," +
-                    "device_category_image BLOB,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+                    "device_category_image VARCHAR(300),created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
                     "deleted_date VARCHAR(50),deleted_flag INTEGER)")
 
         val CREATE_PARAM_TABLE =
@@ -562,19 +561,19 @@ class Database(context: Context?) :
             db.execSQL(selectQuery)
             return ArrayList()
         }
-        var batch_id: Int
-        var batch_name: String
-        var batch_image : Int
-        var garden_id : Int
+        var batchId: Int
+        var batchName: String
+        var batchImage : String
+        var gardenId : Int
         var totalQty : String
         if (cursor.moveToFirst()) {
             do {
-                batch_id = cursor.getInt(cursor.getColumnIndex(COLUMN_BATCH_ID))
-                batch_name = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_NAME))
-                batch_image = R.drawable.kv2
-                garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_BATCH_GARDEN_ID))
+                batchId = cursor.getInt(cursor.getColumnIndex(COLUMN_BATCH_ID))
+                batchName = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_NAME))
+                batchImage = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_IMAGE))
+                gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_BATCH_GARDEN_ID))
                 totalQty = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_TOTAL_QTY))
-                val batch = BatchCustom(batch_id, batch_image ,batch_name,totalQty,garden_id)
+                val batch = BatchCustom(batchId, batchImage ,batchName,totalQty,gardenId)
                 batchList.add(batch)
             } while (cursor.moveToNext())
         }
@@ -799,16 +798,20 @@ class Database(context: Context?) :
         }
         var garden_id: Int
         var garden_name: String
-        var garden_image : ByteArray
+        var garden_image : String
         var garden_code : String
         if (cursor.moveToFirst()) {
             do {
                 garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
                 garden_name = cursor.getString(cursor.getColumnIndex(COLUMN_GARDEN_NAME))
-                garden_image = cursor.getBlob(cursor.getColumnIndex(COLUMN_GARDEN_IMAGE))
+                garden_image = cursor.getString(cursor.getColumnIndex(COLUMN_GARDEN_IMAGE))
                 garden_code = cursor.getString(cursor.getColumnIndex(COLUMN_GARDEN_CODE))
 
-                garden = Garden(garden_id,garden_code,garden_name,garden_image)
+                garden = Garden()
+                garden.gardenId = garden_id
+                garden.gardenCode = garden_code
+                garden.gardenName = garden_name
+                garden.gardenImage = garden_image
                 gardenList.add(garden)
             } while (cursor.moveToNext())
         }
@@ -892,11 +895,15 @@ class Database(context: Context?) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    var garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
-                    var garden_name = cursor.getString(cursor.getColumnIndex(COLUMN_GARDEN_NAME))
-                    var garden_image = cursor.getBlob(cursor.getColumnIndex(COLUMN_GARDEN_IMAGE))
-                    var garden_code = cursor.getString(cursor.getColumnIndex(COLUMN_GARDEN_CODE))
-                    garden = Garden(garden_id,garden_code,garden_name,garden_image)
+                    var gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
+                    var gardenName = cursor.getString(cursor.getColumnIndex(COLUMN_GARDEN_NAME))
+                    var gardenImage = cursor.getString(cursor.getColumnIndex(COLUMN_GARDEN_IMAGE))
+                    var gardenCode = cursor.getString(cursor.getColumnIndex(COLUMN_GARDEN_CODE))
+                    garden = Garden()
+                    garden.gardenId = gardenId
+                    garden.gardenCode = gardenCode
+                    garden.gardenName = gardenName
+                    garden.gardenImage = gardenImage
                 } while (cursor.moveToNext())
             }
         }
@@ -964,13 +971,13 @@ class Database(context: Context?) :
         }
         var veg_id: Int
         var veg_name: String
-        var veg_image : ByteArray
+        var veg_image : String
         var garden_id : Int
         if (cursor.moveToFirst()) {
             do {
                 veg_id = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
                 veg_name = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_NAME))
-                veg_image = cursor.getBlob(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
+                veg_image = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
                 garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
                 val vegetable = Vegetable(veg_id,veg_name,veg_image,garden_id)
@@ -1018,7 +1025,7 @@ class Database(context: Context?) :
                 do {
                     var vegId = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
                     var vegName = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_NAME))
-                    var vegImage = cursor.getBlob(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
+                    var vegImage = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
                     var paramId = cursor.getInt(cursor.getColumnIndex(COLUMN_PARAM_ID))
                     vegetable.vegID = vegId
                     vegetable.vegName = vegName
@@ -1052,7 +1059,7 @@ class Database(context: Context?) :
                 do {
                     var vegId = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
                     var vegName = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_NAME))
-                    var vegImage = cursor.getBlob(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
+                    var vegImage = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
                     var paramId = cursor.getInt(cursor.getColumnIndex(COLUMN_PARAM_ID))
                     var vegetable = Vegetable()
                     vegetable.vegID = vegId
@@ -1360,12 +1367,12 @@ class Database(context: Context?) :
         }
         var device_category_id: Int
         var device_category_name: String
-        var device_category_img : ByteArray
+        var device_category_img : String
         if (cursor.moveToFirst()) {
             do {
                 device_category_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_CATEGORY_ID))
                 device_category_name = cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_CATEGORY_NAME))
-                device_category_img = cursor.getBlob(cursor.getColumnIndex(
+                device_category_img = cursor.getString(cursor.getColumnIndex(
                     COLUMN_DEVICE_CATEGORY_IMAGE))
 
                 val deviceCategory = DeviceCategory(device_category_id,device_category_name,device_category_img)
@@ -1417,12 +1424,12 @@ class Database(context: Context?) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    var dcategory_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_CATEGORY_ID))
-                    var dcategory_name = cursor.getString(cursor.getColumnIndex(
+                    var dcategoryId = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_CATEGORY_ID))
+                    var dcategoryName = cursor.getString(cursor.getColumnIndex(
                         COLUMN_DEVICE_CATEGORY_NAME))
-                    var dcategory_img = cursor.getBlob(cursor.getColumnIndex(
+                    var dcategoryImg = cursor.getString(cursor.getColumnIndex(
                         COLUMN_DEVICE_CATEGORY_IMAGE))
-                    dcategory = DeviceCategory(dcategory_id,dcategory_name,dcategory_img)
+                    dcategory = DeviceCategory(dcategoryId,dcategoryName,dcategoryImg)
                 } while (cursor.moveToNext())
             }
         }
@@ -1513,7 +1520,6 @@ class Database(context: Context?) :
         var device_detail_status : String
         var device_id : Int
         var garden_id : Int
-        var device_using:String
         if (cursor.moveToFirst()) {
             do {
                 device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
@@ -1557,7 +1563,6 @@ class Database(context: Context?) :
         var device_detail_status : String
         var device_id : Int
         var garden_id : Int
-        var device_using:String
         var device_detail_code_ss: String
         if (cursor.moveToFirst()) {
             do {
@@ -1600,13 +1605,13 @@ class Database(context: Context?) :
         }
         var vegID: Int
         var vegName: String
-        var vegImage : ByteArray
+        var vegImage : String
         var gardenId: Int
         if (cursor.moveToFirst()) {
             do {
                 vegID = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
                 vegName = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_NAME))
-                vegImage = cursor.getBlob(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
+                vegImage = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
                 gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
                 val vegetable = Vegetable(vegID,vegName,vegImage,gardenId)
@@ -1636,13 +1641,13 @@ class Database(context: Context?) :
         }
         var veg_id: Int
         var veg_name: String
-        var veg_image : ByteArray
+        var veg_image : String
         var garden_id: Int
         if (cursor.moveToFirst()) {
             do {
                 veg_id = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
                 veg_name = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_NAME))
-                veg_image = cursor.getBlob(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
+                veg_image = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
                 garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
                 val vegetable = Vegetable(veg_id,veg_name,veg_image,garden_id)
@@ -1752,14 +1757,14 @@ class Database(context: Context?) :
         }
         var vegId: Int
         var vegName: String
-        var vegImage : ByteArray
+        var vegImage : String
         var gardenId : Int
         var paramId : Int
         if (cursor.moveToFirst()) {
             do {
                 vegId = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
                 vegName = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_NAME))
-                vegImage = cursor.getBlob(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
+                vegImage = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
                 gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
                 paramId = cursor.getInt(cursor.getColumnIndex(COLUMN_PARAM_ID))
 

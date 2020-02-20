@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,8 @@ import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device.DeviceDetail
 import com.appveg.farmfamily.ui.vegetable.Vegetable
+import com.bumptech.glide.Glide
+import java.io.File
 
 
 class SelectVegGardenAdapter (private var activity: Activity, private var items: ArrayList<Vegetable>, private var gardenId: Int,
@@ -45,9 +48,13 @@ class SelectVegGardenAdapter (private var activity: Activity, private var items:
         var vegetableForGarden = items[position]
 
         // chuyển bytearray về bitmap để hiển thị
-        var imageBitmap: ByteArray? = vegetableForGarden.vegImgBlob
-        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap, 0, imageBitmap!!.size)
-        viewHolder.imgVegForGarden!!.setImageBitmap(bitmap)
+//        var imageBitmap: ByteArray? = vegetableForGarden.vegImgBlob
+//        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap, 0, imageBitmap!!.size)
+//        viewHolder.imgVegForGarden!!.setImageBitmap(bitmap)
+        // load photo
+        Glide.with(activity)
+            .load(Uri.fromFile(File(vegetableForGarden.vegImgBlob)))
+            .into(viewHolder.imgVegForGarden!!)
 
         var vegCountSelect: TextView = activity.findViewById(R.id.count_select_veg)
 

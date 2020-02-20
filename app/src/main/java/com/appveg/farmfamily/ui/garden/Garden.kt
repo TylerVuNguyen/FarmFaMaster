@@ -3,7 +3,7 @@ package com.appveg.farmfamily.ui.garden
 class Garden {
     var gardenId: Int? = null
     var gardenCode: String? = null
-    var gardenImage:  ByteArray? = null
+    var gardenImage:  String? = null
     var gardenName: String? = ""
     var createdBy: String? = "admin"
     var createdDate: String? = null
@@ -18,7 +18,7 @@ class Garden {
         gardenId: Int?,
         gardenCode: String?,
         gardenName: String?,
-        gardenImage:  ByteArray?,
+        gardenImage:  String?,
         createdBy: String?,
         createdDate: String?
     ) {
@@ -32,7 +32,7 @@ class Garden {
     constructor(
         gardenId: Int?,
         gardenName: String?,
-        gardenImage:  ByteArray?,
+        gardenImage:  String?,
         updatedDate: String? = null
     ) {
         this.gardenId = gardenId
@@ -43,7 +43,7 @@ class Garden {
 
     constructor(
         gardenId: Int?,
-        gardenImage:  ByteArray?,
+        gardenImage:  String?,
         gardenName: String?,
         createdBy: String?,
         createdDate: String?,
@@ -66,15 +66,15 @@ class Garden {
     }
 
 
-    constructor(
-        gardenId: Int?,
-        gardenCode: String,
-        gardenName: String?,
-        gardenImage:  ByteArray?
-    ) {
-        this.gardenId = gardenId
-        this.gardenCode = gardenCode
-        this.gardenName = gardenName
-        this.gardenImage = gardenImage
-    }
+//    constructor(
+//        gardenId: Int?,
+//        gardenCode: String,
+//        gardenName: String?,
+//        gardenImage:  String?
+//    ) {
+//        this.gardenId = gardenId
+//        this.gardenCode = gardenCode
+//        this.gardenName = gardenName
+//        this.gardenImage = gardenImage
+//    }
 }

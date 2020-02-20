@@ -7,18 +7,16 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
-import com.appveg.farmfamily.ui.common.SendMail
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.login.User
 import com.bumptech.glide.Glide
-import com.creativityapps.gmailbackgroundlibrary.BackgroundMail
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.*
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_1
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_2
@@ -26,8 +24,7 @@ import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_3
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_4
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_5
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_6
-import java.io.ByteArrayOutputStream
-import java.io.FileNotFoundException
+import java.io.*
 import java.text.Normalizer
 import java.text.SimpleDateFormat
 import java.util.*
@@ -65,7 +62,7 @@ class ThemKhuVuonActivity : AppCompatActivity() {
             this.garden_name.setSelection(garden_name.text.length)
         }
         add_image_garden_2.setOnClickListener {
-            var garden_img = R.drawable.kv2
+            var garden_img = R.drawable.kv3
             var garden_name_2 = "Khu vườn 2"
             this.selected_garden_image.setImageResource(garden_img)
             this.garden_name.setText(garden_name_2)
@@ -73,21 +70,21 @@ class ThemKhuVuonActivity : AppCompatActivity() {
         }
         add_image_garden_3.setOnClickListener {
             var garden_name_3 = "Khu vườn 3"
-            var garden_img = R.drawable.kv2
+            var garden_img = R.drawable.kv4
             this.selected_garden_image.setImageResource(garden_img)
             this.garden_name.setText(garden_name_3)
             this.garden_name.setSelection(garden_name.text.length)
         }
 
         add_image_garden_4.setOnClickListener {
-            var garden_img = R.drawable.kv2
+            var garden_img = R.drawable.kv5
             var garden_name_4 = "Khu vườn 4"
             this.selected_garden_image.setImageResource(garden_img)
             this.garden_name.setText(garden_name_4)
             this.garden_name.setSelection(garden_name.text.length)
         }
         add_image_garden_5.setOnClickListener {
-            var garden_img = R.drawable.kv2
+            var garden_img = R.drawable.kv6
             var garden_name_5 = "Khu vườn 5"
             this.selected_garden_image.setImageResource(garden_img)
             this.garden_name.setText(garden_name_5)
@@ -95,7 +92,7 @@ class ThemKhuVuonActivity : AppCompatActivity() {
         }
         add_image_garden_6.setOnClickListener {
             var garden_name_6 = "Khu vườn 6"
-            var garden_img = R.drawable.kv2
+            var garden_img = R.drawable.kv7
             this.selected_garden_image.setImageResource(garden_img)
             this.garden_name.setText(garden_name_6)
             this.garden_name.setSelection(garden_name.text.length)
@@ -162,17 +159,20 @@ class ThemKhuVuonActivity : AppCompatActivity() {
         val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
         val formatted: String = formatter.format(current)
 
-        var bitmapDrawable: BitmapDrawable = selected_garden_image.drawable as BitmapDrawable
-        var bitmap: Bitmap = bitmapDrawable.bitmap
-        var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArray)
+//        var bitmapDrawable: BitmapDrawable = selected_garden_image.drawable as BitmapDrawable
+//        var bitmap: Bitmap = bitmapDrawable.bitmap
+//        var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
+//        bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArray)
 
 
-        var image: ByteArray = byteArray.toByteArray()
-        var checkGardenImage = checkGardenImage(image)
+        var bitmap: Bitmap = (selected_garden_image.drawable as BitmapDrawable).bitmap
 
-        if (checkGardenName && checkGardenImage) {
-            var garden = Garden(null, gardenCode, gardenName, image, "admin", formatted)
+        var uri = saveImageSDcard(bitmap)
+//        var image: ByteArray = byteArray.toByteArray()
+//        var checkGardenImage = checkGardenImage(image)
+
+        if (checkGardenName) {
+            var garden = Garden(null, gardenCode, gardenName, uri.toString(), "admin", formatted)
             var id = database.addGardenImageDefault(garden)
             if (id != null) {
 //                BackgroundMail.newBuilder(this)
@@ -210,17 +210,6 @@ class ThemKhuVuonActivity : AppCompatActivity() {
                     return false
                 }
             }
-        }
-        return true
-    }
-
-    /**
-     * This method is to batch name
-     */
-    private fun checkGardenImage(check: ByteArray): Boolean {
-        if (check.isEmpty()) {
-            Toast.makeText(this, R.string.image_no_select_vi, Toast.LENGTH_LONG).show()
-            return false
         }
         return true
     }
@@ -289,29 +278,52 @@ class ThemKhuVuonActivity : AppCompatActivity() {
         if (garden_name.isNotBlank()) {
             var temp: String = Normalizer.normalize(garden_name, Normalizer.Form.NFD)
             var pattern: Pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+")
-            var garden_name_en = pattern.matcher(temp).replaceAll("")
+            var gardenNameEn = pattern.matcher(temp).replaceAll("")
 
-            result = garden_name_en.trim().replace(" ", "").replace("đ", "d").toUpperCase()
+            result = gardenNameEn.trim().replace(" ", "").replace("đ", "d").toUpperCase()
         }
         return result
     }
 
 
-    /**
-     * the method to display batch
-     */
-    fun getListGarden(): ArrayList<Garden> {
-        database = Database(activity)
-        gardens = database.findAllGarden()
-        if (gardens.isNullOrEmpty()) {
-            Toast.makeText(activity, "Dánh sách khu vườn đang trống !", Toast.LENGTH_LONG).show()
-        }
-        return gardens
-    }
+//    /**
+//     * the method to display batch
+//     */
+//    fun getListGarden(): ArrayList<Garden> {
+//        database = Database(activity)
+//        gardens = database.findAllGarden()
+//        if (gardens.isNullOrEmpty()) {
+//            Toast.makeText(activity, "Dánh sách khu vườn đang trống !", Toast.LENGTH_LONG).show()
+//        }
+//        return gardens
+//    }
 
-    private fun getUser() : User{
-        database = Database(activity)
-        var users = database.getAllUser()
-        return users[0]
+//    private fun getUser() : User{
+//        database = Database(activity)
+//        var users = database.getAllUser()
+//        return users[0]
+//    }
+
+    private fun saveImageSDcard(bitmap: Bitmap) : Uri? {
+        // path to sd card
+        var file = File(filesDir, "Images" )
+        // create a folder
+        if(!file.exists()){
+            file.mkdir()
+        }
+
+        file = File(file, "${UUID.randomUUID()}.png")
+
+        var outputStream : OutputStream? = null
+
+        try {
+            outputStream = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream)
+            outputStream.flush()
+            outputStream.close()
+        }catch (e: IOException){
+            e.printStackTrace()
+        }
+        return Uri.parse(file.absoluteFile.toString())
     }
 }

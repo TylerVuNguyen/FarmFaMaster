@@ -3,6 +3,7 @@ package com.appveg.farmfamily.ui.param
 import android.app.Activity
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,8 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.vegetable.Vegetable
+import com.bumptech.glide.Glide
+import java.io.File
 
 class ParamFragmentAdapter (private val activity: FragmentActivity?, private var items: ArrayList<Vegetable>) :  BaseAdapter(){
 
@@ -66,18 +69,21 @@ class ParamFragmentAdapter (private val activity: FragmentActivity?, private var
         viewHolder.vegName!!.text = veg.vegName
         viewHolder.status!!.text = getStatus(veg.paramId)
 
-        // chuyển bytearray về bitmap để hiển thị
-        var imageBitmap : ByteArray? = veg.vegImgBlob
-        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
-        viewHolder.vegImg.setImageBitmap(bitmap)
+//        // chuyển bytearray về bitmap để hiển thị
+//        var imageBitmap : ByteArray? = veg.vegImgBlob
+//        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
+//        viewHolder.vegImg.setImageBitmap(bitmap)
+
+        // load photo
+        this!!.activity?.let { Glide.with(it).load(Uri.fromFile(File(veg.vegImgBlob))).into(viewHolder.vegImg) }
         return view as View
 
     }
 
     private fun getStatus(paramId : Int) : String{
-        var result = "Chưa cài đặt tham số"
+        var result = activity!!.resources.getString(R.string.no_setting_param_vi)
         if(paramId != 0 ){
-            result = "Đã cài đặt tham số"
+            result = activity!!.resources.getString(R.string.setting_param_vi)
         }
         return result
     }

@@ -4,7 +4,6 @@ package com.appveg.farmfamily.ui.send
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.DialogInterface
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -238,8 +237,8 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
         var totalQty = (ceil(sumQty *10) /10).toString().trim()
 
         /*id intent from batch*/
-        var garden_id = getDataFromItent()
-        var batch_id = getDataFromItentBatchId()
+        var gardenId = getDataFromItent()
+        var batchId = getDataFromItentBatchId()
 
         var checkBatchName = checkBatchName(selectedBatchName)
         var checkDate = checkDate(selectedStartDate,selectedEndDate)
@@ -249,17 +248,17 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
         val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
         val formatted: String = formatter.format(current)
 
-        var batch: Batch = Batch(batch_id,selectedBatchName,selectedEndDate,totalQty,garden_id,selectedStartDate,"admin",formatted)
+        var batch: Batch = Batch(batchId,selectedBatchName,selectedEndDate,totalQty,gardenId,selectedStartDate,"admin",formatted)
         if (checkBatchName && checkDate) {
             /*end format date*/
             try {
                 var id: Int = database!!.updateBatch(batch)
-                removeDataListVegDb(batch_id)
+                removeDataListVegDb(batchId)
                 if (!listVeg.isNullOrEmpty()) {
                     for (item in listVeg) {
                             var batchQtyDetail: BatchQtyDetail = BatchQtyDetail(
                                 null,
-                                batch_id,
+                                batchId,
                                 item.vegName,
                                 (ceil(item.vegQty!! *10) /10).toString(),
                                 "admin",

@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,6 +18,7 @@ import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_add_device.*
 import kotlinx.android.synthetic.main.activity_add_vegetable.*
 import java.io.*
 import java.text.SimpleDateFormat
@@ -149,17 +151,17 @@ class AddVegetableActivity : AppCompatActivity() {
         val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
         val formatted: String = formatter.format(current)
 
-        var bitmapDrawable: BitmapDrawable = selected_image.drawable as BitmapDrawable
-        var bitmap: Bitmap = bitmapDrawable.bitmap
-        var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArray)
+//        var bitmapDrawable: BitmapDrawable = selected_image.drawable as BitmapDrawable
+//        var bitmap: Bitmap = bitmapDrawable.bitmap
+//        var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
+//        bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArray)
 
+        var bitmap: Bitmap = (selected_image.drawable as BitmapDrawable).bitmap
 
-        var image: ByteArray = byteArray.toByteArray()
-        var checkVegImage = checkVegImage(image)
+        var uri = saveImageSDcard(bitmap)
 
-        if (checkVegName && checkVegImage) {
-            var vegetable = Vegetable(null, vegName, image, "admin", formatted)
+        if (checkVegName) {
+            var vegetable = Vegetable(null, vegName, uri.toString(), "admin", formatted)
             var id = database.addVegImageDefault(vegetable)
             if (id != null) {
                 Toast.makeText(this, getString(R.string.insert_data_success_vi), Toast.LENGTH_LONG)
@@ -260,6 +262,29 @@ class AddVegetableActivity : AppCompatActivity() {
             }
         }
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    private fun saveImageSDcard(bitmap: Bitmap) : Uri? {
+        // path to sd card
+        var file = File(filesDir, "Images" )
+        // create a folder
+        if(!file.exists()){
+            file.mkdir()
+        }
+
+        file = File(file, "${UUID.randomUUID()}.png")
+
+        var outputStream : OutputStream? = null
+
+        try {
+            outputStream = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream)
+            outputStream.flush()
+            outputStream.close()
+        }catch (e: IOException){
+            e.printStackTrace()
+        }
+        return Uri.parse(file.absoluteFile.toString())
     }
 
 }

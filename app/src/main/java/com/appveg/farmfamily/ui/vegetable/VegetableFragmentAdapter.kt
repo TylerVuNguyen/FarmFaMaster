@@ -1,15 +1,23 @@
 package com.appveg.farmfamily.ui.vegetable
 
+import android.app.Activity
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.FragmentActivity
 import com.appveg.farmfamily.R
+import com.bumptech.glide.Glide
+import java.io.File
 
-class VegetableFragmentAdapter(private val context: FragmentActivity?, private val veg: ArrayList<Vegetable>) : BaseAdapter() {
+class VegetableFragmentAdapter(
+    private var activity: Activity,
+    private val veg: ArrayList<Vegetable>
+) : BaseAdapter() {
 
     //1
     override fun getCount(): Int {
@@ -32,7 +40,6 @@ class VegetableFragmentAdapter(private val context: FragmentActivity?, private v
         var veg_Img: ImageView
 
 
-
         init {
             this.veg_Name = row?.findViewById(R.id.viewgarden_nameGarden) as TextView
             this.veg_Img = row?.findViewById(R.id.viewgarden_imageIconGarden) as ImageView
@@ -44,26 +51,26 @@ class VegetableFragmentAdapter(private val context: FragmentActivity?, private v
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
         var view: View?
-        var viewHolder : ViewHolder
-        if( convertView == null){
+        var viewHolder: ViewHolder
+        if (convertView == null) {
 
-            var layout = LayoutInflater.from(context)
-            view = layout.inflate(R.layout.layout_listview_garden,parent,false)
+            val inflater =
+                activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            view = inflater.inflate(R.layout.layout_listview_garden, null)
             viewHolder = ViewHolder(view)
             view.tag = viewHolder
 
-        }else{
+        } else {
             view = convertView
             viewHolder = view.tag as ViewHolder
         }
 
-        var veg : Vegetable = getItem(position) as Vegetable
+        var veg: Vegetable = getItem(position) as Vegetable
         viewHolder.veg_Name.text = veg.vegName
 
-        // chuyển bytearray về bitmap để hiển thị
-        var imageBitmap : ByteArray? = veg.vegImgBlob
-        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
-        viewHolder.veg_Img.setImageBitmap(bitmap)
+        // load photo
+        Glide.with(activity).load(Uri.fromFile(File(veg.vegImgBlob))).into(viewHolder.veg_Img)
+
         return view as View
 
     }

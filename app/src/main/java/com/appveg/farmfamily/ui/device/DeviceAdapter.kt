@@ -50,8 +50,8 @@ class DeviceAdapter (private var activity: Activity, private var items: ArrayLis
         viewHolder.deviceNum.text = device.deviceNum
 
         // chuyển bytearray về bitmap để hiển thị
-        var imageBitmap : String? = device.deviceImg
-        var uri = Uri.parse(imageBitmap)
+//        var imageBitmap : String? = device.deviceImg
+////        var uri = Uri.parse(imageBitmap)
 //        var imageBitmap : ByteArray? = device.deviceImg
 //        var bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBitmap,0, imageBitmap!!.size)
  //       viewHolder.imgDevice.setImageBitmap()

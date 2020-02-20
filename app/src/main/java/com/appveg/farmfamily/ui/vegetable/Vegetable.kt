@@ -4,7 +4,7 @@ class Vegetable {
 
     var vegID: Int? = 0
     var vegName: String? = ""
-    var vegImgBlob: ByteArray? = null
+    var vegImgBlob: String? = null
     var gardenId: Int = -1
     var paramId: Int = -1
     var createdBy: String? = "admin"
@@ -17,7 +17,7 @@ class Vegetable {
     constructor(
         vegID: Int?,
         vegName: String?,
-        vegImgBlob: ByteArray,
+        vegImgBlob: String?,
         createdBy: String?,
         createdDate: String?
     ) {
@@ -30,7 +30,7 @@ class Vegetable {
     constructor(
         vegID: Int?,
         vegName: String?,
-        vegImgBlob: ByteArray,
+        vegImgBlob: String?,
         gardenId: Int,
         paramId: Int,
         createdBy: String?,
@@ -66,34 +66,23 @@ class Vegetable {
         this.createdBy = createdBy
         this.createdDate = createdDate
     }
-    constructor(
-        vegID: Int?,
-        vegName: String?,
-        vegImgBlob: ByteArray,
-        updatedDate: String?
-    ) {
-        this.vegID = vegID
-        this.vegName = vegName
-        this.vegImgBlob = vegImgBlob
-        this.updatedDate = updatedDate
-    }
 
     constructor()
 
     //get ALl Room
-    constructor(vegID: Int?, vegName: String?, vegImgBlob: ByteArray) {
+    constructor(vegID: Int?, vegName: String?, vegImgBlob: String) {
         this.vegID = vegID
         this.vegName = vegName
         this.vegImgBlob = vegImgBlob
     }
 
-    constructor(vegID: Int?, vegName: String?, vegImgBlob: ByteArray,gardenId: Int) {
+    constructor(vegID: Int?, vegName: String?, vegImgBlob: String,gardenId: Int) {
         this.vegID = vegID
         this.vegName = vegName
         this.vegImgBlob = vegImgBlob
         this.gardenId = gardenId
     }
-    constructor(vegID: Int?, vegName: String?, vegImgBlob: ByteArray,gardenId: Int,paramId: Int) {
+    constructor(vegID: Int?, vegName: String?, vegImgBlob: String,gardenId: Int,paramId: Int) {
         this.vegID = vegID
         this.vegName = vegName
         this.vegImgBlob = vegImgBlob
