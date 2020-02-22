@@ -96,21 +96,21 @@ public final class R {
         public static final int action_text = 0x7f09003a;
         public static final int actions = 0x7f09003b;
         public static final int async = 0x7f09007c;
-        public static final int blocking = 0x7f090085;
-        public static final int chronometer = 0x7f0900b7;
+        public static final int blocking = 0x7f090084;
+        public static final int chronometer = 0x7f0900b6;
         public static final int forever = 0x7f0900f9;
-        public static final int icon = 0x7f090115;
-        public static final int icon_group = 0x7f090118;
-        public static final int info = 0x7f090126;
-        public static final int italic = 0x7f090128;
-        public static final int line1 = 0x7f090135;
-        public static final int line3 = 0x7f090136;
-        public static final int normal = 0x7f090174;
-        public static final int notification_background = 0x7f090175;
-        public static final int notification_main_column = 0x7f090176;
-        public static final int notification_main_column_container = 0x7f090177;
-        public static final int right_icon = 0x7f0901b2;
-        public static final int right_side = 0x7f0901b3;
+        public static final int icon = 0x7f090114;
+        public static final int icon_group = 0x7f090117;
+        public static final int info = 0x7f090125;
+        public static final int italic = 0x7f090127;
+        public static final int line1 = 0x7f090134;
+        public static final int line3 = 0x7f090135;
+        public static final int normal = 0x7f090173;
+        public static final int notification_background = 0x7f090174;
+        public static final int notification_main_column = 0x7f090175;
+        public static final int notification_main_column_container = 0x7f090176;
+        public static final int right_icon = 0x7f0901b1;
+        public static final int right_side = 0x7f0901b2;
         public static final int tag_transition_group = 0x7f09020a;
         public static final int tag_unhandled_key_event_manager = 0x7f09020b;
         public static final int tag_unhandled_key_listeners = 0x7f09020c;
@@ -137,7 +137,7 @@ public final class R {
     public static final class string {
         private string() {}
 
-        public static final int status_bar_notification_info_overflow = 0x7f1000e5;
+        public static final int status_bar_notification_info_overflow = 0x7f1000eb;
     }
     public static final class style {
         private style() {}

@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import kotlinx.android.synthetic.main.activity_change_password.*
+import java.security.NoSuchAlgorithmException
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -72,9 +73,10 @@ class ChangePasswordActivity : AppCompatActivity() {
         val formatter: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
         val formatted: String = formatter.format(current)
 
+        var newPassMD5 = md5(newPass)
         if(checkOldPassEmpty && checkNewPassEmpty && checkConfirmNewPassEmpty && checkPassMatch){
             if(checkOldPass){
-                var user = User(id,newPass,formatted)
+                var user = User(id,newPassMD5,formatted)
                 database.updateUser(user)
                 Toast.makeText(this,getString(R.string.update_data_success_vi),Toast.LENGTH_LONG).show()
             }else{
@@ -90,8 +92,10 @@ class ChangePasswordActivity : AppCompatActivity() {
         var result : Boolean = false
         if(!listUser.isNullOrEmpty()){
             for (item in 0 until listUser.size){
-                if(oldPass == listUser[item].password){
-                    result = true
+                if(listUser[item].status == 1 || listUser[item].status == 2){
+                    if(md5(oldPass) == listUser[item].password){
+                        result = true
+                    }
                 }
             }
         }
@@ -139,5 +143,25 @@ class ChangePasswordActivity : AppCompatActivity() {
             return false
         }
         return true
+    }
+
+    private fun md5(s: String): String {
+        try {
+            // Create MD5 Hash
+            val digest = java.security.MessageDigest.getInstance("MD5")
+            digest.update(s.toByteArray())
+            val messageDigest = digest.digest()
+
+            // Create Hex String
+            val hexString = StringBuffer()
+            for (i in messageDigest.indices)
+                hexString.append(Integer.toHexString(0xFF and messageDigest[i].toInt()))
+
+            return hexString.toString()
+        } catch (e: NoSuchAlgorithmException) {
+            e.printStackTrace()
+        }
+
+        return ""
     }
 }

@@ -162,7 +162,7 @@ class SelectDeviceGardenAdapter(
         // handling send mail
         var mailTo = getUser()
         var subject = "Mã cài đặt arduino của " + device.deviceName
-        var body = "Mã thiết bị: " + gardenCode
+        var body = "Mã thiết bị: " + codeSS
 
 
         var result = false

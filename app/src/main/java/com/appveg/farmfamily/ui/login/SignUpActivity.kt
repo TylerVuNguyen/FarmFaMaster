@@ -2,11 +2,13 @@ package com.appveg.farmfamily.ui.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
+import java.security.NoSuchAlgorithmException
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -86,16 +88,20 @@ class SignUpActivity : AppCompatActivity() {
         var checkMatchPass: Boolean = false
         if (checkPassword && checkConfirmPass) {
             checkMatchPass = checkMatchPass(userPassword, userConfirmPass)
+
+
         }
 
         if (checkFullName && checkEmail && checkConfirmPass && checkPassword && checkMatchPass) {
             // if checked all then add user
             // new user
+            Log.d("RE",md5(userPassword))
+            var userPassword1 = md5(userPassword)
             var user: User = User(
                 null,
                 userFullName,
                 userEmail,
-                userPassword,
+                userPassword1,
                 userGenderGroup,
                 0,
                 2,
@@ -183,5 +189,25 @@ class SignUpActivity : AppCompatActivity() {
             return false
         }
         return true
+    }
+
+    private fun md5(s: String): String {
+        try {
+            // Create MD5 Hash
+            val digest = java.security.MessageDigest.getInstance("MD5")
+            digest.update(s.toByteArray())
+            val messageDigest = digest.digest()
+
+            // Create Hex String
+            val hexString = StringBuffer()
+            for (i in messageDigest.indices)
+                hexString.append(Integer.toHexString(0xFF and messageDigest[i].toInt()))
+
+            return hexString.toString()
+        } catch (e: NoSuchAlgorithmException) {
+            e.printStackTrace()
+        }
+
+        return ""
     }
 }

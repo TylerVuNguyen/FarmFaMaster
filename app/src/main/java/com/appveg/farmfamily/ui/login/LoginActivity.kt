@@ -12,6 +12,7 @@ import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.garden.Garden
 import kotlinx.android.synthetic.main.login.*
+import java.security.NoSuchAlgorithmException
 
 class LoginActivity  : AppCompatActivity() {
     private val activity = this@LoginActivity
@@ -87,7 +88,7 @@ class LoginActivity  : AppCompatActivity() {
         if(!result){
             if (database!!.checkUser(
                     edtUserNameEmail!!.text.toString().trim { it <= ' ' },
-                    editPass!!.text.toString().trim { it <= ' ' })
+                    md5(editPass!!.text.toString().trim { it <= ' ' }))
             ) {
                 val accountsIntent =
                     Intent(activity, com.appveg.farmfamily.MainActivity::class.java)
@@ -170,5 +171,25 @@ class LoginActivity  : AppCompatActivity() {
                 startActivity(accountsIntent)
             }
         }
+    }
+
+    private fun md5(s: String): String {
+        try {
+            // Create MD5 Hash
+            val digest = java.security.MessageDigest.getInstance("MD5")
+            digest.update(s.toByteArray())
+            val messageDigest = digest.digest()
+
+            // Create Hex String
+            val hexString = StringBuffer()
+            for (i in messageDigest.indices)
+                hexString.append(Integer.toHexString(0xFF and messageDigest[i].toInt()))
+
+            return hexString.toString()
+        } catch (e: NoSuchAlgorithmException) {
+            e.printStackTrace()
+        }
+
+        return ""
     }
 }

@@ -81,20 +81,24 @@
     <string name="user_name_login_vi">Nhập email...</string>
     <string name="password_login_vi">Nhập mật khẩu...</string>
     <string name="sign_up_vi">Đăng ký</string>
+    <string name="send_email_vi">Gửi email</string>
     <string name="login_vi">Đăng nhập</string>
     <string name="forgot_pass_vi">Quên mật khẩu ?</string>
+    <string name="forgot_pass_title_vi">Quên mật khẩu</string>
     <!--the end login-->
 
     <!--Sign up-->
     <string name="gender_vi">Giới tính</string>
     <string name="user_name_vi">Tên Đăng nhập</string>
     <string name="full_name_vi">Tên đầy đủ</string>
+    <string name="enter_email_vi">Nhập email đã đăng ký</string>
     <string name="passowrd_vi">Nhập mật khẩu</string>
     <string name="old_passowrd_vi">Nhập mật khẩu cũ</string>
     <string name="passowrd_new_vi">Nhập mật khẩu mới</string>
     <string name="confirm_passoword_vi">Nhập lại mật khẩu</string>
     <string name="confirm_passoword_new_vi">Nhập lại mật khẩu</string>
     <string name="already_user_vi">Bạn đã có tài khoản? đăng nhập ngay.</string>
+    <string name="return_login_vi">Quay lại đăng nhập</string>
     <string name="back_home_vi">Quay lại trang chủ</string>
     <!--the end sign up-->
 
@@ -237,5 +241,9 @@
     <string name="substance_empty_vi">Dánh sách loại dung dịch đang trống !</string>
     <string name="substance_delete_title_vi">Xóa chi tiết loại dung dịch</string>
 
+    <!--forgot password-->
+    <string name="subject_reset_password">Mật khẩu đặt lại</string>
+    <string name="send_password_to_email">Mật khẩu đăng nhập đã được gửi vào email đăng ký</string>
+    <string name="error_email">Email này không tồn tại !</string>
 
 </resources>

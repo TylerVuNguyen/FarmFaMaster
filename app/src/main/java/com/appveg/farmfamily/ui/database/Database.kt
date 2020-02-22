@@ -205,7 +205,7 @@ class Database(context: Context?) :
         val INSERT_ROLES_ITEM_1 =
             ("INSERT INTO roles VALUES(null,'user','user','vu',null,null,null,null,null,1)")
         val INSERT_USERS_ITEM =
-            ("INSERT INTO users VALUES(null,'NGUYEN HOANG VU','hvu3011@gmail.com','admin','1','active',1,'vu',null,null,null,null,null,1)")
+            ("INSERT INTO users VALUES(null,'NGUYEN HOANG VU','hvu3011@gmail.com','21232f297a57a5a743894ae4a801fc3','1','active',1,'vu',null,null,null,null,null,1)")
         db?.execSQL(CREATE_USERS_TABLE)
         db?.execSQL(CREATE_ROLES_TABLE)
         db?.execSQL(CREATE_GARDEN_TABLE)
@@ -243,7 +243,7 @@ class Database(context: Context?) :
      * @return list
      */
     fun getUserByEmail(email : String): User {
-        val selectQuery = "SELECT * FROM $TABLE_USERS"
+        val selectQuery = "SELECT * FROM $TABLE_USERS WHERE $COLUMN_USER_EMAIL = $email"
         val db = this.readableDatabase
         var user:User = User()
         var cursor: Cursor? = null

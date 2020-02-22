@@ -1476,7 +1476,6 @@ id always
 id async
 id auto
 id backHome
-id backToLoginBtn
 id barrier
 id batchName
 id batchName_detail
@@ -1586,6 +1585,7 @@ id editUserName
 id edit_garden_camera
 id edit_garden_image
 id edit_query
+id email_sign_up
 id end
 id end_padder
 id enterAlways
@@ -1599,7 +1599,6 @@ id fill_vertical
 id filled
 id fixed
 id forever
-id forgot_button
 id fragment_khuvuon
 id fragment_qlkv
 id fragment_substance_mass
@@ -1774,7 +1773,6 @@ id rain_status
 id rain_text
 id rain_text1
 id recycler_view
-id registered_emailid
 id relative_canhbaomua
 id relative_detail
 id relative_doam
@@ -1782,6 +1780,7 @@ id relative_dopH
 id relative_nhietdo
 id relative_ppm
 id remember
+id return_login
 id right
 id right_icon
 id right_side
@@ -1820,6 +1819,7 @@ id selected_image_device_edit
 id selected_image_edit
 id selected_image_substance
 id selected_image_substance_edit
+id send_mail_sign_up
 id setting_button_bat
 id setting_button_dd
 id setting_button_lamp
@@ -2279,9 +2279,11 @@ string deleted_data_success_vi
 string device_status_vi
 string edit
 string email
+string enter_email_vi
 string error_batch_exist
 string error_common_email_password
 string error_device_exist
+string error_email
 string error_email_exists
 string error_empty_common
 string error_empty_device_category_common
@@ -2314,6 +2316,7 @@ string fab_transformation_sheet_behavior
 string fail_message
 string firebase_database_url
 string forgot
+string forgot_pass_title_vi
 string forgot_pass_vi
 string from_vi
 string fullName
@@ -2397,11 +2400,14 @@ string project_id
 string rain_mode_vi
 string registered_emailid
 string reply_title
+string return_login_vi
 string search_menu_title
 string select_device_and_veg_vi
 string select_language_vi
 string select_veg_vi
 string selected_item
+string send_email_vi
+string send_password_to_email
 string setting_param_vi
 string show_pwd
 string signUp
@@ -2414,6 +2420,7 @@ string size_image_large
 string status_bar_notification_info_overflow
 string status_login_vi
 string stop_vi
+string subject_reset_password
 string submit
 string substance_delete_title_vi
 string substance_empty_vi
