@@ -3,20 +3,24 @@ package com.appveg.farmfamily.ui.garden
 
 import android.Manifest
 import android.app.Activity
+import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
+import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.login.User
 import com.bumptech.glide.Glide
+import com.creativityapps.gmailbackgroundlibrary.BackgroundMail
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.*
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_1
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_2
@@ -25,6 +29,7 @@ import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_4
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_5
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_6
 import java.io.*
+import java.lang.Exception
 import java.text.Normalizer
 import java.text.SimpleDateFormat
 import java.util.*
@@ -146,12 +151,9 @@ class ThemKhuVuonActivity : AppCompatActivity() {
 
 
         // handling send mail
-//        var sendMail = SendMail(this)
-//        var mailTo = getUser().email
-//        var subject = "Mã cài đặt arduino  của khu vườn"
-//        var body = "Mã khu vườn: " + gardenCode
-
-        Toast.makeText(this, gardenCode, Toast.LENGTH_LONG).show()
+        var mailTo = getUser()
+        var subject = "Mã cài đặt arduino  của khu vườn"
+        var body = "Mã khu vườn: " + gardenCode
 
         var checkGardenName = checkGardenName(gardenName)
         /*format date*/
@@ -164,7 +166,6 @@ class ThemKhuVuonActivity : AppCompatActivity() {
 //        var byteArray: ByteArrayOutputStream = ByteArrayOutputStream()
 //        bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArray)
 
-
         var bitmap: Bitmap = (selected_garden_image.drawable as BitmapDrawable).bitmap
 
         var uri = saveImageSDcard(bitmap)
@@ -175,17 +176,17 @@ class ThemKhuVuonActivity : AppCompatActivity() {
             var garden = Garden(null, gardenCode, gardenName, uri.toString(), "admin", formatted)
             var id = database.addGardenImageDefault(garden)
             if (id != null) {
-//                BackgroundMail.newBuilder(this)
-//                    .withUsername("hotronguoidung2202@gmail.com")
-//                    .withPassword("hoangvutkasd123")
-//                    .withMailto(mailTo!!)
-//                    .withType(BackgroundMail.TYPE_HTML)
-//                    .withSubject(subject)
-//                    .withBody(body)
-//                    .send()
+                if(!activity.isDestroyed){
+                    try {
+                        sendTestEmail(mailTo,subject,body)
+                    }catch (e: IllegalArgumentException){
+                        Log.d("ER",e.message)
+                    }
+
+                }
                 Toast.makeText(this, getString(R.string.insert_data_success_vi), Toast.LENGTH_SHORT)
                     .show()
-                activity.finish()
+
             }
 
         } else {
@@ -298,11 +299,19 @@ class ThemKhuVuonActivity : AppCompatActivity() {
 //        return gardens
 //    }
 
-//    private fun getUser() : User{
-//        database = Database(activity)
-//        var users = database.getAllUser()
-//        return users[0]
-//    }
+    private fun getUser() : String{
+        database = Database(activity)
+        var result: String = ""
+        var users = database.getAllUser()
+        if(!users.isNullOrEmpty()){
+            for (item in 0 until users.size){
+                if(users[item].status == 1 || users[item].status == 2){
+                    result = users[item].email!!
+                }
+            }
+        }
+        return result
+    }
 
     private fun saveImageSDcard(bitmap: Bitmap) : Uri? {
         // path to sd card
@@ -326,4 +335,22 @@ class ThemKhuVuonActivity : AppCompatActivity() {
         }
         return Uri.parse(file.absoluteFile.toString())
     }
+    //
+    private fun sendTestEmail(mailTo: String,subject: String,body: String) {
+        BackgroundMail.newBuilder(this)
+            .withUsername("hotronguoidung2202@gmail.com")
+            .withPassword("hoangvutkasd123")
+            .withMailto(mailTo)
+            .withType(BackgroundMail.TYPE_PLAIN)
+            .withSubject(subject)
+            .withBody(body)
+            .withOnSuccessCallback {
+                activity.finish()
+            }
+            .withOnFailCallback {
+                Log.d("ER", "ERRRRR")
+            }
+            .send()
+    }
+
 }

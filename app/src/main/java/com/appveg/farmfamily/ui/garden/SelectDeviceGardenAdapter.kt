@@ -5,6 +5,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device.DeviceDetail
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.creativityapps.gmailbackgroundlibrary.BackgroundMail
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.io.File
@@ -157,6 +159,11 @@ class SelectDeviceGardenAdapter(
         var device = database.findDeviceById(deviceId)
         var codeSS = generateAssetTypeCode(device.deviceName!!) + gardenId.toString()
 
+        // handling send mail
+        var mailTo = getUser()
+        var subject = "Mã cài đặt arduino của " + device.deviceName
+        var body = "Mã thiết bị: " + gardenCode
+
 
         var result = false
         if (!temps.isNullOrEmpty()) {
@@ -178,7 +185,7 @@ class SelectDeviceGardenAdapter(
             ) {
                 database1.child(gardenCode).child(codeSS).child("value").setValue("OFF")
             }
-
+            sendTestEmail(mailTo,subject,body)
             Toast.makeText(activity, codeSS, Toast.LENGTH_SHORT).show()
         } else if (checked && result) {
             Toast.makeText(activity, "Thiết bị đã tồn tại", Toast.LENGTH_SHORT).show()
@@ -211,6 +218,38 @@ class SelectDeviceGardenAdapter(
             var gardenNameEn = pattern.matcher(temp).replaceAll("")
 
             result = gardenNameEn.trim().replace(" ", "").replace("đ", "d").toUpperCase()
+        }
+        return result
+    }
+
+    //
+    private fun sendTestEmail(mailTo: String,subject: String,body: String) {
+        BackgroundMail.newBuilder(activity)
+            .withUsername("hotronguoidung2202@gmail.com")
+            .withPassword("hoangvutkasd123")
+            .withMailto(mailTo)
+            .withType(BackgroundMail.TYPE_PLAIN)
+            .withSubject(subject)
+            .withBody(body)
+            .withOnSuccessCallback {
+                Log.d("SS", "Success")
+            }
+            .withOnFailCallback {
+                Log.d("ER", "ERRRRR")
+            }
+            .send()
+    }
+
+    private fun getUser() : String{
+        database = Database(activity)
+        var result: String = ""
+        var users = database.getAllUser()
+        if(!users.isNullOrEmpty()){
+            for (item in 0 until users.size){
+                if(users[item].status == 1 || users[item].status == 2){
+                    result = users[item].email!!
+                }
+            }
         }
         return result
     }
