@@ -211,7 +211,7 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/ic_add2"
-            android:text="Thêm"
+            android:text="@string/add_vi"
             android:textColor="@android:color/white" />
 
         <Button
@@ -223,7 +223,7 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/ic_cancel"
-            android:text="Huỷ"
+            android:text="@string/cancel_vi"
             android:textColor="@android:color/white" />
 
     </LinearLayout>

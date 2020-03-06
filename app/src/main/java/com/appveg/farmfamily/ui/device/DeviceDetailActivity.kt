@@ -90,10 +90,10 @@ class DeviceDetailActivity : AppCompatActivity() {
      */
     private fun getListDeviceDetail() : ArrayList<DeviceDetail>{
         database = Database(activity)
-        var device_id: Int = getDataFromItent()
-        deviceDetails = database.findAllDeviceDetail(device_id)
+        var deviceId: Int = getDataFromItent()
+        deviceDetails = database.findAllDeviceDetail(deviceId)
         if (deviceDetails.isNullOrEmpty()) {
-            Toast.makeText(activity, "Dánh sách thiết bị đang trống !", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, getString(R.string.list_device_isEmpty_vi), Toast.LENGTH_LONG).show()
         }else{
             for (i in 0 until deviceDetails.size){
                 // convert status
@@ -116,6 +116,7 @@ class DeviceDetailActivity : AppCompatActivity() {
         deviceDetails.remove(deviceDetails[position])
         if(deviceDetails.isNullOrEmpty()){
             database.deleteDevice(deviceId)
+            database.deleteModeDeviceByDeviceId(deviceId)
             // finish because page no data
             Toast.makeText(
                 activity,

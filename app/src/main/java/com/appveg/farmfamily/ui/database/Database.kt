@@ -6,12 +6,15 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
+import android.security.keystore.StrongBoxUnavailableException
 import android.util.Log
 import com.appveg.farmfamily.ui.device.Device
 import com.appveg.farmfamily.ui.device.DeviceDetail
 import com.appveg.farmfamily.ui.device_catogory.DeviceCategory
 import com.appveg.farmfamily.ui.garden.Garden
 import com.appveg.farmfamily.ui.login.User
+import com.appveg.farmfamily.ui.mode.Mode
+import com.appveg.farmfamily.ui.mode.ModeDevice
 import com.appveg.farmfamily.ui.param.Param
 import com.appveg.farmfamily.ui.send.Batch
 import com.appveg.farmfamily.ui.send.BatchCustom
@@ -38,6 +41,8 @@ class Database(context: Context?) :
         private val TABLE_SUBSTANCE_MASS = "substance_mass"
         private val TABLE_SUBSTANCE_MASS_DETAIL = "substance_mass_detail"
         private val TABLE_PARAM = "param"
+        private val TABLE_MODE = "mode"
+        private val TABLE_MODE_DEVICE = "mode_device"
         /*users*/
         private val COLUMN_USER_ID = "user_id"
         private val COLUMN_USER_EMAIL = "email"
@@ -118,17 +123,30 @@ class Database(context: Context?) :
 
         /*param*/
         private val COLUMN_PARAM_ID = "param_id"
-        private val COLUMN_TEMP_TO_NIGHT ="temp_to_night"
+        private val COLUMN_TEMP_TO_NIGHT = "temp_to_night"
         private val COLUMN_TEMP_FROM_NIGHT = "temp_from_night"
-        private val COLUMN_TEMP_TO_DAY ="temp_to_day"
-        private val COLUMN_TEMP_FROM_DAY="temp_from_day"
+        private val COLUMN_TEMP_TO_DAY = "temp_to_day"
+        private val COLUMN_TEMP_FROM_DAY = "temp_from_day"
         private val COLUMN_PH_TO = "ph_to"
-        private val COLUMN_PH_FROM= "ph_from"
-        private val COLUMN_PPM_TO= "ppm_to"
+        private val COLUMN_PH_FROM = "ph_from"
+        private val COLUMN_PPM_TO = "ppm_to"
         private val COLUMN_PPM_FROM = "ppm_from"
-        private val COLUMN_TDS_LEVEL_TO= "tds_level_to"
+        private val COLUMN_TDS_LEVEL_TO = "tds_level_to"
         private val COLUMN_TDS_LEVEL_FROM = "tds_level_from"
 
+        /*mode*/
+        private val COLUMN_MODE_ID = "mode_id"
+        private val COLUMN_MODE_CODE = "code"
+        private val COLUMN_MODE_TIME_ON = "time_on"
+        private val COLUMN_MODE_TIME_OFF = "time_off"
+        private val COLUMN_MODE_ON = "on1"
+        private val COLUMN_MODE_OFF = "off"
+        private val COLUMN_MODE_TIME_REPEAT = "time_repeat"
+        private val COLUMN_MODE_REPEAT = "repeat"
+        private val COLUMN_MODE_ACTIVE_FLAG = "active_flag"
+
+        /*mode device*/
+        private val COLUMN_MODE_DEVICE_ID = "mode_device_id"
 
     }
 
@@ -184,7 +202,7 @@ class Database(context: Context?) :
                     "substance_mass_detail_name VARCHAR(50),substance_mass_detail_image VARCHAR(300),substance_mass_detail_num VARCHAR(50),substance_mass_detail_category VARCHAR(50),substance_mass_id INTEGER,garden_id INTEGER,created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
                     "deleted_date VARCHAR(50),deleted_flag INTEGER)")
 
-        val CREATE_DEVICE_CATEGORY_TABLE  =
+        val CREATE_DEVICE_CATEGORY_TABLE =
             ("CREATE TABLE " + TABLE_DEVICE_CATEGORY + "(device_category_id INTEGER PRIMARY KEY AUTOINCREMENT,device_category_code VARCHAR(100),device_category_name VARCHAR(100)," +
                     "device_category_image VARCHAR(300),created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
                     "deleted_date VARCHAR(50),deleted_flag INTEGER)")
@@ -193,6 +211,13 @@ class Database(context: Context?) :
             ("CREATE TABLE " + TABLE_PARAM + "(param_id INTEGER PRIMARY KEY AUTOINCREMENT,veg_id INTEGER,temp_to_night VARCHAR(100),temp_from_night VARCHAR(100)," +
                     "temp_to_day VARCHAR(100), temp_from_day VARCHAR(100),  ph_to VARCHAR(100), ph_from VARCHAR(100),ppm_to VARCHAR(100),ppm_from VARCHAR(100),tds_level_to VARCHAR(100),tds_level_from VARCHAR(100), created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
                     "deleted_date VARCHAR(50),deleted_flag INTEGER)")
+
+        val CREATE_MODE_TABLE =
+            ("CREATE TABLE " + TABLE_MODE + "(mode_id INTEGER PRIMARY KEY AUTOINCREMENT,code VARCHAR(100),time_on VARCHAR(100)," +
+                    "time_off VARCHAR(100),on1 VARCHAR(100),off VARCHAR(100),time_repeat VARCHAR(100),repeat VARCHAR(100),active_flag VARCHAR(100),created_by VARCHAR(50),created_date VARCHAR(50),updated_by VARCHAR(50),updated_date VARCHAR(50),deleted_by VARCHAR(50)," +
+                    "deleted_date VARCHAR(50),deleted_flag INTEGER)")
+        val CREATE_MODE_DEVICE_TABLE =
+            ("CREATE TABLE $TABLE_MODE_DEVICE(mode_device_id INTEGER PRIMARY KEY AUTOINCREMENT,mode_id INTEGER,device_id INTEGER)")
 
 
         /*INSERT DATA*/
@@ -221,6 +246,8 @@ class Database(context: Context?) :
         db?.execSQL(CREATE_SUBSTANCE_DETAIL_TABLE)
         db?.execSQL(CREATE_DEVICE_CATEGORY_TABLE)
         db?.execSQL(CREATE_PARAM_TABLE)
+        db?.execSQL(CREATE_MODE_TABLE)
+        db?.execSQL(CREATE_MODE_DEVICE_TABLE)
 
 
     }
@@ -242,22 +269,22 @@ class Database(context: Context?) :
      *
      * @return list
      */
-    fun getUserByEmail(email : String): User {
+    fun getUserByEmail(email: String): User {
         val selectQuery = "SELECT * FROM $TABLE_USERS WHERE $COLUMN_USER_EMAIL = $email"
         val db = this.readableDatabase
-        var user:User = User()
+        var user: User = User()
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
-            Log.d("AAA",e.message)
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
+            Log.d("AAA", e.message)
         }
         var userId: Int
         var userNameEmail: String
-        var userFullName : String
-        var password : String
-        var status : Int
-        var roleId : Int
+        var userFullName: String
+        var password: String
+        var status: Int
+        var roleId: Int
         if (cursor!!.moveToFirst()) {
             do {
                 userId = cursor.getInt(cursor.getColumnIndex(COLUMN_USER_ID))
@@ -266,7 +293,7 @@ class Database(context: Context?) :
                 password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD))
                 status = cursor.getInt(cursor.getColumnIndex(COLUMN_USER_STATUS))
                 roleId = cursor.getInt(cursor.getColumnIndex(COLUMN_ROLE_ID))
-                user = User(userId,userFullName,userNameEmail,password,status,roleId)
+                user = User(userId, userFullName, userNameEmail, password, status, roleId)
             } while (cursor.moveToNext())
         }
         return user
@@ -278,22 +305,22 @@ class Database(context: Context?) :
      * @return list
      */
     fun getAllUser(): ArrayList<User> {
-        var userList:ArrayList<User> = ArrayList()
+        var userList: ArrayList<User> = ArrayList()
         val selectQuery = "SELECT * FROM $TABLE_USERS"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var userId: Int
         var userNameEmail: String
-        var userFullName : String
-        var password : String
-        var status : Int
-        var roleId : Int
+        var userFullName: String
+        var password: String
+        var status: Int
+        var roleId: Int
         if (cursor.moveToFirst()) {
             do {
                 userId = cursor.getInt(cursor.getColumnIndex(COLUMN_USER_ID))
@@ -302,7 +329,7 @@ class Database(context: Context?) :
                 password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD))
                 status = cursor.getInt(cursor.getColumnIndex(COLUMN_USER_STATUS))
                 roleId = cursor.getInt(cursor.getColumnIndex(COLUMN_ROLE_ID))
-                val user = User(userId,userFullName,userNameEmail,password,status,roleId)
+                val user = User(userId, userFullName, userNameEmail, password, status, roleId)
                 userList.add(user)
             } while (cursor.moveToNext())
         }
@@ -314,7 +341,7 @@ class Database(context: Context?) :
      *
      * @param user
      */
-    fun addUser(user: User) : Long {
+    fun addUser(user: User): Long {
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(COLUMN_USER_FULL_NAME, user.fullName)
@@ -322,7 +349,7 @@ class Database(context: Context?) :
         values.put(COLUMN_USER_PASSWORD, user.password)
         values.put(COLUMN_USER_GENDER, user.gender)
         values.put(COLUMN_USER_STATUS, user.status)
-        values.put(COLUMN_ROLE_ID,user.roleId)
+        values.put(COLUMN_ROLE_ID, user.roleId)
         values.put(COLUMN_CREATEDBY, user.createdBy)
         values.put(COLUMN_CREATEDDATE, user.createdDate)
 
@@ -352,7 +379,7 @@ class Database(context: Context?) :
         db.close()
     }
 
-    fun updateStatusByUserNameEmail(userNameEmail: String, status : Int) : Int {
+    fun updateStatusByUserNameEmail(userNameEmail: String, status: Int): Int {
         val db = this.writableDatabase
 
         val contentValues = ContentValues()
@@ -368,7 +395,7 @@ class Database(context: Context?) :
         return success
     }
 
-    fun updateStatusById(user: User) : Int {
+    fun updateStatusById(user: User): Int {
         val db = this.writableDatabase
 
         val contentValues = ContentValues()
@@ -550,22 +577,22 @@ class Database(context: Context?) :
      * @param batchQtyDetail
      * @return Arraylist
      */
-    fun viewBatchByGardenId(garden_id : Int):ArrayList<BatchCustom>{
-        val batchList:ArrayList<BatchCustom> = ArrayList()
+    fun viewBatchByGardenId(garden_id: Int): ArrayList<BatchCustom> {
+        val batchList: ArrayList<BatchCustom> = ArrayList()
         val selectQuery = "SELECT  * FROM $TABLE_BATCH WHERE $COLUMN_BATCH_GARDEN_ID=$garden_id"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var batchId: Int
         var batchName: String
-        var batchImage : String
-        var gardenId : Int
-        var totalQty : String
+        var batchImage: String
+        var gardenId: Int
+        var totalQty: String
         if (cursor.moveToFirst()) {
             do {
                 batchId = cursor.getInt(cursor.getColumnIndex(COLUMN_BATCH_ID))
@@ -573,24 +600,25 @@ class Database(context: Context?) :
                 batchImage = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_IMAGE))
                 gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_BATCH_GARDEN_ID))
                 totalQty = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_TOTAL_QTY))
-                val batch = BatchCustom(batchId, batchImage ,batchName,totalQty,gardenId)
+                val batch = BatchCustom(batchId, batchImage, batchName, totalQty, gardenId)
                 batchList.add(batch)
             } while (cursor.moveToNext())
         }
         return batchList
     }
+
     /**
      * This method to delete data
      *
      * @param batch_id
      * @return Int
      */
-    fun deleteBatch(batch_id: Int):Int{
+    fun deleteBatch(batch_id: Int): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_BATCH_ID, batch_id) // EmpModelClass UserId
         // Deleting Row
-        val success = db.delete(TABLE_BATCH, "batch_id=$batch_id",null)
+        val success = db.delete(TABLE_BATCH, "batch_id=$batch_id", null)
         deleteBatchDetail(batch_id)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
@@ -603,12 +631,13 @@ class Database(context: Context?) :
      * @param batch_id
      * @return Int
      */
-    fun deleteBatchDetail(batchQtyDetailId: Int):Int{
+    fun deleteBatchDetail(batchQtyDetailId: Int): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_BATCH_DETAIL_ID, batchQtyDetailId) // EmpModelClass UserId
         // Deleting Row
-        val success = db.delete(TABLE_BATCH_DETAIL, "$COLUMN_BATCH_DETAIL_ID=$batchQtyDetailId",null)
+        val success =
+            db.delete(TABLE_BATCH_DETAIL, "$COLUMN_BATCH_DETAIL_ID=$batchQtyDetailId", null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -620,23 +649,24 @@ class Database(context: Context?) :
      * @param batch_id
      * @return Int
      */
-    fun deleteBatchDetailByBatchDetailId(batchQtyDetailId: Int):Int{
+    fun deleteBatchDetailByBatchDetailId(batchQtyDetailId: Int): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_BATCH_DETAIL_ID, batchQtyDetailId) // EmpModelClass UserId
         // Deleting Row
-        val success = db.delete(TABLE_BATCH_DETAIL, "qty_detail_id=$batchQtyDetailId",null)
+        val success = db.delete(TABLE_BATCH_DETAIL, "qty_detail_id=$batchQtyDetailId", null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
     }
+
     /**
      * This method to update data
      *
      * @param batchQtyDetail
      * @return true/false
      */
-    fun updateBatch(batch: Batch):Int{
+    fun updateBatch(batch: Batch): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_BATCH_ID, batch.batchId)
@@ -648,10 +678,10 @@ class Database(context: Context?) :
         contentValues.put(COLUMN_CREATEDBY, batch.createdBy)
         contentValues.put(COLUMN_CREATEDDATE, batch.createdDate)
         contentValues.put(COLUMN_UPDATED_BY, batch.updatedBy)
-        contentValues.put(COLUMN_UPDATED_DATE,batch.updatedDate)
+        contentValues.put(COLUMN_UPDATED_DATE, batch.updatedDate)
 
         // Updating Row
-        val success = db.update(TABLE_BATCH, contentValues,"batch_id="+batch.batchId,null)
+        val success = db.update(TABLE_BATCH, contentValues, "batch_id=" + batch.batchId, null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -663,7 +693,7 @@ class Database(context: Context?) :
      * @param batchQtyDetail
      * @return true/false
      */
-    fun updateBatchDetail(batchQtyDetail: BatchQtyDetail):Int{
+    fun updateBatchDetail(batchQtyDetail: BatchQtyDetail): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_BATCH_DETAIL_ID, batchQtyDetail.qtyDetailId)
@@ -676,26 +706,32 @@ class Database(context: Context?) :
 
 
         // Updating Row
-        val success = db.update(TABLE_BATCH_DETAIL, contentValues,"qty_detail_id="+batchQtyDetail.qtyDetailId,null)
+        val success = db.update(
+            TABLE_BATCH_DETAIL,
+            contentValues,
+            "qty_detail_id=" + batchQtyDetail.qtyDetailId,
+            null
+        )
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
     }
+
     /**
      * This method to find batch by id
      *
      * @param batch_id
      * @return Batch
      */
-    fun findBatchById(batch_id : Int):Batch{
+    fun findBatchById(batch_id: Int): Batch {
         val selectQuery = "SELECT  * FROM $TABLE_BATCH WHERE $COLUMN_BATCH_ID = $batch_id"
         val db = this.readableDatabase
-        var batch:Batch = Batch()
+        var batch: Batch = Batch()
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
-            Log.d("AAA",e.message)
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
+            Log.d("AAA", e.message)
         }
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -703,10 +739,20 @@ class Database(context: Context?) :
                     var batch_id = cursor.getInt(cursor.getColumnIndex(COLUMN_BATCH_ID))
                     var batch_name = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_NAME))
                     var created_date = cursor.getString(cursor.getColumnIndex(COLUMN_CREATEDDATE))
-                    var the_end_date = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_END_DATE))
-                    var total_quantity = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_TOTAL_QTY))
+                    var the_end_date =
+                        cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_END_DATE))
+                    var total_quantity =
+                        cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_TOTAL_QTY))
                     var updated_date = cursor.getString(cursor.getColumnIndex(COLUMN_UPDATED_DATE))
-                    batch = Batch(batch_id,batch_name,the_end_date,total_quantity,created_date,"admin",updated_date)
+                    batch = Batch(
+                        batch_id,
+                        batch_name,
+                        the_end_date,
+                        total_quantity,
+                        created_date,
+                        "admin",
+                        updated_date
+                    )
                 } while (cursor.moveToNext())
             }
         }
@@ -719,15 +765,15 @@ class Database(context: Context?) :
      * @param batch_id
      * @return Batch
      */
-    fun findAllBatch():ArrayList<Batch>{
+    fun findAllBatch(): ArrayList<Batch> {
         val selectQuery = "SELECT  * FROM $TABLE_BATCH"
         val db = this.readableDatabase
         var batchs: ArrayList<Batch> = ArrayList()
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
-            Log.d("AAA",e.message)
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
+            Log.d("AAA", e.message)
         }
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -736,41 +782,53 @@ class Database(context: Context?) :
                     var batchName = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_NAME))
                     var createdDate = cursor.getString(cursor.getColumnIndex(COLUMN_CREATEDDATE))
                     var theEndDate = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_END_DATE))
-                    var totalQuantity = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_TOTAL_QTY))
+                    var totalQuantity =
+                        cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_TOTAL_QTY))
                     var updatedDate = cursor.getString(cursor.getColumnIndex(COLUMN_UPDATED_DATE))
-                    var batch = Batch(batchId,batchName,theEndDate,totalQuantity,createdDate,"admin",updatedDate)
+                    var batch = Batch(
+                        batchId,
+                        batchName,
+                        theEndDate,
+                        totalQuantity,
+                        createdDate,
+                        "admin",
+                        updatedDate
+                    )
                     batchs.add(batch)
                 } while (cursor.moveToNext())
             }
         }
         return batchs
     }
+
     /**
      * This method to find all batch detail by id
      *
      * @param batch_id
      * @return ArrayList
      */
-    fun findAllBatchDetailById(batch_id : Int):ArrayList<BatchQtyDetail>{
-        var batchDetailList:ArrayList<BatchQtyDetail> = ArrayList()
-        val selectQuery = "SELECT  * FROM $TABLE_BATCH_DETAIL WHERE  $COLUMN_BATCH_QTY_ID = $batch_id"
+    fun findAllBatchDetailById(batch_id: Int): ArrayList<BatchQtyDetail> {
+        var batchDetailList: ArrayList<BatchQtyDetail> = ArrayList()
+        val selectQuery =
+            "SELECT  * FROM $TABLE_BATCH_DETAIL WHERE  $COLUMN_BATCH_QTY_ID = $batch_id"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var qty_detail_id: Int
         var vegetable_name: String
-        var vegetable_quantity : String
+        var vegetable_quantity: String
         if (cursor.moveToFirst()) {
             do {
                 qty_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_BATCH_DETAIL_ID))
                 vegetable_name = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_VEG_NAME))
                 vegetable_quantity = cursor.getString(cursor.getColumnIndex(COLUMN_BATCH_VEG_QTY))
-                val batchdetail = BatchQtyDetail(qty_detail_id,vegetable_name,vegetable_quantity,"admin")
+                val batchdetail =
+                    BatchQtyDetail(qty_detail_id, vegetable_name, vegetable_quantity, "admin")
                 batchDetailList.add(batchdetail)
             } while (cursor.moveToNext())
         }
@@ -784,22 +842,22 @@ class Database(context: Context?) :
      * @param batchQtyDetail
      * @return true/false
      */
-    fun findAllGarden():ArrayList<Garden>{
-        val gardenList:ArrayList<Garden> = ArrayList()
+    fun findAllGarden(): ArrayList<Garden> {
+        val gardenList: ArrayList<Garden> = ArrayList()
         val selectQuery = "SELECT  * FROM $TABLE_GARDEN"
         val db = this.readableDatabase
         var garden: Garden = Garden()
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var garden_id: Int
         var garden_name: String
-        var garden_image : String
-        var garden_code : String
+        var garden_image: String
+        var garden_code: String
         if (cursor.moveToFirst()) {
             do {
                 garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
@@ -824,7 +882,7 @@ class Database(context: Context?) :
      * @param batchQtyDetail
      * @return true/false
      */
-    fun addGardenImageDefault(garden: Garden) : Long{
+    fun addGardenImageDefault(garden: Garden): Long {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_GARDEN_NAME, garden.gardenName)
@@ -839,22 +897,23 @@ class Database(context: Context?) :
         db.close() // Closing database connection
         return success
     }
+
     /**
      * This method to update data garden
      *
      * @param garden
      * @return int
      */
-    fun updateGardenImageDefault(garden: Garden) : Int {
+    fun updateGardenImageDefault(garden: Garden): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(COLUMN_GARDEN_ID,garden.gardenId)
+        contentValues.put(COLUMN_GARDEN_ID, garden.gardenId)
         contentValues.put(COLUMN_GARDEN_NAME, garden.gardenName)
         contentValues.put(COLUMN_GARDEN_IMAGE, garden.gardenImage)
         contentValues.put(COLUMN_UPDATED_DATE, garden.updatedDate)
 
         // Inserting Row
-        val success = db.update(TABLE_GARDEN, contentValues,"garden_id="+garden.gardenId,null)
+        val success = db.update(TABLE_GARDEN, contentValues, "garden_id=" + garden.gardenId, null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -866,31 +925,32 @@ class Database(context: Context?) :
      * @param batch_id
      * @return Int
      */
-    fun deleteGarden(garden_id: Int):Int{
+    fun deleteGarden(garden_id: Int): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_GARDEN_ID, garden_id)
         // Deleting Row
-        val success = db.delete(TABLE_GARDEN,"garden_id="+garden_id,null)
+        val success = db.delete(TABLE_GARDEN, "garden_id=" + garden_id, null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
     }
+
     /**
      * This method to find garden by id
      *
      * @param batch_id
      * @return Batch
      */
-    fun findGardenById(garden_id : Int):Garden{
+    fun findGardenById(garden_id: Int): Garden {
         val selectQuery = "SELECT  * FROM $TABLE_GARDEN WHERE $COLUMN_GARDEN_ID = $garden_id"
         val db = this.readableDatabase
         var garden: Garden = Garden()
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
-            Log.d("AAA",e.message)
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
+            Log.d("AAA", e.message)
         }
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -919,7 +979,7 @@ class Database(context: Context?) :
      * @param batchQtyDetail
      * @return true/false
      */
-    fun addVegImageDefault(veg: Vegetable) : Long{
+    fun addVegImageDefault(veg: Vegetable): Long {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_VEG_NAME, veg.vegName)
@@ -933,46 +993,48 @@ class Database(context: Context?) :
         db.close() // Closing database connection
         return success
     }
+
     /**
      * This method to update data vegetable
      *
      * @param veg
      * @return true/false
      */
-    fun updateVegImageDefault(veg: Vegetable) : Int {
+    fun updateVegImageDefault(veg: Vegetable): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(COLUMN_VEG_ID,veg.vegID)
+        contentValues.put(COLUMN_VEG_ID, veg.vegID)
         contentValues.put(COLUMN_VEG_NAME, veg.vegName)
         contentValues.put(COLUMN_VEG_IMG_BLOB, veg.vegImgBlob)
         contentValues.put(COLUMN_UPDATED_DATE, veg.updatedDate)
 
         // Inserting Row
-        val success = db.update(TABLE_VEGETABLE, contentValues,"veg_id="+veg.vegID,null)
+        val success = db.update(TABLE_VEGETABLE, contentValues, "veg_id=" + veg.vegID, null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
     }
+
     /**
      * This method to insert data vegetable
      *
      * @return ArrayList
      */
-    fun findAllVegetable():ArrayList<Vegetable>{
-        val vegList:ArrayList<Vegetable> = ArrayList()
+    fun findAllVegetable(): ArrayList<Vegetable> {
+        val vegList: ArrayList<Vegetable> = ArrayList()
         val selectQuery = "SELECT  * FROM $TABLE_VEGETABLE"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var veg_id: Int
         var veg_name: String
-        var veg_image : String
-        var garden_id : Int
+        var veg_image: String
+        var garden_id: Int
         if (cursor.moveToFirst()) {
             do {
                 veg_id = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
@@ -980,7 +1042,7 @@ class Database(context: Context?) :
                 veg_image = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
                 garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
-                val vegetable = Vegetable(veg_id,veg_name,veg_image,garden_id)
+                val vegetable = Vegetable(veg_id, veg_name, veg_image, garden_id)
                 vegList.add(vegetable)
             } while (cursor.moveToNext())
         }
@@ -994,31 +1056,32 @@ class Database(context: Context?) :
      * @param batch_id
      * @return Int
      */
-    fun deleteVeg(veg_id: Int):Int{
+    fun deleteVeg(veg_id: Int): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_VEG_ID, veg_id) // EmpModelClass UserId
         // Deleting Row
-        val success = db.delete(TABLE_VEGETABLE,"veg_id="+veg_id,null)
+        val success = db.delete(TABLE_VEGETABLE, "veg_id=" + veg_id, null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
     }
+
     /**
      * This method to find vegetable by id
      *
      * @param batch_id
      * @return Batch
      */
-    fun findVegetableById(veg_id : Int):Vegetable{
+    fun findVegetableById(veg_id: Int): Vegetable {
         val selectQuery = "SELECT  * FROM $TABLE_VEGETABLE WHERE $COLUMN_VEG_ID = $veg_id"
         val db = this.readableDatabase
-        var vegetable:Vegetable = Vegetable()
+        var vegetable: Vegetable = Vegetable()
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
-            Log.d("AAA",e.message)
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
+            Log.d("AAA", e.message)
         }
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -1044,15 +1107,15 @@ class Database(context: Context?) :
      * @param batch_id
      * @return Batch
      */
-    fun findVegetableByGardenId(garden_id : Int): ArrayList<Vegetable>{
+    fun findVegetableByGardenId(garden_id: Int): ArrayList<Vegetable> {
         val selectQuery = "SELECT  * FROM $TABLE_VEGETABLE WHERE $COLUMN_GARDEN_ID = $garden_id"
         val db = this.readableDatabase
-        var vegetables:ArrayList<Vegetable> = ArrayList()
+        var vegetables: ArrayList<Vegetable> = ArrayList()
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
-            Log.d("AAA",e.message)
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
+            Log.d("AAA", e.message)
         }
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -1080,7 +1143,7 @@ class Database(context: Context?) :
      * @param device
      * @return Long
      */
-    fun addDeviceImageDefault(device: Device) : Long{
+    fun addDeviceImageDefault(device: Device): Long {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_DEVICE_NAME, device.deviceName)
@@ -1097,21 +1160,21 @@ class Database(context: Context?) :
     }
 
     /**
-     * This method to update data devicedetail
+     * This method to update data updateDeviceImageDefault
      *
      * @param veg
      * @return true/false
      */
-    fun updateDeviceImageDefault(device: Device) : Int {
+    fun updateDeviceImageDefault(device: Device): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(COLUMN_DEVICE_ID,device.deviceID)
+        contentValues.put(COLUMN_DEVICE_ID, device.deviceID)
         contentValues.put(COLUMN_DEVICE_NAME, device.deviceName)
         contentValues.put(COLUMN_DEVICE_IMAGE, device.deviceImg)
         contentValues.put(COLUMN_DEVICE_CATEGORY_ID, device.deviceCategoryId)
 
         // Inserting Row
-        val success = db.update(TABLE_DEVICE, contentValues,"device_id="+device.deviceID,null)
+        val success = db.update(TABLE_DEVICE, contentValues, "device_id=" + device.deviceID, null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -1122,61 +1185,66 @@ class Database(context: Context?) :
      *
      * @return ArrayList
      */
-    fun findAllDevice():ArrayList<Device>{
-        val deviceList:ArrayList<Device> = ArrayList()
+    fun findAllDevice(): ArrayList<Device> {
+        val deviceList: ArrayList<Device> = ArrayList()
         val selectQuery = "SELECT  * FROM $TABLE_DEVICE"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var device_id: Int
         var device_name: String
-        var device_image : String
-        var device_num : String
+        var device_image: String
+        var device_num: String
         if (cursor.moveToFirst()) {
             do {
                 device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
                 device_name = cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_NAME))
-                device_image= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_IMAGE))
-                device_num= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_NUM))
+                device_image = cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_IMAGE))
+                device_num = cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_NUM))
 
-                val device = Device(device_id,device_name,device_image,device_num)
+                val device = Device(device_id, device_name, device_image, device_num)
                 deviceList.add(device)
             } while (cursor.moveToNext())
         }
         cursor?.close()
         return deviceList
     }
+
     /**
      * This method to find vegetable by id
      *
      * @param batch_id
      * @return Batch
      */
-    fun findDeviceById(device_id : Int):Device{
+    fun findDeviceById(device_id: Int): Device {
         val selectQuery = "SELECT  * FROM $TABLE_DEVICE WHERE $COLUMN_DEVICE_ID = $device_id"
         val db = this.readableDatabase
-        var device:Device = Device()
+        var device: Device = Device()
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
-            Log.d("AAA",e.message)
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
+            Log.d("AAA", e.message)
         }
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
                     var device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
                     var device_name = cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_NAME))
-                    var device_image= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_IMAGE))
-                    var device_num= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_NUM))
-                    var device_category_id = cursor.getInt(cursor.getColumnIndex(
-                        COLUMN_DEVICE_CATEGORY_ID))
-                    device = Device(device_id,device_name,device_image,device_num,device_category_id)
+                    var device_image = cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_IMAGE))
+                    var device_num = cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_NUM))
+                    var device_category_id = cursor.getInt(
+                        cursor.getColumnIndex(
+                            COLUMN_DEVICE_CATEGORY_ID
+                        )
+                    )
+                    device =
+                        Device(device_id, device_name, device_image, device_num, device_category_id)
                 } while (cursor.moveToNext())
             }
         }
@@ -1190,12 +1258,12 @@ class Database(context: Context?) :
      * @param batch_id
      * @return Int
      */
-    fun deleteDevice(device_id: Int):Int{
+    fun deleteDevice(device_id: Int): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_DEVICE_ID, device_id) // EmpModelClass UserId
         // Deleting Row
-        val success = db.delete(TABLE_DEVICE, "device_id=$device_id",null)
+        val success = db.delete(TABLE_DEVICE, "device_id=$device_id", null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -1208,13 +1276,13 @@ class Database(context: Context?) :
      * @param deviceDetail
      * @return Long
      */
-    fun addDeviceDetailImageDefault(deviceDetail: DeviceDetail) : Long{
+    fun addDeviceDetailImageDefault(deviceDetail: DeviceDetail): Long {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_DEVICE_DETAIL_IMAGE, deviceDetail.deviceDetailImg)
         contentValues.put(COLUMN_DEVICE_DETAIL_CODE, deviceDetail.deviceDetailCode)
         contentValues.put(COLUMN_DEVICE_DETAIL_STATUS, deviceDetail.deviceDetailStatus)
-        contentValues.put(COLUMN_DEVICE_ID,deviceDetail.deviceID)
+        contentValues.put(COLUMN_DEVICE_ID, deviceDetail.deviceID)
         contentValues.put(COLUMN_CREATEDBY, deviceDetail.createdBy)
         contentValues.put(COLUMN_CREATEDDATE, deviceDetail.createdDate)
 
@@ -1232,15 +1300,20 @@ class Database(context: Context?) :
      * @param veg
      * @return true/false
      */
-    fun updateDeviceDetailImageDefault(deviceDetail: DeviceDetail) : Int {
+    fun updateDeviceDetailImageDefault(deviceDetail: DeviceDetail): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(COLUMN_DEVICE_DETAIL_ID,deviceDetail.deviceDetailID)
+        contentValues.put(COLUMN_DEVICE_DETAIL_ID, deviceDetail.deviceDetailID)
         contentValues.put(COLUMN_DEVICE_DETAIL_IMAGE, deviceDetail.deviceDetailImg)
         contentValues.put(COLUMN_UPDATED_DATE, deviceDetail.updatedDate)
 
         // Inserting Row
-        val success = db.update(TABLE_DEVICE_DETAIL, contentValues,"device_detail_id="+deviceDetail.deviceDetailID,null)
+        val success = db.update(
+            TABLE_DEVICE_DETAIL,
+            contentValues,
+            "device_detail_id=" + deviceDetail.deviceDetailID,
+            null
+        )
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -1252,16 +1325,21 @@ class Database(context: Context?) :
      * @param veg
      * @return true/false
      */
-    fun updateDeviceDetailStatus(deviceDetail: DeviceDetail) : Int {
+    fun updateDeviceDetailStatus(deviceDetail: DeviceDetail): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(COLUMN_DEVICE_DETAIL_ID,deviceDetail.deviceDetailID)
+        contentValues.put(COLUMN_DEVICE_DETAIL_ID, deviceDetail.deviceDetailID)
         contentValues.put(COLUMN_DEVICE_DETAIL_STATUS, deviceDetail.deviceDetailStatus)
-        contentValues.put(COLUMN_GARDEN_ID,deviceDetail.gardenDetailId)
-        contentValues.put(COLUMN_DEVICE_DETAIL_CODE_SS,deviceDetail.deviceDetailCodeSS)
+        contentValues.put(COLUMN_GARDEN_ID, deviceDetail.gardenDetailId)
+        contentValues.put(COLUMN_DEVICE_DETAIL_CODE_SS, deviceDetail.deviceDetailCodeSS)
 
         // Inserting Row
-        val success = db.update(TABLE_DEVICE_DETAIL, contentValues,"device_detail_id="+deviceDetail.deviceDetailID,null)
+        val success = db.update(
+            TABLE_DEVICE_DETAIL,
+            contentValues,
+            "device_detail_id=" + deviceDetail.deviceDetailID,
+            null
+        )
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -1272,36 +1350,50 @@ class Database(context: Context?) :
      *
      * @return ArrayList
      */
-    fun findAllDeviceDetail(device_id: Int):ArrayList<DeviceDetail>{
-        val deviceDetailList:ArrayList<DeviceDetail> = ArrayList()
+    fun findAllDeviceDetail(device_id: Int): ArrayList<DeviceDetail> {
+        val deviceDetailList: ArrayList<DeviceDetail> = ArrayList()
         val selectQuery = "SELECT  * FROM $TABLE_DEVICE_DETAIL WHERE $COLUMN_DEVICE_ID = $device_id"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var device_detail_id: Int
         var device_detail_code: String
-        var device_detail_image : String
-        var device_detail_status : String
-        var device_id : Int
-        var garden_id : Int
+        var device_detail_image: String
+        var device_detail_status: String
+        var device_id: Int
+        var garden_id: Int
         if (cursor.moveToFirst()) {
             do {
                 device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
-                device_detail_code = cursor.getString(cursor.getColumnIndex(
-                    COLUMN_DEVICE_DETAIL_CODE))
-                device_detail_image= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
-                device_detail_status= cursor.getString(cursor.getColumnIndex(
-                    COLUMN_DEVICE_DETAIL_STATUS))
+                device_detail_code = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_DEVICE_DETAIL_CODE
+                    )
+                )
+                device_detail_image =
+                    cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
+                device_detail_status = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_DEVICE_DETAIL_STATUS
+                    )
+                )
                 device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
                 garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
 
-                val device = DeviceDetail(device_detail_id,device_detail_code,device_detail_image,device_detail_status,device_id,garden_id)
+                val device = DeviceDetail(
+                    device_detail_id,
+                    device_detail_code,
+                    device_detail_image,
+                    device_detail_status,
+                    device_id,
+                    garden_id
+                )
                 deviceDetailList.add(device)
             } while (cursor.moveToNext())
         }
@@ -1315,12 +1407,12 @@ class Database(context: Context?) :
      * @param batch_id
      * @return Int
      */
-    fun deleteDetailDevice(device_detail_id: Int):Int{
+    fun deleteDetailDevice(device_detail_id: Int): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_DEVICE_DETAIL_ID, device_detail_id) // EmpModelClass UserId
         // Deleting Row
-        val success = db.delete(TABLE_DEVICE_DETAIL, "device_detail_id=$device_detail_id",null)
+        val success = db.delete(TABLE_DEVICE_DETAIL, "device_detail_id=$device_detail_id", null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -1334,9 +1426,9 @@ class Database(context: Context?) :
      * @param batchQtyDetail
      * @return true/false
      */
-    fun addDeviceCategoryImageDefault(deviceCategory: DeviceCategory) : Long{
+    fun addDeviceCategoryImageDefault(deviceCategory: DeviceCategory): Long {
 
-        val db : SQLiteDatabase = this.writableDatabase
+        val db: SQLiteDatabase = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_DEVICE_CATEGORY_NAME, deviceCategory.dcategoryName)
         contentValues.put(COLUMN_DEVICE_CATEGORY_IMAGE, deviceCategory.dcategoryImg)
@@ -1344,7 +1436,7 @@ class Database(context: Context?) :
         contentValues.put(COLUMN_CREATEDDATE, deviceCategory.createdDate)
 
         //insert row
-        var sucess :Long = db.insert(TABLE_DEVICE_CATEGORY, null,contentValues)
+        var sucess: Long = db.insert(TABLE_DEVICE_CATEGORY, null, contentValues)
         db.close()
         return sucess
     }
@@ -1354,28 +1446,33 @@ class Database(context: Context?) :
      *
      * @return ArrayList
      */
-    fun findAllDeviceCategory():ArrayList<DeviceCategory>{
-        val deviceCategoryList:ArrayList<DeviceCategory> = ArrayList()
+    fun findAllDeviceCategory(): ArrayList<DeviceCategory> {
+        val deviceCategoryList: ArrayList<DeviceCategory> = ArrayList()
         val selectQuery = "SELECT  * FROM $TABLE_DEVICE_CATEGORY"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var device_category_id: Int
         var device_category_name: String
-        var device_category_img : String
+        var device_category_img: String
         if (cursor.moveToFirst()) {
             do {
                 device_category_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_CATEGORY_ID))
-                device_category_name = cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_CATEGORY_NAME))
-                device_category_img = cursor.getString(cursor.getColumnIndex(
-                    COLUMN_DEVICE_CATEGORY_IMAGE))
+                device_category_name =
+                    cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_CATEGORY_NAME))
+                device_category_img = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_DEVICE_CATEGORY_IMAGE
+                    )
+                )
 
-                val deviceCategory = DeviceCategory(device_category_id,device_category_name,device_category_img)
+                val deviceCategory =
+                    DeviceCategory(device_category_id, device_category_name, device_category_img)
                 deviceCategoryList.add(deviceCategory)
             } while (cursor.moveToNext())
         }
@@ -1389,16 +1486,21 @@ class Database(context: Context?) :
      * @param batchQtyDetail
      * @return true/false
      */
-    fun updateDeviceCategoryImageDefault(dcategory: DeviceCategory) : Int {
+    fun updateDeviceCategoryImageDefault(dcategory: DeviceCategory): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(COLUMN_DEVICE_CATEGORY_ID,dcategory.dcategoryID)
+        contentValues.put(COLUMN_DEVICE_CATEGORY_ID, dcategory.dcategoryID)
         contentValues.put(COLUMN_DEVICE_CATEGORY_NAME, dcategory.dcategoryName)
         contentValues.put(COLUMN_DEVICE_CATEGORY_IMAGE, dcategory.dcategoryImg)
         contentValues.put(COLUMN_UPDATED_DATE, dcategory.updatedDate)
 
         // Inserting Row
-        val success = db.update(TABLE_DEVICE_CATEGORY, contentValues,"device_category_id="+dcategory.dcategoryID,null)
+        val success = db.update(
+            TABLE_DEVICE_CATEGORY,
+            contentValues,
+            "device_category_id=" + dcategory.dcategoryID,
+            null
+        )
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -1411,25 +1513,33 @@ class Database(context: Context?) :
      * @param batch_id
      * @return Batch
      */
-    fun findDeviceCategoryId(dcategory_id : Int):DeviceCategory{
-        val selectQuery = "SELECT  * FROM $TABLE_DEVICE_CATEGORY WHERE $COLUMN_DEVICE_CATEGORY_ID = $dcategory_id"
+    fun findDeviceCategoryId(dcategory_id: Int): DeviceCategory {
+        val selectQuery =
+            "SELECT  * FROM $TABLE_DEVICE_CATEGORY WHERE $COLUMN_DEVICE_CATEGORY_ID = $dcategory_id"
         val db = this.readableDatabase
-        var dcategory:DeviceCategory = DeviceCategory()
+        var dcategory: DeviceCategory = DeviceCategory()
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
-            Log.d("AAA",e.message)
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
+            Log.d("AAA", e.message)
         }
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    var dcategoryId = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_CATEGORY_ID))
-                    var dcategoryName = cursor.getString(cursor.getColumnIndex(
-                        COLUMN_DEVICE_CATEGORY_NAME))
-                    var dcategoryImg = cursor.getString(cursor.getColumnIndex(
-                        COLUMN_DEVICE_CATEGORY_IMAGE))
-                    dcategory = DeviceCategory(dcategoryId,dcategoryName,dcategoryImg)
+                    var dcategoryId =
+                        cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_CATEGORY_ID))
+                    var dcategoryName = cursor.getString(
+                        cursor.getColumnIndex(
+                            COLUMN_DEVICE_CATEGORY_NAME
+                        )
+                    )
+                    var dcategoryImg = cursor.getString(
+                        cursor.getColumnIndex(
+                            COLUMN_DEVICE_CATEGORY_IMAGE
+                        )
+                    )
+                    dcategory = DeviceCategory(dcategoryId, dcategoryName, dcategoryImg)
                 } while (cursor.moveToNext())
             }
         }
@@ -1443,12 +1553,12 @@ class Database(context: Context?) :
      * @param
      * @return Int
      */
-    fun deleteDeviceCategory(dcategory_id: Int):Int{
+    fun deleteDeviceCategory(dcategory_id: Int): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_DEVICE_CATEGORY_ID, dcategory_id) // EmpModelClass UserId
         // Deleting Row
-        val success = db.delete(TABLE_DEVICE_CATEGORY,"device_category_id="+dcategory_id,null)
+        val success = db.delete(TABLE_DEVICE_CATEGORY, "device_category_id=" + dcategory_id, null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -1461,35 +1571,50 @@ class Database(context: Context?) :
      * @param no data
      * @return ArrayList
      */
-    fun findAllDeviceDetailForGarden(gardenId: Int):ArrayList<DeviceDetail>{
-        val deviceDetailList:ArrayList<DeviceDetail> = ArrayList()
-        val selectQuery = "SELECT  * FROM $TABLE_DEVICE_DETAIL WHERE $COLUMN_DEVICE_DETAIL_STATUS = 'N' OR $COLUMN_GARDEN_ID = $gardenId"
+    fun findAllDeviceDetailForGarden(gardenId: Int): ArrayList<DeviceDetail> {
+        val deviceDetailList: ArrayList<DeviceDetail> = ArrayList()
+        val selectQuery =
+            "SELECT  * FROM $TABLE_DEVICE_DETAIL WHERE $COLUMN_DEVICE_DETAIL_STATUS = 'N' OR $COLUMN_GARDEN_ID = $gardenId"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var device_detail_id: Int
         var device_detail_code: String
-        var device_detail_image : String
-        var device_detail_status : String
-        var device_id : Int
-        var garden_id : Int
+        var device_detail_image: String
+        var device_detail_status: String
+        var device_id: Int
+        var garden_id: Int
         if (cursor.moveToFirst()) {
             do {
                 device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
-                device_detail_code = cursor.getString(cursor.getColumnIndex(
-                    COLUMN_DEVICE_DETAIL_CODE))
-                device_detail_image= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
-                device_detail_status= cursor.getString(cursor.getColumnIndex(
-                    COLUMN_DEVICE_DETAIL_STATUS))
+                device_detail_code = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_DEVICE_DETAIL_CODE
+                    )
+                )
+                device_detail_image =
+                    cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
+                device_detail_status = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_DEVICE_DETAIL_STATUS
+                    )
+                )
                 device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
                 garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
-                val device = DeviceDetail(device_detail_id,device_detail_code,device_detail_image,device_detail_status,device_id,garden_id)
+                val device = DeviceDetail(
+                    device_detail_id,
+                    device_detail_code,
+                    device_detail_image,
+                    device_detail_status,
+                    device_id,
+                    garden_id
+                )
                 deviceDetailList.add(device)
             } while (cursor.moveToNext())
         }
@@ -1503,36 +1628,50 @@ class Database(context: Context?) :
      * @param no data
      * @return ArrayList
      */
-    fun findAllDeviceByGardenId(gardenId: Int):ArrayList<DeviceDetail>{
-        val deviceDetailList:ArrayList<DeviceDetail> = ArrayList()
+    fun findAllDeviceByGardenId(gardenId: Int): ArrayList<DeviceDetail> {
+        val deviceDetailList: ArrayList<DeviceDetail> = ArrayList()
         val selectQuery = "SELECT  * FROM $TABLE_DEVICE_DETAIL WHERE $COLUMN_GARDEN_ID = $gardenId"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var device_detail_id: Int
         var device_detail_code: String
-        var device_detail_image : String
-        var device_detail_status : String
-        var device_id : Int
-        var garden_id : Int
+        var device_detail_image: String
+        var device_detail_status: String
+        var device_id: Int
+        var garden_id: Int
         if (cursor.moveToFirst()) {
             do {
                 device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
-                device_detail_code = cursor.getString(cursor.getColumnIndex(
-                    COLUMN_DEVICE_DETAIL_CODE))
-                device_detail_image= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
-                device_detail_status= cursor.getString(cursor.getColumnIndex(
-                    COLUMN_DEVICE_DETAIL_STATUS))
+                device_detail_code = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_DEVICE_DETAIL_CODE
+                    )
+                )
+                device_detail_image =
+                    cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
+                device_detail_status = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_DEVICE_DETAIL_STATUS
+                    )
+                )
                 device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
                 garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
 
-                val device = DeviceDetail(device_detail_id,device_detail_code,device_detail_image,device_detail_status,device_id,garden_id)
+                val device = DeviceDetail(
+                    device_detail_id,
+                    device_detail_code,
+                    device_detail_image,
+                    device_detail_status,
+                    device_id,
+                    garden_id
+                )
                 deviceDetailList.add(device)
             } while (cursor.moveToNext())
         }
@@ -1546,39 +1685,57 @@ class Database(context: Context?) :
      * @param no data
      * @return ArrayList
      */
-    fun findAllDeviceByGardenIdForInfo(gardenId: Int):ArrayList<DeviceDetail>{
-        val deviceDetailList:ArrayList<DeviceDetail> = ArrayList()
+    fun findAllDeviceByGardenIdForInfo(gardenId: Int): ArrayList<DeviceDetail> {
+        val deviceDetailList: ArrayList<DeviceDetail> = ArrayList()
         val selectQuery = "SELECT  * FROM $TABLE_DEVICE_DETAIL WHERE $COLUMN_GARDEN_ID = $gardenId"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var device_detail_id: Int
         var device_detail_code: String
-        var device_detail_image : String
-        var device_detail_status : String
-        var device_id : Int
-        var garden_id : Int
+        var device_detail_image: String
+        var device_detail_status: String
+        var device_id: Int
+        var garden_id: Int
         var device_detail_code_ss: String
         if (cursor.moveToFirst()) {
             do {
                 device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
-                device_detail_code = cursor.getString(cursor.getColumnIndex(
-                    COLUMN_DEVICE_DETAIL_CODE))
-                device_detail_image= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
-                device_detail_status= cursor.getString(cursor.getColumnIndex(
-                    COLUMN_DEVICE_DETAIL_STATUS))
+                device_detail_code = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_DEVICE_DETAIL_CODE
+                    )
+                )
+                device_detail_image =
+                    cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
+                device_detail_status = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_DEVICE_DETAIL_STATUS
+                    )
+                )
                 device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
                 garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
-                device_detail_code_ss = cursor.getString(cursor.getColumnIndex(
-                    COLUMN_DEVICE_DETAIL_CODE_SS))
+                device_detail_code_ss = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_DEVICE_DETAIL_CODE_SS
+                    )
+                )
 
-                val device = DeviceDetail(device_detail_id,device_detail_code,device_detail_code_ss,device_detail_image,device_detail_status,device_id,garden_id)
+                val device = DeviceDetail(
+                    device_detail_id,
+                    device_detail_code,
+                    device_detail_code_ss,
+                    device_detail_image,
+                    device_detail_status,
+                    device_id,
+                    garden_id
+                )
                 deviceDetailList.add(device)
             } while (cursor.moveToNext())
         }
@@ -1592,20 +1749,21 @@ class Database(context: Context?) :
      * @param no data
      * @return ArrayList
      */
-    fun findAllVegetableForGarden(garden_id: Int):ArrayList<Vegetable>{
-        val vegList:ArrayList<Vegetable> = ArrayList()
-        val selectQuery = "SELECT * FROM $TABLE_VEGETABLE WHERE $COLUMN_GARDEN_ID IS NULL OR $COLUMN_GARDEN_ID = 0 OR $COLUMN_GARDEN_ID = $garden_id"
+    fun findAllVegetableForGarden(garden_id: Int): ArrayList<Vegetable> {
+        val vegList: ArrayList<Vegetable> = ArrayList()
+        val selectQuery =
+            "SELECT * FROM $TABLE_VEGETABLE WHERE $COLUMN_GARDEN_ID IS NULL OR $COLUMN_GARDEN_ID = 0 OR $COLUMN_GARDEN_ID = $garden_id"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var vegID: Int
         var vegName: String
-        var vegImage : String
+        var vegImage: String
         var gardenId: Int
         if (cursor.moveToFirst()) {
             do {
@@ -1614,7 +1772,7 @@ class Database(context: Context?) :
                 vegImage = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
                 gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
-                val vegetable = Vegetable(vegID,vegName,vegImage,gardenId)
+                val vegetable = Vegetable(vegID, vegName, vegImage, gardenId)
                 vegList.add(vegetable)
             } while (cursor.moveToNext())
         }
@@ -1628,20 +1786,20 @@ class Database(context: Context?) :
      * @param no data
      * @return ArrayList
      */
-    fun findVegetableForGardenByGardenId(garden_id: Int):ArrayList<Vegetable>{
-        val vegList:ArrayList<Vegetable> = ArrayList()
+    fun findVegetableForGardenByGardenId(garden_id: Int): ArrayList<Vegetable> {
+        val vegList: ArrayList<Vegetable> = ArrayList()
         val selectQuery = "SELECT * FROM $TABLE_VEGETABLE WHERE $COLUMN_GARDEN_ID = $garden_id"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var veg_id: Int
         var veg_name: String
-        var veg_image : String
+        var veg_image: String
         var garden_id: Int
         if (cursor.moveToFirst()) {
             do {
@@ -1650,7 +1808,7 @@ class Database(context: Context?) :
                 veg_image = cursor.getString(cursor.getColumnIndex(COLUMN_VEG_IMG_BLOB))
                 garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
-                val vegetable = Vegetable(veg_id,veg_name,veg_image,garden_id)
+                val vegetable = Vegetable(veg_id, veg_name, veg_image, garden_id)
                 vegList.add(vegetable)
             } while (cursor.moveToNext())
         }
@@ -1664,16 +1822,21 @@ class Database(context: Context?) :
      * @param veg
      * @return true/false
      */
-    fun updateDeviceForGarden(deviceDetail: DeviceDetail) : Int {
+    fun updateDeviceForGarden(deviceDetail: DeviceDetail): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(COLUMN_DEVICE_DETAIL_ID,deviceDetail.deviceDetailID)
+        contentValues.put(COLUMN_DEVICE_DETAIL_ID, deviceDetail.deviceDetailID)
         contentValues.put(COLUMN_GARDEN_ID, deviceDetail.gardenDetailId)
-        contentValues.put(COLUMN_DEVICE_DETAIL_STATUS,deviceDetail.deviceDetailStatus)
-        contentValues.put(COLUMN_DEVICE_DETAIL_CODE_SS,deviceDetail.deviceDetailCodeSS)
+        contentValues.put(COLUMN_DEVICE_DETAIL_STATUS, deviceDetail.deviceDetailStatus)
+        contentValues.put(COLUMN_DEVICE_DETAIL_CODE_SS, deviceDetail.deviceDetailCodeSS)
 
         // Inserting Row
-        val success = db.update(TABLE_DEVICE_DETAIL, contentValues,"device_detail_id="+deviceDetail.deviceDetailID,null)
+        val success = db.update(
+            TABLE_DEVICE_DETAIL,
+            contentValues,
+            "device_detail_id=" + deviceDetail.deviceDetailID,
+            null
+        )
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -1685,14 +1848,14 @@ class Database(context: Context?) :
      * @param veg
      * @return true/false
      */
-    fun updateVegForGarden(vegetable: Vegetable) : Int {
+    fun updateVegForGarden(vegetable: Vegetable): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(COLUMN_VEG_ID,vegetable.vegID)
+        contentValues.put(COLUMN_VEG_ID, vegetable.vegID)
         contentValues.put(COLUMN_GARDEN_ID, vegetable.gardenId)
 
         // Inserting Row
-        val success = db.update(TABLE_VEGETABLE, contentValues,"veg_id="+vegetable.vegID,null)
+        val success = db.update(TABLE_VEGETABLE, contentValues, "veg_id=" + vegetable.vegID, null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -1703,35 +1866,50 @@ class Database(context: Context?) :
      *
      * @return ArrayList
      */
-    fun findAllDeviceDetail(device_id: Int,garden_id: Int):ArrayList<DeviceDetail>{
-        val deviceDetailList:ArrayList<DeviceDetail> = ArrayList()
-        val selectQuery = "SELECT  * FROM $TABLE_DEVICE_DETAIL WHERE $COLUMN_DEVICE_ID = $device_id AND $COLUMN_GARDEN_ID = $garden_id"
+    fun findAllDeviceDetail(device_id: Int, garden_id: Int): ArrayList<DeviceDetail> {
+        val deviceDetailList: ArrayList<DeviceDetail> = ArrayList()
+        val selectQuery =
+            "SELECT  * FROM $TABLE_DEVICE_DETAIL WHERE $COLUMN_DEVICE_ID = $device_id AND $COLUMN_GARDEN_ID = $garden_id"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var device_detail_id: Int
         var device_detail_code: String
-        var device_detail_image : String
-        var device_detail_status : String
-        var device_id : Int
-        var garden_id : Int
+        var device_detail_image: String
+        var device_detail_status: String
+        var device_id: Int
+        var garden_id: Int
         if (cursor.moveToFirst()) {
             do {
                 device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
-                device_detail_code = cursor.getString(cursor.getColumnIndex(
-                    COLUMN_DEVICE_DETAIL_CODE))
-                device_detail_image= cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
-                device_detail_status= cursor.getString(cursor.getColumnIndex(
-                    COLUMN_DEVICE_DETAIL_STATUS))
+                device_detail_code = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_DEVICE_DETAIL_CODE
+                    )
+                )
+                device_detail_image =
+                    cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
+                device_detail_status = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_DEVICE_DETAIL_STATUS
+                    )
+                )
                 device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
                 garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
-                val device = DeviceDetail(device_detail_id,device_detail_code,device_detail_image,device_detail_status,device_id,garden_id)
+                val device = DeviceDetail(
+                    device_detail_id,
+                    device_detail_code,
+                    device_detail_image,
+                    device_detail_status,
+                    device_id,
+                    garden_id
+                )
                 deviceDetailList.add(device)
             } while (cursor.moveToNext())
         }
@@ -1744,22 +1922,22 @@ class Database(context: Context?) :
      *
      * @return ArrayList
      */
-    fun findAllVegetableForParam():ArrayList<Vegetable>{
-        val vegList:ArrayList<Vegetable> = ArrayList()
+    fun findAllVegetableForParam(): ArrayList<Vegetable> {
+        val vegList: ArrayList<Vegetable> = ArrayList()
         val selectQuery = "SELECT  * FROM $TABLE_VEGETABLE"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var vegId: Int
         var vegName: String
-        var vegImage : String
-        var gardenId : Int
-        var paramId : Int
+        var vegImage: String
+        var gardenId: Int
+        var paramId: Int
         if (cursor.moveToFirst()) {
             do {
                 vegId = cursor.getInt(cursor.getColumnIndex(COLUMN_VEG_ID))
@@ -1768,7 +1946,7 @@ class Database(context: Context?) :
                 gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
                 paramId = cursor.getInt(cursor.getColumnIndex(COLUMN_PARAM_ID))
 
-                val vegetable = Vegetable(vegId,vegName,vegImage,gardenId,paramId)
+                val vegetable = Vegetable(vegId, vegName, vegImage, gardenId, paramId)
                 vegList.add(vegetable)
             } while (cursor.moveToNext())
         }
@@ -1782,19 +1960,19 @@ class Database(context: Context?) :
      * @param param
      * @return true/false
      */
-    fun addParam(param: Param) : Long{
+    fun addParam(param: Param): Long {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_TEMP_FROM_DAY, param.tempFromDay)
         contentValues.put(COLUMN_TEMP_TO_DAY, param.tempToDay)
         contentValues.put(COLUMN_PH_FROM, param.phFrom)
         contentValues.put(COLUMN_PH_TO, param.phTo)
-        contentValues.put(COLUMN_PPM_FROM,param.ppmFrom)
-        contentValues.put(COLUMN_PPM_TO,param.ppmTo)
-        contentValues.put(COLUMN_TEMP_TO_NIGHT,param.tempToNight)
-        contentValues.put(COLUMN_TEMP_FROM_NIGHT,param.tempFromNight)
-        contentValues.put(COLUMN_TDS_LEVEL_TO,param.tdsLevelTo)
-        contentValues.put(COLUMN_TDS_LEVEL_FROM,param.tdsLevelFrom)
+        contentValues.put(COLUMN_PPM_FROM, param.ppmFrom)
+        contentValues.put(COLUMN_PPM_TO, param.ppmTo)
+        contentValues.put(COLUMN_TEMP_TO_NIGHT, param.tempToNight)
+        contentValues.put(COLUMN_TEMP_FROM_NIGHT, param.tempFromNight)
+        contentValues.put(COLUMN_TDS_LEVEL_TO, param.tdsLevelTo)
+        contentValues.put(COLUMN_TDS_LEVEL_FROM, param.tdsLevelFrom)
 
         // Inserting Row
         val success = db.insert(TABLE_PARAM, null, contentValues)
@@ -1802,29 +1980,30 @@ class Database(context: Context?) :
         db.close() // Closing database connection
         return success
     }
+
     /**
      * This method to update data param
      *
      * @param param
      * @return true/false
      */
-    fun updateParam(param: Param) : Int {
+    fun updateParam(param: Param): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(COLUMN_PARAM_ID,param.paramId)
+        contentValues.put(COLUMN_PARAM_ID, param.paramId)
         contentValues.put(COLUMN_TEMP_FROM_DAY, param.tempFromDay)
         contentValues.put(COLUMN_TEMP_TO_DAY, param.tempToDay)
         contentValues.put(COLUMN_PH_FROM, param.phFrom)
         contentValues.put(COLUMN_PH_TO, param.phTo)
-        contentValues.put(COLUMN_PPM_FROM,param.ppmFrom)
-        contentValues.put(COLUMN_PPM_TO,param.ppmTo)
-        contentValues.put(COLUMN_TEMP_TO_NIGHT,param.tempToNight)
-        contentValues.put(COLUMN_TEMP_FROM_NIGHT,param.tempFromNight)
-        contentValues.put(COLUMN_TDS_LEVEL_TO,param.tdsLevelTo)
-        contentValues.put(COLUMN_TDS_LEVEL_FROM,param.tdsLevelFrom)
+        contentValues.put(COLUMN_PPM_FROM, param.ppmFrom)
+        contentValues.put(COLUMN_PPM_TO, param.ppmTo)
+        contentValues.put(COLUMN_TEMP_TO_NIGHT, param.tempToNight)
+        contentValues.put(COLUMN_TEMP_FROM_NIGHT, param.tempFromNight)
+        contentValues.put(COLUMN_TDS_LEVEL_TO, param.tdsLevelTo)
+        contentValues.put(COLUMN_TDS_LEVEL_FROM, param.tdsLevelFrom)
 
         // Inserting Row
-        val success = db.update(TABLE_PARAM, contentValues, "param_id="+param.paramId, null)
+        val success = db.update(TABLE_PARAM, contentValues, "param_id=" + param.paramId, null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -1836,11 +2015,11 @@ class Database(context: Context?) :
      * @param param
      * @return true/false
      */
-    fun updateParamIdForVeg(paramId : Long ,veg_id: Int) : Int {
+    fun updateParamIdForVeg(paramId: Long, veg_id: Int): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_VEG_ID, veg_id)
-        contentValues.put(COLUMN_PARAM_ID,paramId)
+        contentValues.put(COLUMN_PARAM_ID, paramId)
 
         // Inserting Row
         val success = db.update(TABLE_VEGETABLE, contentValues, "veg_id=$veg_id", null)
@@ -1855,12 +2034,12 @@ class Database(context: Context?) :
      * @param paramId
      * @return Int
      */
-    fun deleteParam(paramId: Int):Int{
+    fun deleteParam(paramId: Int): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_PARAM_ID, paramId) // EmpModelClass UserId
         // Deleting Row
-        val success = db.delete(TABLE_PARAM, "param_id=$paramId",null)
+        val success = db.delete(TABLE_PARAM, "param_id=$paramId", null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -1872,15 +2051,15 @@ class Database(context: Context?) :
      * @param batch_id
      * @return Batch
      */
-    fun findParamById(paramId : Int):Param{
+    fun findParamById(paramId: Int): Param {
         val selectQuery = "SELECT  * FROM $TABLE_PARAM WHERE $COLUMN_PARAM_ID = $paramId"
         val db = this.readableDatabase
-        var param:Param = Param()
+        var param: Param = Param()
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
-            Log.d("AAA",e.message)
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
+            Log.d("AAA", e.message)
         }
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -1888,17 +2067,33 @@ class Database(context: Context?) :
                     var param_id = cursor.getInt(cursor.getColumnIndex(COLUMN_PARAM_ID))
                     var tempDayFrom = cursor.getString(cursor.getColumnIndex(COLUMN_TEMP_FROM_DAY))
                     var tempDayTo = cursor.getString(cursor.getColumnIndex(COLUMN_TEMP_TO_DAY))
-                    var tempNightFrom = cursor.getString(cursor.getColumnIndex(
-                        COLUMN_TEMP_FROM_NIGHT))
+                    var tempNightFrom = cursor.getString(
+                        cursor.getColumnIndex(
+                            COLUMN_TEMP_FROM_NIGHT
+                        )
+                    )
                     var tempNightTo = cursor.getString(cursor.getColumnIndex(COLUMN_TEMP_TO_NIGHT))
                     var ppmFrom = cursor.getString(cursor.getColumnIndex(COLUMN_PPM_FROM))
                     var ppmTo = cursor.getString(cursor.getColumnIndex(COLUMN_PPM_TO))
                     var phFrom = cursor.getString(cursor.getColumnIndex(COLUMN_PH_FROM))
                     var phTo = cursor.getString(cursor.getColumnIndex(COLUMN_PH_TO))
-                    var tdsLevelFrom = cursor.getString(cursor.getColumnIndex(COLUMN_TDS_LEVEL_FROM))
+                    var tdsLevelFrom =
+                        cursor.getString(cursor.getColumnIndex(COLUMN_TDS_LEVEL_FROM))
                     var tdsLevelTo = cursor.getString(cursor.getColumnIndex(COLUMN_TDS_LEVEL_TO))
 
-                    param = Param(param_id,tempNightTo,tempNightFrom,tempDayTo,tempDayFrom,phTo,phFrom,ppmTo,ppmFrom,tdsLevelTo,tdsLevelFrom)
+                    param = Param(
+                        param_id,
+                        tempNightTo,
+                        tempNightFrom,
+                        tempDayTo,
+                        tempDayFrom,
+                        phTo,
+                        phFrom,
+                        ppmTo,
+                        ppmFrom,
+                        tdsLevelTo,
+                        tdsLevelFrom
+                    )
                 } while (cursor.moveToNext())
             }
         }
@@ -1912,21 +2107,22 @@ class Database(context: Context?) :
      *
      * @return ArrayList
      */
-    fun findAllSubstanceByGardenId(garden_id: Int):ArrayList<Substance>{
-        val substanceList:ArrayList<Substance> = ArrayList()
-        val selectQuery = "SELECT  * FROM $TABLE_SUBSTANCE_MASS WHERE $COLUMN_GARDEN_ID = $garden_id"
+    fun findAllSubstanceByGardenId(garden_id: Int): ArrayList<Substance> {
+        val substanceList: ArrayList<Substance> = ArrayList()
+        val selectQuery =
+            "SELECT  * FROM $TABLE_SUBSTANCE_MASS WHERE $COLUMN_GARDEN_ID = $garden_id"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var substanceMassId: Int
         var substanceMassName: String
         var substanceMassImage: String
-        var totalSubstanceMass : String
+        var totalSubstanceMass: String
         var substanceMassCategory: String
         var gardenId: Int
         if (cursor.moveToFirst()) {
@@ -1934,12 +2130,22 @@ class Database(context: Context?) :
                 substanceMassId = cursor.getInt(cursor.getColumnIndex(COLUMN_SUBSTANCE_ID))
                 substanceMassName = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_NAME))
                 substanceMassImage = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_IMAGE))
-                totalSubstanceMass= cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_TOTAL))
-                substanceMassCategory= cursor.getString(cursor.getColumnIndex(
-                    COLUMN_SUBSTANCE_CATEGORY))
+                totalSubstanceMass = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_TOTAL))
+                substanceMassCategory = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_SUBSTANCE_CATEGORY
+                    )
+                )
                 gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
-                val substance = Substance(substanceMassId,substanceMassName,substanceMassImage,totalSubstanceMass,substanceMassCategory,gardenId)
+                val substance = Substance(
+                    substanceMassId,
+                    substanceMassName,
+                    substanceMassImage,
+                    totalSubstanceMass,
+                    substanceMassCategory,
+                    gardenId
+                )
                 substanceList.add(substance)
             } while (cursor.moveToNext())
         }
@@ -1952,21 +2158,22 @@ class Database(context: Context?) :
      *
      * @return ArrayList
      */
-    fun findAllSubstanceBySubstanceId(substanceId: Int) : Substance{
+    fun findAllSubstanceBySubstanceId(substanceId: Int): Substance {
         var substance = Substance()
-        val selectQuery = "SELECT  * FROM $TABLE_SUBSTANCE_MASS WHERE $COLUMN_SUBSTANCE_ID = $substanceId"
+        val selectQuery =
+            "SELECT  * FROM $TABLE_SUBSTANCE_MASS WHERE $COLUMN_SUBSTANCE_ID = $substanceId"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return substance
         }
         var substanceMassId: Int
         var substanceMassName: String
         var substanceMassImage: String
-        var totalSubstanceMass : String
+        var totalSubstanceMass: String
         var substanceMassCategory: String
         var gardenId: Int
         if (cursor.moveToFirst()) {
@@ -1974,12 +2181,22 @@ class Database(context: Context?) :
                 substanceMassId = cursor.getInt(cursor.getColumnIndex(COLUMN_SUBSTANCE_ID))
                 substanceMassName = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_NAME))
                 substanceMassImage = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_IMAGE))
-                totalSubstanceMass= cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_TOTAL))
-                substanceMassCategory= cursor.getString(cursor.getColumnIndex(
-                    COLUMN_SUBSTANCE_CATEGORY))
+                totalSubstanceMass = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_TOTAL))
+                substanceMassCategory = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_SUBSTANCE_CATEGORY
+                    )
+                )
                 gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
 
-                substance = Substance(substanceMassId,substanceMassName,substanceMassImage,totalSubstanceMass,substanceMassCategory,gardenId)
+                substance = Substance(
+                    substanceMassId,
+                    substanceMassName,
+                    substanceMassImage,
+                    totalSubstanceMass,
+                    substanceMassCategory,
+                    gardenId
+                )
             } while (cursor.moveToNext())
         }
         cursor?.close()
@@ -1987,49 +2204,76 @@ class Database(context: Context?) :
     }
 
 
-
     /**
      * This method to findAllSubstanceDetail
      *
      * @return ArrayList
      */
-    fun findAllSubstanceDetailByGardenIdAndSubstance(garden_id: Int,substanceId: Int):ArrayList<SubstanceDetail>{
-        val substanceDetailList:ArrayList<SubstanceDetail> = ArrayList()
-        val selectQuery = "SELECT  * FROM $TABLE_SUBSTANCE_MASS_DETAIL WHERE $COLUMN_GARDEN_ID = $garden_id AND $COLUMN_SUBSTANCE_ID = $substanceId"
+    fun findAllSubstanceDetailByGardenIdAndSubstance(
+        garden_id: Int,
+        substanceId: Int
+    ): ArrayList<SubstanceDetail> {
+        val substanceDetailList: ArrayList<SubstanceDetail> = ArrayList()
+        val selectQuery =
+            "SELECT  * FROM $TABLE_SUBSTANCE_MASS_DETAIL WHERE $COLUMN_GARDEN_ID = $garden_id AND $COLUMN_SUBSTANCE_ID = $substanceId"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
         var substanceMassDetailId: Int
         var substanceMassDetailName: String
         var substanceMassDetailImage: String
-        var substanceMassDetailNum : String
-        var substanceMassDetailCategory:String
+        var substanceMassDetailNum: String
+        var substanceMassDetailCategory: String
         var substanceId: Int
         var gardenId: Int
         var createBy: String
         var createDate: String
         if (cursor.moveToFirst()) {
             do {
-                substanceMassDetailId = cursor.getInt(cursor.getColumnIndex(
-                    COLUMN_SUBSTANCE_DETAIL_ID))
-                substanceMassDetailName = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_DETAIL_NAME))
-                substanceMassDetailImage = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_DETAIL_IMAGE))
-                substanceMassDetailNum= cursor.getString(cursor.getColumnIndex(
-                    COLUMN_SUBSTANCE_DETAIL_NUM))
-                substanceMassDetailCategory = cursor.getString(cursor.getColumnIndex(
-                    COLUMN_SUBSTANCE_DETAIL_CATEGORY))
-                substanceId= cursor.getInt(cursor.getColumnIndex(
-                    COLUMN_SUBSTANCE_ID))
+                substanceMassDetailId = cursor.getInt(
+                    cursor.getColumnIndex(
+                        COLUMN_SUBSTANCE_DETAIL_ID
+                    )
+                )
+                substanceMassDetailName =
+                    cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_DETAIL_NAME))
+                substanceMassDetailImage =
+                    cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_DETAIL_IMAGE))
+                substanceMassDetailNum = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_SUBSTANCE_DETAIL_NUM
+                    )
+                )
+                substanceMassDetailCategory = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_SUBSTANCE_DETAIL_CATEGORY
+                    )
+                )
+                substanceId = cursor.getInt(
+                    cursor.getColumnIndex(
+                        COLUMN_SUBSTANCE_ID
+                    )
+                )
                 gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
                 createBy = cursor.getString(cursor.getColumnIndex(COLUMN_CREATEDBY))
                 createDate = cursor.getString(cursor.getColumnIndex(COLUMN_CREATEDDATE))
 
-                val substanceDetail = SubstanceDetail(substanceMassDetailId,substanceMassDetailName,substanceMassDetailImage,substanceMassDetailNum,substanceMassDetailCategory,substanceId,gardenId,createBy,createDate)
+                val substanceDetail = SubstanceDetail(
+                    substanceMassDetailId,
+                    substanceMassDetailName,
+                    substanceMassDetailImage,
+                    substanceMassDetailNum,
+                    substanceMassDetailCategory,
+                    substanceId,
+                    gardenId,
+                    createBy,
+                    createDate
+                )
                 substanceDetailList.add(substanceDetail)
             } while (cursor.moveToNext())
         }
@@ -2042,21 +2286,22 @@ class Database(context: Context?) :
      *
      * @return ArrayList
      */
-    fun findAllSubstanceDetailBySubstanceId(substanceDetailId: Int): SubstanceDetail{
-        var substanceDetail  = SubstanceDetail()
-        val selectQuery = "SELECT  * FROM $TABLE_SUBSTANCE_MASS_DETAIL WHERE $COLUMN_SUBSTANCE_DETAIL_ID = $substanceDetailId"
+    fun findAllSubstanceDetailBySubstanceId(substanceDetailId: Int): SubstanceDetail {
+        var substanceDetail = SubstanceDetail()
+        val selectQuery =
+            "SELECT  * FROM $TABLE_SUBSTANCE_MASS_DETAIL WHERE $COLUMN_SUBSTANCE_DETAIL_ID = $substanceDetailId"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLiteException) {
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return substanceDetail
         }
         var substanceMassDetailId: Int
         var substanceMassDetailName: String
         var substanceMassDetailImage: String
-        var substanceMassDetailNum : String
+        var substanceMassDetailNum: String
         var substanceMassDetailCategory: String
         var substanceId: Int
         var gardenId: Int
@@ -2064,21 +2309,45 @@ class Database(context: Context?) :
         var createDate: String
         if (cursor.moveToFirst()) {
             do {
-                substanceMassDetailId = cursor.getInt(cursor.getColumnIndex(
-                    COLUMN_SUBSTANCE_DETAIL_ID))
-                substanceMassDetailName = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_DETAIL_NAME))
-                substanceMassDetailImage = cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_DETAIL_IMAGE))
-                substanceMassDetailNum= cursor.getString(cursor.getColumnIndex(
-                    COLUMN_SUBSTANCE_DETAIL_NUM))
-                substanceMassDetailCategory = cursor.getString(cursor.getColumnIndex(
-                    COLUMN_SUBSTANCE_DETAIL_CATEGORY))
-                substanceId= cursor.getInt(cursor.getColumnIndex(
-                    COLUMN_SUBSTANCE_ID))
+                substanceMassDetailId = cursor.getInt(
+                    cursor.getColumnIndex(
+                        COLUMN_SUBSTANCE_DETAIL_ID
+                    )
+                )
+                substanceMassDetailName =
+                    cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_DETAIL_NAME))
+                substanceMassDetailImage =
+                    cursor.getString(cursor.getColumnIndex(COLUMN_SUBSTANCE_DETAIL_IMAGE))
+                substanceMassDetailNum = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_SUBSTANCE_DETAIL_NUM
+                    )
+                )
+                substanceMassDetailCategory = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_SUBSTANCE_DETAIL_CATEGORY
+                    )
+                )
+                substanceId = cursor.getInt(
+                    cursor.getColumnIndex(
+                        COLUMN_SUBSTANCE_ID
+                    )
+                )
                 gardenId = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
                 createBy = cursor.getString(cursor.getColumnIndex(COLUMN_CREATEDBY))
                 createDate = cursor.getString(cursor.getColumnIndex(COLUMN_CREATEDDATE))
 
-                substanceDetail = SubstanceDetail(substanceMassDetailId,substanceMassDetailName,substanceMassDetailImage,substanceMassDetailNum,substanceMassDetailCategory,substanceId,gardenId,createBy,createDate)
+                substanceDetail = SubstanceDetail(
+                    substanceMassDetailId,
+                    substanceMassDetailName,
+                    substanceMassDetailImage,
+                    substanceMassDetailNum,
+                    substanceMassDetailCategory,
+                    substanceId,
+                    gardenId,
+                    createBy,
+                    createDate
+                )
 
             } while (cursor.moveToNext())
         }
@@ -2092,14 +2361,14 @@ class Database(context: Context?) :
      * @param device
      * @return Long
      */
-    fun addSubstance(substance: Substance) : Long{
+    fun addSubstance(substance: Substance): Long {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_SUBSTANCE_NAME, substance.substanceMassName)
         contentValues.put(COLUMN_SUBSTANCE_IMAGE, substance.substanceMassImage)
         contentValues.put(COLUMN_SUBSTANCE_TOTAL, substance.totalSubstanceMass)
         contentValues.put(COLUMN_SUBSTANCE_CATEGORY, substance.substanceCategory)
-        contentValues.put(COLUMN_GARDEN_ID,substance.gardenId)
+        contentValues.put(COLUMN_GARDEN_ID, substance.gardenId)
 
 
         // Inserting Row
@@ -2115,15 +2384,20 @@ class Database(context: Context?) :
      * @param veg
      * @return true/false
      */
-    fun updateSubstance(substance: Substance) : Int {
+    fun updateSubstance(substance: Substance): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(COLUMN_SUBSTANCE_ID,substance.substanceMassId)
+        contentValues.put(COLUMN_SUBSTANCE_ID, substance.substanceMassId)
         contentValues.put(COLUMN_SUBSTANCE_TOTAL, substance.totalSubstanceMass)
 
 
         // Inserting Row
-        val success = db.update(TABLE_SUBSTANCE_MASS, contentValues,"$COLUMN_SUBSTANCE_ID="+substance.substanceMassId,null)
+        val success = db.update(
+            TABLE_SUBSTANCE_MASS,
+            contentValues,
+            "$COLUMN_SUBSTANCE_ID=" + substance.substanceMassId,
+            null
+        )
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -2135,38 +2409,45 @@ class Database(context: Context?) :
      * @param veg
      * @return true/false
      */
-    fun updateSubstance1(substance: Substance) : Int {
+    fun updateSubstance1(substance: Substance): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(COLUMN_SUBSTANCE_ID,substance.substanceMassId)
+        contentValues.put(COLUMN_SUBSTANCE_ID, substance.substanceMassId)
         contentValues.put(COLUMN_SUBSTANCE_TOTAL, substance.totalSubstanceMass)
 
 
-
         // Inserting Row
-        val success = db.update(TABLE_SUBSTANCE_MASS, contentValues,"$COLUMN_SUBSTANCE_ID="+substance.substanceMassId,null)
+        val success = db.update(
+            TABLE_SUBSTANCE_MASS,
+            contentValues,
+            "$COLUMN_SUBSTANCE_ID=" + substance.substanceMassId,
+            null
+        )
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
     }
+
     /**
      * This method to insert data device detail
      *
      * @param deviceDetail
      * @return Long
      */
-    fun addSubstanceDetail(substanceDetail: SubstanceDetail) : Long{
+    fun addSubstanceDetail(substanceDetail: SubstanceDetail): Long {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_SUBSTANCE_DETAIL_NAME, substanceDetail.substanceMassDetailName)
         contentValues.put(COLUMN_SUBSTANCE_DETAIL_IMAGE, substanceDetail.substanceMassDetailImage)
-        contentValues.put(COLUMN_SUBSTANCE_DETAIL_NUM,substanceDetail.substanceMassDetailNum)
-        contentValues.put(COLUMN_SUBSTANCE_DETAIL_CATEGORY,substanceDetail.substanceMassDetailCategory)
-        contentValues.put(COLUMN_SUBSTANCE_ID,substanceDetail.substanceMassId)
-        contentValues.put(COLUMN_GARDEN_ID,substanceDetail.gardenId)
+        contentValues.put(COLUMN_SUBSTANCE_DETAIL_NUM, substanceDetail.substanceMassDetailNum)
+        contentValues.put(
+            COLUMN_SUBSTANCE_DETAIL_CATEGORY,
+            substanceDetail.substanceMassDetailCategory
+        )
+        contentValues.put(COLUMN_SUBSTANCE_ID, substanceDetail.substanceMassId)
+        contentValues.put(COLUMN_GARDEN_ID, substanceDetail.gardenId)
         contentValues.put(COLUMN_CREATEDBY, substanceDetail.createdBy)
         contentValues.put(COLUMN_CREATEDDATE, substanceDetail.createdDate)
-
 
 
         // Inserting Row
@@ -2182,15 +2463,20 @@ class Database(context: Context?) :
      * @param veg
      * @return true/false
      */
-    fun updateSubstanceDetail(substanceDetail: SubstanceDetail) : Int {
+    fun updateSubstanceDetail(substanceDetail: SubstanceDetail): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_SUBSTANCE_DETAIL_ID, substanceDetail.substanceMassDetailId)
-        contentValues.put(COLUMN_SUBSTANCE_DETAIL_NUM,substanceDetail.substanceMassDetailNum)
+        contentValues.put(COLUMN_SUBSTANCE_DETAIL_NUM, substanceDetail.substanceMassDetailNum)
         contentValues.put(COLUMN_CREATEDDATE, substanceDetail.createdDate)
 
         // Inserting Row
-        val success = db.update(TABLE_SUBSTANCE_MASS_DETAIL, contentValues,"$COLUMN_SUBSTANCE_DETAIL_ID="+substanceDetail.substanceMassDetailId,null)
+        val success = db.update(
+            TABLE_SUBSTANCE_MASS_DETAIL,
+            contentValues,
+            "$COLUMN_SUBSTANCE_DETAIL_ID=" + substanceDetail.substanceMassDetailId,
+            null
+        )
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -2202,12 +2488,16 @@ class Database(context: Context?) :
      * @param batch_id
      * @return Int
      */
-    fun deleteSubstanceDetail(substanceDetailId: Int):Int{
+    fun deleteSubstanceDetail(substanceDetailId: Int): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_SUBSTANCE_DETAIL_ID, substanceDetailId) // EmpModelClass UserId
         // Deleting Row
-        val success = db.delete(TABLE_SUBSTANCE_MASS_DETAIL, "$COLUMN_SUBSTANCE_DETAIL_ID=$substanceDetailId",null)
+        val success = db.delete(
+            TABLE_SUBSTANCE_MASS_DETAIL,
+            "$COLUMN_SUBSTANCE_DETAIL_ID=$substanceDetailId",
+            null
+        )
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
@@ -2219,15 +2509,305 @@ class Database(context: Context?) :
      * @param batch_id
      * @return Int
      */
-    fun deleteSubstance(substanceId: Int):Int{
+    fun deleteSubstance(substanceId: Int): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_SUBSTANCE_ID, substanceId) // EmpModelClass UserId
         // Deleting Row
-        val success = db.delete(TABLE_SUBSTANCE_MASS, "$COLUMN_SUBSTANCE_ID=$substanceId",null)
+        val success = db.delete(TABLE_SUBSTANCE_MASS, "$COLUMN_SUBSTANCE_ID=$substanceId", null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
     }
 
+    /*---------------------------------------------- MODE -------------------------------------------------*/
+    /**
+     * This method to find all findAllModeDeviceByDeviceId
+     *
+     * @param no data
+     * @return ArrayList
+     */
+    fun findAllModeDeviceByDeviceId(deviceId: Int): ArrayList<ModeDevice> {
+        val modeDeviceList: ArrayList<ModeDevice> = ArrayList()
+        val selectQuery = "SELECT  * FROM $TABLE_MODE_DEVICE WHERE $COLUMN_DEVICE_ID = $deviceId"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
+            db.execSQL(selectQuery)
+            return ArrayList()
+        }
+        var modeDeviceId: Int
+        var deviceId: Int
+        var modeId: Int
+        if (cursor.moveToFirst()) {
+            do {
+                modeDeviceId = cursor.getInt(cursor.getColumnIndex(COLUMN_MODE_DEVICE_ID))
+                deviceId = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
+                modeId = cursor.getInt(cursor.getColumnIndex(COLUMN_MODE_ID))
+
+                val modeDevice = ModeDevice(modeDeviceId, modeId, deviceId)
+                modeDeviceList.add(modeDevice)
+            } while (cursor.moveToNext())
+        }
+        cursor?.close()
+        return modeDeviceList
+    }
+
+    /**
+     * This method to find all findAllMode
+     *
+     * @param no data
+     * @return ArrayList
+     */
+    fun findAllMode(): ArrayList<Mode> {
+        val modeList: ArrayList<Mode> = ArrayList()
+        val selectQuery = "SELECT  * FROM $TABLE_MODE"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
+            db.execSQL(selectQuery)
+            return ArrayList()
+        }
+        var modeId: Int
+        var code: String
+        var timeOn: String
+        var timeOff: String
+        var on: String
+        var off: String
+        var timeRepeat: String
+        var repeat: String
+        var activeFlag: String
+        if (cursor.moveToFirst()) {
+            do {
+                modeId = cursor.getInt(cursor.getColumnIndex(COLUMN_MODE_ID))
+                code = cursor.getString(cursor.getColumnIndex(COLUMN_MODE_CODE))
+                timeOn = cursor.getString(cursor.getColumnIndex(COLUMN_MODE_TIME_ON))
+                timeOff = cursor.getString(cursor.getColumnIndex(COLUMN_MODE_TIME_OFF))
+                on = cursor.getString(cursor.getColumnIndex(COLUMN_MODE_ON))
+                off = cursor.getString(cursor.getColumnIndex(COLUMN_MODE_OFF))
+                timeRepeat = cursor.getString(cursor.getColumnIndex(COLUMN_MODE_TIME_REPEAT))
+                repeat = cursor.getString(cursor.getColumnIndex(COLUMN_MODE_REPEAT))
+                activeFlag = cursor.getString(cursor.getColumnIndex(COLUMN_MODE_ACTIVE_FLAG))
+
+                val mode =
+                    Mode(modeId, code, timeOn, timeOff, on, off, timeRepeat, repeat, activeFlag)
+                modeList.add(mode)
+            } while (cursor.moveToNext())
+        }
+        cursor?.close()
+        return modeList
+    }
+
+
+    /**
+     * This method to insert data mode
+     *
+     * @param param
+     * @return true/false
+     */
+    fun addMode(mode: Mode): Long {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_MODE_CODE, mode.code)
+        contentValues.put(COLUMN_MODE_TIME_ON, mode.timeOn)
+        contentValues.put(COLUMN_MODE_TIME_OFF, mode.timeOff)
+        contentValues.put(COLUMN_MODE_ON, mode.on)
+        contentValues.put(COLUMN_MODE_OFF, mode.off)
+        contentValues.put(COLUMN_MODE_TIME_REPEAT, mode.timeRepeat)
+        contentValues.put(COLUMN_MODE_REPEAT, mode.repeat)
+        contentValues.put(COLUMN_MODE_ACTIVE_FLAG, mode.activeFlag)
+        contentValues.put(COLUMN_CREATEDDATE, mode.createdDate)
+
+        // Inserting Row
+        val success = db.insert(TABLE_MODE, null, contentValues)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to update data mode
+     *
+     * @param param
+     * @return true/false
+     */
+    fun updateMode(mode: Mode): Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_MODE_CODE, mode.code)
+        contentValues.put(COLUMN_MODE_TIME_ON, mode.timeOn)
+        contentValues.put(COLUMN_MODE_TIME_OFF, mode.timeOff)
+        contentValues.put(COLUMN_MODE_ON, mode.on)
+        contentValues.put(COLUMN_MODE_OFF, mode.off)
+        contentValues.put(COLUMN_MODE_TIME_REPEAT, mode.timeRepeat)
+        contentValues.put(COLUMN_MODE_REPEAT, mode.repeat)
+        contentValues.put(COLUMN_MODE_ACTIVE_FLAG, mode.activeFlag)
+        contentValues.put(COLUMN_UPDATED_DATE, mode.updatedDate)
+
+        // Inserting Row
+        val success = db.update(TABLE_MODE, contentValues, "$COLUMN_MODE_ID=" + mode.modeId, null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+
+    /**
+     * This method to insert data mode device
+     *
+     * @param param
+     * @return true/false
+     */
+    fun addModeDevice(modeDevice: ModeDevice): Long {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_MODE_ID, modeDevice.modeId)
+        contentValues.put(COLUMN_DEVICE_ID, modeDevice.deviceId)
+
+        // Inserting Row
+        val success = db.insert(TABLE_MODE_DEVICE, null, contentValues)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to delete data
+     *
+     * @param batch_id
+     * @return Int
+     */
+
+    fun deleteModeDevice(modeId: Int, deviceId: Int): Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_MODE_ID, modeId) // EmpModelClass UserId
+        contentValues.put(COLUMN_DEVICE_ID, deviceId)
+        // Deleting Row
+        val success = db.delete(
+            TABLE_MODE_DEVICE,
+            "$COLUMN_MODE_ID=$modeId and $COLUMN_DEVICE_ID=$deviceId",
+            null
+        )
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to delete data
+     *
+     * @param batch_id
+     * @return Int
+     */
+
+    fun deleteModeDeviceByDeviceId(deviceId: Int): Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+
+        contentValues.put(COLUMN_DEVICE_ID, deviceId)
+        // Deleting Row
+        val success = db.delete(TABLE_MODE_DEVICE, "$COLUMN_DEVICE_ID=$deviceId", null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to find all findAllMode
+     *
+     * @param no data
+     * @return ArrayList
+     */
+    fun findModeDeviceByModeIdAndDeviceId(mode_Id: Int, device_Id: Int): ModeDevice {
+        var modeDevice = ModeDevice()
+        val selectQuery =
+            "SELECT  * FROM $TABLE_MODE_DEVICE WHERE $COLUMN_MODE_ID = $mode_Id AND $COLUMN_DEVICE_ID=$device_Id"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
+            db.execSQL(selectQuery)
+            return modeDevice
+        }
+        var modeDeviceId: Int
+        var modeId: Int
+        var deviceId: Int
+        if (cursor.moveToFirst()) {
+            do {
+                modeDeviceId = cursor.getInt(cursor.getColumnIndex(COLUMN_MODE_DEVICE_ID))
+                modeId = cursor.getInt(cursor.getColumnIndex(COLUMN_MODE_ID))
+                deviceId = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
+
+
+                modeDevice = ModeDevice(modeDeviceId, modeId, deviceId)
+            } while (cursor.moveToNext())
+        }
+        cursor?.close()
+        return modeDevice
+    }
+
+    /**
+     * This method to find All Device Detail
+     *
+     * @return ArrayList
+     */
+    fun findAllDeviceDetailForMode(device_id: Int, garden_id: Int): DeviceDetail {
+        var deviceDetail: DeviceDetail = DeviceDetail()
+        val selectQuery =
+            "SELECT  * FROM $TABLE_DEVICE_DETAIL WHERE $COLUMN_DEVICE_ID = $device_id AND $COLUMN_GARDEN_ID = $garden_id"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
+            db.execSQL(selectQuery)
+            return deviceDetail
+        }
+        var device_detail_id: Int
+        var device_detail_code: String
+        var device_detail_code_ss: String
+        var device_detail_image: String
+        var device_detail_status: String
+        var device_id: Int
+        var garden_id: Int
+        if (cursor.moveToFirst()) {
+            do {
+                device_detail_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_ID))
+                device_detail_code = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_DEVICE_DETAIL_CODE
+                    )
+                )
+                device_detail_code_ss = cursor.getString(cursor.getColumnIndex(
+                    COLUMN_DEVICE_DETAIL_CODE_SS))
+                device_detail_image =
+                    cursor.getString(cursor.getColumnIndex(COLUMN_DEVICE_DETAIL_IMAGE))
+                device_detail_status = cursor.getString(
+                    cursor.getColumnIndex(
+                        COLUMN_DEVICE_DETAIL_STATUS
+                    )
+                )
+                device_id = cursor.getInt(cursor.getColumnIndex(COLUMN_DEVICE_ID))
+                garden_id = cursor.getInt(cursor.getColumnIndex(COLUMN_GARDEN_ID))
+
+                deviceDetail = DeviceDetail(
+                    device_detail_id,
+                    device_detail_code,
+                    device_detail_code_ss,
+                    device_detail_image,
+                    device_detail_status,
+                    device_id,
+                    garden_id
+                )
+            } while (cursor.moveToNext())
+        }
+        cursor?.close()
+        return deviceDetail
+    }
 }

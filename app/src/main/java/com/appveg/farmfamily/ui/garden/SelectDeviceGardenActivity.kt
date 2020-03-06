@@ -48,7 +48,7 @@ class SelectDeviceGardenActivity : AppCompatActivity() {
         var gardenId: Int = getDataFromItent()
         deviceForGardens = database.findAllDeviceDetailForGarden(gardenId)
         if (deviceForGardens.isNullOrEmpty()) {
-            Toast.makeText(activity, "Dánh sách thiết bị đang trống !", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, getString(R.string.list_device_isEmpty_vi), Toast.LENGTH_LONG).show()
         }else{
             for (item in 0 until deviceForGardens.size){
                 if("Y" == deviceForGardens[item].deviceDetailStatus){

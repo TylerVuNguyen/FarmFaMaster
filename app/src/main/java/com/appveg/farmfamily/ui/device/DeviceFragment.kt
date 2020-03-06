@@ -6,23 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ListView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
-import com.appveg.farmfamily.ui.garden.Garden
-import com.appveg.farmfamily.ui.garden.QLKVAdapter
-import com.appveg.farmfamily.ui.garden.SuaKhuVuonActivity
-import com.appveg.farmfamily.ui.send.SuaDotSanLuongActivity
-import com.appveg.farmfamily.ui.vegetable.EditVegetableActivity
-import com.baoyz.swipemenulistview.SwipeMenu
 import com.baoyz.swipemenulistview.SwipeMenuCreator
 import com.baoyz.swipemenulistview.SwipeMenuItem
 import com.baoyz.swipemenulistview.SwipeMenuListView
-import kotlinx.android.synthetic.main.activity_device_detail_status.*
 import kotlinx.android.synthetic.main.fragment_device.*
-import kotlinx.android.synthetic.main.fragment_gallery.*
 
 class DeviceFragment : Fragment() {
     private lateinit var database: Database
@@ -86,8 +77,8 @@ class DeviceFragment : Fragment() {
             false
         }
 
-        var device_btn_add = root.findViewById(R.id.view_device_btn_add) as Button
-        device_btn_add.setOnClickListener {
+        var deviceBtnAdd = root.findViewById(R.id.view_device_btn_add) as Button
+        deviceBtnAdd.setOnClickListener {
             var intent: Intent = Intent(requireContext(), AddDeviceActivity::class.java)
             startActivity(intent)
         }

@@ -1,8 +1,5 @@
 package com.appveg.farmfamily.ui.param
 
-import android.app.Activity
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +13,10 @@ import com.appveg.farmfamily.ui.vegetable.Vegetable
 import com.bumptech.glide.Glide
 import java.io.File
 
-class ParamFragmentAdapter (private val activity: FragmentActivity?, private var items: ArrayList<Vegetable>) :  BaseAdapter(){
+class ParamFragmentAdapter(
+    private val activity: FragmentActivity?,
+    private var items: ArrayList<Vegetable>
+) : BaseAdapter() {
 
     //1
     override fun getCount(): Int {
@@ -40,7 +40,6 @@ class ParamFragmentAdapter (private val activity: FragmentActivity?, private var
         var status: TextView? = null
 
 
-
         init {
             this.vegName = row?.findViewById(R.id.view_veg_param_name) as TextView
             this.vegImg = row?.findViewById(R.id.view_veg_param_image) as ImageView
@@ -52,20 +51,20 @@ class ParamFragmentAdapter (private val activity: FragmentActivity?, private var
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
         var view: View?
-        var viewHolder : ViewHolder
-        if( convertView == null){
+        var viewHolder: ViewHolder
+        if (convertView == null) {
 
             var layout = LayoutInflater.from(activity)
-            view = layout.inflate(R.layout.layout_veg_pram_detail,parent,false)
+            view = layout.inflate(R.layout.layout_veg_pram_detail, parent, false)
             viewHolder = ViewHolder(view)
             view.tag = viewHolder
 
-        }else{
+        } else {
             view = convertView
             viewHolder = view.tag as ViewHolder
         }
 
-        var veg : Vegetable = getItem(position) as Vegetable
+        var veg: Vegetable = getItem(position) as Vegetable
         viewHolder.vegName!!.text = veg.vegName
         viewHolder.status!!.text = getStatus(veg.paramId)
 
@@ -75,14 +74,16 @@ class ParamFragmentAdapter (private val activity: FragmentActivity?, private var
 //        viewHolder.vegImg.setImageBitmap(bitmap)
 
         // load photo
-        this!!.activity?.let { Glide.with(it).load(Uri.fromFile(File(veg.vegImgBlob))).into(viewHolder.vegImg) }
+        this!!.activity?.let {
+            Glide.with(it).load(Uri.fromFile(File(veg.vegImgBlob))).into(viewHolder.vegImg)
+        }
         return view as View
 
     }
 
-    private fun getStatus(paramId : Int) : String{
+    private fun getStatus(paramId: Int): String {
         var result = activity!!.resources.getString(R.string.no_setting_param_vi)
-        if(paramId != 0 ){
+        if (paramId != 0) {
             result = activity!!.resources.getString(R.string.setting_param_vi)
         }
         return result

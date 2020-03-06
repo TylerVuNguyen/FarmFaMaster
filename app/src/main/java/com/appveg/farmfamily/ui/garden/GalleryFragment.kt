@@ -1,11 +1,18 @@
 package com.appveg.farmfamily.ui.garden
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.view.*
 import android.widget.Button
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.appveg.farmfamily.R
@@ -14,6 +21,12 @@ import com.baoyz.swipemenulistview.SwipeMenuCreator
 import com.baoyz.swipemenulistview.SwipeMenuItem
 import com.baoyz.swipemenulistview.SwipeMenuListView
 import kotlinx.android.synthetic.main.fragment_gallery.*
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.OutputStream
+import java.util.*
+import kotlin.collections.ArrayList
 
 class GalleryFragment : Fragment() {
     private lateinit var database: Database
@@ -126,6 +139,10 @@ class GalleryFragment : Fragment() {
             intent.putExtra("garden_code",gardenCode)
             startActivity(intent)
         }
+//        garden_btn_print.setOnClickListener {
+//            var bitmap = getScreenShot(root)
+//            saveImageSDcard(bitmap)
+//        }
 
         return root.rootView
 
@@ -176,5 +193,34 @@ class GalleryFragment : Fragment() {
         super.onResume()
         gardens = getListGarden()
         list_view_garden.adapter = activity?.let { QLKVAdapter(it,gardens) }
+    }
+
+    private fun getScreenShot(view: View): Bitmap {
+        val returnedBitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(returnedBitmap)
+        val bgDrawable = view.background
+        if (bgDrawable != null) bgDrawable.draw(canvas)
+        else canvas.drawColor(Color.WHITE)
+        view.draw(canvas)
+        return returnedBitmap
+    }
+
+    private fun saveImageSDcard(bitmap: Bitmap) : Uri? {
+
+        var filePath = Environment.getExternalStorageDirectory()
+
+        filePath = File(filePath, "${UUID.randomUUID()}.png")
+
+        var outputStream : OutputStream? = null
+
+        try {
+            outputStream = FileOutputStream(filePath)
+            bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream)
+            outputStream.flush()
+            outputStream.close()
+        }catch (e: IOException){
+            e.printStackTrace()
+        }
+        return Uri.parse(filePath.absoluteFile.toString())
     }
 }

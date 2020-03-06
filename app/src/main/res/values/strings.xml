@@ -10,6 +10,7 @@
     <string name="action_settings_vi">Cài đặt</string>
 
     <string name="menu_home">Trang chủ</string>
+    <string name="menu_mode">Chế độ</string>
     <string name="menu_gallery">Quản lý khu vườn </string>
     <string name="menu_share">Quản lý khối lượng chất</string>
     <string name="menu_send">Quản lý sản lượng </string>
@@ -136,7 +137,9 @@
     <string name="image_no_select_vi">Bạn chưa chọn ảnh !</string>
     <string name="add_vi">Thêm</string>
     <string name="update_vi">Cập nhật</string>
-    <string name="cancel_vi">Hủy</string>
+    <string name="cancel_vi">Thoát</string>
+    <string name="quit_vi">Hủy</string>
+    <string name="yes_vi">Có</string>
     <string name="print_vi">In</string>
     <string name="no_data_vi">Không có dữ liệu</string>
     <string name="delete_title_all_vi">Bạn có chắc chắn muốn xóa không ?</string>
@@ -166,6 +169,7 @@
     <string name="message_Setting_vi">Đã cài đặt thiết bị</string>
     <string name="select_device_and_veg_vi">Đã thêm (0) thiết bị</string>
     <string name="select_veg_vi">Đã thêm (0) loại rau</string>
+    <string name="list_device_isEmpty_vi">Dánh sách thiết bị đang trống !</string>
     <!-- end device VI-->
 
     <!--Temperature VI-->
@@ -203,7 +207,6 @@
     <string name="setting_param_vi">Đã cài đặt tham số</string>
 
 
-
     <string name="select_language_vi">Chọn ngôn ngữ</string>
     <string name="language_vi_en">Ngôn ngữ</string>
     <string name="change_pass_vi">Đổi mật khẩu</string>
@@ -229,6 +232,7 @@
     <string name="unknown_vi">Null</string>
     <string name="ON_vi">Bật</string>
     <string name="OFF_vi">Tắt</string>
+    <string name="time_slot_vi">Khung giờ</string>
     <string name="next_vi">Tới</string>
     <string name="back_vi">Lùi</string>
     <string name="stop_vi">Dừng</string>
@@ -245,5 +249,20 @@
     <string name="subject_reset_password">Mật khẩu đặt lại</string>
     <string name="send_password_to_email">Mật khẩu đăng nhập đã được gửi vào email đăng ký</string>
     <string name="error_email">Email này không tồn tại !</string>
+
+    <!--mode-->
+    <string name="delete_mode_title">Xóa chế độ !</string>
+    <string name="time_mode_on">Thời gian bắt đầu</string>
+    <string name="time_mode_off">Thời gian kết thúc</string>
+    <string name="time_mode_on_1">Thời gian bật</string>
+    <string name="time_mode_off_1">Thời gian tắt</string>
+    <string name="detail_mode">Chi tiết chế độ</string>
+    <string name="choose_mode_for_device">Chọn chế độ</string>
+    <string name="ok_vi">OK</string>
+    <string name="everyday_vi">Mỗi ngày</string>
+    <string name="choose_vi">Chọn</string>
+    <string name="list_mode_isEmpty_vi">Dánh sách chế độ đang trống !</string>
+    <string name="setting_mode_for_device_vi">Đã cài đặt chế độ !</string>
+    <string name="un_setting_mode_for_device_vi">Đã gở cài đặt chế độ !</string>
 
 </resources>
