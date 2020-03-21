@@ -2810,4 +2810,50 @@ class Database(context: Context?) :
         cursor?.close()
         return deviceDetail
     }
+
+    /**
+     * This method to find all findAllMode by mode id
+     *
+     * @param no data
+     * @return ArrayList
+     */
+    fun findAllModeByModeId(modeId: Int): Mode {
+        var mode: Mode = Mode()
+        val selectQuery = "SELECT  * FROM $TABLE_MODE WHERE $COLUMN_MODE_ID = $modeId"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLiteException) {
+            db.execSQL(selectQuery)
+            return mode
+        }
+        var modeId: Int
+        var code: String
+        var timeOn: String
+        var timeOff: String
+        var on: String
+        var off: String
+        var timeRepeat: String
+        var repeat: String
+        var activeFlag: String
+        if (cursor.moveToFirst()) {
+            do {
+                modeId = cursor.getInt(cursor.getColumnIndex(COLUMN_MODE_ID))
+                code = cursor.getString(cursor.getColumnIndex(COLUMN_MODE_CODE))
+                timeOn = cursor.getString(cursor.getColumnIndex(COLUMN_MODE_TIME_ON))
+                timeOff = cursor.getString(cursor.getColumnIndex(COLUMN_MODE_TIME_OFF))
+                on = cursor.getString(cursor.getColumnIndex(COLUMN_MODE_ON))
+                off = cursor.getString(cursor.getColumnIndex(COLUMN_MODE_OFF))
+                timeRepeat = cursor.getString(cursor.getColumnIndex(COLUMN_MODE_TIME_REPEAT))
+                repeat = cursor.getString(cursor.getColumnIndex(COLUMN_MODE_REPEAT))
+                activeFlag = cursor.getString(cursor.getColumnIndex(COLUMN_MODE_ACTIVE_FLAG))
+
+                mode =
+                    Mode(modeId, code, timeOn, timeOff, on, off, timeRepeat, repeat, activeFlag)
+            } while (cursor.moveToNext())
+        }
+        cursor?.close()
+        return mode
+    }
 }

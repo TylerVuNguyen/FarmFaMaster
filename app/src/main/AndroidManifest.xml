@@ -40,6 +40,14 @@
                 android:value="com.appveg.farmfamily.ui.mode.AddModeForDeviceActivity" />
         </activity>
         <activity
+            android:name=".ui.mode.EditModeForDeviceActivity"
+            android:label="Thêm chế độ"
+            android:parentActivityName=".ui.mode.EditModeForDeviceActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appveg.farmfamily.ui.mode.EditModeForDeviceActivity" />
+        </activity>
+        <activity
             android:name=".ui.share.EditSubstanceMassDetailActivity"
             android:label="Sửa loại dung dịch"
             android:parentActivityName=".ui.share.EditSubstanceMassDetailActivity">

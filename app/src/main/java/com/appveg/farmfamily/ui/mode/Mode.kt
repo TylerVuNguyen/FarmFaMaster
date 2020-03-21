@@ -101,4 +101,7 @@ class Mode {
         this.createdDate = createdDate
 
     }
+
+    constructor()
+
 }

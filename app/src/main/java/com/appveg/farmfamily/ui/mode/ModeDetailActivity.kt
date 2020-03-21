@@ -8,14 +8,9 @@ import android.os.Bundle
 import android.widget.Toast
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.database.Database
-import com.appveg.farmfamily.ui.device.DeviceAdapter
-import com.appveg.farmfamily.ui.device.DeviceDetail
-import com.appveg.farmfamily.ui.device.DeviceDetailAdapter
 import com.baoyz.swipemenulistview.SwipeMenuCreator
 import com.baoyz.swipemenulistview.SwipeMenuItem
-import kotlinx.android.synthetic.main.activity_device_detail_status.*
 import kotlinx.android.synthetic.main.activity_mode_detail.*
-import kotlinx.android.synthetic.main.fragment_device.*
 
 class ModeDetailActivity : AppCompatActivity() {
 
@@ -87,7 +82,7 @@ class ModeDetailActivity : AppCompatActivity() {
         list_view_mode_detail.setOnMenuItemClickListener { position, menu, index ->
             when (index) {
                 0 -> {
-                    //getForwardData(position)
+                    getForwardData(position)
                 }
                 1 -> {
                     // build alert dialog
@@ -99,7 +94,7 @@ class ModeDetailActivity : AppCompatActivity() {
                         .setCancelable(false)
                         // positive button text and action
                         .setPositiveButton(getString(R.string.yes_vi), DialogInterface.OnClickListener { dialog, id ->
-                            //removeParam(position)
+                            //removeMode(position)
                         })
                         // negative button text and action
                         .setNegativeButton(getString(R.string.quit_vi), DialogInterface.OnClickListener { dialog, id -> dialog.cancel()
@@ -133,6 +128,43 @@ class ModeDetailActivity : AppCompatActivity() {
         return listMode
     }
 
+    /**
+     * the method to removeBatch
+     */
+    private fun removeMode(position: Int) {
+//        database = Database(activity)
+//
+//        var deviceDetail = database.deleteDetailDevice(deviceDetails[position].deviceDetailID!!.toInt())
+//        deviceDetails.remove(deviceDetails[position])
+//        if(deviceDetails.isNullOrEmpty()){
+//            database.deleteDevice(deviceId)
+//            database.deleteModeDeviceByDeviceId(deviceId)
+//            // finish because page no data
+//            Toast.makeText(
+//                activity,
+//                getString(R.string.deleted_data_success_vi),
+//                Toast.LENGTH_LONG
+//            ).show()
+//            activity.finish()
+//        }else if (deviceDetail != null) {
+//            Toast.makeText(
+//                activity,
+//                getString(R.string.deleted_data_success_vi),
+//                Toast.LENGTH_LONG
+//            ).show()
+//            list_view_device_detail.adapter = DeviceDetailAdapter(activity, deviceDetails)
+//        }
+    }
+
+    /**
+     * the method to itent data for Veg
+     */
+    private fun getForwardData(position: Int){
+        var modeId = modes[position].modeId!!.toInt()
+        var intent: Intent = Intent(activity, EditModeForDeviceActivity::class.java)
+        intent.putExtra("mode_id",modeId)
+        startActivity(intent)
+    }
 
     /**
      * the method to resume ( call when back stack)
