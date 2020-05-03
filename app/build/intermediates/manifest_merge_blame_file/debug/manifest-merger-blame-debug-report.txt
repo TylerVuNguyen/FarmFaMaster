@@ -102,8 +102,8 @@
 54-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:42:9-49:20
 55            android:name="com.appveg.farmfamily.ui.mode.EditModeForDeviceActivity"
 55-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:43:13-62
-56            android:label="Thêm chế độ"
-56-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:44:13-40
+56            android:label="Sửa chế độ"
+56-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:44:13-39
 57            android:parentActivityName="com.appveg.farmfamily.ui.mode.EditModeForDeviceActivity" >
 57-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:45:13-76
 58            <meta-data

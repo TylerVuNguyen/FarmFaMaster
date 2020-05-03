@@ -43,6 +43,26 @@ class Mode {
 
     constructor(
         modeId: Int?,
+        timeOn: String?,
+        timeOff: String?,
+        on: String?,
+        off: String?,
+        timeRepeat: String?,
+        repeat: String?,
+        updatedDate: String?
+    ) {
+        this.modeId = modeId
+        this.timeOn = timeOn
+        this.timeOff = timeOff
+        this.on = on
+        this.off = off
+        this.timeRepeat = timeRepeat
+        this.repeat = repeat
+        this.updatedDate = updatedDate
+    }
+
+    constructor(
+        modeId: Int?,
         code: String?,
         timeOn: String?,
         timeOff: String?,

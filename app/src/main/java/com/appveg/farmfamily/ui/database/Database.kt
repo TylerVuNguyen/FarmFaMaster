@@ -2638,14 +2638,12 @@ class Database(context: Context?) :
     fun updateMode(mode: Mode): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(COLUMN_MODE_CODE, mode.code)
         contentValues.put(COLUMN_MODE_TIME_ON, mode.timeOn)
         contentValues.put(COLUMN_MODE_TIME_OFF, mode.timeOff)
         contentValues.put(COLUMN_MODE_ON, mode.on)
         contentValues.put(COLUMN_MODE_OFF, mode.off)
         contentValues.put(COLUMN_MODE_TIME_REPEAT, mode.timeRepeat)
         contentValues.put(COLUMN_MODE_REPEAT, mode.repeat)
-        contentValues.put(COLUMN_MODE_ACTIVE_FLAG, mode.activeFlag)
         contentValues.put(COLUMN_UPDATED_DATE, mode.updatedDate)
 
         // Inserting Row
@@ -2855,5 +2853,41 @@ class Database(context: Context?) :
         }
         cursor?.close()
         return mode
+    }
+
+    /**
+     * This method to delete data
+     *
+     * @param mode_id
+     * @return Int
+     */
+    fun deleteMode(modeId: Int): Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_MODE_ID, modeId) // EmpModelClass UserId
+        // Deleting Row
+        val success = db.delete(TABLE_MODE, "mode_id=$modeId", null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    /**
+     * This method to delete data mode_device
+     *
+     * @param mode_id
+     * @return Int
+     */
+
+    fun deleteModeDeviceByModeId(modeId: Int): Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+
+        contentValues.put(COLUMN_MODE_ID,modeId)
+        // Deleting Row
+        val success = db.delete(TABLE_MODE_DEVICE, "$COLUMN_MODE_ID=$modeId", null)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
     }
 }

@@ -251,7 +251,7 @@ ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:42:9-49:20
 	android:parentActivityName
 		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:45:13-76
 	android:label
-		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:44:13-40
+		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:44:13-39
 	android:name
 		ADDED from G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml:43:13-62
 activity#com.appveg.farmfamily.ui.share.EditSubstanceMassDetailActivity

@@ -25,6 +25,13 @@ class AddModeForDeviceActivity : AppCompatActivity() {
     private var listDayRepeat = ArrayList<String>()
     var result = ""
     private lateinit var database: Database
+    var check1: Int = 1
+    var check2: Int = 1
+    var check3: Int = 1
+    var check4: Int = 1
+    var check5: Int = 1
+    var check6: Int = 1
+    var check7: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,7 +96,7 @@ class AddModeForDeviceActivity : AppCompatActivity() {
         }
 
 
-        var check1: Int = 1
+
         t2.setOnClickListener {
             if (check1 == 1) {
                 t2.background = getDrawable(R.drawable.back_on)
@@ -102,7 +109,7 @@ class AddModeForDeviceActivity : AppCompatActivity() {
             }
             setDayRepeat()
         }
-        var check2: Int = 1
+
         t3.setOnClickListener {
             if (check2 == 1) {
                 t3.background = getDrawable(R.drawable.back_on)
@@ -115,7 +122,7 @@ class AddModeForDeviceActivity : AppCompatActivity() {
             }
             setDayRepeat()
         }
-        var check3: Int = 1
+
         t4.setOnClickListener {
             if (check3 == 1) {
                 t4.background = getDrawable(R.drawable.back_on)
@@ -129,7 +136,7 @@ class AddModeForDeviceActivity : AppCompatActivity() {
             setDayRepeat()
         }
 
-        var check4: Int = 1
+
         t5.setOnClickListener {
             if (check4 == 1) {
                 t5.background = getDrawable(R.drawable.back_on)
@@ -143,7 +150,6 @@ class AddModeForDeviceActivity : AppCompatActivity() {
             setDayRepeat()
         }
 
-        var check5: Int = 1
         t6.setOnClickListener {
             if (check5 == 1) {
                 t6.background = getDrawable(R.drawable.back_on)
@@ -157,7 +163,6 @@ class AddModeForDeviceActivity : AppCompatActivity() {
             setDayRepeat()
         }
 
-        var check6: Int = 1
         t7.setOnClickListener {
             if (check6 == 1) {
                 t7.background = getDrawable(R.drawable.back_on)
@@ -171,7 +176,6 @@ class AddModeForDeviceActivity : AppCompatActivity() {
             setDayRepeat()
         }
 
-        var check7: Int = 1
         cn.setOnClickListener {
             if (check7 == 1) {
                 cn.background = getDrawable(R.drawable.back_on)

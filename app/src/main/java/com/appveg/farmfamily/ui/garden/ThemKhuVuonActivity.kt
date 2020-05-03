@@ -3,13 +3,11 @@ package com.appveg.farmfamily.ui.garden
 
 import android.Manifest
 import android.app.Activity
-import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
-import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -17,8 +15,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.appveg.farmfamily.R
+import com.appveg.farmfamily.ui.constant.SendMail
 import com.appveg.farmfamily.ui.database.Database
-import com.appveg.farmfamily.ui.login.User
 import com.bumptech.glide.Glide
 import com.creativityapps.gmailbackgroundlibrary.BackgroundMail
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.*
@@ -29,7 +27,6 @@ import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_4
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_5
 import kotlinx.android.synthetic.main.activity_them_khu_vuon.add_image_garden_6
 import java.io.*
-import java.lang.Exception
 import java.text.Normalizer
 import java.text.SimpleDateFormat
 import java.util.*
@@ -337,9 +334,10 @@ class ThemKhuVuonActivity : AppCompatActivity() {
     }
     //
     private fun sendTestEmail(mailTo: String,subject: String,body: String) {
+        var sendMail = SendMail()
         BackgroundMail.newBuilder(this)
-            .withUsername("hotronguoidung2202@gmail.com")
-            .withPassword("hoangvutkasd123")
+            .withUsername(sendMail.username.toString())
+            .withPassword(sendMail.password.toString())
             .withMailto(mailTo)
             .withType(BackgroundMail.TYPE_PLAIN)
             .withSubject(subject)

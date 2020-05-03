@@ -329,7 +329,7 @@
 
 
         <Button
-            android:id="@+id/btn_device_add"
+            android:id="@+id/btn_device_mode_edit"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -337,11 +337,11 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/ic_add2"
-            android:text="@string/add_vi"
+            android:text="@string/update_vi"
             android:textColor="@android:color/white" />
 
         <Button
-            android:id="@+id/cancel_action_device"
+            android:id="@+id/cancel_action_device_mode_edit"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

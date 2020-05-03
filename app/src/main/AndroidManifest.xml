@@ -41,7 +41,7 @@
         </activity>
         <activity
             android:name=".ui.mode.EditModeForDeviceActivity"
-            android:label="Thêm chế độ"
+            android:label="Sửa chế độ"
             android:parentActivityName=".ui.mode.EditModeForDeviceActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

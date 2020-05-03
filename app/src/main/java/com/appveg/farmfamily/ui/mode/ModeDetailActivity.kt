@@ -94,7 +94,7 @@ class ModeDetailActivity : AppCompatActivity() {
                         .setCancelable(false)
                         // positive button text and action
                         .setPositiveButton(getString(R.string.yes_vi), DialogInterface.OnClickListener { dialog, id ->
-                            //removeMode(position)
+                            removeMode(position)
                         })
                         // negative button text and action
                         .setNegativeButton(getString(R.string.quit_vi), DialogInterface.OnClickListener { dialog, id -> dialog.cancel()
@@ -132,28 +132,19 @@ class ModeDetailActivity : AppCompatActivity() {
      * the method to removeBatch
      */
     private fun removeMode(position: Int) {
-//        database = Database(activity)
-//
-//        var deviceDetail = database.deleteDetailDevice(deviceDetails[position].deviceDetailID!!.toInt())
-//        deviceDetails.remove(deviceDetails[position])
-//        if(deviceDetails.isNullOrEmpty()){
-//            database.deleteDevice(deviceId)
-//            database.deleteModeDeviceByDeviceId(deviceId)
-//            // finish because page no data
-//            Toast.makeText(
-//                activity,
-//                getString(R.string.deleted_data_success_vi),
-//                Toast.LENGTH_LONG
-//            ).show()
-//            activity.finish()
-//        }else if (deviceDetail != null) {
-//            Toast.makeText(
-//                activity,
-//                getString(R.string.deleted_data_success_vi),
-//                Toast.LENGTH_LONG
-//            ).show()
-//            list_view_device_detail.adapter = DeviceDetailAdapter(activity, deviceDetails)
-//        }
+        database = Database(activity)
+
+        var modeId = modes[position].modeId!!.toInt()
+        modes.remove(modes[position])
+        database.deleteMode(modeId)
+        database.deleteModeDeviceByModeId(modeId)
+        // finish because page no data
+        Toast.makeText(
+            activity,
+            getString(R.string.deleted_data_success_vi),
+            Toast.LENGTH_LONG
+        ).show()
+        list_view_mode_detail.adapter = ModeDetailAdapter(activity, modes)
     }
 
     /**

@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.appveg.farmfamily.R
+import com.appveg.farmfamily.ui.constant.SendMail
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device.DeviceDetail
 import com.bumptech.glide.Glide
@@ -224,9 +225,10 @@ class SelectDeviceGardenAdapter(
 
     //
     private fun sendTestEmail(mailTo: String,subject: String,body: String) {
+        var user = SendMail()
         BackgroundMail.newBuilder(activity)
-            .withUsername("hotronguoidung2202@gmail.com")
-            .withPassword("hoangvutkasd123")
+            .withUsername(user.username.toString())
+            .withPassword(user.password.toString())
             .withMailto(mailTo)
             .withType(BackgroundMail.TYPE_PLAIN)
             .withSubject(subject)
