@@ -1,7 +1,10 @@
 package com.appveg.farmfamily.ui.share
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +19,12 @@ import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.garden.Garden
 import com.appveg.farmfamily.ui.send.ChiTietDotSanLuongActivity
 import com.appveg.farmfamily.ui.send.GardenOfQtyApdapter
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.OutputStream
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ShareFragment : Fragment() {
 
@@ -60,4 +69,6 @@ class ShareFragment : Fragment() {
         }
         return gardenList
     }
+
+
 }

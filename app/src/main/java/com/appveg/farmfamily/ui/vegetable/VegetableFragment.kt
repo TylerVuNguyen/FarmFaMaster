@@ -128,6 +128,8 @@ class VegetableFragment  : Fragment() {
             var intent: Intent = Intent(requireContext(), AddVegetableActivity::class.java)
             startActivity(intent)
         }
+
+        //button save
         var viewVegBtnPrint = root.findViewById(R.id.viewveg_btn_print) as Button
         viewVegBtnPrint.setOnClickListener {
             var dialog = Dialog(activity)
@@ -205,6 +207,9 @@ class VegetableFragment  : Fragment() {
         list_view_vegetable.adapter = activity?.let { VegetableFragmentAdapter(it, vegetables) }
     }
 
+    /**
+     * save picture
+     */
     private fun saveImageSDcard(bitmap: Bitmap) : Uri? {
 
         val path = Environment.getExternalStorageDirectory().toString()

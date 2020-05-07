@@ -2,6 +2,7 @@ package com.appveg.farmfamily.ui.garden
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
@@ -12,10 +13,12 @@ import android.os.Bundle
 import android.os.Environment
 import android.view.*
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.appveg.farmfamily.R
+import com.appveg.farmfamily.ui.Screenshot
 import com.appveg.farmfamily.ui.database.Database
 import com.baoyz.swipemenulistview.SwipeMenuCreator
 import com.baoyz.swipemenulistview.SwipeMenuItem
@@ -139,10 +142,28 @@ class GalleryFragment : Fragment() {
             intent.putExtra("garden_code",gardenCode)
             startActivity(intent)
         }
-//        garden_btn_print.setOnClickListener {
-//            var bitmap = getScreenShot(root)
-//            saveImageSDcard(bitmap)
-//        }
+//        button save
+        var viewGardenPrint = root.findViewById<Button>(R.id.garden_btn_print)
+        viewGardenPrint.setOnClickListener {
+            var dialog = Dialog(activity)
+            // get id by position
+            dialog.setContentView(R.layout.custom_dialog_screenhot)
+            dialog.setTitle(getString(R.string.choose_mode_for_device))
+            var imageView = dialog.findViewById(R.id.imageView) as ImageView
+            var button = dialog.findViewById(R.id.detail_mode_btn_screen_ok) as Button
+
+            //handler
+            val activityView = layout_garden_screenshot.rootView
+            var screenshot = Screenshot()
+            val b = screenshot.takescreenshot(activityView)
+            imageView.setImageBitmap(b)
+            saveImageSDcard(b)
+            //get list mode
+            button.setOnClickListener {
+                dialog.dismiss()
+            }
+            dialog.show()
+        }
 
         return root.rootView
 

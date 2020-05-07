@@ -1580,6 +1580,7 @@ id detail_mode_btn_screen_ok
 id detailsContainer
 id deviceSettingNum
 id device_btn_print
+id device_category_fragment_layout
 id device_category_image1
 id device_category_image1_edit
 id device_category_image2
@@ -1673,8 +1674,15 @@ id item_touch_helper_previous_elevation
 id labeled
 id language_vi_en
 id largeLabel
+id layoutBatch_screenshot
+id layoutChart_screenshot
+id layoutDeatilSubstance_screenshot
+id layoutDeviceSettingForGarden_screenshot
 id layoutDevice_screenshot
+id layoutParam_screenshot
+id layoutUsers_screenshot
 id layout_choose_mode_popup
+id layout_detail_batch_veg_screenshot
 id layout_garden_screenshot
 id layout_list_veg
 id layout_list_view_device
@@ -2016,6 +2024,7 @@ id up
 id useLogo
 id userEmailId
 id user_checked
+id users_btn_print
 id veg_for_garden_checked
 id veg_name
 id veg_name_edit

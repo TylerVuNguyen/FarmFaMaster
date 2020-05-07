@@ -1,19 +1,33 @@
 package com.appveg.farmfamily.ui.share
 
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import com.appveg.farmfamily.R
+import com.appveg.farmfamily.ui.Screenshot
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device.DeviceDetailAdapter
 import com.baoyz.swipemenulistview.SwipeMenuCreator
 import com.baoyz.swipemenulistview.SwipeMenuItem
+import kotlinx.android.synthetic.main.activity_chi_tiet_tung_san_luong.*
 import kotlinx.android.synthetic.main.activity_device_detail_status.*
 import kotlinx.android.synthetic.main.activity_substance_mass.*
 import kotlinx.android.synthetic.main.activity_substance_mass_detail.*
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.OutputStream
+import java.util.*
+import kotlin.collections.ArrayList
 
 class SubstanceMassDetailActivity : AppCompatActivity() {
 
@@ -108,6 +122,29 @@ class SubstanceMassDetailActivity : AppCompatActivity() {
             // false : close the menu; true : not close the menu
             false
         }
+
+        //button save
+        var viewDeatilSubstancePrint = findViewById<Button>(R.id.view_substance_detail_btn_print)
+        viewDeatilSubstancePrint.setOnClickListener {
+            var dialog = Dialog(activity)
+            // get id by position
+            dialog.setContentView(R.layout.custom_dialog_screenhot)
+            dialog.setTitle(getString(R.string.choose_mode_for_device))
+            var imageView = dialog.findViewById(R.id.imageView) as ImageView
+            var button = dialog.findViewById(R.id.detail_mode_btn_screen_ok) as Button
+
+            //handler
+            val activityView = layoutDeatilSubstance_screenshot
+            var screenshot = Screenshot()
+            val b = screenshot.takescreenshot(activityView)
+            imageView.setImageBitmap(b)
+            saveImageSDcard(b)
+            //get list mode
+            button.setOnClickListener {
+                dialog.dismiss()
+            }
+            dialog.show()
+        }
     }
 
     /**
@@ -192,5 +229,26 @@ class SubstanceMassDetailActivity : AppCompatActivity() {
             ).show()
             list_view_substance_detail.adapter = SubstanceMassDetailAdapter(activity, substanceDetails)
         }
+    }
+
+    /**
+     * save picture
+     */
+    private fun saveImageSDcard(bitmap: Bitmap) : Uri? {
+
+        val path = Environment.getExternalStorageDirectory().toString()
+        val file = File(path, "${UUID.randomUUID()}.png")
+
+        var outputStream : OutputStream? = null
+
+        try {
+            outputStream = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream)
+            outputStream.flush()
+            outputStream.close()
+        }catch (e: IOException){
+            e.printStackTrace()
+        }
+        return Uri.parse(file.absoluteFile.toString())
     }
 }

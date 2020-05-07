@@ -3,18 +3,22 @@
 package com.appveg.farmfamily.ui.chart
 
 
+import android.app.Dialog
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.util.Half.toFloat
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import com.appveg.farmfamily.R
+import com.appveg.farmfamily.ui.Screenshot
 import com.appveg.farmfamily.ui.home.DetailGardenFirebase
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.components.YAxis
@@ -25,6 +29,7 @@ import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_chart.*
+import kotlinx.android.synthetic.main.fragment_vegetable.*
 import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -46,6 +51,29 @@ class ChartActivity : AppCompatActivity(), OnChartValueSelectedListener {
         //gardenInfo()
         btn_chart_print.setOnClickListener {
             takeScreenshot()
+        }
+
+        //button save
+        var viewChartPrint = findViewById<Button>(R.id.btn_chart_print)
+        viewChartPrint.setOnClickListener {
+            var dialog = Dialog(this)
+            // get id by position
+            dialog.setContentView(R.layout.custom_dialog_screenhot)
+            dialog.setTitle(getString(R.string.choose_mode_for_device))
+            var imageView = dialog.findViewById(R.id.imageView) as ImageView
+            var button = dialog.findViewById(R.id.detail_mode_btn_screen_ok) as Button
+
+            //handler
+            val activityView = layoutChart_screenshot
+            var screenshot = Screenshot()
+            val b = screenshot.takescreenshot(activityView)
+            imageView.setImageBitmap(b)
+            saveImageSDcard(b)
+            //get list mode
+            button.setOnClickListener {
+                dialog.dismiss()
+            }
+            dialog.show()
         }
 
     }
@@ -307,5 +335,26 @@ class ChartActivity : AppCompatActivity(), OnChartValueSelectedListener {
         view.isDrawingCacheEnabled = false
 
         return bitmap
+    }
+
+    /**
+     * save picture
+     */
+    private fun saveImageSDcard(bitmap: Bitmap) : Uri? {
+
+        val path = Environment.getExternalStorageDirectory().toString()
+        val file = File(path, "${UUID.randomUUID()}.png")
+
+        var outputStream : OutputStream? = null
+
+        try {
+            outputStream = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream)
+            outputStream.flush()
+            outputStream.close()
+        }catch (e: IOException){
+            e.printStackTrace()
+        }
+        return Uri.parse(file.absoluteFile.toString())
     }
 }

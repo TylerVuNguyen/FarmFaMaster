@@ -2,12 +2,16 @@ package com.appveg.farmfamily.ui.mode
 
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.view.Gravity
 import android.view.View
 import android.widget.*
 import com.appveg.farmfamily.R
+import com.appveg.farmfamily.ui.Screenshot
 import com.appveg.farmfamily.ui.database.Database
 import com.appveg.farmfamily.ui.device.DeviceDetail
 import com.baoyz.swipemenulistview.SwipeMenuCreator
@@ -15,6 +19,13 @@ import com.baoyz.swipemenulistview.SwipeMenuItem
 import kotlinx.android.synthetic.main.activity_device_setting_for_garden.*
 import kotlinx.android.synthetic.main.activity_device_setting_for_garden.detail_mode_btn
 import kotlinx.android.synthetic.main.custom_dialog_mode.*
+import kotlinx.android.synthetic.main.fragment_vegetable.*
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.OutputStream
+import java.util.*
+import kotlin.collections.ArrayList
 
 class DeviceSettingForGardenActivity : AppCompatActivity() {
     private val activity = this@DeviceSettingForGardenActivity
@@ -106,6 +117,29 @@ class DeviceSettingForGardenActivity : AppCompatActivity() {
             var intent: Intent = Intent(activity, ModeDetailActivity::class.java)
             startActivity(intent)
         }
+
+        //button save\
+        var viewDeviceSettingForGarden = findViewById<Button>(R.id.view_mode_btn_print)
+        viewDeviceSettingForGarden.setOnClickListener {
+            var dialog = Dialog(activity)
+            // get id by position
+            dialog.setContentView(R.layout.custom_dialog_screenhot)
+            dialog.setTitle(getString(R.string.choose_mode_for_device))
+            var imageView = dialog.findViewById(R.id.imageView) as ImageView
+            var button = dialog.findViewById(R.id.detail_mode_btn_screen_ok) as Button
+
+            //handler
+            val activityView = layoutDeviceSettingForGarden_screenshot.rootView
+            var screenshot = Screenshot()
+            val b = screenshot.takescreenshot(activityView)
+            imageView.setImageBitmap(b)
+            saveImageSDcard(b)
+            //get list mode
+            button.setOnClickListener {
+                dialog.dismiss()
+            }
+            dialog.show()
+        }
     }
 
 
@@ -145,5 +179,26 @@ class DeviceSettingForGardenActivity : AppCompatActivity() {
     private fun getListMode():ArrayList<Mode> {
         database = Database(activity)
         return database.findAllMode()
+    }
+
+    /**
+     * save picture
+     */
+    private fun saveImageSDcard(bitmap: Bitmap) : Uri? {
+
+        val path = Environment.getExternalStorageDirectory().toString()
+        val file = File(path, "${UUID.randomUUID()}.png")
+
+        var outputStream : OutputStream? = null
+
+        try {
+            outputStream = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream)
+            outputStream.flush()
+            outputStream.close()
+        }catch (e: IOException){
+            e.printStackTrace()
+        }
+        return Uri.parse(file.absoluteFile.toString())
     }
 }

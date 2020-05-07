@@ -383,39 +383,39 @@
         </TableLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:background="@color/colorPrimary"
-        android:orientation="horizontal"
-        android:paddingTop="10dp">
+<!--    <LinearLayout-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:background="@color/colorPrimary"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:paddingTop="10dp">-->
 
-        <Button
-            android:id="@+id/btn_edit_param"
-            style="@style/Button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:drawableTop="@drawable/ic_add2"
-            android:text="Thêm"
-            android:textColor="@android:color/white" />
+<!--        <Button-->
+<!--            android:id="@+id/btn_edit_param"-->
+<!--            style="@style/Button"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="start"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="?android:attr/selectableItemBackground"-->
+<!--            android:drawableTop="@drawable/ic_add2"-->
+<!--            android:text="Thêm"-->
+<!--            android:textColor="@android:color/white" />-->
 
-        <Button
-            android:id="@+id/cancel_action_param"
-            style="@style/Button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:drawableTop="@drawable/ic_cancel"
-            android:text="Huỷ"
-            android:textColor="@android:color/white" />
+<!--        <Button-->
+<!--            android:id="@+id/cancel_action_param"-->
+<!--            style="@style/Button"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="start"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="?android:attr/selectableItemBackground"-->
+<!--            android:drawableTop="@drawable/ic_cancel"-->
+<!--            android:text="Huỷ"-->
+<!--            android:textColor="@android:color/white" />-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 
 </RelativeLayout>
