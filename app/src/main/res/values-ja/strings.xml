@@ -278,7 +278,7 @@
     <string name="chart_humidity">"湿度チャート"</string>
     <string name="chart_temperature">"温度チャート"</string>
 
-    <!--Batch-->\
+    <!--Batch-->
     <string name="name_batch">バッチ</string>
     <string name="day_start">一日の始まり</string>
     <string name="day_end">終了日</string>
@@ -287,6 +287,12 @@
     <string name="amount">金額</string>
     <string name="operation">操作</string>
     <string name="enter_amount">出力番号を入力してください</string>
+
+    <!--Setting-->
+    <string name="choose_lang">Chọn ngôn ngữ</string>
+    <string name="lang_vi">ベトナム</string>
+    <string name="lang_en">イギリス</string>
+    <string name="lang_ja">にほん</string>
 
 
 </resources>

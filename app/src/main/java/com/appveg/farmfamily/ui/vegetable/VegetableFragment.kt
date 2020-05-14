@@ -1,13 +1,16 @@
 package com.appveg.farmfamily.ui.vegetable
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +18,7 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import com.appveg.farmfamily.R
 import com.appveg.farmfamily.ui.Screenshot
+import com.appveg.farmfamily.ui.constant.Libs
 import com.appveg.farmfamily.ui.database.Database
 import com.baoyz.swipemenulistview.SwipeMenuCreator
 import com.baoyz.swipemenulistview.SwipeMenuItem
@@ -203,6 +207,16 @@ class VegetableFragment  : Fragment() {
      */
     override fun onResume() {
         super.onResume()
+        /* --------- Change language */
+        val prefs = activity!!.getSharedPreferences(
+            "CommonPrefs",
+            Activity.MODE_PRIVATE
+        )
+        var lang =	prefs.getString("Language", "vi")
+        Log.e("DEBUG", lang)
+        var libs = Libs()
+        libs.loadLocale(activity!!)
+        /* --------- Change language */
         vegetables = getListVeg()
         list_view_vegetable.adapter = activity?.let { VegetableFragmentAdapter(it, vegetables) }
     }

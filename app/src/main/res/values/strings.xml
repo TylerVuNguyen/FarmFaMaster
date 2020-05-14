@@ -291,5 +291,10 @@
     <string name="operation">Thao tác</string>
     <string name="enter_amount">Nhập số sản lượng</string>
 
+    <!--Setting-->
+    <string name="choose_lang">Chọn ngôn ngữ</string>
+    <string name="lang_vi">Tiếng Việt</string>
+    <string name="lang_en">Tiếng Anh</string>
+    <string name="lang_ja">Tiếng Nhật</string>
 
 </resources>

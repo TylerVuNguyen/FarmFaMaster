@@ -1817,6 +1817,10 @@ id radio
 id radioGenderGroup
 id radioNam
 id radioNu
+id radio_en
+id radio_group
+id radio_ja
+id radio_vi
 id rain_status
 id rain_text
 id rain_text1
@@ -1893,7 +1897,6 @@ id snap
 id snapMargins
 id spacer
 id spinner
-id spinner_language
 id split_action_bar
 id spread
 id spread_inside
@@ -2031,6 +2034,7 @@ id veg_name
 id veg_name_edit
 id veg_no_data
 id view_batch_btn_print
+id view_change_lang
 id view_device_btn_add
 id view_device_btn_print
 id view_device_category_edit
@@ -2174,6 +2178,7 @@ layout activity_them_khu_vuon
 layout app_bar_main
 layout content_main
 layout custom_dialog
+layout custom_dialog_lang
 layout custom_dialog_mode
 layout custom_dialog_screenhot
 layout design_bottom_navigation_item
@@ -2347,6 +2352,7 @@ string character_counter_pattern
 string chart_humidity
 string chart_temperature
 string choose_img_vi
+string choose_lang
 string choose_mode_for_device
 string choose_vi
 string chua_cai_dat_vi
@@ -2455,6 +2461,9 @@ string image_no_select_vi
 string insert_data_fail_vi
 string insert_data_success_vi
 string lamp_mode_vi
+string lang_en
+string lang_ja
+string lang_vi
 string language_vi_en
 string level_TDS_for_param_vi
 string level_TDS_vi

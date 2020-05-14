@@ -281,7 +281,7 @@
     <string name="chart_humidity">The chart humidity</string>
     <string name="chart_temperature">The chart temperature</string>
 
-    <!--Batch-->\
+    <!--Batch-->
     <string name="name_batch">Batch</string>
     <string name="day_start">The day starts</string>
     <string name="day_end">The day end</string>
@@ -290,6 +290,12 @@
     <string name="amount">The amount</string>
     <string name="operation">The operation</string>
     <string name="enter_amount">Enter the output number</string>
+
+    <!--Setting-->
+    <string name="choose_lang">Chọn ngôn ngữ</string>
+    <string name="lang_vi">Vietnamese</string>
+    <string name="lang_en">English</string>
+    <string name="lang_ja">Japan</string>
 
 
 </resources>

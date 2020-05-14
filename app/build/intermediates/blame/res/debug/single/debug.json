@@ -2432,6 +2432,10 @@
         "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\c2ba22029843c0f2d33a93c9e5ecd889\\material-1.0.0\\res\\drawable\\design_snackbar_background.xml"
     },
     {
+        "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\layout_custom_dialog_lang.xml.flat",
+        "source": "G:\\GITHUB\\FarmFaMaster\\app\\src\\main\\res\\layout\\custom_dialog_lang.xml"
+    },
+    {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_mode_close_item_material.xml.flat",
         "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\101984016d81c721080a90a24e529ea1\\appcompat-1.1.0\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
