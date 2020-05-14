@@ -84,7 +84,6 @@ class DeviceSettingForGardenActivity : AppCompatActivity() {
                     var gardenCode = getGardenCode()
                     var gardenId = getDataFromItent()
                     dialog.setContentView(R.layout.custom_dialog_mode)
-                    dialog.setTitle(getString(R.string.choose_mode_for_device))
                     var myNames = dialog.findViewById(R.id.list_mode) as ListView
                     var layoutListViewMode = dialog.findViewById(R.id.layout_list_view_mode) as LinearLayout
                     var layoutNoDataMode = dialog.findViewById(R.id.layout_no_data_mode) as LinearLayout

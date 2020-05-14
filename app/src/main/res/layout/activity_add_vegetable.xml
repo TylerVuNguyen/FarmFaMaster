@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nhập tên rau" />
+            android:text="@string/enter_name_veg" />
 
         <EditText
             android:id="@+id/veg_name"
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Chọn hình ảnh" />
+            android:text="@string/choose_img_vi" />
 
         <TableLayout
             android:layout_width="wrap_content"

@@ -670,7 +670,6 @@ class Database(context: Context?) :
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_BATCH_ID, batch.batchId)
-        contentValues.put(COLUMN_BATCH_IMAGE, batch.batchImage)
         contentValues.put(COLUMN_BATCH_NAME, batch.batchName)
         contentValues.put(COLUMN_BATCH_END_DATE, batch.theEndDate)
         contentValues.put(COLUMN_BATCH_TOTAL_QTY, batch.totalQuantity)

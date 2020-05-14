@@ -4,7 +4,7 @@
     tools:showIn="navigation_view">
 
 
-    <item android:title="Thông tin &amp; điều khiển">
+    <item android:title="@string/menu_infor">
         <menu>
             <item
                 android:id="@+id/nav_home"
@@ -20,7 +20,7 @@
     </item>
 
     <group android:checkableBehavior="single">
-        <item android:title="Quản trị">
+        <item android:title="@string/menu_manager">
             <menu>
                 <item
                     android:id="@+id/nav_gallery"
@@ -39,27 +39,27 @@
                 <item
                     android:id="@+id/nav_thamso"
                     android:icon="@drawable/ic_menu_thamso"
-                    android:title="Quản lý tham số" />
+                    android:title="@string/menu_thamso" />
 
                 <item
                     android:id="@+id/nav_vegetable"
                     android:icon="@drawable/ic_menu_veg"
-                    android:title="Quản lý các loại rau" />
+                    android:title="@string/menu_vegetable" />
 
                 <item
                     android:id="@+id/nav_device_category"
                     android:icon="@drawable/ic_menu_device_category"
-                    android:title="Quản lý loại thiết bị" />
+                    android:title="@string/menu_device_category" />
 
                 <item
                     android:id="@+id/nav_device"
                     android:icon="@drawable/ic_menu_device1"
-                    android:title="Quản lý thiết bị" />
+                    android:title="@string/menu_device" />
 
                 <item
                     android:id="@+id/nav_users"
                     android:icon="@drawable/ic_users"
-                    android:title="Quản lý người dùng" />
+                    android:title="@string/menu_users" />
             </menu>
         </item>
     </group>

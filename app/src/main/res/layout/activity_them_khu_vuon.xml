@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".ui.garden.ThemKhuVuonActivity">
 
 
@@ -19,7 +20,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nhập tên khu vườn" />
+            android:text="@string/name_kv_vi" />
 
         <EditText
             android:id="@+id/garden_name"
@@ -30,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Chọn hình ảnh" />
+            android:text="@string/choose_img_vi" />
 
         <TableLayout
             android:layout_width="wrap_content"

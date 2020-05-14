@@ -5,7 +5,7 @@
 5    android:versionName="1.0" >
 6
 7    <uses-sdk
-8        android:minSdkVersion="23"
+8        android:minSdkVersion="22"
 8-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="28" />
 9-->G:\GITHUB\FarmFaMaster\app\src\main\AndroidManifest.xml

@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:id="@+id/layout_detail_batch_veg_screenshot"
     android:orientation="vertical">
 
@@ -24,7 +25,7 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/boder_chitiettungsl"
                 android:gravity="center"
-                android:text="Đợt 1/5"
+                android:text="@string/name_batch"
                 android:textColor="#FFFF"
                 android:textSize="17dp" />
 
@@ -44,7 +45,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:text="Ngày bắt đầu"
+                        android:text="@string/day_start"
                         android:textColor="#FFFFFF" />
 
                     <TextView
@@ -64,7 +65,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:text="Ngày kết thúc  "
+                        android:text="@string/day_end"
                         android:textColor="#FFFFFF" />
 
                     <TextView
@@ -84,7 +85,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:text="Tổng sản lượng"
+                        android:text="@string/total"
                         android:textColor="#FFFFFF" />
 
                     <TextView
@@ -121,7 +122,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:text="Tên rau "
+                        android:text="@string/name_veg_title"
                         android:textStyle="bold" />
 
                     <TextView
@@ -130,14 +131,14 @@
                         android:layout_marginLeft="50dp"
                         android:layout_marginRight="50dp"
                         android:gravity="center"
-                        android:text="Số lượng"
+                        android:text="@string/amount"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:text="Thao tác"
+                        android:text="@string/operation"
                         android:textStyle="bold" />
                 </LinearLayout>
 

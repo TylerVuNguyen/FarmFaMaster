@@ -72,7 +72,7 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/btn_print"
-            android:text="In"
+            android:text="@string/print_vi"
             android:textColor="@android:color/white" />
     </LinearLayout>
 

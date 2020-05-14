@@ -37,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="Biểu đồ đổ ẩm"
+                    android:text="@string/chart_humidity"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold" />
 
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="Biểu đồ nhiệt độ"
+                    android:text="@string/chart_temperature"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold" />
 
@@ -114,7 +114,7 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/btn_print"
-            android:text="In"
+            android:text="@string/print_vi"
             android:textColor="@android:color/white" />
     </LinearLayout>
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="#FFFFFF"
     android:layout_height="wrap_content">
 
     <androidx.core.widget.NestedScrollView
@@ -10,9 +11,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-
-            >
+            android:orientation="vertical">
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -32,7 +31,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tên đợt" />
+                        android:text="@string/name_batch" />
 
                     <!--    button to show picker diaglog-->
 
@@ -59,7 +58,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Ngày bắt đầu" />
+                        android:text="@string/day_start" />
                     <!--    button to show picker diaglog-->
                     <Button
                         android:id="@+id/pickDateBD"
@@ -86,7 +85,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Ngày thu hoạch" />
+                        android:text="@string/day_end" />
                     <!--    button to show picker diaglog-->
                     <Button
                         android:id="@+id/pickDateKT"
@@ -126,7 +125,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tổng sản lượng (kg) " />
+                        android:text="@string/total" />
 
                     <TextView
                         android:id="@+id/totalQty"
@@ -147,7 +146,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Chọn tên rau" />
+                        android:text="@string/name_veg_title" />
                     <!-- static -->
                     <Spinner
                         android:id="@+id/positionSpinner"
@@ -166,7 +165,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nhập số sản lượng(kg)" />
+                        android:text="@string/enter_amount" />
 
                     <EditText
                         android:id="@+id/txt_qtyVeg"
@@ -219,7 +218,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:text="Tên rau "
+                        android:text="@string/name_veg_title"
                         android:textStyle="bold" />
 
                     <TextView
@@ -228,14 +227,14 @@
                         android:layout_marginLeft="50dp"
                         android:layout_marginRight="50dp"
                         android:gravity="center"
-                        android:text="Số lượng"
+                        android:text="@string/amount"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:text="Thao tác"
+                        android:text="@string/operation"
                         android:textStyle="bold" />
                 </LinearLayout>
 

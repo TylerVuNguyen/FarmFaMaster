@@ -1893,6 +1893,7 @@ id snap
 id snapMargins
 id spacer
 id spinner
+id spinner_language
 id split_action_bar
 id spread
 id spread_inside
@@ -2319,10 +2320,13 @@ string abc_toolbar_collapse_description
 string account_vi
 string action_settings
 string action_settings_vi
+string add_device
+string add_veg
 string add_veg_vi
 string add_vi
 string already_user
 string already_user_vi
+string amount
 string app_name
 string appbar_scrolling_view_behavior
 string attachment_summary_off
@@ -2340,6 +2344,8 @@ string cancel_vi
 string change_pass_vi
 string character_counter_content_description
 string character_counter_pattern
+string chart_humidity
+string chart_temperature
 string choose_img_vi
 string choose_mode_for_device
 string choose_vi
@@ -2370,6 +2376,8 @@ string control_device_setting_vi
 string control_device_vi
 string copy
 string da_cai_dat_vi
+string day_end
+string day_start
 string day_vi
 string decription_Humidity_vi
 string decription_Temperature_vi
@@ -2383,7 +2391,10 @@ string detail_mode
 string device_status_vi
 string edit
 string email
+string enter_amount
+string enter_category
 string enter_email_vi
+string enter_name_veg
 string error_batch_exist
 string error_common_email_password
 string error_device_exist
@@ -2419,6 +2430,7 @@ string expand_button_title
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string fail_message
+string female
 string firebase_database_url
 string forgot
 string forgot_pass_title_vi
@@ -2452,10 +2464,13 @@ string location
 string log_out_system_vi
 string login
 string login_vi
+string male
 string menu_device
 string menu_device_category
 string menu_gallery
 string menu_home
+string menu_infor
+string menu_manager
 string menu_mode
 string menu_send
 string menu_share
@@ -2476,8 +2491,10 @@ string msg_email_sent_successfully
 string msg_error_sending_email
 string msg_sending_email
 string mtrl_chip_close_icon_content_description
+string name_batch
 string name_device_vi
 string name_kv_vi
+string name_veg_title
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
 string nav_header_desc
@@ -2494,6 +2511,7 @@ string not_set
 string num_dd_used_vi
 string ok_vi
 string old_passowrd_vi
+string operation
 string passowrd
 string passowrd_new_vi
 string passowrd_vi
@@ -2509,6 +2527,7 @@ string project_id
 string quit_vi
 string rain_mode_vi
 string registered_emailid
+string repeat
 string reply_title
 string return_login_vi
 string search_menu_title
@@ -2556,6 +2575,7 @@ string time_slot_vi
 string title_activity_settings
 string title_context_menu
 string to_vi
+string total
 string un_setting_mode_for_device_vi
 string unknown_vi
 string update_data_fail_vi

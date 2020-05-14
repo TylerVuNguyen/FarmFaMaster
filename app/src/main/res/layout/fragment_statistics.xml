@@ -23,7 +23,7 @@
             android:gravity="bottom"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:text="Cảnh báo mưa"
+            android:text="@string/rain_mode_vi"
             android:textSize="20sp" />
 
         <View
@@ -158,7 +158,7 @@
             android:gravity="bottom"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:text="Nhiệt độ"
+            android:text="@string/temp_vi"
             android:textSize="20sp" />
 
         <View
@@ -292,7 +292,7 @@
             android:gravity="bottom"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:text="Độ pH"
+            android:text="@string/Do_ph_vi"
             android:textSize="20sp" />
 
         <View
@@ -426,7 +426,7 @@
             android:gravity="bottom"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:text="Độ ẩm"
+            android:text="@string/Hum_vi"
             android:textSize="20sp" />
 
         <View

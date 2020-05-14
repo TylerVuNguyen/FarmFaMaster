@@ -35,7 +35,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
-                    android:text="Mỗi ngày"
+                    android:text="@string/everyday_vi"
                     android:textStyle="bold" />
                 <Button
                     android:id="@+id/pickDateBD"
@@ -49,7 +49,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:text="Ngày"
+                    android:text="@string/day_vi"
                     android:textStyle="bold" />
 
             </TableRow>
@@ -87,7 +87,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lặp lại" />
+                android:text="@string/repeat" />
 
         </LinearLayout>
 

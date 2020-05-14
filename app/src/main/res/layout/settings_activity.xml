@@ -32,16 +32,21 @@
                 android:text="@string/language_vi_en"
                 android:textSize="18dp" />
 
-            <TextView
-                android:id="@+id/view_device_detail_code"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginTop="6dp"
-                android:text="Tiếng việt"
-                android:textColor="#00c5cd"
-                android:textSize="16dp" />
+<!--            <TextView-->
+<!--                android:id="@+id/view_device_detail_code"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="left"-->
+<!--                android:layout_marginTop="6dp"-->
+<!--                android:text="Tiếng việt"-->
+<!--                android:textColor="#00c5cd"-->
+<!--                android:textSize="16dp" />-->
 
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:id="@+id/spinner_language"/>
         </LinearLayout>
 
         <LinearLayout

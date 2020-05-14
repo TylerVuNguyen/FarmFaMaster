@@ -764,34 +764,34 @@ public final class R {
         public static final int select_dialog_listview = 0x7f0901ef;
         public static final int shortcut = 0x7f090207;
         public static final int spacer = 0x7f090213;
-        public static final int split_action_bar = 0x7f090215;
-        public static final int src_atop = 0x7f090218;
-        public static final int src_in = 0x7f090219;
-        public static final int src_over = 0x7f09021a;
-        public static final int submenuarrow = 0x7f09021f;
-        public static final int submit_area = 0x7f090220;
-        public static final int tabMode = 0x7f090230;
-        public static final int tag_accessibility_actions = 0x7f090236;
-        public static final int tag_accessibility_clickable_spans = 0x7f090237;
-        public static final int tag_accessibility_heading = 0x7f090238;
-        public static final int tag_accessibility_pane_title = 0x7f090239;
-        public static final int tag_screen_reader_focusable = 0x7f09023a;
-        public static final int tag_transition_group = 0x7f09023b;
-        public static final int tag_unhandled_key_event_manager = 0x7f09023c;
-        public static final int tag_unhandled_key_listeners = 0x7f09023d;
-        public static final int text = 0x7f090254;
-        public static final int text2 = 0x7f090255;
-        public static final int textSpacerNoButtons = 0x7f090256;
-        public static final int textSpacerNoTitle = 0x7f090257;
-        public static final int time = 0x7f090265;
-        public static final int title = 0x7f090278;
-        public static final int titleDividerNoCustom = 0x7f090279;
-        public static final int title_template = 0x7f09027c;
-        public static final int topPanel = 0x7f090280;
-        public static final int unchecked = 0x7f090291;
-        public static final int uniform = 0x7f090292;
-        public static final int up = 0x7f090294;
-        public static final int wrap_content = 0x7f0902d2;
+        public static final int split_action_bar = 0x7f090216;
+        public static final int src_atop = 0x7f090219;
+        public static final int src_in = 0x7f09021a;
+        public static final int src_over = 0x7f09021b;
+        public static final int submenuarrow = 0x7f090220;
+        public static final int submit_area = 0x7f090221;
+        public static final int tabMode = 0x7f090231;
+        public static final int tag_accessibility_actions = 0x7f090237;
+        public static final int tag_accessibility_clickable_spans = 0x7f090238;
+        public static final int tag_accessibility_heading = 0x7f090239;
+        public static final int tag_accessibility_pane_title = 0x7f09023a;
+        public static final int tag_screen_reader_focusable = 0x7f09023b;
+        public static final int tag_transition_group = 0x7f09023c;
+        public static final int tag_unhandled_key_event_manager = 0x7f09023d;
+        public static final int tag_unhandled_key_listeners = 0x7f09023e;
+        public static final int text = 0x7f090255;
+        public static final int text2 = 0x7f090256;
+        public static final int textSpacerNoButtons = 0x7f090257;
+        public static final int textSpacerNoTitle = 0x7f090258;
+        public static final int time = 0x7f090266;
+        public static final int title = 0x7f090279;
+        public static final int titleDividerNoCustom = 0x7f09027a;
+        public static final int title_template = 0x7f09027d;
+        public static final int topPanel = 0x7f090281;
+        public static final int unchecked = 0x7f090292;
+        public static final int uniform = 0x7f090293;
+        public static final int up = 0x7f090295;
+        public static final int wrap_content = 0x7f0902d3;
     }
     public static final class integer {
         private integer() {}
@@ -886,8 +886,8 @@ public final class R {
         public static final int abc_shareactionprovider_share_with = 0x7f10001f;
         public static final int abc_shareactionprovider_share_with_application = 0x7f100020;
         public static final int abc_toolbar_collapse_description = 0x7f100021;
-        public static final int search_menu_title = 0x7f1000e5;
-        public static final int status_bar_notification_info_overflow = 0x7f1000f6;
+        public static final int search_menu_title = 0x7f1000f7;
+        public static final int status_bar_notification_info_overflow = 0x7f100108;
     }
     public static final class style {
         private style() {}

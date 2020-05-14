@@ -892,6 +892,10 @@
         "source": "G:\\GITHUB\\FarmFaMaster\\app\\src\\main\\res\\drawable-xxhdpi\\ic_may_bom_0.png"
     },
     {
+        "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\color_design_tint_password_toggle.xml.flat",
+        "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\c2ba22029843c0f2d33a93c9e5ecd889\\material-1.0.0\\res\\color\\design_tint_password_toggle.xml"
+    },
+    {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_cai_o_0_mua.png.flat",
         "source": "G:\\GITHUB\\FarmFaMaster\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_cai_o_0_mua.png"
     },
@@ -1058,6 +1062,10 @@
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_design_ic_visibility_off.png.flat",
         "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\c2ba22029843c0f2d33a93c9e5ecd889\\material-1.0.0\\res\\drawable-xxhdpi-v4\\design_ic_visibility_off.png"
+    },
+    {
+        "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_edittext.xml.flat",
+        "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\101984016d81c721080a90a24e529ea1\\appcompat-1.1.0\\res\\color\\abc_tint_edittext.xml"
     },
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_vegetable.xml.flat",
@@ -1728,6 +1736,10 @@
         "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\101984016d81c721080a90a24e529ea1\\appcompat-1.1.0\\res\\anim\\btn_radio_to_on_mtrl_dot_group_animation.xml"
     },
     {
+        "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_seek_thumb.xml.flat",
+        "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\101984016d81c721080a90a24e529ea1\\appcompat-1.1.0\\res\\color\\abc_tint_seek_thumb.xml"
+    },
+    {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cambiennhietdo.png.flat",
         "source": "G:\\GITHUB\\FarmFaMaster\\app\\src\\main\\res\\drawable\\cambiennhietdo.png"
     },
@@ -1786,6 +1798,10 @@
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
         "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\dd19378f992efbd0ceb09b589d36b501\\core-1.1.0\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_spinner.xml.flat",
+        "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\101984016d81c721080a90a24e529ea1\\appcompat-1.1.0\\res\\color\\abc_tint_spinner.xml"
     },
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_cai_o_0_mua.png.flat",
@@ -2006,6 +2022,10 @@
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_alert_dialog_button_bar_material.xml.flat",
         "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\101984016d81c721080a90a24e529ea1\\appcompat-1.1.0\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_switch_track.xml.flat",
+        "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\101984016d81c721080a90a24e529ea1\\appcompat-1.1.0\\res\\color\\abc_tint_switch_track.xml"
     },
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_googleg_standard_color_18.png.flat",
@@ -2608,6 +2628,10 @@
         "source": "G:\\GITHUB\\FarmFaMaster\\app\\src\\main\\res\\drawable\\khongmua.png"
     },
     {
+        "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_btn_colored_text_material.xml.flat",
+        "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\101984016d81c721080a90a24e529ea1\\appcompat-1.1.0\\res\\color\\abc_btn_colored_text_material.xml"
+    },
+    {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
         "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\101984016d81c721080a90a24e529ea1\\appcompat-1.1.0\\res\\drawable-xxxhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
     },
@@ -2646,6 +2670,10 @@
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "G:\\GITHUB\\FarmFaMaster\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\color-v21_abc_btn_colored_borderless_text_material.xml.flat",
+        "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\101984016d81c721080a90a24e529ea1\\appcompat-1.1.0\\res\\color-v21\\abc_btn_colored_borderless_text_material.xml"
     },
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_mua.png.flat",
@@ -2890,6 +2918,10 @@
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\layout_content_main.xml.flat",
         "source": "G:\\GITHUB\\FarmFaMaster\\app\\src\\main\\res\\layout\\content_main.xml"
+    },
+    {
+        "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_default.xml.flat",
+        "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\101984016d81c721080a90a24e529ea1\\appcompat-1.1.0\\res\\color\\abc_tint_default.xml"
     },
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_time_repeat.png.flat",
@@ -3586,6 +3618,10 @@
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logo2.png.flat",
         "source": "G:\\GITHUB\\FarmFaMaster\\app\\src\\main\\res\\drawable\\logo2.png"
+    },
+    {
+        "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_btn_checkable.xml.flat",
+        "source": "C:\\Users\\NGUYEN HOANG VU\\.gradle\\caches\\transforms-2\\files-2.1\\101984016d81c721080a90a24e529ea1\\appcompat-1.1.0\\res\\color\\abc_tint_btn_checkable.xml"
     },
     {
         "merged": "G:\\GITHUB\\FarmFaMaster\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",

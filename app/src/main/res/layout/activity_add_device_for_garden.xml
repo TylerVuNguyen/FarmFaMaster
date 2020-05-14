@@ -159,7 +159,7 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/ic_add2"
-            android:text="Thêm thiết bị"
+            android:text="@string/add_device"
             android:textColor="@android:color/white" />
 
         <Button
@@ -171,7 +171,7 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/ic_add2"
-            android:text="Thêm loại rau"
+            android:text="@string/add_veg"
             android:textColor="@android:color/white" />
 
     </LinearLayout>
