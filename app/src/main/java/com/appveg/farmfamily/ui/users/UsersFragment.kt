@@ -77,22 +77,22 @@ class UsersFragment : Fragment() {
                     val dialogBuilder = AlertDialog.Builder(activity)
 
                     // set message of alert dialog
-                    dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
+                    dialogBuilder.setMessage(getString(R.string.delete_title_all_vi))
                         // if the dialog is cancelable
                         .setCancelable(false)
                         // positive button text and action
-                        .setPositiveButton("Có", DialogInterface.OnClickListener { dialog, id ->
+                        .setPositiveButton(getString(R.string.yes_vi), DialogInterface.OnClickListener { dialog, id ->
                             removeUser(position)
                         })
                         // negative button text and action
-                        .setNegativeButton("Hủy", DialogInterface.OnClickListener { dialog, id ->
+                        .setNegativeButton(getString(R.string.quit_vi), DialogInterface.OnClickListener { dialog, id ->
                             dialog.cancel()
                         })
 
                     // create dialog box
                     val alert = dialogBuilder.create()
                     // set title for alert dialog box
-                    alert.setTitle("Xóa người dùng")
+                    alert.setTitle(getString(R.string.delete_user_name_manager))
                     // show alert dialog
                     alert.show()
                 }
@@ -135,8 +135,8 @@ class UsersFragment : Fragment() {
         database = Database(activity)
         users = database.getAllUser()
         var listUser = ArrayList<User>()
-        if (users.isNullOrEmpty()) {
-            Toast.makeText(activity, "Dánh sách người dùng đang trống !", Toast.LENGTH_LONG).show()
+        if (users.isNullOrEmpty() || users.size == 1) {
+            Toast.makeText(activity, getString(R.string.list_user_is_empty), Toast.LENGTH_LONG).show()
         }
         for (item in 0 until users.size){
             if(2 == users[item].roleId){

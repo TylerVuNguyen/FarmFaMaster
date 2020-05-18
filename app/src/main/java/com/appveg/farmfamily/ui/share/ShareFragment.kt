@@ -65,7 +65,7 @@ class ShareFragment : Fragment() {
         database = Database(activity)
         gardenList = database.findAllGarden()
         if (gardenList.isNullOrEmpty()) {
-            Toast.makeText(activity, "Dánh sách khu vườn đang trống !", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, getString(R.string.delete_title_all_vi), Toast.LENGTH_LONG).show()
         }
         return gardenList
     }

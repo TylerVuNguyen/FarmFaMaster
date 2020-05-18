@@ -150,6 +150,11 @@
 
     <!--garden VI-->
     <string name="name_kv_vi">Tên khu vườn</string>
+    <string name="delete_kv_vi">Xóa khu vườn</string>
+    <string name="list_garden_is_empty">Danh sách khu vườn đang trống !</string>
+    <string name="setting_code_arduino_send_mail">Mã cài đặt arduino của khu vườn</string>
+    <string name="code_garden_send_mail">Mã khu vườn: </string>
+    <string name="delete_detail_device">Xóa chi tiết thiết bị</string>
     <!--garden VI-->
 
     <!--vegetable VI-->
@@ -158,6 +163,11 @@
     <string name="error_empty_veg_category_common">Trường loại rau không được để trống !</string>
     <string name="add_veg">Thêm loại rau</string>
     <string name="enter_name_veg">Nhập tên rau</string>
+    <string name="add_veg_for_garden">Đã thêm loại rau</string>
+    <string name="delete_veg_for_garden">Đã xóa loại rau</string>
+    <string name="add_only_veg">Chỉ được thêm một loại rau cho khu vườn</string>
+    <string name="firt_count_veg">Đã thêm</string>
+    <string name="last_count_veg">loại rau</string>
     <!-- end vegetable VI-->
 
     <!--device VI-->
@@ -176,6 +186,12 @@
     <string name="select_veg_vi">Đã thêm (0) loại rau</string>
     <string name="list_device_isEmpty_vi">Danh sách thiết bị đang trống !</string>
     <string name="add_device">Thêm thiết bị</string>
+    <string name="last_count_device">thiết bị</string>
+    <string name="device_exist">Thiết bị đã tồn tại</string>
+    <string name="device_name_send_mail">Mã cài đặt arduino của</string>
+    <string name="device_code_send_mail">Mã thiết bị</string>
+    <string name="delete_device_category">Xóa loại thiết bị</string>
+    <string name="device_category_is_empty">Danh sách loại thiết bị đang trống</string>
     <!-- end device VI-->
 
     <!--Temperature VI-->
@@ -220,6 +236,7 @@
     <string name="log_out_system_vi">Đăng xuất</string>
     <string name="account_vi">Tài khoản và mật khẩu</string>
     <string name="block_user_vi">Khóa</string>
+    <string name="delete_param">Xóa tham số</string>
     <!--end param -->
 
     <!-- Home -->
@@ -244,8 +261,10 @@
     <string name="back_vi">Lùi</string>
     <string name="stop_vi">Dừng</string>
     <string name="da_cai_dat_vi">Đã cài đặt</string>
-    <string name="device_status_vi">Thiết bị</string>
+    <string name="device_status_vi">thiết bị</string>
     <string name="chua_cai_dat_vi">Chưa cài đặt</string>
+    <string name="Rained">Trời đang mưa</string>
+    <string name="no_rain">Trời Không mưa</string>
     <!--End Home -->
 
     <!---substance mass-->
@@ -290,11 +309,32 @@
     <string name="amount">Số lượng</string>
     <string name="operation">Thao tác</string>
     <string name="enter_amount">Nhập số sản lượng</string>
+    <string name="batch_sum">Tổng sản lượng:</string>
+    <string name="delete_batch">Xóa đợt sản lượng</string>
+    <string name="list_batch_is_empty">Dánh sách đợt đang trống !</string>
+    <string name="list_batch_detail_is_empty">Dánh sách chi tiết sản lượng đang trống !</string>
+    <string name="delete_batch_detail">Xóa chi tiết sản lượng</string>
+
 
     <!--Setting-->
     <string name="choose_lang">Chọn ngôn ngữ</string>
     <string name="lang_vi">Tiếng Việt</string>
     <string name="lang_en">Tiếng Anh</string>
     <string name="lang_ja">Tiếng Nhật</string>
+
+    <!--Setting device-->
+    <string name="not_used_yet_status">Chưa sử dụng</string>
+    <string name="using_status">Đang sử dụng</string>
+    <string name="broken_status">Đã hư hỏng</string>
+
+    <!--User-->
+    <string name="list_user_is_empty">Danh sách người dùng đang trống !</string>
+    <string name="delete_user_name_manager">Xóa người dùng</string>
+    <string name="delete_veg_detail">Xóa chi tiết rau</string>
+
+    <!--Status home-->
+    <string name="home_status_safe">An toàn</string>
+    <string name="home_status_no_safe">Nguy hiểm</string>
+
 
 </resources>

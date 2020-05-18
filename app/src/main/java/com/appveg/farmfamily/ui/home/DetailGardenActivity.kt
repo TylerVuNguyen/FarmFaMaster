@@ -23,6 +23,8 @@ class DetailGardenActivity : AppCompatActivity() {
     private var child1: String = ""
     private var child2: String = ""
     private var child3: String = ""
+    private var safe = "An toàn"
+    private var noSafe = "Nguy hiểm"
     private val activity = this@DetailGardenActivity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -309,7 +311,7 @@ class DetailGardenActivity : AppCompatActivity() {
             override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
                 var temp: DetailGardenFirebase? =
                     dataSnapshot.getValue(DetailGardenFirebase::class.java)
-                temperature.text = temp?.value
+                    temperature.text = temp?.value
             }
 
             override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {
@@ -377,10 +379,10 @@ class DetailGardenActivity : AppCompatActivity() {
                     dataSnapshot.getValue(DetailGardenFirebase::class.java)
                 if (rain?.value!!.trim() == "1") {
                     rain_status.setImageResource(R.drawable.mua)
-                    rain_text.text = "Trời đang mưa"
+                    rain_text.text = getString(R.string.Rained)
                 } else {
                     rain_status.setImageResource(R.drawable.khongmua)
-                    rain_text.text = "Trời Không mưa"
+                    rain_text.text = getString(R.string.no_rain)
                 }
             }
 
@@ -448,6 +450,48 @@ class DetailGardenActivity : AppCompatActivity() {
                 var temp: DetailGardenFirebase? =
                     dataSnapshot.getValue(DetailGardenFirebase::class.java)
                 ppm.text = temp?.value
+            }
+
+            override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {
+
+            }
+
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {
+
+            }
+
+            override fun onChildMoved(dataSnapshot: DataSnapshot, previousChildName: String?) {
+
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+
+            }
+        })
+    }
+
+    /**
+     * the method to gardenInfoRain
+     */
+    private fun theLightSensor(deviceCode: String) {
+        database = FirebaseDatabase.getInstance().reference
+        // My top posts by number of stars
+        var garden = getDataFromItent()
+
+        database.child(garden).child(deviceCode).addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
+                var light: DetailGardenFirebase? =
+                    dataSnapshot.getValue(DetailGardenFirebase::class.java)
+                var temp = temperature.text.toString()
+                if(light?.value!!.trim() == "1"){
+                    if(30 < temp.toInt()){
+
+                    }
+                } else {
+                    if(25 < temp.toInt()){
+
+                    }
+                }
             }
 
             override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {
@@ -685,7 +729,6 @@ class DetailGardenActivity : AppCompatActivity() {
             })
 
     }
-
 
     /**
      * the method to get data from intent

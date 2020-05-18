@@ -1,49 +1,4 @@
-mpat_Widget_PopupMenu_Small
-+Base_TextAppearance_AppCompat_Widget_Switch
-9Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem
-6Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item
-5Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle
-2Base_TextAppearance_Widget_AppCompat_Toolbar_Title
-Base_ThemeOverlay_AppCompat
-%Base_ThemeOverlay_AppCompat_ActionBar
- Base_ThemeOverlay_AppCompat_Dark
-*Base_ThemeOverlay_AppCompat_Dark_ActionBar
-"Base_ThemeOverlay_AppCompat_Dialog
-(Base_ThemeOverlay_AppCompat_Dialog_Alert
-!Base_ThemeOverlay_AppCompat_Light
-+Base_ThemeOverlay_MaterialComponents_Dialog
-1Base_ThemeOverlay_MaterialComponents_Dialog_Alert
-Base_Theme_AppCompat
- Base_Theme_AppCompat_CompactMenu
-Base_Theme_AppCompat_Dialog
-$Base_Theme_AppCompat_DialogWhenLarge
-!Base_Theme_AppCompat_Dialog_Alert
-%Base_Theme_AppCompat_Dialog_FixedSize
-$Base_Theme_AppCompat_Dialog_MinWidth
-Base_Theme_AppCompat_Light
-(Base_Theme_AppCompat_Light_DarkActionBar
-!Base_Theme_AppCompat_Light_Dialog
-*Base_Theme_AppCompat_Light_DialogWhenLarge
-'Base_Theme_AppCompat_Light_Dialog_Alert
-+Base_Theme_AppCompat_Light_Dialog_FixedSize
-*Base_Theme_AppCompat_Light_Dialog_MinWidth
-Base_Theme_MaterialComponents
-$Base_Theme_MaterialComponents_Bridge
-)Base_Theme_MaterialComponents_CompactMenu
-$Base_Theme_MaterialComponents_Dialog
--Base_Theme_MaterialComponents_DialogWhenLarge
-*Base_Theme_MaterialComponents_Dialog_Alert
-.Base_Theme_MaterialComponents_Dialog_FixedSize
--Base_Theme_MaterialComponents_Dialog_MinWidth
-#Base_Theme_MaterialComponents_Light
-*Base_Theme_MaterialComponents_Light_Bridge
-1Base_Theme_MaterialComponents_Light_DarkActionBar
-8Base_Theme_MaterialComponents_Light_DarkActionBar_Bridge
-*Base_Theme_MaterialComponents_Light_Dialog
-3Base_Theme_MaterialComponents_Light_DialogWhenLarge
-0Base_Theme_MaterialComponents_Light_Dialog_Alert
-4Base_Theme_MaterialComponents_Light_Dialog_FixedSize
-3Base_Theme_MaterialComponents_Light_Dialog_MinWidth
+Light_Dialog_MinWidth
 /Base_V14_ThemeOverlay_MaterialComponents_Dialog
 5Base_V14_ThemeOverlay_MaterialComponents_Dialog_Alert
 !Base_V14_Theme_MaterialComponents
@@ -493,7 +448,7 @@ circleCrop
  
 
  
- ½    #20BR0X†Pº	˜„€ñÀ>   Z
+ ½    #20BR0X†Pº	Ö„€ñÀ>   Z
 androidx
 legacy
 v4

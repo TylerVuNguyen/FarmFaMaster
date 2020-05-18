@@ -79,9 +79,9 @@ class VegForGardenAdapter (private val activity: FragmentActivity?, private var 
     }
 
     private fun getStatus(paramId : Int) : String{
-        var result = "Chưa cài đặt tham số"
+        var result = activity!!.resources.getString(R.string.no_setting_param_vi)
         if(paramId != 0 ){
-            result = "Đã cài đặt tham số"
+            result = activity!!.resources.getString(R.string.setting_param_vi)
         }
         return result
     }

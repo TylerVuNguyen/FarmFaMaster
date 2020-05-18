@@ -112,6 +112,11 @@
     <string name="error_empty_veg_category_common">The vegetable field must not be empty!</string>
     <string name="add_veg">Add vegetable</string>
     <string name="enter_name_veg">Enter the vegetable name</string>
+    <string name="add_veg_for_garden">Added vegetables</string>
+    <string name="delete_veg_for_garden">Removed vegetables</string>
+    <string name="add_only_veg">Only one vegetable is added to the garden</string>
+    <string name="firt_count_veg">Added</string>
+    <string name="last_count_veg">Vegetable</string>
     <!-- end vegetable VI-->
 
     <!--quantity-->
@@ -158,6 +163,11 @@
 
     <!--garden VI-->
     <string name="name_kv_vi">The garden name</string>
+    <string name="delete_kv_vi">Clear the Garden</string>
+    <string name="list_garden_is_empty">The garden list is empty !</string>
+    <string name="setting_code_arduino_send_mail">Arduino installation code of the garden</string>
+    <string name="code_garden_send_mail">Garden code: </string>
+    <string name="delete_detail_device">Delete device details</string>
     <!--garden VI-->
 
     <!--device VI-->
@@ -176,6 +186,12 @@
     <string name="select_veg_vi">Added (0) vegetables</string>
     <string name="list_device_isEmpty_vi">Device list is empty !</string>
     <string name="add_device">Add device</string>
+    <string name="last_count_device">device</string>
+    <string name="device_exist">Device already exists</string>
+    <string name="device_name_send_mail">Arduino installation code of</string>
+    <string name="device_code_send_mail">Device code</string>
+    <string name="delete_device_category">Delete device type</string>
+    <string name="device_category_is_empty">The device type list is empty</string>
     <!-- end device VI-->
 
     <!--Temperature VI-->
@@ -220,21 +236,22 @@
     <string name="log_out_system_vi">Log out</string>
     <string name="account_vi">Account and password</string>
     <string name="block_user_vi">Lock</string>
+    <string name="delete_param">Delete parameter</string>
     <!--end param -->
 
     <!-- Home -->
     <string name="rain_mode_vi">Tarpaulins rain</string>
     <string name="lamp_mode_vi">Heating lamp</string>
-    <string name="motor_tds_mode_vi">解決策</string>
+    <string name="motor_tds_mode_vi">Liquid</string>
     <string name="motor_tds_full_mode_vi">Nutrition solution (ppm)</string>
     <string name="motor_phun_suong_mode_vi">Misting</string>
-    <string name="level_TDS_vi">Ink solution</string>
+    <string name="level_TDS_vi">Liquid ink</string>
     <string name="level_TDS_for_param_vi">Ink solution (cm)</string>
     <string name="message_rain_vi">Rain alert</string>
     <string name="temp_vi">Temperature (°C)</string>
     <string name="Do_ph_vi">PH</string>
     <string name="Hum_vi">Humidity (%)</string>
-    <string name="TDS_vi">Nutrition</string>
+    <string name="TDS_vi">Nutrition (ppm)</string>
     <string name="thong_ke_vi">Statistical</string>
     <string name="unknown_vi">Null</string>
     <string name="ON_vi">Turn on</string>
@@ -246,6 +263,8 @@
     <string name="da_cai_dat_vi">Installed</string>
     <string name="device_status_vi">Devịce</string>
     <string name="chua_cai_dat_vi">Not installed</string>
+    <string name="Rained">Raining</string>
+    <string name="no_rain">Not raining</string>
     <!--End Home -->
 
     <!---substance mass-->
@@ -290,12 +309,30 @@
     <string name="amount">The amount</string>
     <string name="operation">The operation</string>
     <string name="enter_amount">Enter the output number</string>
+    <string name="batch_sum">Total output</string>
+    <string name="delete_batch">Delete output batch</string>
+    <string name="list_batch_is_empty">The batch list is empty!</string>
+    <string name="list_batch_detail_is_empty">Detailed output list is empty!</string>
+    <string name="delete_batch_detail">Clear output details</string>
 
     <!--Setting-->
-    <string name="choose_lang">Chọn ngôn ngữ</string>
+    <string name="choose_lang">Choose the language</string>
     <string name="lang_vi">Vietnamese</string>
     <string name="lang_en">English</string>
     <string name="lang_ja">Japan</string>
 
+    <!--Setting device-->
+    <string name="not_used_yet_status">Not used yet</string>
+    <string name="using_status">Using</string>
+    <string name="broken_status">Has been damaged</string>
+
+    <!--User-->
+    <string name="list_user_is_empty">User list is empty!</string>
+    <string name="delete_user_name_manager">Delete user</string>
+    <string name="delete_veg_detail">Delete vegetable details</string>
+
+    <!--Status home-->
+    <string name="home_status_safe">Safe</string>
+    <string name="home_status_no_safe">Danger</string>
 
 </resources>

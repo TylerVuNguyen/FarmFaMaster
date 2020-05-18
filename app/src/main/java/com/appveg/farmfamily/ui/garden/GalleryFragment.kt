@@ -1,6 +1,5 @@
 package com.appveg.farmfamily.ui.garden
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
@@ -14,7 +13,6 @@ import android.os.Environment
 import android.view.*
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.appveg.farmfamily.R
@@ -104,20 +102,20 @@ class GalleryFragment : Fragment() {
                     val dialogBuilder = AlertDialog.Builder(activity)
 
                     // set message of alert dialog
-                    dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
+                    dialogBuilder.setMessage(getString(R.string.delete_title_all_vi))
                         // if the dialog is cancelable
                         .setCancelable(false)
                         // positive button text and action
-                        .setPositiveButton("Có", DialogInterface.OnClickListener { dialog, id -> removeGarden(position)
+                        .setPositiveButton(getString(R.string.yes_vi), DialogInterface.OnClickListener { dialog, id -> removeGarden(position)
                         })
                         // negative button text and action
-                        .setNegativeButton("Hủy", DialogInterface.OnClickListener { dialog, id -> dialog.cancel()
+                        .setNegativeButton(getString(R.string.quit_vi), DialogInterface.OnClickListener { dialog, id -> dialog.cancel()
                         })
 
                     // create dialog box
                     val alert = dialogBuilder.create()
                     // set title for alert dialog box
-                    alert.setTitle("Xóa khu vườn")
+                    alert.setTitle(getString(R.string.delete_kv_vi))
                     // show alert dialog
                     alert.show()
                 }
@@ -176,7 +174,7 @@ class GalleryFragment : Fragment() {
         database = Database(activity)
         gardens = database.findAllGarden()
         if (gardens.isNullOrEmpty()) {
-            Toast.makeText(activity, "Dánh sách khu vườn đang trống !", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, getString(R.string.list_garden_is_empty), Toast.LENGTH_LONG).show()
         }
         return gardens
     }

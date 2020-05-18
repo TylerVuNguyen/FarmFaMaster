@@ -55,7 +55,7 @@ class SelectDeviceGardenActivity : AppCompatActivity() {
                     count++
                 }
             }
-            deviceCountSelect.text = "Đã thêm ($count) thiết bị"
+            deviceCountSelect.text = getString(R.string.firt_count_veg) + "($count)" + getString(R.string.last_count_device)
         }
         return deviceForGardens
     }

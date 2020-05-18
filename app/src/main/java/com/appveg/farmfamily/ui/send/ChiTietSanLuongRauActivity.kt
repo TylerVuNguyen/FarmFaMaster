@@ -81,7 +81,7 @@ class ChiTietSanLuongRauActivity : AppCompatActivity() {
     /**
      * the method to get batch by id
      */
-    fun getBatchById(batch_id: Int) : Batch{
+    private fun getBatchById(batch_id: Int) : Batch{
         database = Database(activity)
         var batch : Batch = Batch()
         if(batch_id != null){
@@ -92,7 +92,7 @@ class ChiTietSanLuongRauActivity : AppCompatActivity() {
     /**
      * the method to get batch detail by id
      */
-    fun getListBatchDetailById(batch_id: Int) : ArrayList<BatchQtyDetail>{
+    private fun getListBatchDetailById(batch_id: Int) : ArrayList<BatchQtyDetail>{
         var listBatchDetail: ArrayList<BatchQtyDetail> = ArrayList()
         database = Database(activity)
         if(batch_id != null){
@@ -121,7 +121,7 @@ class ChiTietSanLuongRauActivity : AppCompatActivity() {
                 listVeg.add(vegetable)
             }
             if(listVeg.isNullOrEmpty()){
-                Toast.makeText(activity,"Dánh sách chi tiết sản lượng đang trống !", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity,getString(R.string.list_batch_detail_is_empty), Toast.LENGTH_LONG).show()
             }else{
                 listview_Detail.adapter = ThemAdapter(activity, listVeg)
             }

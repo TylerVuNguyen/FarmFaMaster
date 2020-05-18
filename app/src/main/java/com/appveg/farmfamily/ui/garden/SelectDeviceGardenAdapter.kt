@@ -130,7 +130,7 @@ class SelectDeviceGardenAdapter(
         } else if (deviceStatus) {
             count++
         }
-        result = "Đã thêm ($count) thiết bị"
+        result = activity!!.resources.getString(R.string.firt_count_veg) + "($count)" + activity!!.resources.getString(R.string.last_count_device)
 
         return result
     }
@@ -139,9 +139,9 @@ class SelectDeviceGardenAdapter(
     // display message settings
     private fun notice(temp: Int, status: Boolean) {
         if (temp != null && status) {
-            Toast.makeText(activity, "Đã cài đặt thiết bị", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, activity!!.resources.getString(R.string.message_Setting_vi), Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(activity, "Đã gở cài đặt thiết bị", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, activity!!.resources.getString(R.string.message_unSetting_vi), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -162,8 +162,8 @@ class SelectDeviceGardenAdapter(
 
         // handling send mail
         var mailTo = getUser()
-        var subject = "Mã cài đặt arduino của " + device.deviceName
-        var body = "Mã thiết bị: " + codeSS
+        var subject = activity!!.resources.getString(R.string.device_name_send_mail) + " " + device.deviceName
+        var body = activity!!.resources.getString(R.string.device_code_send_mail) + ": " + codeSS
 
 
         var result = false
@@ -189,7 +189,7 @@ class SelectDeviceGardenAdapter(
             sendTestEmail(mailTo,subject,body)
             Toast.makeText(activity, codeSS, Toast.LENGTH_SHORT).show()
         } else if (checked && result) {
-            Toast.makeText(activity, "Thiết bị đã tồn tại", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, activity!!.resources.getString(R.string.device_exist), Toast.LENGTH_SHORT).show()
         } else {
             deviceDetail1.deviceDetailID = id
             deviceDetail1.gardenDetailId = -1

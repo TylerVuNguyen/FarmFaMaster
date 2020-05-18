@@ -60,13 +60,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="3dp"
-                        android:text="@string/unknown_vi"
+                        android:text="30"
                         android:textSize="25dp" />
 
                     <TextView
+                        android:id="@+id/temperatureStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Normal"
+                        android:text="@string/home_status_safe"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -101,13 +102,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="3dp"
-                        android:text="@string/unknown_vi"
+                        android:text="7"
                         android:textSize="25dp" />
 
                     <TextView
+                        android:id="@+id/phStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Normal"
+                        android:text="@string/home_status_safe"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -142,13 +144,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="3dp"
-                        android:text="@string/unknown_vi"
+                        android:text="70"
                         android:textSize="25dp" />
 
                     <TextView
+                        android:id="@+id/humidityStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Normal"
+                        android:text="@string/home_status_safe"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -192,13 +195,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="3dp"
-                        android:text="@string/unknown_vi"
+                        android:text="750"
                         android:textSize="25dp" />
 
                     <TextView
+                        android:id="@+id/TDSStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="An toàn"
+                        android:text="@string/home_status_safe"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -219,7 +223,7 @@
                         android:background="#C7C5C5"
                         android:gravity="center"
                         android:padding="2dp"
-                        android:text="Cảnh báo mưa"
+                        android:text="@string/message_rain_vi"
                         android:textColor="#FFFFFF"
                         android:textStyle="bold" />
 
@@ -239,7 +243,7 @@
                         android:id="@+id/rain_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Normal"
+                        android:text="@string/no_rain"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -256,7 +260,7 @@
 
                     <TextView
                         android:id="@+id/setting_level_tds"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#C7C5C5"
                         android:gravity="center"
@@ -275,14 +279,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="3dp"
-                        android:text="@string/unknown_vi"
+                        android:text="1"
                         android:textSize="25dp" />
 
                     <TextView
-                        android:id="@+id/rain_text1"
+                        android:id="@+id/levelTDSStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Normal"
+                        android:text="@string/home_status_safe"
                         android:textSize="14dp" />
                 </LinearLayout>
             </LinearLayout>

@@ -81,52 +81,46 @@ class DeviceCategoryFragment : Fragment() {
 
         // set swipe
         listViewDeviceCategory.setMenuCreator(creator)
-        listViewDeviceCategory.setOnMenuItemClickListener(object : SwipeMenuListView.OnMenuItemClickListener {
-            override fun onMenuItemClick(position: Int, menu: SwipeMenu, index: Int): Boolean {
-                when (index) {
-                    0 -> {
-                        getForwardData(position)
-                    }
-                    1 -> {
-                        // build alert dialog
-                        val dialogBuilder = AlertDialog.Builder(activity!!)
+        listViewDeviceCategory.setOnMenuItemClickListener { position, menu, index ->
+            when (index) {
+                0 -> {
+                    getForwardData(position)
+                }
+                1 -> {
+                    // build alert dialog
+                    val dialogBuilder = AlertDialog.Builder(activity!!)
 
-                        // set message of alert dialog
-                        dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
-                            // if the dialog is cancelable
-                            .setCancelable(false)
-                            // positive button text and action
-                            .setPositiveButton("Có", DialogInterface.OnClickListener {
-                                    dialog, id -> removeDeviceCategory(position)
-                            })
-                            // negative button text and action
-                            .setNegativeButton("Hủy", DialogInterface.OnClickListener {
-                                    dialog, id -> dialog.cancel()
-                            })
+                    // set message of alert dialog
+                    dialogBuilder.setMessage(getString(R.string.delete_title_all_vi))
+                        // if the dialog is cancelable
+                        .setCancelable(false)
+                        // positive button text and action
+                        .setPositiveButton(getString(R.string.yes_vi), DialogInterface.OnClickListener { dialog, id -> removeDeviceCategory(position)
+                        })
+                        // negative button text and action
+                        .setNegativeButton(getString(R.string.quit_vi), DialogInterface.OnClickListener { dialog, id -> dialog.cancel()
+                        })
 
-                        // create dialog box
-                        val alert = dialogBuilder.create()
-                        // set title for alert dialog box
-                        alert.setTitle("Xóa chi tiết loại thiết bị")
-                        // show alert dialog
-                        alert.show()
-                    }
-                }// open
-                // delete
-                // false : close the menu; true : not close the menu
-                return false
-            }
-        })
+                    // create dialog box
+                    val alert = dialogBuilder.create()
+                    // set title for alert dialog box
+                    alert.setTitle(getString(R.string.delete_device_category))
+                    // show alert dialog
+                    alert.show()
+                }
+            }// open
+            // delete
+            // false : close the menu; true : not close the menu
+            false
+        }
 
         //button them rau
         var btn_add_device_category = root.findViewById(R.id.btn_add_device_category) as Button
-        btn_add_device_category.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                var intent: Intent = Intent(requireContext(), AddDeviceCategory::class.java)
-                //listRoom_roomfunction.visibility = View.GONE
-                startActivity(intent)
-            }
-        })
+        btn_add_device_category.setOnClickListener {
+            var intent: Intent = Intent(requireContext(), AddDeviceCategory::class.java)
+            //listRoom_roomfunction.visibility = View.GONE
+            startActivity(intent)
+        }
 
         //button save
         var viewDeviceCategoryPrint = root.findViewById<Button>(R.id.btn_print_device_category)
@@ -159,11 +153,11 @@ class DeviceCategoryFragment : Fragment() {
     /**
      * the method to display batch
      */
-    fun getListDeviceCategory() : ArrayList<DeviceCategory>{
+    private fun getListDeviceCategory() : ArrayList<DeviceCategory>{
         database = Database(activity)
         deviceCategories = database.findAllDeviceCategory()
         if (deviceCategories.isNullOrEmpty()) {
-            Toast.makeText(activity, "Dánh sách thiết bị đang trống !", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, getString(R.string.device_category_is_empty), Toast.LENGTH_LONG).show()
         }
         return deviceCategories
     }

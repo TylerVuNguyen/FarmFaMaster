@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.appveg.farmfamily.R
+import com.appveg.farmfamily.ui.constant.SendMail
 import com.appveg.farmfamily.ui.database.Database
 import com.creativityapps.gmailbackgroundlibrary.BackgroundMail
 import kotlinx.android.synthetic.main.activity_change_password.*
@@ -68,9 +69,10 @@ class ForgotPPass : AppCompatActivity() {
 
     //send email
     private fun sendTestEmail(mailTo: String, subject: String, body: String) {
+        var user = SendMail()
         BackgroundMail.newBuilder(activity)
-            .withUsername("hotronguoidung2202@gmail.com")
-            .withPassword("hoangvutkasd123")
+            .withUsername(user.username.toString())
+            .withPassword(user.password.toString())
             .withMailto(mailTo)
             .withType(BackgroundMail.TYPE_PLAIN)
             .withSubject(subject)

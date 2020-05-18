@@ -43,13 +43,13 @@ class EditDeviceCategory : AppCompatActivity() {
             this.device_category_name_edit.setText(dcatrgory_name1)
             this.device_category_name_edit.setSelection(device_category_name_edit.text.length)
         }
-        device_category_image2_edit.setOnClickListener {
-            var dcategory_img= R.drawable.quat
-            var dcatrgory_name2 = "Quạt"
-            this.selected_device_category_image_edit.setImageResource(dcategory_img)
-            this.device_category_name_edit.setText(dcatrgory_name2)
-            this.device_category_name_edit.setSelection(device_category_name_edit.text.length)
-        }
+//        device_category_image2_edit.setOnClickListener {
+//            var dcategory_img= R.drawable.quat
+//            var dcatrgory_name2 = "Quạt"
+//            this.selected_device_category_image_edit.setImageResource(dcategory_img)
+//            this.device_category_name_edit.setText(dcatrgory_name2)
+//            this.device_category_name_edit.setSelection(device_category_name_edit.text.length)
+//        }
         device_category_image3_edit.setOnClickListener {
             var dcategory_img = "Máy bơm"
             var dcatrgory_name3= R.drawable.maybo2

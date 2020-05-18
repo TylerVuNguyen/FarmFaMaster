@@ -40,7 +40,7 @@ class SettingsActivity : AppCompatActivity() {
             val dialogBuilder = AlertDialog.Builder(activity)
 
             // set message of alert dialog
-            dialogBuilder.setMessage("Bạn có chắc chắn muốn đăng xuất không ?")
+            dialogBuilder.setMessage(getString(R.string.delete_title_all_vi))
                 // if the dialog is cancelable
                 .setCancelable(false)
                 // positive button text and action
@@ -59,7 +59,7 @@ class SettingsActivity : AppCompatActivity() {
             // create dialog box
             val alert = dialogBuilder.create()
             // set title for alert dialog box
-            alert.setTitle("Đăng xuất")
+            alert.setTitle(getString(R.string.log_out_system_vi))
             // show alert dialog
             alert.show()
         }

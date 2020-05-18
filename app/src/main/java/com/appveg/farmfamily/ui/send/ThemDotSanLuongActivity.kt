@@ -60,22 +60,22 @@ class ThemDotSanLuongActivity : AppCompatActivity() {
             val dialogBuilder = AlertDialog.Builder(activity)
 
             // set message of alert dialog
-            dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
+            dialogBuilder.setMessage(getString(R.string.delete_title_all_vi))
                 // if the dialog is cancelable
                 .setCancelable(false)
                 // positive button text and action
-                .setPositiveButton("Có", DialogInterface.OnClickListener {
+                .setPositiveButton(getString(R.string.yes_vi), DialogInterface.OnClickListener {
                         dialog, id -> removeDataListVeg(i)
                 })
                 // negative button text and action
-                .setNegativeButton("Hủy", DialogInterface.OnClickListener {
+                .setNegativeButton(getString(R.string.quit_vi), DialogInterface.OnClickListener {
                         dialog, id -> dialog.cancel()
                 })
 
             // create dialog box
             val alert = dialogBuilder.create()
             // set title for alert dialog box
-            alert.setTitle("Xóa chi tiết sản lượng")
+            alert.setTitle(getString(R.string.delete_batch_detail))
             // show alert dialog
             alert.show()
         }

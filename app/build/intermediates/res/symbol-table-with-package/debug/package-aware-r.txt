@@ -1367,6 +1367,7 @@ id FUNCTION
 id META
 id SHIFT
 id SYM
+id TDSStatus
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
 id accessibility_custom_action_1
@@ -1650,6 +1651,7 @@ id home_info_title
 id home_info_title_image
 id home_info_value
 id humidity
+id humidityStatus
 id icon
 id icon_action
 id icon_frame
@@ -1694,6 +1696,7 @@ id layout_parent
 id layout_time_picker
 id layout_time_picker_edit
 id left
+id levelTDSStatus
 id level_tds
 id light
 id line1
@@ -1785,6 +1788,7 @@ id parentPanel
 id parent_matrix
 id password
 id percent
+id phStatus
 id ph_from
 id ph_from_detail
 id ph_from_edit
@@ -1823,7 +1827,6 @@ id radio_ja
 id radio_vi
 id rain_status
 id rain_text
-id rain_text1
 id recycler_view
 id relative_canhbaomua
 id relative_detail
@@ -1957,6 +1960,7 @@ id temp_night_to
 id temp_night_to_detail
 id temp_night_to_edit
 id temperature
+id temperatureStatus
 id temperature_param
 id temperature_param_from
 id temperature_param_to
@@ -2292,6 +2296,7 @@ string Do_ph_vi
 string Hum_vi
 string OFF_vi
 string ON_vi
+string Rained
 string TDS_vi
 string Veg_Empty_Message_vi
 string Veg_title_vi
@@ -2326,7 +2331,9 @@ string account_vi
 string action_settings
 string action_settings_vi
 string add_device
+string add_only_veg
 string add_veg
+string add_veg_for_garden
 string add_veg_vi
 string add_vi
 string already_user
@@ -2342,9 +2349,11 @@ string back_home_vi
 string back_vi
 string batch_add_failed
 string batch_add_success
+string batch_sum
 string block_user_vi
 string bottom_sheet_behavior
 string broken_device_vi
+string broken_status
 string cancel_vi
 string change_pass_vi
 string character_counter_content_description
@@ -2357,6 +2366,7 @@ string choose_mode_for_device
 string choose_vi
 string chua_cai_dat_vi
 string closebutton
+string code_garden_send_mail
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
 string common_google_play_services_enable_title
@@ -2390,10 +2400,23 @@ string decription_Temperature_vi
 string decription_device_vi
 string default_web_client_id
 string delete
+string delete_batch
+string delete_batch_detail
+string delete_detail_device
+string delete_device_category
+string delete_kv_vi
 string delete_mode_title
+string delete_param
 string delete_title_all_vi
+string delete_user_name_manager
+string delete_veg_detail
+string delete_veg_for_garden
 string deleted_data_success_vi
 string detail_mode
+string device_category_is_empty
+string device_code_send_mail
+string device_exist
+string device_name_send_mail
 string device_status_vi
 string edit
 string email
@@ -2438,6 +2461,7 @@ string fab_transformation_sheet_behavior
 string fail_message
 string female
 string firebase_database_url
+string firt_count_veg
 string forgot
 string forgot_pass_title_vi
 string forgot_pass_vi
@@ -2457,6 +2481,8 @@ string hint_confirm_password
 string hint_email
 string hint_name
 string hint_password
+string home_status_no_safe
+string home_status_safe
 string image_no_select_vi
 string insert_data_fail_vi
 string insert_data_success_vi
@@ -2465,10 +2491,16 @@ string lang_en
 string lang_ja
 string lang_vi
 string language_vi_en
+string last_count_device
+string last_count_veg
 string level_TDS_for_param_vi
 string level_TDS_vi
+string list_batch_detail_is_empty
+string list_batch_is_empty
 string list_device_isEmpty_vi
+string list_garden_is_empty
 string list_mode_isEmpty_vi
+string list_user_is_empty
 string location
 string log_out_system_vi
 string login
@@ -2515,8 +2547,10 @@ string newUser
 string next_vi
 string night_vi
 string no_data_vi
+string no_rain
 string no_setting_param_vi
 string not_set
+string not_used_yet_status
 string num_dd_used_vi
 string ok_vi
 string old_passowrd_vi
@@ -2546,6 +2580,7 @@ string select_veg_vi
 string selected_item
 string send_email_vi
 string send_password_to_email
+string setting_code_arduino_send_mail
 string setting_mode_for_device_vi
 string setting_param_vi
 string show_pwd
@@ -2593,6 +2628,7 @@ string update_vi
 string userName
 string user_name_login_vi
 string user_name_vi
+string using_status
 string v7_preference_off
 string v7_preference_on
 string view_vi

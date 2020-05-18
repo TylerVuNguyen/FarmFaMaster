@@ -106,16 +106,16 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
                         val dialogBuilder = AlertDialog.Builder(activity)
 
                         // set message of alert dialog
-                        dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
+                        dialogBuilder.setMessage(getString(R.string.delete_title_all_vi))
                             // if the dialog is cancelable
                             .setCancelable(false)
                             // positive button text and action
-                            .setPositiveButton("Có", DialogInterface.OnClickListener { dialog, id ->
+                            .setPositiveButton(getString(R.string.yes_vi), DialogInterface.OnClickListener { dialog, id ->
                                 removeBatch(position)
                             })
                             // negative button text and action
                             .setNegativeButton(
-                                "Hủy",
+                                getString(R.string.quit_vi),
                                 DialogInterface.OnClickListener { dialog, id ->
                                     dialog.cancel()
                                 })
@@ -123,7 +123,7 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
                         // create dialog box
                         val alert = dialogBuilder.create()
                         // set title for alert dialog box
-                        alert.setTitle("Xóa đợt sản lượng")
+                        alert.setTitle(getString(R.string.delete_batch))
                         // show alert dialog
                         alert.show()
 
@@ -203,7 +203,7 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
         database = Database(activity)
         bactchList = database.viewBatchByGardenId(id)
         if (bactchList.isNullOrEmpty()) {
-            Toast.makeText(activity, "Dánh sách đợt đang trống !", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, getString(R.string.list_batch_is_empty), Toast.LENGTH_LONG).show()
         } else {
             list_view.adapter = ChiTietAdapter(activity, bactchList)
         }
@@ -240,7 +240,7 @@ class ChiTietDotSanLuongActivity : AppCompatActivity() {
         var id = getDataFromItent()
         bactchList = database.viewBatchByGardenId(id)
         if (bactchList.isNullOrEmpty()) {
-            Toast.makeText(activity, "Dánh sách đợt đang trống !", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, getString(R.string.list_batch_is_empty), Toast.LENGTH_LONG).show()
         } else {
             list_view.adapter = ChiTietAdapter(activity, bactchList)
         }

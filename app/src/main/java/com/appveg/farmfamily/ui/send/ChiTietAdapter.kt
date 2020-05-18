@@ -74,7 +74,7 @@ class ChiTietAdapter(private val context: ChiTietDotSanLuongActivity, private va
             .load(Uri.fromFile(File(dotRau.batchImage)))
             .into(viewHolder.img_dotRau)
 
-        viewHolder.tongSanLuong.text = "Tổng sản lượng: " + (ceil(dotRau.totalQuantity!!.toDouble()*10) /10).toString() + "/kg"
+        viewHolder.tongSanLuong.text = context!!.resources.getString(R.string.batch_sum) + " " + (ceil(dotRau.totalQuantity!!.toDouble()*10) /10).toString() + "/kg"
 
         return view as View
 

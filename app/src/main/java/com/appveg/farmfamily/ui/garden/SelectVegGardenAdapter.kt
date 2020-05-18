@@ -113,7 +113,7 @@ class SelectVegGardenAdapter (private var activity: Activity, private var items:
         } else if (vegStatus) {
             count++
         }
-        result = "Đã thêm ($count) loại rau"
+        result = activity!!.resources.getString(R.string.firt_count_veg) + "($count)" + activity!!.resources.getString(R.string.last_count_veg)
 
         return result
     }
@@ -122,9 +122,9 @@ class SelectVegGardenAdapter (private var activity: Activity, private var items:
     // display message settings
     private fun notice(temp: Int, status: Boolean) {
         if (temp != null && status) {
-            Toast.makeText(activity, "Đã thêm loại rau", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, activity!!.resources.getString(R.string.add_veg_for_garden) , Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(activity, "Đã xóa loại rau", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, activity!!.resources.getString(R.string.delete_veg_for_garden) , Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -144,7 +144,7 @@ class SelectVegGardenAdapter (private var activity: Activity, private var items:
             vegetable.vegID = id
             vegetable.gardenId = gardenId
         } else if(checked && result) {
-            Toast.makeText(activity, "Chỉ được thêm một loại rau cho khu vườn", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, activity!!.resources.getString(R.string.add_only_veg) , Toast.LENGTH_SHORT).show()
         }else{
             vegetable.vegID = id
             vegetable.gardenId = 0

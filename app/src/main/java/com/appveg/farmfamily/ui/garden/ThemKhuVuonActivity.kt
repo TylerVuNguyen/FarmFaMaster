@@ -149,8 +149,8 @@ class ThemKhuVuonActivity : AppCompatActivity() {
 
         // handling send mail
         var mailTo = getUser()
-        var subject = "Mã cài đặt arduino  của khu vườn"
-        var body = "Mã khu vườn: " + gardenCode
+        var subject = getString(R.string.setting_code_arduino_send_mail)
+        var body = getString(R.string.code_garden_send_mail) + " " + gardenCode
 
         var checkGardenName = checkGardenName(gardenName)
         /*format date*/

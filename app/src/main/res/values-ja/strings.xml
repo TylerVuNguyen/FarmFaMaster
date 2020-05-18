@@ -110,6 +110,11 @@
     <string name="error_empty_veg_category_common">野菜畑は空にしてはいけません！</string>
     <string name="add_veg">野菜を加える</string>
     <string name="enter_name_veg">野菜名を入力してください</string>
+    <string name="add_veg_for_garden">野菜を追加</string>
+    <string name="delete_veg_for_garden">取り除かれた野菜</string>
+    <string name="add_only_veg">庭に追加される野菜は1つだけです</string>
+    <string name="firt_count_veg">野菜を</string>
+    <string name="last_count_veg">個追加</string>
     <!-- end vegetable VI-->
 
     <!--quantity-->
@@ -156,6 +161,11 @@
 
     <!--garden VI-->
     <string name="name_kv_vi">庭名</string>
+    <string name="delete_kv_vi">庭を片付ける</string>
+    <string name="list_garden_is_empty">庭のリストは空です!</string>
+    <string name="setting_code_arduino_send_mail">庭のArduinoインストールコード</string>
+    <string name="code_garden_send_mail">庭のコード： </string>
+    <string name="delete_detail_device">デバイスの詳細を削除する</string>
     <!--garden VI-->
 
     <!--device VI-->
@@ -174,6 +184,12 @@
     <string name="select_veg_vi">追加（0）野菜</string>
     <string name="list_device_isEmpty_vi">デバイスリストが空です !</string>
     <string name="add_device">デバイスを追加</string>
+    <string name="last_count_device">端末</string>
+    <string name="device_exist">デバイスはすでに存在します</string>
+    <string name="device_name_send_mail">Arduinoのインストールコード</string>
+    <string name="device_code_send_mail">デバイスコード</string>
+    <string name="delete_device_category">デバイスタイプを削除</string>
+    <string name="device_category_is_empty">デバイスタイプリストが空です</string>
     <!-- end device VI-->
 
     <!--Temperature VI-->
@@ -225,24 +241,26 @@
     <string name="motor_tds_mode_vi">解決策</string>
     <string name="motor_tds_full_mode_vi">栄養液（ppm）</string>
     <string name="motor_phun_suong_mode_vi">ミスト</string>
-    <string name="level_TDS_vi">インクソリューション</string>
+    <string name="level_TDS_vi">インクソリュ</string>
     <string name="level_TDS_for_param_vi">インク溶液（cm）)</string>
     <string name="message_rain_vi">雨警報</string>
     <string name="temp_vi">温度 (°C)</string>
     <string name="Do_ph_vi"> PH</string>
     <string name="Hum_vi">湿度 (%)</string>
-    <string name="TDS_vi">栄養</string>
+    <string name="TDS_vi">栄養 (ppm)</string>
     <string name="thong_ke_vi">統計学</string>
     <string name="unknown_vi">ヌル</string>
     <string name="ON_vi">に</string>
     <string name="OFF_vi">オフ</string>
     <string name="time_slot_vi">時間枠</string>
     <string name="next_vi">に</string>
-    <string name="back_vi">後ろ向き</string>
+    <string name="back_vi">後ろ向</string>
     <string name="stop_vi">やめる</string>
-    <string name="da_cai_dat_vi">すでにインストールされています</string>
+    <string name="da_cai_dat_vi">すでにインスト</string>
     <string name="device_status_vi">装備</string>
-    <string name="chua_cai_dat_vi">インストールされていません</string>
+    <string name="chua_cai_dat_vi">インストールさ</string>
+    <string name="Rained">雨が降っている</string>
+    <string name="no_rain">雨は降っていま</string>
     <!--End Home -->
 
     <!---substance mass-->
@@ -287,12 +305,31 @@
     <string name="amount">金額</string>
     <string name="operation">操作</string>
     <string name="enter_amount">出力番号を入力してください</string>
-
+    <string name="batch_sum">総出力</string>
+    <string name="delete_batch">出力バッチを削除</string>
+    <string name="list_batch_is_empty">バッチリストが空です！</string>
+    <string name="list_batch_detail_is_empty">詳細な出力リストは空です！</string>
+    <string name="delete_batch_detail">出力の詳細をクリア</string>
+    <string name="delete_param">パラメータを削除</string>
     <!--Setting-->
-    <string name="choose_lang">Chọn ngôn ngữ</string>
+    <string name="choose_lang">言語を選択してください</string>
     <string name="lang_vi">ベトナム</string>
     <string name="lang_en">イギリス</string>
     <string name="lang_ja">にほん</string>
+
+    <!--Setting device-->
+    <string name="not_used_yet_status">未使用</string>
+    <string name="using_status">使用する</string>
+    <string name="broken_status">壊れた</string>
+
+    <!--User-->
+    <string name="list_user_is_empty">ユーザーリストが空です！</string>
+    <string name="delete_user_name_manager">ユーザーを削除</string>
+    <string name="delete_veg_detail">野菜の詳細を削除</string>
+
+    <!--Status home-->
+    <string name="home_status_safe">安全</string>
+    <string name="home_status_no_safe">危険</string>
 
 
 </resources>

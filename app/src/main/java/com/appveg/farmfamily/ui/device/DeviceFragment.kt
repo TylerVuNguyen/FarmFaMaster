@@ -133,7 +133,7 @@ class DeviceFragment : Fragment() {
         database = Database(activity)
         devices = database.findAllDevice()
         if (devices.isNullOrEmpty()) {
-            Toast.makeText(activity, "Danh sách thiết bị đang trống !", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, getString(R.string.list_device_isEmpty_vi), Toast.LENGTH_LONG).show()
         }else{
             for (i in 0 until devices.size){
                 var deviceDetails = database.findAllDeviceDetail(devices[i].deviceID!!.toInt())

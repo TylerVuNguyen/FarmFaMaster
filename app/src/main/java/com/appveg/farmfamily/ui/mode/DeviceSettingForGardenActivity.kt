@@ -150,7 +150,7 @@ class DeviceSettingForGardenActivity : AppCompatActivity() {
         var gardenId = getDataFromItent()
         deviceDetails = database.findAllDeviceByGardenId(gardenId)
         if (deviceDetails.isNullOrEmpty()) {
-            Toast.makeText(activity, "Dánh sách thiết bị đang trống !", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, getString(R.string.list_device_isEmpty_vi), Toast.LENGTH_LONG).show()
         }
         return deviceDetails
     }

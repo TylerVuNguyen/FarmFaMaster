@@ -51,7 +51,7 @@ class SendFragment : Fragment() {
         database = Database(activity)
         gardenList = database.findAllGarden()
         if (gardenList.isNullOrEmpty()) {
-            Toast.makeText(activity, "Dánh sách khu vườn đang trống !", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, getString(R.string.list_garden_is_empty), Toast.LENGTH_LONG).show()
         }
         return gardenList
     }

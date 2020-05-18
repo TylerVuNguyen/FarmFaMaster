@@ -43,7 +43,7 @@ class ChangePasswordActivity : AppCompatActivity() {
         users = database.getAllUser()
         var listUser = ArrayList<User>()
         if (users.isNullOrEmpty()) {
-            Toast.makeText(activity, "Dánh sách người dùng đang trống !", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, getString(R.string.list_user_is_empty), Toast.LENGTH_LONG).show()
         }
         for (item in 0 until users.size){
             if(1 == users[item].status || 2 == users[item].status){

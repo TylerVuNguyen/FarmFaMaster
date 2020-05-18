@@ -141,21 +141,21 @@ class ThamSoFragment : Fragment() {
                     val dialogBuilder = AlertDialog.Builder(activity)
 
                     // set message of alert dialog
-                    dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
+                    dialogBuilder.setMessage(getString(R.string.delete_title_all_vi))
                         // if the dialog is cancelable
                         .setCancelable(false)
                         // positive button text and action
-                        .setPositiveButton("Có", DialogInterface.OnClickListener { dialog, id ->
+                        .setPositiveButton(getString(R.string.yes_vi), DialogInterface.OnClickListener { dialog, id ->
                             removeParam(position)
                         })
                         // negative button text and action
-                        .setNegativeButton("Hủy", DialogInterface.OnClickListener { dialog, id -> dialog.cancel()
+                        .setNegativeButton(getString(R.string.quit_vi), DialogInterface.OnClickListener { dialog, id -> dialog.cancel()
                         })
 
                     // create dialog box
                     val alert = dialogBuilder.create()
                     // set title for alert dialog box
-                    alert.setTitle("Xóa tham số")
+                    alert.setTitle(getString(R.string.delete_param))
                     // show alert dialog
                     alert.show()
                 }
@@ -199,7 +199,7 @@ class ThamSoFragment : Fragment() {
         database = Database(activity)
         vegetables = database.findAllVegetableForParam()
         if (vegetables.isNullOrEmpty()) {
-            Toast.makeText(activity, "Dánh sách rau đang trống !", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, getString(R.string.Veg_Empty_Message_vi), Toast.LENGTH_LONG).show()
         }
         return vegetables
     }

@@ -60,22 +60,22 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
             val dialogBuilder = AlertDialog.Builder(activity)
 
             // set message of alert dialog
-            dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
+            dialogBuilder.setMessage(getString(R.string.delete_title_all_vi))
                 // if the dialog is cancelable
                 .setCancelable(false)
                 // positive button text and action
-                .setPositiveButton("Có", DialogInterface.OnClickListener {
+                .setPositiveButton(R.string.yes_vi, DialogInterface.OnClickListener {
                         dialog, id -> removeDataListVeg(i)
                 })
                 // negative button text and action
-                .setNegativeButton("Hủy", DialogInterface.OnClickListener {
+                .setNegativeButton(R.string.quit_vi, DialogInterface.OnClickListener {
                         dialog, id -> dialog.cancel()
                 })
 
             // create dialog box
             val alert = dialogBuilder.create()
             // set title for alert dialog box
-            alert.setTitle("Xóa chi tiết sản lượng")
+            alert.setTitle(getString(R.string.delete_batch_detail))
             // show alert dialog
             alert.show()
         }
@@ -389,7 +389,7 @@ class SuaDotSanLuongActivity : AppCompatActivity() {
                 listVeg.add(vegetable)
             }
             if(listVeg.isNullOrEmpty()){
-                Toast.makeText(activity,"Dánh sách rau đang trống !",Toast.LENGTH_LONG).show()
+                Toast.makeText(activity,getString(R.string.Veg_Empty_Message_vi),Toast.LENGTH_LONG).show()
             }else{
                 lv_themSL_edit.adapter = ThemAdapter(activity, listVeg)
             }

@@ -54,7 +54,7 @@ class SelectVegGardenActivity : AppCompatActivity() {
                     count++
                 }
             }
-            vegCountSelect.text = "Đã thêm ($count) loại rau"
+            vegCountSelect.text = getString(R.string.firt_count_veg) +  "($count)" + getString(R.string.last_count_veg)
         }
         return vegForGardens
     }

@@ -59,20 +59,20 @@ class DeviceDetailActivity : AppCompatActivity() {
                     val dialogBuilder = AlertDialog.Builder(activity)
 
                     // set message of alert dialog
-                    dialogBuilder.setMessage("Bạn có chắc chắn muốn xóa không ?")
+                    dialogBuilder.setMessage(getString(R.string.delete_title_all_vi))
                         // if the dialog is cancelable
                         .setCancelable(false)
                         // positive button text and action
-                        .setPositiveButton("Có", DialogInterface.OnClickListener { dialog, id -> removeDeviceAndDeviceDetail(position)
+                        .setPositiveButton(getString(R.string.yes_vi), DialogInterface.OnClickListener { dialog, id -> removeDeviceAndDeviceDetail(position)
                         })
                         // negative button text and action
-                        .setNegativeButton("Hủy", DialogInterface.OnClickListener { dialog, id -> dialog.cancel()
+                        .setNegativeButton(getString(R.string.quit_vi), DialogInterface.OnClickListener { dialog, id -> dialog.cancel()
                         })
 
                     // create dialog box
                     val alert = dialogBuilder.create()
                     // set title for alert dialog box
-                    alert.setTitle("Xóa chi tiết thiết bị")
+                    alert.setTitle(getString(R.string.delete_detail_device))
                     // show alert dialog
                     alert.show()
                 }
@@ -147,11 +147,11 @@ class DeviceDetailActivity : AppCompatActivity() {
     private fun convertStatus(status: String): String{
         var result: String = ""
         if("N" == status){
-            result = "Chưa sử dụng"
+            result = getString(R.string.not_used_yet_status)
         }else if(("Y") == status){
-            result = "Đang sử dụng"
+            result = getString(R.string.using_status)
         }else if(("B") == status){
-            result = "Đã hư hỏng"
+            result = getString(R.string.broken_status)
         }
         return result
     }
